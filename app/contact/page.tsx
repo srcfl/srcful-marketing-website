@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, MessageSquare, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, MessageSquare, MapPin, Send } from 'lucide-react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({

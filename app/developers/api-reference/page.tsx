@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Copy, Check, ChevronRight, Zap, Database, Lock, Activity, Code } from 'lucide-react'
+import { Copy, Check, Zap, Database, Lock, Activity, Code } from 'lucide-react'
 
 export default function APIReference() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
