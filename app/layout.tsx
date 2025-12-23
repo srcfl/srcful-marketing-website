@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer'
 export const metadata: Metadata = {
   title: 'Sourceful Energy - Hardware-First Energy Control Platform',
   description: 'The most secure, resilient energy coordination platform. Built on local hardware for reliable, real-time control of distributed energy resources.',
+  // Updated for deployment testing
 }
 
 export default function RootLayout({
