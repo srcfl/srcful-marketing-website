@@ -156,18 +156,38 @@ Connect the API Reference to your live API:
 const endpoints = await fetch('https://api.sourceful.energy/docs/endpoints')
 ```
 
-## 🌐 Deployment Options
+## 🌐 Deployment
 
-### Option 1: Vercel (Recommended - Easiest)
+### Current Setup: Vercel (Production Ready ✅)
+
+The project is fully configured for automated deployments with Vercel.
+
+#### How It Works
+- **Production**: Push to `main` branch → Auto-deploys to production
+- **Development**: Push to `dev` branch → Auto-deploys to preview environment
+- **Pre-deployment checks**: Automatically run via GitHub Actions (ESLint, TypeScript, Build)
+
+#### Domains
+- **Dev**: `mkt-dev.sourceful.energy` (configured and working)
+- **Prod**: `sourceful.energy` (configured in Vercel, DNS pending)
+
+#### Git Configuration Required
+Make sure your git author email matches your Vercel account:
+```bash
+git config user.email "your-email@sourceful-labs.com"
+git config user.name "Your Name"
+```
+
+#### Manual Deployment (if needed)
 ```bash
 # Install Vercel CLI
 npm i -g vercel
 
-# Deploy
+# Deploy to preview
 vercel
 
-# Follow prompts to connect your Git repo
-# Automatic deployments on every push
+# Deploy to production
+vercel --prod
 ```
 
 ### Option 2: Docker

@@ -1,4 +1,4 @@
-# Sourceful Energy Website
+# Sourceful Energy Website 2026
 
 A modern, multi-page Next.js website for Sourceful Energy - the hardware-first energy coordination platform. Built to showcase our unique value proposition against cloud-only competitors like Enode.
 
@@ -149,16 +149,51 @@ The following pages need content (use existing pages as templates):
 
 ## 🚢 Deployment
 
-### Vercel (Recommended)
+### Current Setup (Vercel - Production Ready)
+
+The project is configured for automated deployments using Vercel with separate dev and production environments.
+
+#### Branch Strategy
+- **`main` branch** → Production deployment to `sourceful.energy` (DNS to be configured when ready)
+- **`dev` branch** → Preview deployment to `mkt-dev.sourceful.energy`
+
+#### Automated Deployments
+- **Production**: Every push to `main` automatically deploys to production
+- **Preview**: Every push to `dev` automatically creates a preview deployment
+- **Pre-deployment checks**: ESLint, TypeScript checking, and build verification run automatically via GitHub Actions
+
+#### Pre-Deployment Checks
+All deployments are validated before going live:
+- ✅ ESLint code quality checks
+- ✅ TypeScript type checking
+- ✅ Build verification
+
+#### Custom Domains
+- **Development**: `mkt-dev.sourceful.energy` (configured and working)
+- **Production**: `sourceful.energy` (configured in Vercel, DNS to be updated when ready to go live)
+
+#### Git Configuration
+**Important**: Ensure your git author email matches your Vercel account email:
+```bash
+git config user.email "your-email@sourceful-labs.com"
+git config user.name "Your Name"
+```
+
+#### Manual Deployment (if needed)
 ```bash
 # Install Vercel CLI
 npm i -g vercel
 
-# Deploy
+# Deploy to preview
 vercel
+
+# Deploy to production
+vercel --prod
 ```
 
-### Docker
+### Alternative Deployment Options
+
+#### Docker
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -170,13 +205,34 @@ EXPOSE 3000
 CMD ["npm", "start"]
 ```
 
-### Traditional Hosting
+#### Traditional Hosting
 ```bash
 npm run build
 # Upload .next folder and package.json to server
 npm ci --only=production
 npm start
 ```
+
+## 🔄 Deployment Workflow
+
+### Development Workflow
+1. Make changes on `dev` branch
+2. Push to GitHub: `git push origin dev`
+3. Vercel automatically creates a preview deployment
+4. Preview available at `mkt-dev.sourceful.energy` (after DNS propagation)
+
+### Production Workflow
+1. Merge `dev` into `main`: `git checkout main && git merge dev && git push origin main`
+2. Vercel automatically deploys to production
+3. Production available at `sourceful.energy` (when DNS is configured)
+
+### Pre-Deployment Checks
+All deployments are automatically validated:
+- Code quality (ESLint)
+- Type safety (TypeScript)
+- Build verification
+
+See `.github/workflows/pre-deploy.yml` for details.
 
 ## 🎯 Next Steps
 
@@ -188,6 +244,7 @@ npm start
 6. **Performance optimization** - Image optimization, lazy loading
 7. **A/B testing** - Test different messaging variations
 8. **Add blog** - Content marketing with Next.js MDX
+9. **Configure production DNS** - Update `sourceful.energy` DNS when ready to go live
 
 ## 📝 Content Guidelines
 

@@ -50,3 +50,18 @@
 - **SSL Certificate**: Vercel automatically provisions SSL certificates once DNS is verified
 - **Testing**: After DNS propagates, `mkt-dev.sourceful.energy` will point to your dev branch deployments
 
+## Production Domain Setup (When Ready)
+
+When ready to go live with production:
+
+1. **In GoDaddy**: Update DNS for `sourceful.energy`
+   - Change the A record or CNAME to point to Vercel (Vercel will provide the exact value)
+   - Add TXT record for verification (Vercel will provide)
+
+2. **In Vercel**: 
+   - Domain `sourceful.energy` is already configured for Production environment
+   - Assign to `main` branch
+   - Wait for DNS verification
+
+3. **Note**: Production DNS currently points to Framer website - update when ready to switch
+
