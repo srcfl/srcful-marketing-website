@@ -128,7 +128,7 @@ export function DocsSidebar({ type }: DocsSidebarProps) {
   return (
     <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
       <div className="relative h-full">
-        <div className="h-full py-6 pr-6 lg:py-8 overflow-y-auto scrollbar-none">
+        <div className="h-full py-6 pr-6 lg:py-8 overflow-y-auto scrollbar-none" data-lenis-prevent>
           <div className="w-full pb-12">
             {nav.map((section) => (
               <div key={section.title} className="pb-4">
