@@ -40,30 +40,36 @@ export default function Home() {
         {/* Features */}
         <section className="max-w-5xl mx-auto py-16 px-4 md:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-lg border bg-card p-6">
-              <Component className="h-10 w-10 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">50+ Components</h3>
-              <p className="text-sm text-muted-foreground">
-                Production-ready React components built with Radix UI and Tailwind CSS.
-                Accessible by default.
-              </p>
-            </div>
-            <div className="rounded-lg border bg-card p-6">
-              <Palette className="h-10 w-10 text-accent mb-4" />
-              <h3 className="font-semibold mb-2">Design Tokens</h3>
-              <p className="text-sm text-muted-foreground">
-                Consistent colors, typography, spacing, and shadows.
-                CSS variables that work everywhere.
-              </p>
-            </div>
-            <div className="rounded-lg border bg-card p-6">
-              <Book className="h-10 w-10 text-primary mb-4" />
-              <h3 className="font-semibold mb-2">Brand Guidelines</h3>
-              <p className="text-sm text-muted-foreground">
-                Voice, tone, and visual identity guidelines for consistent
-                communication across all touchpoints.
-              </p>
-            </div>
+            <Link href="/components" className="group block">
+              <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
+                <Component className="h-10 w-10 text-primary mb-4" />
+                <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">50+ Components</h3>
+                <p className="text-sm text-muted-foreground">
+                  Production-ready React components built with Radix UI and Tailwind CSS.
+                  Accessible by default.
+                </p>
+              </div>
+            </Link>
+            <Link href="/docs/tokens/colors" className="group block">
+              <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
+                <Palette className="h-10 w-10 text-primary mb-4" />
+                <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Design Tokens</h3>
+                <p className="text-sm text-muted-foreground">
+                  Consistent colors, typography, spacing, and shadows.
+                  CSS variables that work everywhere.
+                </p>
+              </div>
+            </Link>
+            <Link href="/brand" className="group block">
+              <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
+                <Book className="h-10 w-10 text-primary mb-4" />
+                <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Brand Guidelines</h3>
+                <p className="text-sm text-muted-foreground">
+                  Voice, tone, and visual identity guidelines for consistent
+                  communication across all touchpoints.
+                </p>
+              </div>
+            </Link>
           </div>
         </section>
 
