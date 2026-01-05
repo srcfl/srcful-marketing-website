@@ -87,6 +87,31 @@ import "@sourceful-energy/ui/styles.css"`}</code>
           </li>
         </ul>
       </div>
+
+      <div className="space-y-4">
+        <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
+          Credits
+        </h2>
+        <p className="leading-7">
+          This design system is built on top of{" "}
+          <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            shadcn/ui
+          </a>
+          , a collection of beautifully designed components by{" "}
+          <a href="https://twitter.com/shadcn" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            @shadcn
+          </a>
+          . Components are built with{" "}
+          <a href="https://www.radix-ui.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            Radix UI
+          </a>{" "}
+          primitives and styled with{" "}
+          <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            Tailwind CSS
+          </a>
+          .
+        </p>
+      </div>
     </div>
   );
 }
