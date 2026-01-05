@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useMemo, useCallback, useRef, useEffect } from "react";
-import { Map, Marker, NavigationControl } from "react-map-gl/mapbox";
+import { Map, Marker } from "react-map-gl/mapbox";
 import { cn } from "@/lib/utils";
+import { Plus, Minus, Compass } from "lucide-react";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 export interface Site {
@@ -173,6 +174,27 @@ export function SitesMap({
     onSiteSelect?.(siteId);
   }, [onSiteSelect]);
 
+  const handleZoomIn = useCallback(() => {
+    if (mapRef.current) {
+      const map = mapRef.current.getMap();
+      map?.zoomIn({ duration: 300 });
+    }
+  }, []);
+
+  const handleZoomOut = useCallback(() => {
+    if (mapRef.current) {
+      const map = mapRef.current.getMap();
+      map?.zoomOut({ duration: 300 });
+    }
+  }, []);
+
+  const handleResetNorth = useCallback(() => {
+    if (mapRef.current) {
+      const map = mapRef.current.getMap();
+      map?.resetNorth({ duration: 300 });
+    }
+  }, []);
+
   return (
     <div className={cn("relative w-full h-full overflow-hidden bg-sourceful-gray-100 dark:bg-[#0a0a0a] rounded-lg", className)}>
       {/* Loading state */}
@@ -200,8 +222,6 @@ export function SitesMap({
           onLoad={() => setIsMapLoaded(true)}
           fadeDuration={0}
         >
-          <NavigationControl position="top-right" />
-
           {sites.map((site) => {
             const color = getStatusColor(site.status);
 
@@ -263,6 +283,33 @@ export function SitesMap({
             );
           })}
         </Map>
+
+        {/* Custom Controls */}
+        <div className="absolute bottom-[10px] left-[10px] z-10">
+          <div className="flex flex-col bg-white dark:bg-[#141414] border border-sourceful-gray-200 dark:border-[#262626] rounded-lg shadow-sm overflow-hidden">
+            <button
+              onClick={handleZoomIn}
+              className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors"
+              title="Zoom in"
+            >
+              <Plus className="h-4 w-4" />
+            </button>
+            <button
+              onClick={handleZoomOut}
+              className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]"
+              title="Zoom out"
+            >
+              <Minus className="h-4 w-4" />
+            </button>
+            <button
+              onClick={handleResetNorth}
+              className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]"
+              title="Reset north"
+            >
+              <Compass className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
 
         {/* Legend */}
         <div className="absolute bottom-[10px] right-[16px] bg-white/95 dark:bg-[#1a1a1a]/95 backdrop-blur-sm rounded-lg shadow-lg border border-sourceful-gray-200 dark:border-[#2a2a2a] p-3">

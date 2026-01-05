@@ -5,10 +5,12 @@ import {
   ReactFlow,
   Background,
   Controls,
+  Panel,
   MarkerType,
   ConnectionMode,
   useNodesState,
   useEdgesState,
+  useReactFlow,
   Handle,
   Position,
   type Node,
@@ -16,7 +18,7 @@ import {
   BackgroundVariant,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { Zap, Battery, Home, ArrowRight, Car } from "lucide-react";
+import { Zap, Battery, Home, ArrowRight, Car, Plus, Minus, Maximize, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface EnergyFlowProps {
@@ -28,6 +30,7 @@ export interface EnergyFlowProps {
   evCharging?: number; // W
   batterySoC?: number; // percentage
   className?: string;
+  showControls?: boolean;
 }
 
 type NodeData = {
@@ -232,6 +235,7 @@ export function EnergyFlow({
   evCharging = 0,
   batterySoC = 75,
   className,
+  showControls = true,
 }: EnergyFlowProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -463,7 +467,7 @@ export function EnergyFlow({
   }, [initialEdges, setEdges]);
 
   return (
-    <div className={cn("w-full h-[500px] rounded-lg border border-sourceful-gray-200 dark:border-[#1a1a1a]", className)}>
+    <div className={cn("w-full h-[500px] rounded-lg border border-sourceful-gray-200 dark:border-[#1a1a1a] relative", className)}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -472,7 +476,7 @@ export function EnergyFlow({
         nodeTypes={nodeTypes}
         connectionMode={ConnectionMode.Loose}
         fitView
-        fitViewOptions={{ padding: 0.2 }}
+        fitViewOptions={{ padding: 0.3, maxZoom: 1 }}
         minZoom={0.5}
         maxZoom={2}
         nodesDraggable={true}
@@ -485,8 +489,26 @@ export function EnergyFlow({
           color={isDarkMode ? "#404040" : "#9ca3af"}
           variant={BackgroundVariant.Dots}
         />
-        <Controls />
       </ReactFlow>
+      {/* Custom controls positioned outside ReactFlow */}
+      {showControls && (
+        <div className="absolute bottom-3 left-3 z-10">
+          <div className="flex flex-col bg-white dark:bg-[#141414] border border-sourceful-gray-200 dark:border-[#262626] rounded-lg shadow-sm overflow-hidden">
+            <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors">
+              <Plus className="h-4 w-4" />
+            </button>
+            <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
+              <Minus className="h-4 w-4" />
+            </button>
+            <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
+              <Maximize className="h-4 w-4" />
+            </button>
+            <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
+              <Lock className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

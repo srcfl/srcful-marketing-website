@@ -6,7 +6,8 @@ import { EnergyFlow } from "@/components/ui/energy-flow";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { MapPin, Zap, Battery, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { MapPin, Zap, ArrowUpRight, ArrowDownRight, ArrowLeft, Plus, Minus, Maximize, Lock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const demoSites: Site[] = [
   {
@@ -109,15 +110,25 @@ export function SitesOverviewExample() {
 
         {/* Site List or Energy Flow */}
         {selectedSite && selectedDetails ? (
-          <Card className="flex-1">
+          <Card className="flex-1 relative">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
-                <CardTitle className="text-lg">{selectedSite.name}</CardTitle>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    onClick={() => setSelectedSiteId(null)}
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                  </Button>
+                  <CardTitle className="text-lg">{selectedSite.name}</CardTitle>
+                </div>
                 <Badge variant={selectedSite.status === "live" ? "default" : "secondary"}>
                   {selectedSite.status}
                 </Badge>
               </div>
-              <p className="text-sm text-muted-foreground">{selectedSite.address}</p>
+              <p className="text-sm text-muted-foreground ml-10">{selectedSite.address}</p>
             </CardHeader>
             <CardContent className="p-2">
               <EnergyFlow
@@ -127,8 +138,26 @@ export function SitesOverviewExample() {
                 homeConsumption={selectedDetails.homeConsumption}
                 batterySoC={selectedDetails.batterySoC}
                 className="h-[350px] border-0"
+                showControls={false}
               />
             </CardContent>
+            {/* Controls positioned at card level */}
+            <div className="absolute bottom-4 left-4 z-10">
+              <div className="flex flex-col bg-white dark:bg-[#141414] border border-sourceful-gray-200 dark:border-[#262626] rounded-lg shadow-sm overflow-hidden">
+                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors">
+                  <Plus className="h-4 w-4" />
+                </button>
+                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
+                  <Minus className="h-4 w-4" />
+                </button>
+                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
+                  <Maximize className="h-4 w-4" />
+                </button>
+                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
+                  <Lock className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
           </Card>
         ) : (
           <Card className="flex-1">

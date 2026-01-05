@@ -666,6 +666,13 @@
     ) border-box;
 }
 
+/* React Flow controls positioning */
+.react-flow__controls {
+  bottom: 10px !important;
+  top: auto !important;
+  left: 10px !important;
+}
+
 /* React Flow dark mode styles */
 .dark .react-flow__controls {
   background: #141414;
