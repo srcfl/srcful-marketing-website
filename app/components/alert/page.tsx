@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ComponentPreview } from "@/components/component-preview";
@@ -200,6 +201,8 @@ export default function AlertPage() {
           <li>Text content provides context for all users</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/alert" />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { ComponentNav } from "@/components/component-nav";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ComponentPreview } from "@/components/component-preview";
@@ -162,6 +163,8 @@ export default function TextareaPage() {
           <li>Focus ring visible for keyboard users</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/textarea" />
     </div>
   );
 }

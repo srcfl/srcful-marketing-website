@@ -1,3 +1,4 @@
+import { ComponentNav } from "@/components/component-nav";
 import {
   Card,
   CardContent,
@@ -233,6 +234,8 @@ export default function CardPage() {
           <li>Interactive elements within cards should be focusable</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/card" />
     </div>
   );
 }

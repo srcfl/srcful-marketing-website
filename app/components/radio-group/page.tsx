@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -260,6 +261,8 @@ export default function RadioGroupPage() {
           <li>Always pair with Label components</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/radio-group" />
     </div>
   );
 }

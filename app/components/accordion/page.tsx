@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import {
   Accordion,
@@ -256,6 +257,8 @@ export default function AccordionPage() {
           <li>Proper focus management</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/accordion" />
     </div>
   );
 }

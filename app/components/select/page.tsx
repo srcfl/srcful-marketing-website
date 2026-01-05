@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import {
   Select,
@@ -201,6 +202,8 @@ export default function SelectPage() {
           <li>Type-ahead search functionality</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/select" />
     </div>
   );
 }

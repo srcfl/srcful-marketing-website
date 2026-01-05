@@ -1,3 +1,4 @@
+import { ComponentNav } from "@/components/component-nav";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ComponentPreview } from "@/components/component-preview";
 import { PropsTable } from "@/components/props-table";
@@ -232,6 +233,8 @@ export default function SkeletonPage() {
           <li>Animation respects prefers-reduced-motion</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/skeleton" />
     </div>
   );
 }

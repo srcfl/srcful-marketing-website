@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import {
   Dialog,
@@ -288,6 +289,8 @@ export default function DialogPage() {
           <li>Announces content to screen readers</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/dialog" />
     </div>
   );
 }

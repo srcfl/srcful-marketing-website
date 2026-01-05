@@ -1,3 +1,4 @@
+import { ComponentNav } from "@/components/component-nav";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { ComponentPreview } from "@/components/component-preview";
@@ -235,6 +236,8 @@ export default function ScrollAreaPage() {
           <li>Works with screen readers</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/scroll-area" />
     </div>
   );
 }

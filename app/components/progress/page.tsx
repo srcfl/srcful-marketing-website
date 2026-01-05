@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import { useState, useEffect } from "react";
 import { Progress } from "@/components/ui/progress";
@@ -220,6 +221,8 @@ useEffect(() => {
           <li>Pair with visible text labels for context</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/progress" />
     </div>
   );
 }

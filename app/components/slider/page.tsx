@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
@@ -196,6 +197,8 @@ export default function SliderPage() {
           <li>Visible focus indicator on thumb</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/slider" />
     </div>
   );
 }

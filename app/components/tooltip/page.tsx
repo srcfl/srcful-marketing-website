@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import {
   Tooltip,
@@ -321,6 +322,8 @@ export default function TooltipPage() {
           <li>Screen readers announce tooltip content</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/tooltip" />
     </div>
   );
 }

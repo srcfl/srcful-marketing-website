@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import {
   Sheet,
@@ -315,6 +316,8 @@ export default function SheetPage() {
           <li>Announces content to screen readers</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/sheet" />
     </div>
   );
 }

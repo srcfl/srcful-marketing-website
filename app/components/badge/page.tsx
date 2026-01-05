@@ -1,3 +1,4 @@
+import { ComponentNav } from "@/components/component-nav";
 import { Badge } from "@/components/ui/badge";
 import { ComponentPreview } from "@/components/component-preview";
 import { PropsTable } from "@/components/props-table";
@@ -139,6 +140,8 @@ export default function BadgePage() {
           <li>Consider adding aria-label for icon-only badges</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/badge" />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { ComponentNav } from "@/components/component-nav";
 import {
   Table,
   TableBody,
@@ -314,6 +315,8 @@ export default function TablePage() {
           <li>Scrollable container for responsive design</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/table" />
     </div>
   );
 }

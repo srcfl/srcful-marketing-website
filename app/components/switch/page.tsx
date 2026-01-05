@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -161,6 +162,8 @@ export default function SwitchPage() {
           <li>Visible focus indicator</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/switch" />
     </div>
   );
 }

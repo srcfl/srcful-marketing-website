@@ -1,4 +1,5 @@
 "use client";
+import { ComponentNav } from "@/components/component-nav";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ComponentPreview } from "@/components/component-preview";
@@ -262,6 +263,8 @@ export default function TabsPage() {
           <li>Tab panels are properly associated with triggers</li>
         </ul>
       </div>
+
+      <ComponentNav currentHref="/components/tabs" />
     </div>
   );
 }
