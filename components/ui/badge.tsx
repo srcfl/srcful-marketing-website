@@ -19,7 +19,7 @@ const badgeVariants = cva(
         energy:
           "border-transparent bg-sourceful-yellow-400 text-sourceful-gray-900 shadow hover:bg-sourceful-yellow-500",
         success:
-          "border-transparent bg-sourceful-green-500 text-white shadow hover:bg-sourceful-green-600",
+          "border-transparent bg-sourceful-green-500 text-sourceful-gray-900 shadow hover:bg-sourceful-green-600",
         warning:
           "border-transparent bg-orange-500 text-white shadow hover:bg-orange-600",
         info:

@@ -23,7 +23,7 @@ const buttonVariants = cva(
         energy:
           "bg-sourceful-yellow-400 text-sourceful-gray-900 shadow hover:bg-sourceful-yellow-500 active:scale-[0.98]",
         success:
-          "bg-sourceful-green-500 text-white shadow hover:bg-sourceful-green-600 active:scale-[0.98]",
+          "bg-sourceful-green-500 text-sourceful-gray-900 shadow hover:bg-sourceful-green-600 active:scale-[0.98]",
         warning:
           "bg-orange-500 text-white shadow hover:bg-orange-600 active:scale-[0.98]",
       },
