@@ -129,7 +129,7 @@ export default function Home() {
         {/* Quick Start */}
         <section className="max-w-7xl mx-auto py-16 border-t px-4 md:px-8">
           <h2 className="text-2xl font-bold mb-6">Quick Start</h2>
-          <div className="rounded-lg bg-sourceful-gray-900 dark:bg-sourceful-gray-800 p-4 font-mono text-sm text-white overflow-x-auto">
+          <div className="rounded-lg bg-sourceful-gray-100 dark:bg-sourceful-gray-800 p-4 font-mono text-sm text-sourceful-gray-900 dark:text-white overflow-x-auto border border-sourceful-gray-200 dark:border-transparent">
             <pre>
               <code>{`npm install @sourceful-energy/ui
 
