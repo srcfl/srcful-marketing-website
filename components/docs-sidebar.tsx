@@ -1,0 +1,108 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+
+interface NavItem {
+  title: string;
+  href: string;
+}
+
+interface NavSection {
+  title: string;
+  items: NavItem[];
+}
+
+const docsNav: NavSection[] = [
+  {
+    title: "Getting Started",
+    items: [
+      { title: "Introduction", href: "/docs" },
+      { title: "Installation", href: "/docs/installation" },
+      { title: "Theming", href: "/docs/theming" },
+    ],
+  },
+  {
+    title: "Design Tokens",
+    items: [
+      { title: "Colors", href: "/docs/tokens/colors" },
+      { title: "Typography", href: "/docs/tokens/typography" },
+      { title: "Spacing", href: "/docs/tokens/spacing" },
+    ],
+  },
+];
+
+const componentsNav: NavSection[] = [
+  {
+    title: "Forms",
+    items: [
+      { title: "Button", href: "/components/button" },
+      { title: "Input", href: "/components/input" },
+      { title: "Label", href: "/components/label" },
+    ],
+  },
+  {
+    title: "Data Display",
+    items: [
+      { title: "Badge", href: "/components/badge" },
+      { title: "Card", href: "/components/card" },
+      { title: "Table", href: "/components/table" },
+    ],
+  },
+  {
+    title: "Feedback",
+    items: [
+      { title: "Dialog", href: "/components/dialog" },
+      { title: "Tooltip", href: "/components/tooltip" },
+    ],
+  },
+  {
+    title: "Navigation",
+    items: [
+      { title: "Dropdown Menu", href: "/components/dropdown-menu" },
+      { title: "Tabs", href: "/components/tabs" },
+    ],
+  },
+];
+
+interface DocsSidebarProps {
+  type: "docs" | "components";
+}
+
+export function DocsSidebar({ type }: DocsSidebarProps) {
+  const pathname = usePathname();
+  const nav = type === "docs" ? docsNav : componentsNav;
+
+  return (
+    <aside className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
+      <div className="h-full py-6 pr-6 lg:py-8 overflow-y-auto">
+        <div className="w-full">
+          {nav.map((section) => (
+            <div key={section.title} className="pb-4">
+              <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
+                {section.title}
+              </h4>
+              <div className="grid grid-flow-row auto-rows-max text-sm">
+                {section.items.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      "group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:underline",
+                      pathname === item.href
+                        ? "font-medium text-foreground"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </aside>
+  );
+}
