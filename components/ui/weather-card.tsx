@@ -229,9 +229,11 @@ export function generateDemoForecast(): HourlyForecast[] {
     "cloudy",
     "cloudy",
   ];
+  // Use deterministic values to avoid hydration mismatch
+  const temps = [-2, -2, -1, -1, 0, 0, 1, 1, 1, 2, 2, 2];
   return Array.from({ length: 12 }, (_, i) => ({
     time: `${(18 + i) % 24}:00`,
-    temp: Math.round(-3 + i * 0.2 + Math.random() * 2),
+    temp: temps[i],
     condition: conditions[i],
   }));
 }

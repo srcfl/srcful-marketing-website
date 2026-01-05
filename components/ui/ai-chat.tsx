@@ -41,6 +41,7 @@ export function AIChat({
   const chatEndRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const prevMessagesLengthRef = useRef(messages.length);
 
   // Track scroll position
   useEffect(() => {
@@ -56,11 +57,13 @@ export function AIChat({
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Auto-scroll to bottom
+  // Auto-scroll to bottom only when new messages are added (not on mount)
   useEffect(() => {
-    if (!isScrolledUp) {
+    // Only scroll if messages were actually added (not on initial render)
+    if (messages.length > prevMessagesLengthRef.current && !isScrolledUp) {
       chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
+    prevMessagesLengthRef.current = messages.length;
   }, [messages, isScrolledUp]);
 
   // Auto-resize textarea
