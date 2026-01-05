@@ -108,8 +108,9 @@ export default function Home() {
         </section>
 
         {/* Features */}
-        <section className="max-w-7xl mx-auto py-16 px-4 md:px-8 border-t">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="border-t py-16">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/components" className="group block">
               <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
                 <Component className="h-10 w-10 text-primary mb-4" />
@@ -140,11 +141,13 @@ export default function Home() {
                 </p>
               </div>
             </Link>
+            </div>
           </div>
         </section>
 
         {/* Quick Start */}
-        <section className="max-w-7xl mx-auto py-16 border-t px-4 md:px-8">
+        <section className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="border-t py-16">
           <h2 className="text-2xl font-bold mb-6">Quick Start</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
@@ -173,6 +176,7 @@ import "@sourceful-energy/ui/styles.css"`}</code>
                 </Link>
               </p>
             </div>
+          </div>
           </div>
         </section>
       </main>
