@@ -613,8 +613,8 @@ export default function BrandPage() {
             {/* Usage Classes */}
             <div>
               <h3 className="text-lg font-medium mb-3">CSS Classes</h3>
-              <div className="rounded-lg border bg-sourceful-gray-950 p-4 overflow-x-auto">
-                <pre className="text-sm text-sourceful-green-400 font-mono">
+              <div className="rounded-lg border bg-sourceful-gray-100 dark:bg-sourceful-gray-800 border-sourceful-gray-200 dark:border-transparent p-4 overflow-x-auto">
+                <pre className="text-sm text-sourceful-green-700 dark:text-sourceful-green-400 font-mono">
 {`/* Headings */
 .text-display  /* 60px, bold, tight tracking */
 .text-h1       /* 40px, bold */
@@ -838,8 +838,8 @@ export default function BrandPage() {
             {/* Usage */}
             <div>
               <h3 className="text-lg font-medium mb-3">Usage</h3>
-              <div className="rounded-lg border bg-sourceful-gray-950 p-4 overflow-x-auto">
-                <pre className="text-sm text-sourceful-green-400 font-mono">
+              <div className="rounded-lg border bg-sourceful-gray-100 dark:bg-sourceful-gray-800 border-sourceful-gray-200 dark:border-transparent p-4 overflow-x-auto">
+                <pre className="text-sm text-sourceful-green-700 dark:text-sourceful-green-400 font-mono">
 {`import { Zap, Sun, Moon, Battery } from "lucide-react"
 
 // Default size (24px)
