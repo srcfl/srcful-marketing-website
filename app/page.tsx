@@ -24,7 +24,7 @@ export default function Home() {
 
           {/* Content */}
           <div className="relative max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 pb-24 pt-24 md:pt-32 md:pb-32 text-center px-4 md:px-8">
-            <div className="inline-flex items-center rounded-full border bg-background/80 backdrop-blur-sm px-3 py-1 text-sm">
+            <div className="inline-flex items-center rounded-full bg-background/80 backdrop-blur-sm px-3 py-1 text-sm border-travel-animation">
               <span className="mr-2">🌱</span>
               <span>Powering the distributed energy revolution</span>
             </div>
