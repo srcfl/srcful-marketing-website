@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Book, Palette, Component, Map, BarChart3, Table2, Activity, Cpu } from "lucide-react";
+import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
+import StackIcon from "@/components/ui/stack-icon";
+import PaintIcon from "@/components/ui/paint-icon";
+import BookIcon from "@/components/ui/book-icon";
 import { SitesOverviewExample } from "@/components/examples/sites-overview";
 import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
@@ -113,7 +116,7 @@ export default function Home() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/components" className="group block">
               <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
-                <Component className="h-10 w-10 text-primary mb-4" />
+                <StackIcon size={40} className="text-primary mb-4" />
                 <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">50+ Components</h3>
                 <p className="text-sm text-muted-foreground">
                   Production-ready React components built with Radix UI and Tailwind CSS.
@@ -123,7 +126,7 @@ export default function Home() {
             </Link>
             <Link href="/docs/tokens/colors" className="group block">
               <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
-                <Palette className="h-10 w-10 text-primary mb-4" />
+                <PaintIcon size={40} className="text-primary mb-4" />
                 <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Design Tokens</h3>
                 <p className="text-sm text-muted-foreground">
                   Consistent colors, typography, spacing, and shadows.
@@ -133,7 +136,7 @@ export default function Home() {
             </Link>
             <Link href="/brand" className="group block">
               <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
-                <Book className="h-10 w-10 text-primary mb-4" />
+                <BookIcon size={40} className="text-primary mb-4" />
                 <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">Brand Guidelines</h3>
                 <p className="text-sm text-muted-foreground">
                   Voice, tone, and visual identity guidelines for consistent
