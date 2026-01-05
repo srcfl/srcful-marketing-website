@@ -46,16 +46,22 @@ const componentsNav: NavSection[] = [
       { title: "Radio Group", href: "/components/radio-group" },
       { title: "Switch", href: "/components/switch" },
       { title: "Slider", href: "/components/slider" },
+      { title: "Toggle", href: "/components/toggle" },
+      { title: "Toggle Group", href: "/components/toggle-group" },
+      { title: "Calendar", href: "/components/calendar" },
+      { title: "Date Picker", href: "/components/date-picker" },
     ],
   },
   {
     title: "Data Display",
     items: [
+      { title: "Avatar", href: "/components/avatar" },
       { title: "Badge", href: "/components/badge" },
       { title: "Card", href: "/components/card" },
       { title: "Table", href: "/components/table" },
       { title: "Skeleton", href: "/components/skeleton" },
       { title: "Separator", href: "/components/separator" },
+      { title: "Hover Card", href: "/components/hover-card" },
     ],
   },
   {
@@ -76,6 +82,7 @@ const componentsNav: NavSection[] = [
     items: [
       { title: "Alert", href: "/components/alert" },
       { title: "Dialog", href: "/components/dialog" },
+      { title: "Popover", href: "/components/popover" },
       { title: "Toast", href: "/components/toast" },
       { title: "Tooltip", href: "/components/tooltip" },
       { title: "Progress", href: "/components/progress" },
@@ -84,9 +91,11 @@ const componentsNav: NavSection[] = [
   {
     title: "Navigation",
     items: [
+      { title: "Command", href: "/components/command" },
       { title: "Dropdown Menu", href: "/components/dropdown-menu" },
       { title: "Tabs", href: "/components/tabs" },
       { title: "Accordion", href: "/components/accordion" },
+      { title: "Collapsible", href: "/components/collapsible" },
       { title: "Sheet", href: "/components/sheet" },
       { title: "Scroll Area", href: "/components/scroll-area" },
     ],
