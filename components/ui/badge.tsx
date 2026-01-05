@@ -15,7 +15,7 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground shadow hover:bg-destructive/80",
         outline: "text-foreground",
-        // Sourceful custom variants
+        // Sourceful solid variants
         energy:
           "border-transparent bg-sourceful-yellow-400 text-sourceful-gray-900 shadow hover:bg-sourceful-yellow-500",
         success:
@@ -24,6 +24,26 @@ const badgeVariants = cva(
           "border-transparent bg-orange-500 text-white shadow hover:bg-orange-600",
         info:
           "border-transparent bg-blue-500 text-white shadow hover:bg-blue-600",
+        // Sourceful soft variants - colored text with tinted background
+        "success-soft":
+          "border-sourceful-green-500/20 bg-sourceful-green-500/10 text-sourceful-green-600 dark:text-sourceful-green-400",
+        "warning-soft":
+          "border-orange-500/20 bg-orange-500/10 text-orange-600 dark:text-orange-400",
+        "destructive-soft":
+          "border-destructive/20 bg-destructive/10 text-destructive dark:text-red-400",
+        "info-soft":
+          "border-blue-500/20 bg-blue-500/10 text-blue-600 dark:text-blue-400",
+        "energy-soft":
+          "border-sourceful-yellow-500/20 bg-sourceful-yellow-400/10 text-sourceful-yellow-600 dark:text-sourceful-yellow-400",
+        // Outline variants - just border and text, no background
+        "success-outline":
+          "border-sourceful-green-500/50 bg-transparent text-sourceful-green-600 dark:text-sourceful-green-400",
+        "warning-outline":
+          "border-orange-500/50 bg-transparent text-orange-600 dark:text-orange-400",
+        "destructive-outline":
+          "border-destructive/50 bg-transparent text-destructive dark:text-red-400",
+        "info-outline":
+          "border-blue-500/50 bg-transparent text-blue-600 dark:text-blue-400",
       },
     },
     defaultVariants: {

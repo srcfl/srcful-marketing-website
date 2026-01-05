@@ -6,7 +6,7 @@ import { PropsTable } from "@/components/props-table";
 const badgeProps = [
   {
     name: "variant",
-    type: '"default" | "secondary" | "destructive" | "outline" | "energy" | "success" | "warning" | "info"',
+    type: '"default" | "secondary" | "destructive" | "outline" | "energy" | "success" | "warning" | "info" | "success-soft" | "warning-soft" | "destructive-soft" | "info-soft" | "energy-soft" | "success-outline" | "warning-outline" | "destructive-outline" | "info-outline"',
     default: '"default"',
     description: "The visual style of the badge.",
   },
@@ -78,18 +78,54 @@ export default function BadgePage() {
           </div>
         </ComponentPreview>
 
-        <h3 className="text-lg font-medium">Status Indicators</h3>
+        <h3 className="text-lg font-medium">Soft Variants</h3>
         <ComponentPreview
           code={`<div className="flex flex-wrap gap-2">
-  <Badge variant="success">Online</Badge>
-  <Badge variant="warning">Pending</Badge>
-  <Badge variant="destructive">Offline</Badge>
+  <Badge variant="success-soft">Success</Badge>
+  <Badge variant="warning-soft">Warning</Badge>
+  <Badge variant="destructive-soft">Error</Badge>
+  <Badge variant="info-soft">Info</Badge>
+  <Badge variant="energy-soft">Energy</Badge>
 </div>`}
         >
           <div className="flex flex-wrap gap-2">
-            <Badge variant="success">Online</Badge>
-            <Badge variant="warning">Pending</Badge>
-            <Badge variant="destructive">Offline</Badge>
+            <Badge variant="success-soft">Success</Badge>
+            <Badge variant="warning-soft">Warning</Badge>
+            <Badge variant="destructive-soft">Error</Badge>
+            <Badge variant="info-soft">Info</Badge>
+            <Badge variant="energy-soft">Energy</Badge>
+          </div>
+        </ComponentPreview>
+
+        <h3 className="text-lg font-medium">Outline Variants</h3>
+        <ComponentPreview
+          code={`<div className="flex flex-wrap gap-2">
+  <Badge variant="success-outline">Success</Badge>
+  <Badge variant="warning-outline">Warning</Badge>
+  <Badge variant="destructive-outline">Error</Badge>
+  <Badge variant="info-outline">Info</Badge>
+</div>`}
+        >
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="success-outline">Success</Badge>
+            <Badge variant="warning-outline">Warning</Badge>
+            <Badge variant="destructive-outline">Error</Badge>
+            <Badge variant="info-outline">Info</Badge>
+          </div>
+        </ComponentPreview>
+
+        <h3 className="text-lg font-medium">Status Indicators</h3>
+        <ComponentPreview
+          code={`<div className="flex flex-wrap gap-2">
+  <Badge variant="success-soft">Online</Badge>
+  <Badge variant="warning-soft">Pending</Badge>
+  <Badge variant="destructive-soft">Offline</Badge>
+</div>`}
+        >
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="success-soft">Online</Badge>
+            <Badge variant="warning-soft">Pending</Badge>
+            <Badge variant="destructive-soft">Offline</Badge>
           </div>
         </ComponentPreview>
 
@@ -112,12 +148,12 @@ export default function BadgePage() {
         <ComponentPreview
           code={`<div className="flex items-center gap-2">
   <span className="font-medium">Device Status:</span>
-  <Badge variant="success">Connected</Badge>
+  <Badge variant="success-soft">Connected</Badge>
 </div>`}
         >
           <div className="flex items-center gap-2">
             <span className="font-medium">Device Status:</span>
-            <Badge variant="success">Connected</Badge>
+            <Badge variant="success-soft">Connected</Badge>
           </div>
         </ComponentPreview>
       </div>
