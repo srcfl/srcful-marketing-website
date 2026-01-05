@@ -60,7 +60,7 @@ export default function DialogPage() {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@srcful/ui"`}</code>
+} from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

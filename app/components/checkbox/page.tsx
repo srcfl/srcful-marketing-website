@@ -54,7 +54,7 @@ export default function CheckboxPage() {
         </h2>
         <div className="rounded-lg bg-sourceful-gray-950 p-4 font-mono text-sm text-white overflow-x-auto">
           <pre>
-            <code>{`import { Checkbox } from "@srcful/ui"`}</code>
+            <code>{`import { Checkbox } from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

@@ -72,11 +72,11 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-6">Quick Start</h2>
           <div className="rounded-lg bg-sourceful-gray-950 p-4 font-mono text-sm text-white overflow-x-auto">
             <pre>
-              <code>{`npm install @srcful/ui
+              <code>{`npm install @sourceful-energy/ui
 
 # Import in your app
-import { Button, Card, Input } from "@srcful/ui"
-import "@srcful/ui/styles.css"`}</code>
+import { Button, Card, Input } from "@sourceful-energy/ui"
+import "@sourceful-energy/ui/styles.css"`}</code>
             </pre>
           </div>
         </section>

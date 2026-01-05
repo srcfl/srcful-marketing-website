@@ -15,12 +15,12 @@ Design system, components, and brand guidelines for Sourceful Energy.
 ## Quick Start
 
 ```bash
-npm install @srcful/ui
+npm install @sourceful-energy/ui
 ```
 
 ```tsx
-import { Button, Card, Input } from "@srcful/ui"
-import "@srcful/ui/styles.css"
+import { Button, Card, Input } from "@sourceful-energy/ui"
+import "@sourceful-energy/ui/styles.css"
 
 function App() {
   return (

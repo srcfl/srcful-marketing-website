@@ -66,7 +66,7 @@ export default function SelectPage() {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@srcful/ui"`}</code>
+} from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

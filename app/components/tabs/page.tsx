@@ -41,7 +41,7 @@ export default function TabsPage() {
         </h2>
         <div className="rounded-lg bg-sourceful-gray-950 p-4 font-mono text-sm text-white overflow-x-auto">
           <pre>
-            <code>{`import { Tabs, TabsList, TabsTrigger, TabsContent } from "@srcful/ui"`}</code>
+            <code>{`import { Tabs, TabsList, TabsTrigger, TabsContent } from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

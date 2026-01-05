@@ -57,7 +57,7 @@ export default function AccordionPage() {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@srcful/ui"`}</code>
+} from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

@@ -33,7 +33,7 @@ export default function BadgePage() {
         </h2>
         <div className="rounded-lg bg-sourceful-gray-950 p-4 font-mono text-sm text-white overflow-x-auto">
           <pre>
-            <code>{`import { Badge } from "@srcful/ui"`}</code>
+            <code>{`import { Badge } from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

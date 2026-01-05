@@ -43,7 +43,7 @@ export default function CardPage() {
   CardDescription,
   CardContent,
   CardFooter,
-} from "@srcful/ui"`}</code>
+} from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function AlertPage() {
         </h2>
         <div className="rounded-lg bg-sourceful-gray-950 p-4 font-mono text-sm text-white overflow-x-auto">
           <pre>
-            <code>{`import { Alert, AlertTitle, AlertDescription } from "@srcful/ui"`}</code>
+            <code>{`import { Alert, AlertTitle, AlertDescription } from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

@@ -48,7 +48,7 @@ export default function ButtonPage() {
         </h2>
         <div className="rounded-lg bg-sourceful-gray-950 p-4 font-mono text-sm text-white overflow-x-auto">
           <pre>
-            <code>{`import { Button } from "@srcful/ui"`}</code>
+            <code>{`import { Button } from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>

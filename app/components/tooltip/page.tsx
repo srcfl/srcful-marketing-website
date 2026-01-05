@@ -53,7 +53,7 @@ export default function TooltipPage() {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@srcful/ui"`}</code>
+} from "@sourceful-energy/ui"`}</code>
           </pre>
         </div>
       </div>
