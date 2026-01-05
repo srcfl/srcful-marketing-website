@@ -100,6 +100,14 @@ const componentsNav: NavSection[] = [
       { title: "Scroll Area", href: "/components/scroll-area" },
     ],
   },
+  {
+    title: "Sourceful",
+    items: [
+      { title: "Sites Map", href: "/components/sites-map" },
+      { title: "Energy Flow", href: "/components/energy-flow" },
+      { title: "AI Chat", href: "/components/ai-chat" },
+    ],
+  },
 ];
 
 interface DocsSidebarProps {
