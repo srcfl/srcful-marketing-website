@@ -2,13 +2,20 @@ import { ComponentNav } from "@/components/component-nav";
 import { Badge } from "@/components/ui/badge";
 import { ComponentPreview } from "@/components/component-preview";
 import { PropsTable } from "@/components/props-table";
+import { Loader2, Check, X, Circle, Zap, AlertTriangle } from "lucide-react";
 
 const badgeProps = [
   {
     name: "variant",
-    type: '"default" | "secondary" | "destructive" | "outline" | "energy" | "success" | "warning" | "info" | "success-soft" | "warning-soft" | "destructive-soft" | "info-soft" | "energy-soft" | "success-outline" | "warning-outline" | "destructive-outline" | "info-outline"',
+    type: '"default" | "secondary" | "destructive" | "outline" | "energy" | "success" | "warning" | "info" | "*-soft" | "*-outline"',
     default: '"default"',
-    description: "The visual style of the badge.",
+    description: "The visual style of the badge. Soft and outline variants available for success, warning, destructive, info, energy.",
+  },
+  {
+    name: "rounded",
+    type: '"default" | "full"',
+    default: '"default"',
+    description: "The border radius. Use 'full' for pill-shaped badges.",
   },
   {
     name: "className",
@@ -114,18 +121,107 @@ export default function BadgePage() {
           </div>
         </ComponentPreview>
 
-        <h3 className="text-lg font-medium">Status Indicators</h3>
+        <h3 className="text-lg font-medium">Fully Rounded (Pill)</h3>
         <ComponentPreview
           code={`<div className="flex flex-wrap gap-2">
-  <Badge variant="success-soft">Online</Badge>
-  <Badge variant="warning-soft">Pending</Badge>
-  <Badge variant="destructive-soft">Offline</Badge>
+  <Badge rounded="full">Default</Badge>
+  <Badge variant="success-soft" rounded="full">Online</Badge>
+  <Badge variant="warning-soft" rounded="full">Pending</Badge>
+  <Badge variant="info-soft" rounded="full">New</Badge>
 </div>`}
         >
           <div className="flex flex-wrap gap-2">
-            <Badge variant="success-soft">Online</Badge>
-            <Badge variant="warning-soft">Pending</Badge>
-            <Badge variant="destructive-soft">Offline</Badge>
+            <Badge rounded="full">Default</Badge>
+            <Badge variant="success-soft" rounded="full">Online</Badge>
+            <Badge variant="warning-soft" rounded="full">Pending</Badge>
+            <Badge variant="info-soft" rounded="full">New</Badge>
+          </div>
+        </ComponentPreview>
+
+        <h3 className="text-lg font-medium">With Icons</h3>
+        <ComponentPreview
+          code={`<div className="flex flex-wrap gap-2">
+  <Badge variant="success-soft">
+    <Check /> Verified
+  </Badge>
+  <Badge variant="destructive-soft">
+    <X /> Failed
+  </Badge>
+  <Badge variant="warning-soft">
+    <AlertTriangle /> Warning
+  </Badge>
+  <Badge variant="energy-soft">
+    <Zap /> Active
+  </Badge>
+</div>`}
+        >
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="success-soft">
+              <Check /> Verified
+            </Badge>
+            <Badge variant="destructive-soft">
+              <X /> Failed
+            </Badge>
+            <Badge variant="warning-soft">
+              <AlertTriangle /> Warning
+            </Badge>
+            <Badge variant="energy-soft">
+              <Zap /> Active
+            </Badge>
+          </div>
+        </ComponentPreview>
+
+        <h3 className="text-lg font-medium">Loading State</h3>
+        <ComponentPreview
+          code={`<div className="flex flex-wrap gap-2">
+  <Badge variant="secondary">
+    <Loader2 className="animate-spin" /> Loading
+  </Badge>
+  <Badge variant="info-soft" rounded="full">
+    <Loader2 className="animate-spin" /> Syncing
+  </Badge>
+  <Badge variant="warning-soft">
+    <Loader2 className="animate-spin" /> Processing
+  </Badge>
+</div>`}
+        >
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="secondary">
+              <Loader2 className="animate-spin" /> Loading
+            </Badge>
+            <Badge variant="info-soft" rounded="full">
+              <Loader2 className="animate-spin" /> Syncing
+            </Badge>
+            <Badge variant="warning-soft">
+              <Loader2 className="animate-spin" /> Processing
+            </Badge>
+          </div>
+        </ComponentPreview>
+
+        <h3 className="text-lg font-medium">Status with Dot</h3>
+        <ComponentPreview
+          code={`<div className="flex flex-wrap gap-2">
+  <Badge variant="success-soft" rounded="full">
+    <Circle className="fill-current" /> Online
+  </Badge>
+  <Badge variant="warning-soft" rounded="full">
+    <Circle className="fill-current" /> Away
+  </Badge>
+  <Badge variant="destructive-soft" rounded="full">
+    <Circle className="fill-current" /> Offline
+  </Badge>
+</div>`}
+        >
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="success-soft" rounded="full">
+              <Circle className="fill-current" /> Online
+            </Badge>
+            <Badge variant="warning-soft" rounded="full">
+              <Circle className="fill-current" /> Away
+            </Badge>
+            <Badge variant="destructive-soft" rounded="full">
+              <Circle className="fill-current" /> Offline
+            </Badge>
           </div>
         </ComponentPreview>
 
