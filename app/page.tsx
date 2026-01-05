@@ -1,7 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Book, Palette, Component } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ArrowRight, Book, Palette, Component, Map, BarChart3, Table2, Activity } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
+import { SitesOverviewExample } from "@/components/examples/sites-overview";
+import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
+import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
+import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
 
 export default function Home() {
   return (
@@ -37,8 +44,54 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Dashboard Examples */}
+        <section className="max-w-7xl mx-auto py-8 px-4 md:px-8">
+          <Tabs defaultValue="sites" className="w-full">
+            <div className="flex items-center justify-between mb-6">
+              <TabsList className="h-10">
+                <TabsTrigger value="sites" className="gap-2">
+                  <Map className="h-4 w-4" />
+                  <span className="hidden sm:inline">Sites Overview</span>
+                  <span className="sm:hidden">Sites</span>
+                </TabsTrigger>
+                <TabsTrigger value="analytics" className="gap-2">
+                  <BarChart3 className="h-4 w-4" />
+                  <span className="hidden sm:inline">Analytics</span>
+                  <span className="sm:hidden">Charts</span>
+                </TabsTrigger>
+                <TabsTrigger value="fleet" className="gap-2">
+                  <Table2 className="h-4 w-4" />
+                  <span className="hidden sm:inline">Fleet</span>
+                  <span className="sm:hidden">Table</span>
+                </TabsTrigger>
+                <TabsTrigger value="monitor" className="gap-2">
+                  <Activity className="h-4 w-4" />
+                  <span className="hidden sm:inline">Energy Monitor</span>
+                  <span className="sm:hidden">Monitor</span>
+                </TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent value="sites" className="mt-0">
+              <SitesOverviewExample />
+            </TabsContent>
+
+            <TabsContent value="analytics" className="mt-0">
+              <AnalyticsDashboardExample />
+            </TabsContent>
+
+            <TabsContent value="fleet" className="mt-0">
+              <FleetDashboardExample />
+            </TabsContent>
+
+            <TabsContent value="monitor" className="mt-0">
+              <EnergyMonitorExample />
+            </TabsContent>
+          </Tabs>
+        </section>
+
         {/* Features */}
-        <section className="max-w-7xl mx-auto py-16 px-4 md:px-8">
+        <section className="max-w-7xl mx-auto py-16 px-4 md:px-8 border-t">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <Link href="/components" className="group block">
               <div className="rounded-lg border bg-card p-6 transition-all duration-200 group-hover:border-primary group-hover:bg-primary/5">
