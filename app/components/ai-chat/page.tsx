@@ -78,13 +78,12 @@ export default function AIChatPage() {
         <p className="text-muted-foreground">
           Try sending a message to see the chat interface in action.
         </p>
-        <div className="h-[500px]">
-          <AIChat
-            messages={messages}
-            onSendMessage={handleSendMessage}
-            isLoading={isLoading}
-          />
-        </div>
+        <AIChat
+          messages={messages}
+          onSendMessage={handleSendMessage}
+          isLoading={isLoading}
+          className="min-h-[400px]"
+        />
       </div>
 
       {/* With Sample Conversation */}
@@ -92,13 +91,12 @@ export default function AIChatPage() {
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
           Sample Conversation
         </h2>
-        <div className="h-[500px]">
-          <AIChat
-            messages={sampleMessages}
-            onSendMessage={() => {}}
-            placeholder="This demo is read-only..."
-          />
-        </div>
+        <AIChat
+          messages={sampleMessages}
+          onSendMessage={() => {}}
+          placeholder="This demo is read-only..."
+          className="min-h-[400px]"
+        />
       </div>
 
       {/* Custom Prompts */}
@@ -106,18 +104,17 @@ export default function AIChatPage() {
         <h2 className="scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight">
           Custom Suggested Prompts
         </h2>
-        <div className="h-[400px]">
-          <AIChat
-            messages={[]}
-            onSendMessage={() => {}}
-            suggestedPrompts={[
-              { icon: <Sun className="w-4 h-4" />, text: "Solar forecast for today" },
-              { icon: <Battery className="w-4 h-4" />, text: "Battery status" },
-              { icon: <Home className="w-4 h-4" />, text: "Home consumption" },
-              { icon: <Zap className="w-4 h-4" />, text: "Grid prices now" },
-            ]}
-          />
-        </div>
+        <AIChat
+          messages={[]}
+          onSendMessage={() => {}}
+          suggestedPrompts={[
+            { icon: <Sun className="w-4 h-4" />, text: "Solar forecast for today" },
+            { icon: <Battery className="w-4 h-4" />, text: "Battery status" },
+            { icon: <Home className="w-4 h-4" />, text: "Home consumption" },
+            { icon: <Zap className="w-4 h-4" />, text: "Grid prices now" },
+          ]}
+          className="min-h-[350px]"
+        />
       </div>
 
       {/* Features */}

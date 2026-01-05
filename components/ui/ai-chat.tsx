@@ -85,7 +85,7 @@ export function AIChat({
   };
 
   return (
-    <div className={cn("flex flex-col h-full bg-white dark:bg-[#141414] rounded-lg border border-sourceful-gray-200 dark:border-[#252525] overflow-hidden", className)}>
+    <div className={cn("flex flex-col bg-white dark:bg-[#141414] rounded-lg border border-sourceful-gray-200 dark:border-[#252525] overflow-hidden", className)}>
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
@@ -93,8 +93,8 @@ export function AIChat({
         className="flex items-center justify-between px-4 py-3 border-b border-sourceful-gray-200 dark:border-[#252525]"
       >
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sourceful-green-400 to-sourceful-green-600 flex items-center justify-center">
-            <Sparkles className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/80 to-primary flex items-center justify-center">
+            <Sparkles className="w-4 h-4 text-primary-foreground" />
           </div>
           <span className="text-sm font-medium text-sourceful-gray-900 dark:text-white">
             AI Assistant
@@ -131,9 +131,9 @@ export function AIChat({
                   initial={{ scale: 0.8 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sourceful-green-400 to-sourceful-green-600 flex items-center justify-center mb-4 shadow-lg shadow-sourceful-green-500/20"
+                  className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/80 to-primary flex items-center justify-center mb-4 shadow-lg shadow-primary/20"
                 >
-                  <Sparkles className="w-8 h-8 text-white" />
+                  <Sparkles className="w-8 h-8 text-primary-foreground" />
                 </motion.div>
 
                 <h3 className="text-lg font-semibold text-sourceful-gray-900 dark:text-white mb-2">
@@ -184,14 +184,14 @@ export function AIChat({
                 className={cn(
                   "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0",
                   message.role === "user"
-                    ? "bg-sourceful-green-500"
+                    ? "bg-primary"
                     : "bg-sourceful-gray-100 dark:bg-[#252525]"
                 )}
               >
                 {message.role === "user" ? (
-                  <User className="w-4 h-4 text-white" />
+                  <User className="w-4 h-4 text-primary-foreground" />
                 ) : (
-                  <Sparkles className="w-4 h-4 text-sourceful-green-500" />
+                  <Sparkles className="w-4 h-4 text-primary" />
                 )}
               </div>
 
@@ -199,7 +199,7 @@ export function AIChat({
                 className={cn(
                   "max-w-[80%] rounded-2xl px-4 py-3 border",
                   message.role === "user"
-                    ? "bg-sourceful-green-500 text-white border-sourceful-green-500 rounded-tr-sm"
+                    ? "bg-primary text-primary-foreground border-primary rounded-tr-sm"
                     : "bg-sourceful-gray-100 dark:bg-[#1a1a1a] border-sourceful-gray-200 dark:border-[#252525] rounded-tl-sm"
                 )}
               >
@@ -226,7 +226,7 @@ export function AIChat({
                 className="flex gap-3"
               >
                 <div className="w-8 h-8 rounded-full bg-sourceful-gray-100 dark:bg-[#252525] flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-sourceful-green-500" />
+                  <Sparkles className="w-4 h-4 text-primary" />
                 </div>
                 <div className="bg-sourceful-gray-100 dark:bg-[#1a1a1a] rounded-2xl rounded-tl-sm px-4 py-3 border border-sourceful-gray-200 dark:border-[#252525]">
                   <div className="flex items-center gap-2">
@@ -244,7 +244,7 @@ export function AIChat({
                             repeat: Infinity,
                             delay: i * 0.15,
                           }}
-                          className="w-1.5 h-1.5 rounded-full bg-sourceful-green-500"
+                          className="w-1.5 h-1.5 rounded-full bg-primary"
                         />
                       ))}
                     </div>
@@ -276,7 +276,7 @@ export function AIChat({
                 "border border-sourceful-gray-200 dark:border-[#252525]",
                 "text-sm text-sourceful-gray-900 dark:text-white",
                 "placeholder:text-sourceful-gray-400",
-                "focus:outline-none focus:ring-2 focus:ring-sourceful-green-500 focus:border-transparent",
+                "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
                 "disabled:opacity-50 disabled:cursor-not-allowed"
               )}
             />
@@ -290,7 +290,7 @@ export function AIChat({
               isLoading
                 ? "bg-red-500 hover:bg-red-600 text-white"
                 : query.trim()
-                  ? "bg-sourceful-green-500 hover:bg-sourceful-green-600 text-white"
+                  ? "bg-primary hover:bg-primary/90 text-primary-foreground"
                   : "bg-sourceful-gray-100 dark:bg-[#252525] text-sourceful-gray-400 cursor-not-allowed"
             )}
           >
