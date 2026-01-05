@@ -62,7 +62,6 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
   }, []);
 
   const isOnline = data.status === "online";
-  const borderColor = isOnline ? "border-sourceful-green-500" : "border-sourceful-gray-300 dark:border-[#1a1a1a]";
 
   const getHandles = () => {
     switch (data.type) {
@@ -185,7 +184,7 @@ function CustomNode({ data, id }: { data: NodeData; id: string }) {
     <div
       className={cn(
         "rounded-xl shadow-sm transition-all relative bg-white dark:bg-[#141414] min-w-[180px]",
-        isOnline ? "border-2 border-sourceful-green-500" : `border-2 ${borderColor}`
+        isOnline ? "border-travel-animation" : "border-2 border-sourceful-gray-300 dark:border-[#1a1a1a]"
       )}
     >
       {getHandles()}

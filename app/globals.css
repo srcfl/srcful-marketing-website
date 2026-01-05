@@ -612,3 +612,52 @@
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+@keyframes border-travel {
+  0% {
+    background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0%;
+  }
+  25% {
+    background-position: 100% 0%, 100% 0%, 0% 100%, 100% 0%;
+  }
+  50% {
+    background-position: 100% 0%, 0% 100%, 0% 100%, 100% 100%;
+  }
+  75% {
+    background-position: 100% 0%, 0% 100%, 100% 100%, 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0%;
+  }
+}
+
+/* Border travel animation for energy flow nodes */
+.border-travel-animation {
+  position: relative;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--bg-color, white), var(--bg-color, white)) padding-box,
+    linear-gradient(90deg, #22c55e 50%, transparent 50%) border-box;
+  background-size: 100% 100%, 200% 2px, 2px 200%, 200% 2px, 2px 200%;
+  background-position: 0 0, 0% 0%, 100% 100%, 0% 100%, 100% 0%;
+  background-repeat: no-repeat;
+  animation: border-travel-glow 3s linear infinite;
+  border-radius: 0.75rem;
+}
+
+.dark .border-travel-animation {
+  --bg-color: #141414;
+}
+
+@keyframes border-travel-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px 1px rgba(34, 197, 94, 0.3),
+      inset 0 0 8px 1px rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 16px 2px rgba(34, 197, 94, 0.5),
+      inset 0 0 12px 2px rgba(34, 197, 94, 0.2);
+  }
+}
