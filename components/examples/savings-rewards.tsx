@@ -11,36 +11,43 @@ import { ComposedChart, Area, Line, XAxis, YAxis, CartesianGrid, ReferenceLine }
 import { Coins, TrendingUp, Zap, Shield, Calculator, Gift, Car, Battery, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Generate realistic Swedish grid exchange data (SE3)
+// Seeded random for consistent SSR/client rendering
+function seededRandom(seed: number) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+// Generate realistic Swedish grid exchange data (SE3) - deterministic
 function generateGridExchangeData() {
   const data = [];
-  const currentHour = new Date().getHours();
+  const currentHour = 14; // Fixed hour for demo
 
   for (let i = 0; i < 24; i++) {
     const hour = i.toString().padStart(2, "0");
+    const seed = i * 1000; // Deterministic seed based on hour
 
     // Spot prices: low at night, peaks morning/evening (SE3 pattern)
     let price;
-    if (i >= 0 && i < 6) price = 0.45 + Math.random() * 0.4;      // Night: 0.45-0.85
-    else if (i >= 6 && i < 9) price = 1.8 + Math.random() * 0.6;  // Morning peak: 1.8-2.4
-    else if (i >= 9 && i < 16) price = 0.9 + Math.random() * 0.5; // Midday: 0.9-1.4
-    else if (i >= 16 && i < 21) price = 2.2 + Math.random() * 0.9;// Evening peak: 2.2-3.1
-    else price = 1.2 + Math.random() * 0.4;                        // Evening: 1.2-1.6
+    if (i >= 0 && i < 6) price = 0.45 + seededRandom(seed + 1) * 0.4;      // Night: 0.45-0.85
+    else if (i >= 6 && i < 9) price = 1.8 + seededRandom(seed + 2) * 0.6;  // Morning peak: 1.8-2.4
+    else if (i >= 9 && i < 16) price = 0.9 + seededRandom(seed + 3) * 0.5; // Midday: 0.9-1.4
+    else if (i >= 16 && i < 21) price = 2.2 + seededRandom(seed + 4) * 0.9;// Evening peak: 2.2-3.1
+    else price = 1.2 + seededRandom(seed + 5) * 0.4;                        // Evening: 1.2-1.6
 
     // Grid exchange: import when cheap, export when expensive
     let gridImport = 0;
     let gridExport = 0;
 
     if (i >= 0 && i < 6) {
-      gridImport = 1.0 + Math.random() * 1.5; // Night: charge battery when cheap
+      gridImport = 1.0 + seededRandom(seed + 6) * 1.5; // Night: charge battery when cheap
     } else if (i >= 6 && i < 9) {
-      gridExport = 1.5 + Math.random() * 2.0; // Morning peak: export from battery
+      gridExport = 1.5 + seededRandom(seed + 7) * 2.0; // Morning peak: export from battery
     } else if (i >= 9 && i < 16) {
-      gridExport = 2.5 + Math.random() * 3.0; // Midday: solar surplus export
+      gridExport = 2.5 + seededRandom(seed + 8) * 3.0; // Midday: solar surplus export
     } else if (i >= 16 && i < 21) {
-      gridExport = 2.0 + Math.random() * 2.5; // Evening peak: export from battery (highest prices!)
+      gridExport = 2.0 + seededRandom(seed + 9) * 2.5; // Evening peak: export from battery (highest prices!)
     } else {
-      gridImport = 0.8 + Math.random() * 0.7; // Late evening: start charging again
+      gridImport = 0.8 + seededRandom(seed + 10) * 0.7; // Late evening: start charging again
     }
 
     data.push({
