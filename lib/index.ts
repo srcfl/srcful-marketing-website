@@ -113,6 +113,40 @@ export { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 
 export { Textarea } from "../components/ui/textarea";
 
+// Navigation components
+export {
+  SideMenu,
+  type SideMenuItem,
+  type SideMenuSection,
+  type SideMenuProps,
+} from "../components/ui/side-menu";
+
+export {
+  TopMenu,
+  TopMenuUser,
+  TopMenuUserItem,
+  TopMenuUserSection,
+  type BreadcrumbItem,
+  type TopMenuProps,
+  type TopMenuUserProps,
+  type TopMenuUserItemProps,
+} from "../components/ui/top-menu";
+
+export {
+  SimpleTabs,
+  SimpleTabsPanel,
+  SimpleTabsRoot,
+  SimpleTabsList,
+  SimpleTabsTrigger,
+  SimpleTabsContent,
+  type SimpleTab,
+  type SimpleTabsProps,
+  type SimpleTabsPanelProps,
+  type SimpleTabsRootProps,
+  type SimpleTabsListProps,
+  type SimpleTabsTriggerProps,
+} from "../components/ui/simple-tabs";
+
 export {
   Tooltip,
   TooltipContent,

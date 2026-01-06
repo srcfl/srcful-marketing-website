@@ -19,6 +19,11 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@s
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@sourceful-energy/ui"
 import { Separator, ScrollArea } from "@sourceful-energy/ui"
 
+// Navigation components
+import { SideMenu } from "@sourceful-energy/ui"
+import { TopMenu, TopMenuUser, TopMenuUserItem, TopMenuUserSection } from "@sourceful-energy/ui"
+import { SimpleTabs, SimpleTabsPanel, SimpleTabsRoot, SimpleTabsList, SimpleTabsTrigger, SimpleTabsContent } from "@sourceful-energy/ui"
+
 // Feedback components
 import { Alert, AlertTitle, AlertDescription } from "@sourceful-energy/ui"
 import { Progress, Skeleton } from "@sourceful-energy/ui"
@@ -285,6 +290,99 @@ export default function RootLayout({ children }) {
 </div>
 ```
 
+### SideMenu
+```tsx
+import { SideMenu } from "@sourceful-energy/ui"
+import { LayoutDashboard, Home, Settings } from "lucide-react"
+
+const items = [
+  { id: "dashboard", label: "Dashboard", href: "/", icon: <LayoutDashboard /> },
+];
+
+const sections = [
+  {
+    id: "fleet",
+    title: "Fleet",
+    icon: <Home />,
+    items: [
+      { id: "sites", label: "Sites", href: "/sites", icon: <Home /> },
+    ],
+  },
+];
+
+<SideMenu
+  header={<span className="font-bold">My App</span>}
+  collapsedHeader={<span className="font-bold">M</span>}
+  items={items}
+  sections={sections}
+  activeItem="dashboard"
+  collapsible={true}
+  onCollapsedChange={(collapsed) => console.log(collapsed)}
+/>
+```
+
+### TopMenu
+```tsx
+import { TopMenu, TopMenuUser, TopMenuUserItem, TopMenuUserSection } from "@sourceful-energy/ui"
+import { User, Settings, LogOut } from "lucide-react"
+
+<TopMenu
+  breadcrumbs={[
+    { label: "Sites", href: "/sites" },
+    { label: "Stockholm Home" },
+  ]}
+  showMobileMenu
+  onMobileMenuClick={() => setMenuOpen(true)}
+  rightContent={
+    <TopMenuUser
+      name="John Doe"
+      email="john@example.com"
+      avatarContent={<User className="h-4 w-4 text-white" />}
+    >
+      <TopMenuUserSection>
+        <TopMenuUserItem icon={<Settings />}>Settings</TopMenuUserItem>
+      </TopMenuUserSection>
+      <TopMenuUserSection>
+        <TopMenuUserItem icon={<LogOut />} variant="danger">Log Out</TopMenuUserItem>
+      </TopMenuUserSection>
+    </TopMenuUser>
+  }
+/>
+```
+
+### SimpleTabs (Underlined Tabs)
+```tsx
+import { SimpleTabs, SimpleTabsPanel } from "@sourceful-energy/ui"
+import { LayoutDashboard, Settings } from "lucide-react"
+
+// Array-based usage
+const tabs = [
+  { id: "overview", label: "Overview", icon: <LayoutDashboard /> },
+  { id: "settings", label: "Settings", icon: <Settings /> },
+];
+
+<SimpleTabs tabs={tabs} defaultTab="overview">
+  <SimpleTabsPanel id="overview">
+    <p>Overview content...</p>
+  </SimpleTabsPanel>
+  <SimpleTabsPanel id="settings">
+    <p>Settings content...</p>
+  </SimpleTabsPanel>
+</SimpleTabs>
+
+// Compound component pattern (more flexible)
+import { SimpleTabsRoot, SimpleTabsList, SimpleTabsTrigger, SimpleTabsContent } from "@sourceful-energy/ui"
+
+<SimpleTabsRoot defaultTab="tab1">
+  <SimpleTabsList>
+    <SimpleTabsTrigger value="tab1">Account</SimpleTabsTrigger>
+    <SimpleTabsTrigger value="tab2">Password</SimpleTabsTrigger>
+  </SimpleTabsList>
+  <SimpleTabsContent value="tab1">Account settings...</SimpleTabsContent>
+  <SimpleTabsContent value="tab2">Password settings...</SimpleTabsContent>
+</SimpleTabsRoot>
+```
+
 ## Patterns
 
 ### Layout
@@ -311,18 +409,70 @@ export default function RootLayout({ children }) {
 - Buttons have visible focus rings
 - Dialogs trap focus and support Escape to close
 
+## Changelog
+
+The design system includes a changelog system for tracking changes to components, tokens, and brand.
+
+### Viewing the Changelog
+- **Web**: https://design.sourceful.energy/changelog
+- **RSS Feed**: https://design.sourceful.energy/changelog.xml
+
+### Subscribing to Updates
+Subscribe to the RSS feed to get notified of changes:
+- **Slack**: Add RSS app to channel, subscribe to `/changelog.xml`
+- **Discord**: Use RSS bot (e.g., MonitoRSS)
+- **MS Teams**: Use RSS connector
+- **Email**: Use services like Blogtrottr, IFTTT, or Zapier
+
+### Conventional Commits
+For automatic changelog generation, use conventional commits:
+
+```bash
+feat(component): add new Button variant     # Added
+fix(token): correct green-500 hex value     # Fixed
+docs: update installation guide             # Changed
+BREAKING CHANGE: remove deprecated props    # Breaking
+```
+
+Types: `feat`, `fix`, `docs`, `refactor`, `BREAKING CHANGE`
+Scopes: `component`, `token`, `brand`, `docs`
+
+### Manual Changelog Updates
+Edit `content/changelog/CHANGELOG.md` following this format:
+
+```markdown
+## [0.1.22] - 2026-01-07
+
+### Added
+- **component**: New component description
+
+### Fixed
+- **token**: Fixed issue description
+
+### Changed
+- **docs**: Updated documentation
+```
+
 ## File Structure
 
 ```
 srcful-design-system/
 ├── app/                    # Next.js docs site
+│   └── changelog/          # Changelog page
 ├── components/
 │   ├── ui/                 # Base components (24 components)
 │   ├── logo.tsx            # Sourceful logo component
 │   ├── theme-provider.tsx  # next-themes wrapper
 │   └── *.tsx               # Site components
+├── content/
+│   └── changelog/          # Changelog markdown files
+│       └── CHANGELOG.md    # Main changelog
 ├── lib/
-│   └── utils.ts            # Utility functions (cn)
+│   ├── utils.ts            # Utility functions (cn)
+│   ├── changelog.ts        # Changelog parsing utilities
+│   └── rss.ts              # RSS feed generation
+├── scripts/
+│   └── generate-changelog.js # Auto-generate from commits
 ├── public/
 │   ├── assets/             # Logo SVG files
 │   └── fonts/              # Satoshi font files

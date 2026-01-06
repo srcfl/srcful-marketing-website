@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu } from "lucide-react";
+import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import StackIcon from "@/components/ui/stack-icon";
 import PaintIcon from "@/components/ui/paint-icon";
@@ -15,6 +15,7 @@ import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashb
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
 import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
 import { EMSDashboardExample } from "@/components/examples/ems-dashboard";
+import { SavingsRewardsExample } from "@/components/examples/savings-rewards";
 
 export default function Home() {
   const stackIconRef = useRef<AnimatedIconHandle>(null);
@@ -64,7 +65,7 @@ export default function Home() {
         {/* Dashboard Examples */}
         <section className="max-w-7xl mx-auto py-16 px-4 md:px-8">
           <Tabs defaultValue="sites" className="w-full">
-            <div className="flex items-center justify-center mb-6">
+            <div className="flex items-center justify-center mb-6 overflow-x-auto">
               <TabsList className="h-10">
                 <TabsTrigger value="sites" className="gap-2">
                   <Map className="hidden sm:block h-4 w-4" />
@@ -88,8 +89,13 @@ export default function Home() {
                 </TabsTrigger>
                 <TabsTrigger value="ems" className="gap-2">
                   <Cpu className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">Energy Management</span>
-                  <span className="sm:hidden">EMS</span>
+                  <span className="hidden sm:inline">Automate</span>
+                  <span className="sm:hidden">Auto</span>
+                </TabsTrigger>
+                <TabsTrigger value="savings" className="gap-2">
+                  <Coins className="hidden sm:block h-4 w-4" />
+                  <span className="hidden sm:inline">Savings</span>
+                  <span className="sm:hidden">Save</span>
                 </TabsTrigger>
               </TabsList>
             </div>
@@ -112,6 +118,10 @@ export default function Home() {
 
             <TabsContent value="ems" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
               <EMSDashboardExample />
+            </TabsContent>
+
+            <TabsContent value="savings" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
+              <SavingsRewardsExample />
             </TabsContent>
           </Tabs>
         </section>

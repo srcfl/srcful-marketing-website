@@ -98,9 +98,12 @@ const componentsNav: NavSection[] = [
   {
     title: "Navigation",
     items: [
+      { title: "Side Menu", href: "/components/side-menu" },
+      { title: "Top Menu", href: "/components/top-menu" },
+      { title: "Tabs", href: "/components/tabs" },
+      { title: "Simple Tabs", href: "/components/simple-tabs" },
       { title: "Command", href: "/components/command" },
       { title: "Dropdown Menu", href: "/components/dropdown-menu" },
-      { title: "Tabs", href: "/components/tabs" },
       { title: "Accordion", href: "/components/accordion" },
       { title: "Collapsible", href: "/components/collapsible" },
       { title: "Sheet", href: "/components/sheet" },

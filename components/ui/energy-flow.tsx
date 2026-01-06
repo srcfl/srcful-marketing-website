@@ -450,10 +450,10 @@ export function EnergyFlow({
     return edges;
   }, [solarPower, batteryPower, gridImport, gridExport, homeConsumption, evCharging, isDarkMode]);
 
-  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance<Node<NodeData>, Edge> | null>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const onInit = useCallback((instance: ReactFlowInstance) => {
+  const onInit = useCallback((instance: ReactFlowInstance<Node<NodeData>, Edge>) => {
     setReactFlowInstance(instance);
   }, []);
 

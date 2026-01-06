@@ -8,7 +8,11 @@ import { ElectricityPrice, generateDemoPriceData } from "@/components/ui/electri
 import { WeatherCard, generateDemoForecast } from "@/components/ui/weather-card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
 import { Area, AreaChart, XAxis, YAxis, CartesianGrid } from "recharts";
-import { Battery, Zap, TrendingUp, Clock, Settings, Play, Pause, RefreshCw } from "lucide-react";
+import { Reorder } from "framer-motion";
+import { useState } from "react";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
+import { Battery, Zap, TrendingUp, Clock, Settings, Play, Pause, RefreshCw, PiggyBank, Leaf, Unplug, Home, GripVertical } from "lucide-react";
 
 const energyForecastData = [
   { hour: "00", solar: 0, consumption: 1.2, battery: 8 },
@@ -26,6 +30,20 @@ const chartConfig = {
   consumption: { label: "Consumption", color: "hsl(var(--muted-foreground))" },
   battery: { label: "Battery", color: "#facc15" },
 } satisfies ChartConfig;
+
+interface PriorityGoal {
+  id: string;
+  label: string;
+  icon: React.ReactNode;
+}
+
+const defaultPriorities: PriorityGoal[] = [
+  { id: "savings", label: "Maximize savings", icon: <PiggyBank className="h-4 w-4" /> },
+  { id: "earnings", label: "Maximize earnings", icon: <TrendingUp className="h-4 w-4" /> },
+  { id: "self-consumption", label: "Self-consumption", icon: <Home className="h-4 w-4" /> },
+  { id: "grid-independence", label: "Grid independence", icon: <Unplug className="h-4 w-4" /> },
+  { id: "carbon", label: "Carbon reduction", icon: <Leaf className="h-4 w-4" /> },
+];
 
 interface StatCardProps {
   icon: React.ReactNode;
@@ -58,6 +76,49 @@ function StatCard({ icon, label, value, subtext, trend }: StatCardProps) {
             {subtext && <p className="text-xs text-muted-foreground">{subtext}</p>}
           </div>
         </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+function AutomationPriorities() {
+  const [priorities, setPriorities] = useState<PriorityGoal[]>(defaultPriorities);
+  const [autoOptimize, setAutoOptimize] = useState(false);
+
+  return (
+    <Card>
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <div>
+            <CardTitle className="text-base">Automation Priorities</CardTitle>
+            <CardDescription>{autoOptimize ? "Auto-adjusting based on prices" : "Drag to reorder your goals"}</CardDescription>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 pt-2">
+          <Switch id="auto-optimize" checked={autoOptimize} onCheckedChange={setAutoOptimize} />
+          <Label htmlFor="auto-optimize" className="text-sm text-muted-foreground cursor-pointer">Auto-optimize</Label>
+        </div>
+      </CardHeader>
+      <CardContent className="pb-3">
+        <Reorder.Group axis="y" values={priorities} onReorder={autoOptimize ? undefined : setPriorities} className={`space-y-2 ${autoOptimize ? "opacity-60 pointer-events-none" : ""}`}>
+          {priorities.map((item, index) => (
+            <Reorder.Item
+              key={item.id}
+              value={item}
+              className="flex items-center gap-3 p-2 rounded-lg bg-muted/50 cursor-grab active:cursor-grabbing hover:bg-muted transition-colors"
+              whileDrag={{ scale: 1.02, boxShadow: "0 4px 12px rgba(0,0,0,0.15)" }}
+            >
+              <GripVertical className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+              <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-xs font-medium flex items-center justify-center flex-shrink-0">
+                {index + 1}
+              </span>
+              <div className="text-muted-foreground flex-shrink-0">{item.icon}</div>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium truncate">{item.label}</p>
+              </div>
+            </Reorder.Item>
+          ))}
+        </Reorder.Group>
       </CardContent>
     </Card>
   );
@@ -143,7 +204,7 @@ export function EMSDashboardExample() {
               </div>
             </CardHeader>
             <CardContent className="overflow-x-auto">
-              <ChartContainer config={chartConfig} className="h-[200px] w-full min-w-[300px]">
+              <ChartContainer config={chartConfig} className="h-[210px] w-full min-w-[300px]">
                 <AreaChart data={energyForecastData}>
                   <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
                   <XAxis dataKey="hour" tick={{ fontSize: 11 }} />
@@ -170,36 +231,7 @@ export function EMSDashboardExample() {
             </CardContent>
           </Card>
 
-          {/* Quick Actions */}
-          <Card className="overflow-hidden">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Quick Actions</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
-                <Button variant="outline" size="sm" className="justify-start">
-                  <Play className="h-4 w-4 mr-2 flex-shrink-0" />
-                  <span className="truncate">Force Charge</span>
-                </Button>
-                <Button variant="outline" size="sm" className="justify-start">
-                  <Pause className="h-4 w-4 mr-2 flex-shrink-0" />
-                  <span className="truncate">Pause Export</span>
-                </Button>
-                <Button variant="outline" size="sm" className="justify-start">
-                  <Battery className="h-4 w-4 mr-2 flex-shrink-0" />
-                  <span className="truncate">Discharge</span>
-                </Button>
-                <Button variant="outline" size="sm" className="justify-start">
-                  <RefreshCw className="h-4 w-4 mr-2 flex-shrink-0" />
-                  <span className="truncate">Re-optimize</span>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Right Column - Price & Weather */}
-        <div className="space-y-4 min-w-0">
+          {/* Electricity Prices */}
           <ElectricityPrice
             currentPrice={2.59}
             region="SE3"
@@ -220,6 +252,38 @@ export function EMSDashboardExample() {
               "Delay washing machine to 02:00",
             ]}
           />
+        </div>
+
+        {/* Right Column - Priorities & Weather */}
+        <div className="space-y-4 min-w-0">
+          <AutomationPriorities />
+
+          {/* Quick Actions */}
+          <Card className="overflow-hidden">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-base">Quick Actions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 gap-2">
+                <Button variant="outline" size="sm" className="justify-start">
+                  <Play className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Force Charge</span>
+                </Button>
+                <Button variant="outline" size="sm" className="justify-start">
+                  <Pause className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Pause Export</span>
+                </Button>
+                <Button variant="outline" size="sm" className="justify-start">
+                  <Battery className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Discharge</span>
+                </Button>
+                <Button variant="outline" size="sm" className="justify-start">
+                  <RefreshCw className="h-4 w-4 mr-2 flex-shrink-0" />
+                  <span className="truncate">Re-optimize</span>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
 
           <WeatherCard
             temperature={-3}
