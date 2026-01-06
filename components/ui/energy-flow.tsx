@@ -1,20 +1,16 @@
 "use client";
 
-import React, { useCallback, useMemo, useEffect, useState } from "react";
+import React, { useMemo, useEffect, useState, useCallback } from "react";
 import {
   ReactFlow,
   Background,
-  Controls,
-  Panel,
   MarkerType,
   ConnectionMode,
-  useNodesState,
-  useEdgesState,
-  useReactFlow,
   Handle,
   Position,
   type Node,
   type Edge,
+  type ReactFlowInstance,
   BackgroundVariant,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
@@ -258,7 +254,7 @@ export function EnergyFlow({
     {
       id: "solar",
       type: "custom",
-      position: { x: 0, y: 0 },
+      position: { x: 200, y: 50 },
       data: {
         label: "Solar",
         type: "solar",
@@ -271,7 +267,7 @@ export function EnergyFlow({
     {
       id: "battery",
       type: "custom",
-      position: { x: 0, y: 150 },
+      position: { x: 200, y: 180 },
       data: {
         label: "Battery",
         type: "battery",
@@ -285,7 +281,7 @@ export function EnergyFlow({
     {
       id: "grid",
       type: "custom",
-      position: { x: 0, y: 300 },
+      position: { x: 200, y: 310 },
       data: {
         label: "Grid",
         type: "grid",
@@ -298,7 +294,7 @@ export function EnergyFlow({
     {
       id: "home",
       type: "custom",
-      position: { x: 300, y: 150 },
+      position: { x: 600, y: 115 },
       data: {
         label: "Home",
         type: "home",
@@ -311,7 +307,7 @@ export function EnergyFlow({
     {
       id: "ev",
       type: "custom",
-      position: { x: 300, y: 300 },
+      position: { x: 600, y: 245 },
       data: {
         label: "EV Charger",
         type: "ev",
@@ -454,31 +450,60 @@ export function EnergyFlow({
     return edges;
   }, [solarPower, batteryPower, gridImport, gridExport, homeConsumption, evCharging, isDarkMode]);
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [reactFlowInstance, setReactFlowInstance] = useState<ReactFlowInstance | null>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
-  // Update nodes and edges when dark mode or data changes
-  useEffect(() => {
-    setNodes(initialNodes);
-  }, [initialNodes, setNodes]);
+  const onInit = useCallback((instance: ReactFlowInstance) => {
+    setReactFlowInstance(instance);
+  }, []);
 
+  // Use IntersectionObserver to detect when container becomes visible
+  // This handles tabs and other scenarios where the component is hidden initially
   useEffect(() => {
-    setEdges(initialEdges);
-  }, [initialEdges, setEdges]);
+    if (!reactFlowInstance || !containerRef.current) return;
+
+    const fitViewNow = () => {
+      reactFlowInstance.fitView({ padding: 0.12, duration: 0 });
+    };
+
+    // Initial fit
+    const timer = setTimeout(fitViewNow, 100);
+
+    // Observe visibility changes
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            // Container became visible, re-fit view
+            setTimeout(fitViewNow, 50);
+          }
+        });
+      },
+      { threshold: [0, 0.1, 0.5, 1] }
+    );
+
+    observer.observe(containerRef.current);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [reactFlowInstance]);
 
   return (
-    <div className={cn("w-full h-[500px] rounded-lg border border-sourceful-gray-200 dark:border-[#1a1a1a] relative", className)}>
+    <div
+      ref={containerRef}
+      className={cn("w-full h-[500px] rounded-lg border border-sourceful-gray-200 dark:border-[#1a1a1a] relative", className)}
+    >
       <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
+        key="energy-flow"
+        nodes={initialNodes}
+        edges={initialEdges}
         nodeTypes={nodeTypes}
         connectionMode={ConnectionMode.Loose}
-        fitView
-        fitViewOptions={{ padding: 0.3, maxZoom: 1 }}
-        minZoom={0.5}
-        maxZoom={2}
+        onInit={onInit}
+        minZoom={0.3}
+        maxZoom={1.5}
         nodesDraggable={true}
         nodesConnectable={false}
         proOptions={{ hideAttribution: true }}
