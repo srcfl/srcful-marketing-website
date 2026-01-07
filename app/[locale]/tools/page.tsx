@@ -99,7 +99,7 @@ export default function ToolsPage() {
                   }`}
                 >
                   {tool.available ? (
-                    <Link href={tool.href} className="block h-full">
+                    <Link href={tool.href} className="block h-full no-underline">
                       <CardHeader>
                         <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                           <Icon className="h-6 w-6 text-primary" />

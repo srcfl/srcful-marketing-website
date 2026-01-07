@@ -124,7 +124,7 @@ export default function IntegrationsPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {brands.inverters.map((brand) => (
-              <Link key={brand.slug} href={`/integrations/${brand.slug}`}>
+              <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
                 <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
                   <CardHeader className="pb-2">
                     <CardTitle className="text-lg">{brand.name}</CardTitle>
@@ -152,7 +152,7 @@ export default function IntegrationsPage() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {brands.chargers.map((brand) => (
-                <Link key={brand.slug} href={`/integrations/${brand.slug}`}>
+                <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
                   <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
                     <CardHeader className="pb-2">
                       <div className="flex items-center justify-between">
@@ -184,7 +184,7 @@ export default function IntegrationsPage() {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {brands.batteries.map((brand) => (
-                <Link key={brand.slug} href={`/integrations/${brand.slug}`}>
+                <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
                   <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-lg">{brand.name}</CardTitle>
