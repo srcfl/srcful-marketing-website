@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins, Zap, Building2, Wrench, Code, Users, ExternalLink, CircuitBoard } from "lucide-react";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
-import { FadeIn, StaggerContainer, StaggerItem, ScaleIn } from "@/components/animations";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { SitesOverviewExample } from "@/components/examples/sites-overview";
 import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
@@ -18,42 +19,45 @@ import { SavingsRewardsExample } from "@/components/examples/savings-rewards";
 import { PartnerLogoCarousel } from "@/components/partner-logo-carousel";
 
 export default function Home() {
+  const t = useTranslations("home");
+  const tCommon = useTranslations("common");
+
   const stats = [
-    { value: "€2.5B", label: "Destroyed annually in coordination failures" },
-    { value: "700+", label: "Hours of negative electricity pricing" },
-    { value: "200ms", label: "Local response time (vs 2-5s cloud)" },
-    { value: "€39", label: "Zap gateway cost" },
+    { value: "€2.5B", label: t("stats.destroyed") },
+    { value: "700+", label: t("stats.negativeHours") },
+    { value: "200ms", label: t("stats.responseTime") },
+    { value: "€39", label: t("stats.zapCost") },
   ];
 
   const audiences = [
     {
       icon: Users,
-      title: "Homeowners",
-      description: "Cut energy bills with real-time pricing, peak shaving, and V2X. One device for all your energy needs.",
+      title: t("audiences.homeowners.title"),
+      description: t("audiences.homeowners.description"),
       href: "/use-cases/homeowners",
     },
     {
       icon: Building2,
-      title: "Utilities",
-      description: "Enable grid services at scale with local execution. Partner with us to unlock distributed flexibility.",
+      title: t("audiences.utilities.title"),
+      description: t("audiences.utilities.description"),
       href: "/use-cases/utilities",
     },
     {
       icon: CircuitBoard,
-      title: "OEMs",
-      description: "Integrate 200ms local control into EV chargers, batteries, and inverters. Protocol-agnostic.",
+      title: t("audiences.oems.title"),
+      description: t("audiences.oems.description"),
       href: "/use-cases/oems",
     },
     {
       icon: Wrench,
-      title: "Installers",
-      description: "Offer smart energy solutions to your customers. Simple integration, recurring revenue.",
+      title: t("audiences.installers.title"),
+      description: t("audiences.installers.description"),
       href: "/use-cases/installers",
     },
     {
       icon: Code,
-      title: "Developers",
-      description: "Build on our platform. API-first design, comprehensive docs, active community.",
+      title: t("audiences.developers.title"),
+      description: t("audiences.developers.description"),
       href: "/developers",
     },
   ];
@@ -72,23 +76,21 @@ export default function Home() {
             <FadeIn delay={0}>
               <Badge variant="outline" className="border-primary/50">
                 <span className="mr-2">⚡</span>
-                Local Energy Coordination Infrastructure
+                {t("hero.badge")}
               </Badge>
             </FadeIn>
 
             <FadeIn delay={0.1}>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl max-w-5xl">
-                The physical rails that make{" "}
-                <span className="text-primary">distributed energy</span>{" "}
-                actually work
+                {t("hero.title")}{" "}
+                <span className="text-primary">{t("hero.titleHighlight")}</span>{" "}
+                {t("hero.titleEnd")}
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.2}>
               <p className="max-w-[42rem] text-lg text-muted-foreground sm:text-xl">
-                Cloud APIs respond in 2-5 seconds. Grid frequency must balance every second.
-                We build the local execution layer that bridges this gap—giving utilities and
-                homeowners actual control over distributed energy.
+                {t("hero.description")}
               </p>
             </FadeIn>
 
@@ -96,13 +98,13 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
                 <Button size="lg" asChild>
                   <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                    Start Building
+                    {tCommon("buttons.startBuilding")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                    Get the Zap
+                    {tCommon("buttons.getTheZap")}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -130,12 +132,12 @@ export default function Home() {
         {/* Dashboard Demo */}
         <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
           <FadeIn className="text-center mb-12">
-            <Badge variant="secondary" className="mb-4">Platform Preview</Badge>
+            <Badge variant="secondary" className="mb-4">{t("dashboard.badge")}</Badge>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Real-time energy coordination
+              {t("dashboard.title")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Monitor sites, analyze performance, manage fleets, and automate energy optimization—all from one platform.
+              {t("dashboard.description")}
             </p>
           </FadeIn>
 
@@ -144,32 +146,32 @@ export default function Home() {
               <TabsList className="h-10">
                 <TabsTrigger value="sites" className="gap-2">
                   <Map className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">Sites Overview</span>
+                  <span className="hidden sm:inline">{t("dashboard.tabs.sites")}</span>
                   <span className="sm:hidden">Sites</span>
                 </TabsTrigger>
                 <TabsTrigger value="analytics" className="gap-2">
                   <BarChart3 className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">Analytics</span>
+                  <span className="hidden sm:inline">{t("dashboard.tabs.analytics")}</span>
                   <span className="sm:hidden">Charts</span>
                 </TabsTrigger>
                 <TabsTrigger value="fleet" className="gap-2">
                   <Table2 className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">Fleet</span>
+                  <span className="hidden sm:inline">{t("dashboard.tabs.fleet")}</span>
                   <span className="sm:hidden">Table</span>
                 </TabsTrigger>
                 <TabsTrigger value="monitor" className="gap-2">
                   <Activity className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">Energy Monitor</span>
+                  <span className="hidden sm:inline">{t("dashboard.tabs.monitor")}</span>
                   <span className="sm:hidden">Monitor</span>
                 </TabsTrigger>
                 <TabsTrigger value="ems" className="gap-2">
                   <Cpu className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">Automate</span>
+                  <span className="hidden sm:inline">{t("dashboard.tabs.automate")}</span>
                   <span className="sm:hidden">Auto</span>
                 </TabsTrigger>
                 <TabsTrigger value="savings" className="gap-2">
                   <Coins className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">Savings</span>
+                  <span className="hidden sm:inline">{t("dashboard.tabs.savings")}</span>
                   <span className="sm:hidden">Save</span>
                 </TabsTrigger>
               </TabsList>
@@ -201,10 +203,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Built for the energy ecosystem
+                {t("audiences.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                From utilities managing grid flexibility to developers building the next energy app.
+                {t("audiences.description")}
               </p>
             </FadeIn>
 
@@ -242,14 +244,13 @@ export default function Home() {
               <div>
                 <Badge variant="secondary" className="mb-4">
                   <Code className="h-3 w-3 mr-1" />
-                  For Developers
+                  {t("developers.badge")}
                 </Badge>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                  API-first platform for energy applications
+                  {t("developers.title")}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Build energy apps that respond in milliseconds, not seconds.
-                  Our local execution layer handles the physics while you focus on the experience.
+                  {t("developers.description")}
                 </p>
 
                 <ul className="space-y-3 mb-8">
@@ -257,38 +258,38 @@ export default function Home() {
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>RESTful API with WebSocket support</span>
+                    <span>{t("developers.features.rest")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>Protocol-agnostic: P1, Modbus, MQTT, OCPP</span>
+                    <span>{t("developers.features.protocols")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>Comprehensive webhooks for real-time events</span>
+                    <span>{t("developers.features.webhooks")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>Active Discord community for support</span>
+                    <span>{t("developers.features.community")}</span>
                   </li>
                 </ul>
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Button asChild>
                     <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                      Open Dev Portal
+                      {tCommon("buttons.openDevPortal")}
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
                   <Button variant="outline" asChild>
                     <Link href="/developers">
-                      Learn More
+                      {tCommon("buttons.learnMore")}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -326,14 +327,12 @@ export default function Home() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <Badge variant="secondary" className="mb-4">Hardware</Badge>
+                <Badge variant="secondary" className="mb-4">{t("zap.badge")}</Badge>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-left">
-                  The Zap Gateway
+                  {t("zap.title")}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6 text-left">
-                  Local execution at the edge. 200ms response time, offline-capable,
-                  compatible with 180M EU smart meters. The missing link between
-                  cloud platforms and physical energy infrastructure.
+                  {t("zap.description")}
                 </p>
 
                 <ul className="space-y-3 mb-8">
@@ -341,31 +340,31 @@ export default function Home() {
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>200ms local response time</span>
+                    <span>{t("zap.features.response")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>Offline-capable with local decision making</span>
+                    <span>{t("zap.features.offline")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>P1, Modbus, MQTT, OCPP protocols</span>
+                    <span>{t("zap.features.protocols")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
-                    <span>Data sovereignty—stays local</span>
+                    <span>{t("zap.features.sovereignty")}</span>
                   </li>
                 </ul>
 
                 <Button asChild>
                   <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                    Order Now
+                    {tCommon("buttons.orderNow")}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -387,7 +386,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto py-12 md:py-16 px-4 md:px-8">
             <div className="text-center mb-8">
               <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-                Works with the brands you already own
+                {t("partners.title")}
               </p>
             </div>
             <PartnerLogoCarousel speed={40} />
@@ -405,16 +404,16 @@ export default function Home() {
                       <Users className="h-8 w-8 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold mb-2">Join the Community</h3>
+                      <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
                       <p className="text-muted-foreground">
-                        Connect with developers, get support, and shape the future of distributed energy.
+                        {t("community.description")}
                       </p>
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Button variant="outline" asChild>
                       <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
-                        Join Discord
+                        {tCommon("buttons.joinDiscord")}
                         <ExternalLink className="ml-2 h-4 w-4" />
                       </a>
                     </Button>

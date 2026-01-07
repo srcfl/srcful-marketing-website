@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useLocale } from "next-intl";
+import { usePathname, useRouter } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,50 +10,46 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Globe, Check } from "lucide-react";
+import { useTransition } from "react";
 
 const languages = [
-  { code: "en", label: "English", flag: "🇬🇧", available: true },
-  { code: "sv", label: "Svenska", flag: "🇸🇪", available: false, comingSoon: true },
-];
+  { code: "en", label: "English", flag: "🇬🇧" },
+  { code: "sv", label: "Svenska", flag: "🇸🇪" },
+] as const;
 
 export function LanguageSwitcher() {
-  // For now, we're always in English since Swedish pages aren't built yet
-  const currentLocale = "en";
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [isPending, startTransition] = useTransition();
 
-  const handleLanguageSelect = (langCode: string) => {
-    const lang = languages.find((l) => l.code === langCode);
-    if (lang?.comingSoon) {
-      // Could show a toast here in the future
-      return;
-    }
-    // For future: implement locale switching
+  const handleLanguageChange = (newLocale: "en" | "sv") => {
+    startTransition(() => {
+      router.replace(pathname, { locale: newLocale });
+    });
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-2 px-2">
+        <Button variant="ghost" size="sm" className="gap-2 px-2" disabled={isPending}>
           <Globe className="h-4 w-4" />
-          <span className="hidden sm:inline text-xs uppercase">{currentLocale}</span>
+          <span className="hidden sm:inline text-xs uppercase">{locale}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[160px]">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
-            onClick={() => handleLanguageSelect(language.code)}
-            disabled={!language.available}
-            className={`flex items-center justify-between ${currentLocale === language.code ? "bg-muted" : ""}`}
+            onClick={() => handleLanguageChange(language.code)}
+            className={`flex items-center justify-between cursor-pointer ${locale === language.code ? "bg-muted" : ""}`}
           >
             <span className="flex items-center gap-2">
               <span>{language.flag}</span>
               <span>{language.label}</span>
             </span>
-            {currentLocale === language.code && (
+            {locale === language.code && (
               <Check className="h-4 w-4 text-primary" />
-            )}
-            {language.comingSoon && (
-              <span className="text-xs text-muted-foreground">Soon</span>
             )}
           </DropdownMenuItem>
         ))}
