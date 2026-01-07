@@ -38,7 +38,13 @@
       "disclaimer": "This platform may involve blockchain-based reward mechanisms. Participation in reward programs does not constitute an investment and should not be interpreted as a promise of financial returns. All rewards are subject to program terms and local regulations.",
       "tools": "Tools",
       "allTools": "All Tools",
-      "savingsCalculator": "Savings Calculator"
+      "savingsCalculator": "Savings Calculator",
+      "newsletter": "Stay Updated",
+      "newsletterDescription": "Get the latest on distributed energy, product updates, and industry insights.",
+      "newsletterPlaceholder": "Enter your email",
+      "newsletterButton": "Subscribe",
+      "newsletterSuccess": "Thanks for subscribing!",
+      "newsletterError": "Something went wrong. Please try again."
     },
     "buttons": {
       "getStarted": "Get Started",

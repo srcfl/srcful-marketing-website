@@ -38,7 +38,13 @@
       "disclaimer": "Denna plattform kan involvera blockkedjebaserade belöningssystem. Deltagande i belöningsprogram utgör inte en investering och ska inte tolkas som ett löfte om ekonomisk avkastning. Alla belöningar omfattas av programvillkor och lokala regelverk.",
       "tools": "Verktyg",
       "allTools": "Alla verktyg",
-      "savingsCalculator": "Besparingskalkylator"
+      "savingsCalculator": "Besparingskalkylator",
+      "newsletter": "Håll dig uppdaterad",
+      "newsletterDescription": "Få det senaste om distribuerad energi, produktuppdateringar och branschinsikter.",
+      "newsletterPlaceholder": "Ange din e-post",
+      "newsletterButton": "Prenumerera",
+      "newsletterSuccess": "Tack för din prenumeration!",
+      "newsletterError": "Något gick fel. Försök igen."
     },
     "buttons": {
       "getStarted": "Kom igång",

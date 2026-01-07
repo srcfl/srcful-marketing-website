@@ -47,6 +47,9 @@ export function CookieConsent() {
     };
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consentData));
     setShowBanner(false);
+
+    // Dispatch event for analytics provider to load scripts
+    window.dispatchEvent(new Event("cookieConsentChanged"));
   };
 
   const handleDecline = () => {

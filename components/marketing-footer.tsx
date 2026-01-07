@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
+import { NewsletterSignup } from "@/components/newsletter-signup";
 
 export function MarketingFooter() {
   const t = useTranslations("common.footer");
@@ -52,6 +53,15 @@ export function MarketingFooter() {
               <li><Link href="/community" className="hover:text-foreground">{t("community")}</Link></li>
               <li><Link href="/contact" className="hover:text-foreground">{t("contact")}</Link></li>
             </ul>
+          </div>
+        </div>
+
+        {/* Newsletter Signup */}
+        <div className="border-t pt-8 mb-8">
+          <div className="max-w-md">
+            <h4 className="font-semibold mb-2">{t("newsletter")}</h4>
+            <p className="text-sm text-muted-foreground mb-4">{t("newsletterDescription")}</p>
+            <NewsletterSignup />
           </div>
         </div>
 

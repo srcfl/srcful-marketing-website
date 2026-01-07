@@ -9,6 +9,7 @@ import { LenisProvider } from "@/components/lenis-provider";
 import { AuthProvider } from "@/components/auth-provider";
 import { IntercomProvider } from "@/components/intercom-provider";
 import { CookieConsent } from "@/components/cookie-consent";
+import { AnalyticsProvider } from "@/components/analytics-provider";
 
 const satoshi = localFont({
   src: [
@@ -87,7 +88,9 @@ export default function RootLayout({
               </IntercomProvider>
             </LenisProvider>
             <CookieConsent />
-            <Toaster />
+            <AnalyticsProvider>
+              <Toaster />
+            </AnalyticsProvider>
           </ThemeProvider>
         </AuthProvider>
       </body>

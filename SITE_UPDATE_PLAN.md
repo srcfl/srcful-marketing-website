@@ -1,294 +1,302 @@
 # Sourceful Marketing Site Update Plan
 
 **Created:** 2026-01-06
-**Status:** Ready for review - answer questions below, then we implement
+**Updated:** 2026-01-07
+**Status:** ✅ Questions answered - Ready to implement
 
 ---
 
-## 1. Platform Page Enhancements
+## Implementation Roadmap
+
+Based on your answers, here's the prioritized implementation plan:
+
+### Phase 1: Foundation (Do First)
+1. [ ] **Partner Logo Carousel** - Simple win, assets ready
+2. [ ] **Swedish Translation (i18n)** - /sv/ URL structure, full site
+3. [ ] **Replace mailto: links** - Direct to contact forms
+4. [ ] **GDPR Cookie Banner** - Required for compliance
+5. [ ] **V2X Waitlist** - Landing section + form (Formspark)
+
+### Phase 2: Platform Page Enhancements
+6. [ ] **Interactive Dashboard Hero** - Reuse homepage components
+7. [ ] **Animated Icons** - Integrate itshover.com icons with CSS animations
+8. [ ] **Rewards Section** - Vague but compelling (points → future rewards)
+9. [ ] **Scroll Animations** - Framer Motion reveals
+
+### Phase 3: Integration/Brand Pages
+10. [ ] **Brand Page Template** - One template, 17 brands
+11. [ ] **SEO Optimization** - "SolarEdge smart home integration" etc.
+
+### Phase 4: Calculators & Tools
+12. [ ] **Savings Calculator** - Sweden-focused, email-gated
+13. [ ] **Battery Sizing Calculator**
+14. [ ] **EV Charging Cost Calculator**
+15. [ ] **Solar ROI Calculator**
+16. [ ] **Grid Export Earnings Calculator**
+17. [ ] **Negative Price Analyzer** - Port from GitHub repo
+
+### Phase 5: Dashboard Mockups
+18. [ ] **VPP Dashboard** - For utilities/aggregators
+19. [ ] **Installer Portal Mockup** - White-label options
+20. [ ] **Utility Dashboard** - Customer loyalty focus
+
+### Phase 6: E-commerce
+21. [ ] **API Pricing Page** - Public tiers + Enterprise contact
+22. [ ] **Bulk Sales Flow** - Form + sales-assisted
+
+---
+
+## Decisions Summary
+
+| Topic | Decision |
+|-------|----------|
+| **Animations** | CSS preferred, subtle micro-interactions, itshover.com icons |
+| **Colors** | Minimal - greens for accents, soft variants, respect themes |
+| **Maps** | Mapbox key ready, reuse homepage map |
+| **Rewards** | Keep vague - "reward points" → future rewards (token/voucher/stablecoin TBD) |
+| **Wallets** | Privy abstraction, users don't need crypto knowledge |
+| **Translation** | Full site, /sv/ URLs, € English / kr Swedish |
+| **Forms** | Formspark for forms, Mailchimp for newsletters |
+| **Chat** | Intercom (9-5 weekdays) |
+| **Analytics** | GA4 |
+| **Payments** | Stripe + RevCat (mock for now) |
+| **API Tiers** | Free/Pro/Enterprise - sales-assisted upgrades |
+
+---
+
+## Available Assets
+
+### Partner Logos (17 brands, dark/light variants)
+**Inverters/Solar:** SolarEdge, Fronius, Huawei, Solis, SolaX, Sungrow, Deye, SMA, Ferroamp
+**Batteries:** Pixii
+**EV Chargers:** ChargeAmps, Easee, Zaptec, Ambibox
+**Utility Partners:** Kalmar Energi, NRGi, Elkedjan
+
+### Dashboard Components (ready to reuse)
+- `analytics-dashboard.tsx` - Charts and metrics
+- `ems-dashboard.tsx` - Energy management
+- `fleet-dashboard.tsx` - Multi-site management
+- `energy-monitor.tsx` - Real-time monitoring
+- `sites-overview.tsx` - Site cards/list
+- `savings-rewards.tsx` - Points and savings
+
+### Hero Images
+`/public/images/dark-mode/` and `/public/images/light-mode/`:
+- control.svg, globe.svg, infra.svg, order.svg, pattern.svg, sphere.svg
+
+---
+
+## Detailed Reference (from Q&A)
+
+<details>
+<summary><strong>1. Platform Page Enhancements</strong></summary>
 
 ### 1.1 Branding and Visuals
-**Current state:** Basic platform page with text-heavy content describing the 3-layer architecture.
-
-**Questions:**
-- [ ] Do you have hero images/renders of the platform dashboard or architecture diagrams? Yes, use the dashboards that are on the home page - the actual code with dummy data so people can interact, rather than just boring image, you can also use elements from them for feature card etc, eg use a chart, table or component from one of the many examples on the home screen - but make sure they're repsonsive for mobile. We can also use these images for heroes - I want to animate them eventually but let's used these as placeholder: /Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images/dark-mode
-/Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images
-- [ ] What style of animation? (Subtle micro-interactions vs bold motion graphics) - subtle micro animations, like hovers but also using the animated icons that we use on the design system home page, there's 3 there now, but we can use the whole set from https://www.itshover.com/icons
-- [ ] Should we use Lottie animations, CSS animations, or video backgrounds? I prefer CSS, but we can also use lottie and video. Can you make lotties? Leave placeholders for video, we can do that later. Don't make any lotties, we can do that later.
-- [ ] Any specific color treatments beyond the green/yellow brand palette? Keep colours to a minimum, just use the greens for accents, respect the dark and light theme. Use soft variants of components.
+- **Hero visuals:** Reuse interactive dashboard components from homepage (responsive for mobile)
+- **Hero images:** `/public/images/dark-mode/` and `/public/images/light-mode/` (control, globe, infra, order, pattern, sphere SVGs)
+- **Animation style:** Subtle CSS micro-interactions + itshover.com animated icons
+- **Video:** Leave placeholders, add later
+- **Colors:** Minimal - greens for accents, respect dark/light themes, soft component variants
 
 ### 1.2 Mapbox Integration
-**Current state:** Homepage has a map example but key may be missing/placeholder. 
+- **API key:** Ready in `.env` as `NEXT_PUBLIC_MAPBOX_TOKEN`
+- **Content:** Reuse existing homepage map
+- **Interactivity:** Interactive, dark/light theme support
 
-**Questions:**
-- [ ] Do you have a Mapbox API key ready? (I can set up env variable) They key is in the ENV file now NEXT_PUBLIC_MAPBOX_TOKEN=pk.eyJ1IjoiMHhjb29wcyIsImEiOiJjbWpweWJyNTMwbTgyM2hzY3FxOHV2eDJpIn0._AwdEmmC-NqNHQDd8n0utw
-
-- [ ] What should the map show? (Device locations, grid zones, partner coverage?) Just use the existing map from the home page
-- [ ] Interactive or static visualization? Interactive
-- [ ] Any specific map style preference? (Dark/light/satellite) dark and light
-
-### 1.3 Rewards & Crypto Differentiator
-**Current state:** Not prominently featured - this is a gap given it's your differentiator.
-
-**Questions:**
-- [ ] What's the token/reward mechanism called? (SRC token? Energy credits?) We currently offer reward points, which will later make the holders elligible for some form of rewards. We've not decided if it's a voucher, stablecoin or our own token yet so we need to keep it vague.
-- [ ] How do users earn rewards? (Grid services, flexibility, data sharing?) Currently just for connecting their DERs to Sourceful with a Zap. But we plan to adjust how points are earned based on multiple factors, including the ones you mentioned, but nothing solid yet so keep it vague but compelling. No lies though!
-- [ ] Any existing explainer content, diagrams, or tokenomics docs I can reference? No
-- [ ] Should this be a dedicated section on Platform page, or its own page? It needs to be kept minimal, for consumers its an extra benefit, for B2B it's an add-on loyalty or rewards system for their customers, for installers it's a potential extra source of income.
-- [ ] Wallet integration mentioned anywhere? Web3 connections? We use Privy to keep the wallet side abstracted so users don't need to be crypot savvy, they don't need a wallet, we create one, but again, let's keep this side of things to a min, a mere mention.
-- [ ] Any compliance/regulatory language needed around crypto? Yes probably, not investment advice, no promise of returns etc etc maybe something in the footer?
+### 1.3 Rewards & Crypto
+- **Mechanism:** "Reward points" (vague - future rewards TBD: voucher/stablecoin/token)
+- **Earning:** Currently for connecting DERs via Zap (future: multiple factors - keep vague)
+- **Positioning:**
+  - Consumers: Extra benefit
+  - B2B: Add-on loyalty/rewards for their customers
+  - Installers: Potential extra income
+- **Wallets:** Privy abstraction (users don't need crypto knowledge)
+- **Compliance:** Add disclaimer in footer (not investment advice, no promise of returns)
 
 ### 1.4 Partner Logos
-**Questions:**
-- [ ] Can you provide partner logo files? (SVG preferred) Yes  /Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images/partner-logos
-- [ ] Which partners to feature? (Kalmar Energi, NRGi, Elkedjan mentioned in site) Yes all those mentioned, here's the logos: /Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images/partner-logos
-- [ ] Any hardware partners? (Inverter brands, battery manufacturers) Yes, check the logo files:  /Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images/partner-logos
-- [ ] Logo usage permissions confirmed? Yes
-- [ ] Tiered display? (Featured partners vs integration partners) Home page can show a slowly moving looping carousel of all logos - then show relevant logos on relevant pages
+- **Location:** `/public/images/partner-logos/dark-mode/` and `light-mode/`
+- **Display:** Slow-moving looping carousel on homepage, relevant logos on relevant pages
+- **Permissions:** Confirmed
 
 ### 1.5 Swedish Translation
-**Questions:**
-- [ ] Full site translation or just key marketing pages? Full translation of all pages: English as default, Swedish next.
-- [ ] Do you have Swedish copy already, or need translation? Needs translating, you do it, I'll get a Swede to check it, make it easy to update with Claude - a lang file?
-- [ ] URL structure preference? (`/sv/platform` vs `platform?lang=sv` vs `sourceful.se`) use /sv/platform
-- [ ] Which pages are priority? (I assume: Home, Platform, Zap, Use Cases) yes start there then do every page
-- [ ] Any Swedish-specific content differences? (Local regulations, pricing in SEK) Use € on English, kr on Swedish
+- **Scope:** Full site translation
+- **URL structure:** `/sv/platform`
+- **Currency:** € for English, kr for Swedish
+- **Priority:** Home, Platform, Zap, Use Cases first, then all pages
+- **Format:** Language files for easy updates
 
----
+</details>
 
-## 2. E-commerce & Lead Generation Pipeline
+<details>
+<summary><strong>2. E-commerce & Lead Generation</strong></summary>
 
 ### 2.1 Bulk Sales Flow
-**Questions:**
-- [ ] What's the current sales process for bulk orders? (Form → Sales call?) Form and sales call
-- [ ] Volume tiers? (10+, 100+, 1000+ units?) yes and 500
-- [ ] Should bulk pricing be visible or "contact us"? Contact us
-- [ ] Any existing CRM integration? (HubSpot, Salesforce, Pipedrive?) No, we use formspark for forms, I can create you form IDs, and mailchimp for newsletter sign ups
-- [ ] Payment: Invoicing only, or card payments for smaller bulk orders? Invoicing only
+- **Process:** Form → Sales call
+- **Tiers:** 10+, 100+, 500+, 1000+ units
+- **Pricing:** "Contact us" (invoicing only)
+- **Tools:** Formspark (forms), Mailchimp (newsletters)
 
-### 2.2 Bulk Onboarding Tools
-**Questions:**
-- [ ] What does bulk onboarding look like? (CSV upload, API provisioning?) I don't know yet, let's forget bulk onboarding
-- [ ] Is this a self-service tool or admin-assisted? I don't know yet, let's forget bulk onboarding
-- [ ] Where does this live? (Dashboard, separate portal?) I don't know yet, let's forget bulk onboarding
-- [ ] Any existing documentation or mockups? I don't know yet, let's forget bulk onboarding
+### 2.2 Bulk Onboarding
+- **Status:** Deferred - not implementing now
 
 ### 2.3 API Limits & Upgrades
-**Questions:**
-- [ ] What are the current API tiers? (Free, Pro, Enterprise?) I don't know yet, let's make something up that sounds reasonable
-- [ ] Rate limits per tier? Yes, let's make something up that sounds reasonable
-- [ ] Upgrade flow: Self-service or sales-assisted? Sales assisted for now, but I want to mock up self-service
-- [ ] Should pricing be public or "contact us"? Public for set tiers plus a call us for Enterprise scale
-- [ ] Stripe integration for subscriptions? Yes, we use rev cat too, let's mock it for now, I can give you stripe and rev cat details later
+- **Tiers:** Free / Pro / Enterprise (make up reasonable limits)
+- **Pricing:** Public for Free/Pro, "Contact us" for Enterprise
+- **Upgrade flow:** Sales-assisted (mock self-service UI)
+- **Payments:** Stripe + RevCat (mock for now)
 
----
+</details>
 
-## 3. Dashboard & Use Case Components
+<details>
+<summary><strong>3. Dashboard & Use Case Components</strong></summary>
 
-### 3.1 VPP Dashboard Components
-**Questions:**
-- [ ] Do you have VPP dashboard mockups or screenshots? No, you need to design one, based on our dashboard examples on the home page. Let's dig into the details later.
-- [ ] Key metrics to show? (Aggregate capacity, dispatch events, revenue?) Sounds good, think of more. we can work together on it.
-- [ ] Target audience for VPP content? (Utilities, aggregators?) Yes, and maybe policy makers?
-- [ ] Any existing VPP explainer content? Not really, look at companies like fuse energy, and daylight and enode, copy the best best ideas we can polish later.
+### 3.1 VPP Dashboard
+- **Design:** Based on homepage dashboard examples
+- **Metrics:** Aggregate capacity, dispatch events, revenue, + more
+- **Audience:** Utilities, aggregators, policy makers
+- **Research:** Look at Fuse Energy, Daylight, Enode for inspiration
 
 ### 3.2 Installer Dashboard
-**Questions:**
-- [ ] What do installers need to see? (Customer sites, installations, commissions?) Yes all of those, look at the dashboard examples on the home screen
-- [ ] Any installer portal already built? No, but we could easily build it. I want to build out the dev portal after this site is done, and maybe add an installer portal too, so let's fake it for now
-- [ ] White-label considerations? Yes, promote white label options for installers: web app, native app maybe? training and support options too.
+- **Features:** Customer sites, installations, commissions
+- **Status:** Fake/mockup for now
+- **White-label:** Promote web app, native app, training, support options
 
 ### 3.3 Utility Dashboard
-**Questions:**
-- [ ] Similar to VPP or different focus? A different focus, maybe more about customer loyalty and customer incentives but also VPP, need to think of the use cases and build for their needs. Help me.
-- [ ] Grid flexibility visualization needs? Yes
-- [ ] Integration with existing utility systems mentioned? Yes, we integrate or provide end to end solutions, whatever they prefer.
+- **Focus:** Customer loyalty, incentives, VPP features
+- **Features:** Grid flexibility visualization, integration options
 
 ### 3.4 App Page
-**Questions:**
-- [ ] Is there a mobile app? (iOS/Android) Yes  https://sourceful.energy/app-downloads
-- [ ] App Store links? https://sourceful.energy/app-downloads
-- [ ] Screenshots/mockups available? https://sourceful.energy/app-downloads here, but add placeholders, we can add more later, but maybe we keep it simple so we dont' have to keep updating it with every release.
-- [ ] Feature highlights for the app? Onboarding, data viz, EMS - all the core platform features
-- [ ] Or is this about the web app/dashboard? - its about the native app, but we should also have a web app landing page - it's not finished yet but you can refer to our github project srcful-builder.
+- **App:** iOS/Android at https://sourceful.energy/app-downloads
+- **Screenshots:** Keep simple, use placeholders (avoid frequent updates)
+- **Features:** Onboarding, data viz, EMS
+- **Also needed:** Web app landing page (refer to srcful-builder GitHub)
 
----
+</details>
 
-## 4. Calculators & Free Tools
+<details>
+<summary><strong>4. Calculators & Free Tools</strong></summary>
 
-### 4.1 Savings Calculator (Homeowners)
-**Questions:**
-- [ ] What inputs? (Location, consumption, solar size, battery, EV?) You decide
-- [ ] What outputs? (Annual savings, payback period, CO2 reduction?) You decide
-- [ ] Any existing calculator logic or spreadsheet I can reference? Yes - check the github for similar projects or make a good guess
-- [ ] Country-specific? (Sweden first, then expand?) Just Sweden
-- [ ] Electricity price data source? (API or manual input?) Use our API, check the dev portal in github for details
-- [ ] Lead capture at end of calculation? Yes, enter email and maybe name via a new formspark form, I can give you a formspark ID
+### All Calculators
+- **Country:** Sweden only
+- **Lead capture:** Email + name via Formspark (gated)
+- **Data source:** Sourceful API (check dev portal)
 
-### 4.2 Other Calculators / SEO Tools
-**Questions:**
-- [ ] Any keyword research done on what people search for?
-- [ ] Ideas I'm thinking:
-  - Solar panel ROI calculator - Yes!
-  - Battery sizing calculator - Yes!
-  - EV charging cost calculator - Yes!
-  - Grid export earnings calculator - Yes!
-  - V2X savings estimator - Yes!
-  Add negative price analyser - there's one in our github repo
-- [ ] Which would be highest value for lead gen? All of them
-- [ ] Gated (email required) or ungated? gated, enter email and maybe name via a new formspark form, I can give you a formspark ID
+### Calculators to Build
+1. **Savings Calculator** - Homeowner-focused
+2. **Solar ROI Calculator**
+3. **Battery Sizing Calculator**
+4. **EV Charging Cost Calculator**
+5. **Grid Export Earnings Calculator**
+6. **V2X Savings Estimator**
+7. **Negative Price Analyzer** - Port from GitHub repo
 
----
+</details>
 
-## 5. Visual & Animation Upgrades
+<details>
+<summary><strong>5. Visual & Animation Upgrades</strong></summary>
 
-### 5.1 Data & Control Components (Use Case Pages)
-**Questions:**
-- [ ] What kind of visualizations? (Real-time charts, device status, energy flows?) Yes - reuse components from the dashboard examples on the home page and maybe make new ones that are elevant to the use case
-- [ ] Any specific animations in mind? (Energy flowing, devices responding?) They are good ideas, more like that
-- [ ] Video content available? (Product demos, installations?) Not yet - leave placeholders for a few videos for later
-- [ ] Should these be interactive or illustrative? - always use code, with detailed realistic data thats interactive
+### 5.1 Data Components
+- **Approach:** Reuse homepage dashboard components, create new as needed
+- **Style:** Interactive code with realistic data
+- **Video:** Leave placeholders for later
 
 ### 5.2 Header Animations
-**Questions:**
-- [ ] Hero section animations? (Parallax, particle effects, gradient motion?) Use these images /Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images/dark-mode
-/Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images as the base, or inspiration. I like the idea of particle effects and text reveals, but let's keep that to a minimum now, we'll work on each page indivually later. 
-- [ ] Reference sites you like the feel of? wingbits
-- [ ] Performance considerations? (Keep it light for mobile?) yes
-- [ ] Should headers have video backgrounds? no
+- **Base:** Hero images from `/public/images/`
+- **Style:** Minimal particle effects, text reveals (work on individually later)
+- **Reference:** wingbits
+- **Performance:** Keep light for mobile, no video backgrounds
 
-### 5.3 Animated Text & Page Transitions
-**Questions:**
-- [ ] Text reveal animations? (Fade in, typewriter, split text?) Subtle, smooth and not too fast. Reveal on page scroll or page load
-- [ ] Page transitions? (Fade, slide, morphing elements?) slide in like www.sourceful.energy
-- [ ] Section scroll animations? (Reveal on scroll?) yes nice
-- [ ] Any sites with animation style you like? 
-- [ ] Note: We have Framer Motion installed, ready to go
+### 5.3 Text & Page Transitions
+- **Text:** Subtle, smooth fade reveals on scroll/load
+- **Pages:** Slide transitions (like current sourceful.energy)
+- **Scroll:** Reveal on scroll
+- **Tool:** Framer Motion (installed)
 
-### 5.4 Icon Animations
-**Questions:**
-- [ ] Animated Lucide icons or custom Lottie animations? https://www.itshover.com/icons
-- [ ] Where specifically? (Feature lists, benefits sections?) Yes, animate on reveal, hover or just loop based on position and section design
-- [ ] Hover states or load animations? both
+### 5.4 Icons
+- **Source:** https://www.itshover.com/icons
+- **Animation:** On reveal, hover, or loop based on context
+- **States:** Both hover and load animations
 
----
+</details>
 
-## 6. Lead Capture & Conversion
+<details>
+<summary><strong>6. Lead Capture & Conversion</strong></summary>
 
-### 6.1 Lead Capture Forms
-**Questions:**
-- [ ] What fields to capture? (Email only? Name + email? Company?) start with those
-- [ ] Where should forms appear? (End of pages, sidebar, popups?) end of pages
-- [ ] Lead magnet ideas? (Whitepaper, calculator results, early access?) yes, calculator results
-- [ ] CRM/email tool integration? (HubSpot, Mailchimp, ConvertKit?) Mailchimp and formspark for now
-- [ ] GDPR consent handling? Yes, we need a cookie pop-up and store IP and date of acceptance, and if they decline, don't use the cookies they declined.
+### 6.1 Lead Forms
+- **Fields:** Email, name, company (start simple)
+- **Placement:** End of pages
+- **Lead magnet:** Calculator results
+- **Tools:** Formspark + Mailchimp
+- **GDPR:** Cookie popup with IP + date storage, respect declined cookies
 
-### 6.2 Replace Email Links
-**Current state:** Contact page has forms but some pages may have mailto: links. yes we need remove mail links, direct them to the contact page form.
+### 6.2 Contact Methods
+- **Action:** Remove all mailto: links → contact page forms
+- **Chat:** Intercom on all pages (9-5pm weekdays)
+- **Social:** Discord, X, LinkedIn, YouTube
 
-**Questions:**
-- [ ] Intercom or similar chat widget? (Do you have an account?) Yes we have intercom chat
-- [ ] Which social channels to prioritize? (Discord seems active for devs) Discord, X, LinkedIn, Youtube
-- [ ] Should chat be on all pages or specific ones? yes I suppose
-- [ ] Support hours / expectations for chat? 9-5pm weekdays
-
-### 6.3 A/B Testing & Campaign Pages
-**Questions:**
-- [ ] A/B testing tool preference? (Vercel, Optimizely, PostHog, custom?) Forget it for now, but we might add later
-- [ ] What elements to test? (Headlines, CTAs, pricing display?) Forget it for now, but we might add later
-- [ ] Campaign landing pages: What campaigns are planned? Forget it for now, but we might add later
-- [ ] How many variants typically? Forget it for now, but we might add later
-- [ ] Analytics setup? (GA4, Plausible, PostHog?) GA4
+### 6.3 A/B Testing
+- **Status:** Deferred for now
+- **Analytics:** GA4
 
 ### 6.4 V2X Waitlist
-**Questions:**
-- [ ] Is V2X a separate product or feature of The Zap? It's a feature of the Zap but only works with our tested partner chargers.
-- [ ] Waitlist incentive? (Early access, discount, priority?) Early access
-- [ ] Launch timeline to mention? (Or keep it vague?) Keep it vague, very soon this year
-- [ ] Separate landing page or section on existing page? Both
-- [ ] Integration with email tool for waitlist management? Yes, Formspark I'll supply code later.
+- **Product:** Feature of Zap (works with tested partner chargers)
+- **Incentive:** Early access
+- **Timeline:** Keep vague ("very soon this year")
+- **Pages:** Both dedicated landing page AND section on existing page
+- **Form:** Formspark
 
----
+</details>
 
-## 7. Brand Partner Landing Pages
+<details>
+<summary><strong>7. Brand Partner Landing Pages</strong></summary>
 
-### 7.1 Hardware Brand Pages (SolarEdge, GoodWe, etc.)
-**Questions:**
-- [ ] Which brands to start with? Priority order? Work through the logo files, thats the list /Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images/partner-logos
-- [ ] Content for each: Integration guide? Compatibility? Setup steps? Keep it light for now, just create a template for each and then explain the benefits of sourceful to owners of the respective inverter/battery/charger and a strong CTA to buy a Zap maybe include a use case example, highlight the multi-brand operability
-- [ ] Co-marketing arrangements with these brands? None really but we have permission
-- [ ] SEO play: "SolarEdge smart home integration" etc? yes
-- [ ] Template approach (same structure, different brand) or custom per brand? Template for now
-- [ ] Partner logo/asset usage rights confirmed? Yes
-- [ ] Brands mentioned in your current integrations:
-  - SolarEdge
-  - GoodWe
-  - Huawei
-  - Fronius
-  - SMA
-  - Enphase
-  - Tesla
-  - Others? See here /Users/paulcooper/Documents/Repos/sourceful-marketing-site/public/images/partner-logos
+### Template Approach
+- **Brands:** All 17 from partner logos folder
+- **Content:** Light - benefits of Sourceful for [brand] owners, strong Zap CTA, use case example, multi-brand operability
+- **SEO:** "[Brand] smart home integration" keywords
+- **Permissions:** Confirmed
 
----
+### Brands (from logo files)
+**Inverters/Solar:** SolarEdge, Fronius, Huawei, Solis, SolaX, Sungrow, Deye, SMA, Ferroamp
+**Batteries:** Pixii
+**EV Chargers:** ChargeAmps, Easee, Zaptec, Ambibox
+**Utility Partners:** Kalmar Energi, NRGi, Elkedjan
 
-## 8. Technical Implementation Notes
+</details>
 
-### What's Already in Place
+<details>
+<summary><strong>8. Technical Implementation</strong></summary>
+
+### Already in Place
 - Next.js 16 with App Router
 - Tailwind CSS + Sourceful Design System
-- Framer Motion for animations
-- Mapbox GL installed
-- Dark mode support
+- Framer Motion
+- Mapbox GL
+- Dark mode
 - Mobile responsive
-- Contact form working
+- Contact form
 
-### What We'll Need to Set Up
-- [ ] Environment variables for API keys (Mapbox, analytics, etc.)
-- [ ] CRM/email integration
-- [ ] Chat widget (if using Intercom)
-- [ ] A/B testing infrastructure
-- [ ] i18n for Swedish translation
-- [ ] Additional analytics events
+### To Set Up
+- [x] Mapbox API key (in .env)
+- [ ] Formspark form IDs
+- [ ] Mailchimp integration
+- [ ] Intercom chat widget
+- [ ] i18n for Swedish
+- [ ] GA4 events
+- [ ] GDPR cookie consent
 
----
-
-## Priority Suggestions (My Take)
-
-**High Impact, Lower Effort:**
-1. Partner logos (just need assets)
-2. V2X waitlist (simple form + landing section)
-3. Replace email links with forms
-4. Header animations (Framer Motion ready)
-
-**High Impact, Medium Effort:**
-5. Rewards/crypto section (need content)
-6. Savings calculator (need formula)
-7. Brand partner pages (template approach)
-
-**Higher Effort:**
-8. Swedish translation (need copy)
-9. E-commerce/bulk sales flow (need requirements)
-10. VPP/Installer dashboards (need designs)
-11. A/B testing infrastructure
+</details>
 
 ---
 
-## Next Steps
+## What's Next?
 
-1. **You:** Answer questions above (add links, files, context in comments)
-2. **You:** Mark priorities (must-have vs nice-to-have)
-3. **Me:** Start implementing based on your answers
-4. **Iterate:** Review, refine, ship
+Ready to start implementing. Which task from Phase 1 should we tackle first?
 
----
-
-*Leave your answers below each question, or paste additional context at the bottom of this file. See you in the morning!*
-
----
-
-## Your Notes & Answers
-
-<!-- Add your responses here -->
+1. **Partner Logo Carousel** - Quick win, all assets ready
+2. **Swedish Translation (i18n setup)** - Foundation for all pages
+3. **GDPR Cookie Banner** - Compliance requirement
+4. **Replace mailto: links** - Quick cleanup
+5. **V2X Waitlist** - Landing section + Formspark form
 
 
