@@ -17,6 +17,7 @@ export function MarketingFooter() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/platform" className="hover:text-foreground">{t("platform")}</Link></li>
               <li><Link href="/zap" className="hover:text-foreground">{t("zap")}</Link></li>
+              <li><Link href="/app" className="hover:text-foreground">{t("app")}</Link></li>
               <li><Link href="/integrations" className="hover:text-foreground">{t("integrations")}</Link></li>
               <li><Link href="/v2x" className="hover:text-foreground">V2X</Link></li>
               <li><Link href="/get-started" className="hover:text-foreground">{tNav("getStarted")}</Link></li>
