@@ -7,8 +7,13 @@ export const metadata: Metadata = {
   description: "Insights, news, and updates from Sourceful Energy. Learn about the energy transition, grid services, V2X, and smart energy management.",
 };
 
-export default function BlogPage() {
-  const posts = getAllPosts("en");
+interface BlogPageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function BlogPage({ params }: BlogPageProps) {
+  const { locale } = await params;
+  const posts = getAllPosts(locale);
 
   return <BlogContent posts={posts} categoryLabels={CATEGORY_LABELS} authors={AUTHORS} />;
 }
