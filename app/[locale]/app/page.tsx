@@ -72,7 +72,7 @@ export default function AppPage() {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button size="lg" asChild>
                       <a
-                        href="https://apps.apple.com/app/sourceful-energy/id6476468775"
+                        href="https://apps.apple.com/se/app/sourceful-energy/id6736659172"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -84,7 +84,7 @@ export default function AppPage() {
                     </Button>
                     <Button size="lg" variant="outline" asChild>
                       <a
-                        href="https://play.google.com/store/apps/details?id=io.srcful.app"
+                        href="https://play.google.com/store/apps/details?id=com.sourceful_labs.energy"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -235,7 +235,7 @@ export default function AppPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild>
                   <a
-                    href="https://apps.apple.com/app/sourceful-energy/id6476468775"
+                    href="https://apps.apple.com/se/app/sourceful-energy/id6736659172"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -247,7 +247,7 @@ export default function AppPage() {
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a
-                    href="https://play.google.com/store/apps/details?id=io.srcful.app"
+                    href="https://play.google.com/store/apps/details?id=com.sourceful_labs.energy"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
