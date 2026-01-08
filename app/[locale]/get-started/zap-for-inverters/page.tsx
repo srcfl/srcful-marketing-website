@@ -1,5 +1,8 @@
-import type { Metadata } from "next";
+"use client";
+
+import Image from "next/image";
 import { Link } from "@/src/i18n/routing";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,122 +24,115 @@ import {
   Battery,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Setup Guide: Zap with Inverter",
-  description: "Step-by-step guide to connect your Zap to a solar inverter via Modbus TCP/IP.",
-};
-
-const supportedInverters = [
-  { name: "Solis", models: "All hybrid and string inverters" },
-  { name: "Sungrow", models: "SH and SG series" },
-  { name: "Deye", models: "Sun-series hybrid inverters" },
-];
-
-const steps = [
-  {
-    number: 1,
-    title: "Locate Inverter Network Settings",
-    icon: Cpu,
-    description:
-      "Gather your inverter's network settings: IP address, Unit ID, and Port Number. These can typically be found on the inverter's display or through your installer.",
-    tips: [
-      "IP Address: Usually starts with 192.168.x.x",
-      "Unit ID: Often 1 or 247 (check your inverter's documentation)",
-      "Port: Typically 502 for Modbus TCP",
-    ],
-    info: {
-      title: "Modbus TCP Required",
-      message:
-        "If Modbus TCP is not enabled on your inverter, ask your installer to enable it or check our configuration guides. Some inverters require direct RS485 wired connections instead.",
-    },
-  },
-  {
-    number: 2,
-    title: "Power the Zap Device",
-    icon: Battery,
-    description: "The Zap needs power to operate. You have two options:",
-    options: [
-      {
-        title: "Option A: P1 Meter Port",
-        description: "Connect to your electricity meter's P1 (RJ12) port for power and meter data",
-      },
-      {
-        title: "Option B: USB-C Power",
-        description: "Use any USB-C power source: phone charger, computer, or inverter's USB port",
-      },
-    ],
-    tips: [
-      "The Zap must remain within range of your Wi-Fi router",
-      "If using USB-C, ensure the power source is always on",
-      "P1 connection provides both power AND meter data",
-    ],
-  },
-  {
-    number: 3,
-    title: "Check LED Indicators",
-    icon: CheckCircle,
-    description:
-      "After powering on, verify these lights activate on your Zap device:",
-    leds: [
-      { color: "green", label: "Power LED", status: "Solid on" },
-      { color: "blue", label: "Status LED", status: "Lit (setup mode)" },
-    ],
-    tips: [
-      "If no lights appear, check the power connection",
-      "The blue LED indicates the device is ready for setup",
-      "Troubleshooting guide available in our Help Centre",
-    ],
-  },
-  {
-    number: 4,
-    title: "Download the Sourceful App",
-    icon: Smartphone,
-    description:
-      "Install the Sourceful Energy app from the App Store or Google Play Store. Create an account and register your Zap device following on-screen prompts.",
-    tips: [
-      "Bluetooth must be enabled on your phone",
-      "Keep your phone close to the Zap during setup",
-      "You'll connect the Zap to your Wi-Fi network through the app",
-    ],
-    appLinks: true,
-  },
-  {
-    number: 5,
-    title: "Connect Your Inverter",
-    icon: Wifi,
-    description:
-      "In the app, select 'Add an Energy Device' and enter the network settings from Step 1. The app will connect to your inverter via Modbus TCP.",
-    tips: [
-      "Make sure the Zap and inverter are on the same network",
-      "Enter the IP address, port, and unit ID exactly as found in Step 1",
-      "The system supports up to three DERs (at least one must be an energy meter)",
-    ],
-    info: {
-      title: "Multiple Devices",
-      message:
-        "You can connect multiple energy devices (solar, battery, meter) to a single Zap. Add them one at a time through the app.",
-    },
-  },
-  {
-    number: 6,
-    title: "Verify Successful Connection",
-    icon: CheckCircle,
-    description:
-      "When fully operational, your Zap and app should show the following:",
-    leds: [
-      { color: "green", label: "Power LED", status: "Solid on" },
-      { color: "green", label: "Data LED", status: "Blinks every ~10 seconds" },
-      { color: "blue", label: "Status LED", status: "Off (normal operation)" },
-    ],
-    tips: [
-      "The app should display real-time solar production data",
-      "Bluetooth automatically disconnects after setup",
-      "The Zap now communicates via Wi-Fi",
-    ],
-  },
-];
-
 export default function ZapForInvertersPage() {
+  const t = useTranslations("getStarted");
+
+  const supportedInverters = [
+    { name: t("inverter.inverters.solis.name"), models: t("inverter.inverters.solis.models") },
+    { name: t("inverter.inverters.sungrow.name"), models: t("inverter.inverters.sungrow.models") },
+    { name: t("inverter.inverters.deye.name"), models: t("inverter.inverters.deye.models") },
+  ];
+
+  const steps = [
+    {
+      number: 1,
+      title: t("inverter.steps.step1.title"),
+      icon: Cpu,
+      description: t("inverter.steps.step1.description"),
+      tips: [
+        t("inverter.steps.step1.tips.tip1"),
+        t("inverter.steps.step1.tips.tip2"),
+        t("inverter.steps.step1.tips.tip3"),
+      ],
+      info: {
+        title: t("inverter.steps.step1.info.title"),
+        message: t("inverter.steps.step1.info.message"),
+      },
+    },
+    {
+      number: 2,
+      title: t("inverter.steps.step2.title"),
+      icon: Battery,
+      description: t("inverter.steps.step2.description"),
+      options: [
+        {
+          title: t("inverter.steps.step2.options.optionA.title"),
+          description: t("inverter.steps.step2.options.optionA.description"),
+        },
+        {
+          title: t("inverter.steps.step2.options.optionB.title"),
+          description: t("inverter.steps.step2.options.optionB.description"),
+        },
+      ],
+      tips: [
+        t("inverter.steps.step2.tips.tip1"),
+        t("inverter.steps.step2.tips.tip2"),
+        t("inverter.steps.step2.tips.tip3"),
+      ],
+    },
+    {
+      number: 3,
+      title: t("inverter.steps.step3.title"),
+      icon: CheckCircle,
+      description: t("inverter.steps.step3.description"),
+      leds: [
+        { color: "green", label: t("zap.leds.power"), status: t("zap.leds.solidOn") },
+        { color: "blue", label: t("zap.leds.status"), status: t("zap.leds.setupMode") },
+      ],
+      tips: [
+        t("inverter.steps.step3.tips.tip1"),
+        t("inverter.steps.step3.tips.tip2"),
+        t("inverter.steps.step3.tips.tip3"),
+      ],
+      image: "/images/get-started/zap-led-powered.png",
+    },
+    {
+      number: 4,
+      title: t("inverter.steps.step4.title"),
+      icon: Smartphone,
+      description: t("inverter.steps.step4.description"),
+      tips: [
+        t("inverter.steps.step4.tips.tip1"),
+        t("inverter.steps.step4.tips.tip2"),
+        t("inverter.steps.step4.tips.tip3"),
+      ],
+      appLinks: true,
+      image: "/images/get-started/app-setup.png",
+    },
+    {
+      number: 5,
+      title: t("inverter.steps.step5.title"),
+      icon: Wifi,
+      description: t("inverter.steps.step5.description"),
+      tips: [
+        t("inverter.steps.step5.tips.tip1"),
+        t("inverter.steps.step5.tips.tip2"),
+        t("inverter.steps.step5.tips.tip3"),
+      ],
+      info: {
+        title: t("inverter.steps.step5.info.title"),
+        message: t("inverter.steps.step5.info.message"),
+      },
+      image: "/images/get-started/app-inverter-setup.png",
+    },
+    {
+      number: 6,
+      title: t("inverter.steps.step6.title"),
+      icon: CheckCircle,
+      description: t("inverter.steps.step6.description"),
+      leds: [
+        { color: "green", label: t("zap.leds.power"), status: t("zap.leds.solidOn") },
+        { color: "green", label: t("zap.leds.data"), status: t("zap.leds.blinking") },
+        { color: "blue", label: t("zap.leds.status"), status: t("zap.leds.off") },
+      ],
+      tips: [
+        t("inverter.steps.step6.tips.tip1"),
+        t("inverter.steps.step6.tips.tip2"),
+        t("inverter.steps.step6.tips.tip3"),
+      ],
+      image: "/images/get-started/app-energy-data.png",
+    },
+  ];
   return (
     <div className="flex min-h-screen flex-col">
       <MarketingNav />
@@ -148,30 +144,29 @@ export default function ZapForInvertersPage() {
           <div className="relative max-w-4xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <Link
               href="/get-started"
-              className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-6"
+              className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4"
             >
               <ArrowLeft className="h-4 w-4 mr-1" />
-              Back to Device Selection
+              {t("buttons.backToSelection")}
             </Link>
 
-            <Badge variant="secondary" className="mb-4">
+            <Badge variant="secondary" className="mb-6">
               <Cpu className="h-3 w-3 mr-1" />
-              Inverter Setup
+              {t("inverter.badge")}
             </Badge>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-              Connect Zap to Your{" "}
-              <span className="text-primary">Solar Inverter</span>
+              {t("inverter.title")}{" "}
+              <span className="text-primary">{t("inverter.titleHighlight")}</span>
             </h1>
 
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Follow this 6-step guide to connect your Zap gateway to a solar inverter
-              via Modbus TCP/IP. Setup typically takes 15-20 minutes.
+              {t("inverter.description")}
             </p>
 
             {/* Supported Inverters */}
             <div className="mt-8 p-4 bg-muted/50 rounded-lg">
-              <h3 className="font-medium mb-3">Supported Inverters:</h3>
+              <h3 className="font-medium mb-3">{t("inverter.supportedInverters")}</h3>
               <div className="flex flex-wrap gap-4">
                 {supportedInverters.map((inv) => (
                   <div key={inv.name} className="flex items-center gap-2">
@@ -200,7 +195,9 @@ export default function ZapForInvertersPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6">
-                  <p className="text-muted-foreground mb-4">{step.description}</p>
+                  <div className="flex flex-col md:flex-row gap-6">
+                    <div className="flex-1">
+                      <p className="text-muted-foreground mb-4">{step.description}</p>
 
                   {step.info && (
                     <Alert className="mb-4">
@@ -263,7 +260,7 @@ export default function ZapForInvertersPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          App Store
+                          {t("buttons.appStore")}
                           <ExternalLink className="ml-2 h-3 w-3" />
                         </a>
                       </Button>
@@ -273,12 +270,25 @@ export default function ZapForInvertersPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Google Play
+                          {t("buttons.googlePlay")}
                           <ExternalLink className="ml-2 h-3 w-3" />
                         </a>
                       </Button>
                     </div>
                   )}
+                    </div>
+                    {step.image && (
+                      <div className="flex-shrink-0 flex items-center justify-center">
+                        <Image
+                          src={step.image}
+                          alt={step.title}
+                          width={200}
+                          height={200}
+                          className="rounded-lg object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -290,10 +300,9 @@ export default function ZapForInvertersPage() {
           <div className="max-w-4xl mx-auto py-12 px-4 md:px-8">
             <div className="flex flex-col md:flex-row items-start gap-6 md:gap-12">
               <div className="flex-1">
-                <h2 className="text-lg font-semibold mb-2">Need Help?</h2>
+                <h2 className="text-lg font-semibold mb-2">{t("inverter.help.title")}</h2>
                 <p className="text-muted-foreground">
-                  If you encounter any issues during setup, check our Help Centre for
-                  inverter-specific configuration guides or join our community for support.
+                  {t("inverter.help.description")}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -304,12 +313,12 @@ export default function ZapForInvertersPage() {
                     rel="noopener noreferrer"
                   >
                     <HelpCircle className="mr-2 h-4 w-4" />
-                    Help Centre
+                    {t("buttons.helpCentre")}
                     <ExternalLink className="ml-2 h-3 w-3" />
                   </a>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/community">Join Community</Link>
+                  <Link href="/community">{t("buttons.joinCommunity")}</Link>
                 </Button>
               </div>
             </div>
@@ -319,20 +328,19 @@ export default function ZapForInvertersPage() {
         {/* Next Steps */}
         <section className="border-t">
           <div className="max-w-4xl mx-auto py-16 px-4 md:px-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">What&apos;s Next?</h2>
+            <h2 className="text-2xl font-bold mb-4">{t("inverter.next.title")}</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Once connected, explore the Sourceful app to monitor your solar production,
-              optimize self-consumption, and manage grid exports.
+              {t("inverter.next.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild>
                 <Link href="/platform">
-                  Explore the Platform
+                  {t("buttons.explorePlatform")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="/get-started/zap">Connect a P1 Meter</Link>
+                <Link href="/get-started/zap">{t("buttons.connectMeter")}</Link>
               </Button>
             </div>
           </div>

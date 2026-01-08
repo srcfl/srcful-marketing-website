@@ -563,5 +563,243 @@
       }
     },
     "moreTools": "Fler energiverktyg"
+  },
+  "getStarted": {
+    "hero": {
+      "badge": "Installationsguide",
+      "title": "Kom igång med",
+      "titleHighlight": "Sourceful",
+      "description": "Välj vilken typ av enhet du vill ansluta. Zap-gatewayen fungerar med både elmätare och solväxelriktare."
+    },
+    "devices": {
+      "meter": {
+        "title": "Elmätare med P1-port",
+        "subtitle": "RJ12-anslutning",
+        "description": "Anslut din Zap direkt till elmätarens P1-dataport för realtidsövervakning av förbrukning.",
+        "features": {
+          "monitoring": "Realtidsövervakning av energi",
+          "alerts": "Varningar för toppeffekt",
+          "history": "Historisk förbrukningsdata",
+          "compatibility": "Fungerar med alla P1-aktiverade mätare"
+        }
+      },
+      "inverter": {
+        "title": "Växelriktare med Modbus TCP/IP",
+        "subtitle": "Wi-Fi-anslutning",
+        "description": "Anslut din solväxelriktare via Modbus TCP/IP för produktionsövervakning och smart optimering.",
+        "features": {
+          "monitoring": "Övervakning av solproduktion",
+          "optimization": "Optimering av egenförbrukning",
+          "export": "Hantering av nätexport",
+          "compatibility": "Stöder Solis, Sungrow, Deye"
+        }
+      }
+    },
+    "compatibility": {
+      "title": "Enhetskompatibilitet",
+      "description": "Zap stöder för närvarande alla mätare med P1-port (RJ12) samt Solis, Sungrow och Deye växelriktare med Modbus TCP/IP. Se vår kompatibilitetsguide för en fullständig lista över enheter som stöds."
+    },
+    "noZap": {
+      "title": "Har du ingen Zap ännu?",
+      "description": "Zap-gatewayen är hårdvaran som kopplar dina energienheter till Sourceful. Den är liten, prisvärd och enkel att installera."
+    },
+    "buttons": {
+      "startSetup": "Starta installation",
+      "getTheZap": "Skaffa Zap",
+      "helpCentre": "Hjälpcenter",
+      "viewIntegrations": "Visa alla integrationer",
+      "backToSelection": "Tillbaka till enhetsval",
+      "explorePlatform": "Utforska plattformen",
+      "connectInverter": "Anslut en växelriktare",
+      "connectMeter": "Anslut en P1-mätare",
+      "joinCommunity": "Gå med i communityn",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
+    },
+    "zap": {
+      "badge": "P1-mätarinstallation",
+      "title": "Anslut Zap till din",
+      "titleHighlight": "elmätare",
+      "description": "Följ denna 6-stegsguide för att ansluta din Zap-gateway till en elmätare med P1-port (RJ12). Installationen tar vanligtvis 10-15 minuter.",
+      "steps": {
+        "step1": {
+          "title": "Aktivera P1-porten på din mätare",
+          "description": "Kontakta din nätägare (t.ex. Ellevio, Vattenfall, E.ON) för att aktivera P1-dataporten (RJ12). Detta kan ofta göras via deras webbplats eller genom att ringa deras support för fjärraktivering.",
+          "tips": {
+            "tip1": "De flesta nätägare kan aktivera P1 på distans inom 24-48 timmar",
+            "tip2": "Tjänsten är vanligtvis kostnadsfri",
+            "tip3": "Du kan behöva ditt mätar-ID (finns på själva mätaren)"
+          },
+          "warning": {
+            "title": "Säkerhetsvarning",
+            "message": "Manipulera inte din elmätare. Anslut endast enheter till den avsedda P1-porten. Läs säkerhetsinformationen före installation."
+          }
+        },
+        "step2": {
+          "title": "Anslut Zap till elmätaren",
+          "description": "När din nätägare bekräftat att P1-data är aktiverat, anslut Zap-enheten till din elmätare med den medföljande RJ12-kabeln. P1-porten finns vanligtvis på framsidan eller undersidan av mätaren.",
+          "tips": {
+            "tip1": "Zap får ström från P1-porten—ingen separat strömförsörjning behövs",
+            "tip2": "Se till att kabeln klickar fast ordentligt",
+            "tip3": "Placera Zap inom räckhåll för din Wi-Fi-router"
+          }
+        },
+        "step3": {
+          "title": "Kontrollera LED-indikatorerna",
+          "description": "Efter anslutning, kontrollera att dessa lampor lyser på din Zap-enhet:",
+          "tips": {
+            "tip1": "Om inga lampor lyser, kontrollera kabelanslutningen",
+            "tip2": "Den blå LED:en indikerar att enheten är redo för installation"
+          }
+        },
+        "step4": {
+          "title": "Verifiera dataöverföring",
+          "description": "Den gröna data-LED:en ska börja blinka när den tar emot mätardata. Detta indikerar att din mätare skickar förbrukningsdata till Zap.",
+          "tips": {
+            "tip1": "Detta steg kan ta några minuter",
+            "tip2": "LED:en blinkar varje gång data tas emot (vanligtvis var 10:e sekund)",
+            "tip3": "Om den inte blinkar kanske din P1-port inte är aktiverad ännu"
+          }
+        },
+        "step5": {
+          "title": "Ladda ner och konfigurera appen",
+          "description": "Ladda ner Sourceful Energy-appen från App Store eller Google Play. Skapa ditt konto och registrera din Zap enligt instruktionerna på skärmen.",
+          "tips": {
+            "tip1": "Se till att Bluetooth är aktiverat på din telefon",
+            "tip2": "Håll telefonen nära Zap under installationen",
+            "tip3": "Du behöver ansluta Zap till ditt Wi-Fi-nätverk"
+          }
+        },
+        "step6": {
+          "title": "Verifiering av slutförd installation",
+          "description": "När allt fungerar korrekt ska din Zap och app visa följande:",
+          "tips": {
+            "tip1": "Appen ska visa energiförbrukning i realtid",
+            "tip2": "Bluetooth kopplas automatiskt bort efter installation",
+            "tip3": "Zap kommunicerar nu via Wi-Fi"
+          }
+        }
+      },
+      "leds": {
+        "power": "Ström-LED",
+        "status": "Status-LED",
+        "data": "Data-LED",
+        "solidOn": "Lyser fast",
+        "setupMode": "Lyser (installationsläge)",
+        "blinking": "Blinkar var ~10:e sekund",
+        "off": "Av (normalt läge)"
+      },
+      "help": {
+        "title": "Behöver du hjälp?",
+        "description": "Om du stöter på problem under installationen, kolla vårt hjälpcenter för felsökningsguider eller gå med i vår community för support."
+      },
+      "next": {
+        "title": "Vad händer nu?",
+        "description": "När du är ansluten, utforska Sourceful-appen för att övervaka din energiförbrukning, ställa in varningar och börja optimera din förbrukning."
+      }
+    },
+    "inverter": {
+      "badge": "Växelriktarinstallation",
+      "title": "Anslut Zap till din",
+      "titleHighlight": "solväxelriktare",
+      "description": "Följ denna 6-stegsguide för att ansluta din Zap-gateway till en solväxelriktare via Modbus TCP/IP. Installationen tar vanligtvis 15-20 minuter.",
+      "supportedInverters": "Växelriktare som stöds:",
+      "inverters": {
+        "solis": {
+          "name": "Solis",
+          "models": "Alla hybrid- och strängväxelriktare"
+        },
+        "sungrow": {
+          "name": "Sungrow",
+          "models": "SH- och SG-serien"
+        },
+        "deye": {
+          "name": "Deye",
+          "models": "Sun-seriens hybridväxelriktare"
+        }
+      },
+      "steps": {
+        "step1": {
+          "title": "Hitta växelriktarens nätverksinställningar",
+          "description": "Samla in din växelriktares nätverksinställningar: IP-adress, Enhets-ID och Portnummer. Dessa finns vanligtvis på växelriktarens display eller via din installatör.",
+          "tips": {
+            "tip1": "IP-adress: Börjar vanligtvis med 192.168.x.x",
+            "tip2": "Enhets-ID: Ofta 1 eller 247 (se din växelriktares dokumentation)",
+            "tip3": "Port: Vanligtvis 502 för Modbus TCP"
+          },
+          "info": {
+            "title": "Modbus TCP krävs",
+            "message": "Om Modbus TCP inte är aktiverat på din växelriktare, be din installatör att aktivera det eller se våra konfigurationsguider. Vissa växelriktare kräver direkta RS485-kabelanslutningar istället."
+          }
+        },
+        "step2": {
+          "title": "Strömförsörj Zap-enheten",
+          "description": "Zap behöver ström för att fungera. Du har två alternativ:",
+          "options": {
+            "optionA": {
+              "title": "Alternativ A: P1-mätarport",
+              "description": "Anslut till elmätarens P1-port (RJ12) för ström och mätardata"
+            },
+            "optionB": {
+              "title": "Alternativ B: USB-C-ström",
+              "description": "Använd valfri USB-C-strömkälla: telefonladdare, dator eller växelriktarens USB-port"
+            }
+          },
+          "tips": {
+            "tip1": "Zap måste vara inom räckhåll för din Wi-Fi-router",
+            "tip2": "Om du använder USB-C, se till att strömkällan alltid är på",
+            "tip3": "P1-anslutning ger både ström OCH mätardata"
+          }
+        },
+        "step3": {
+          "title": "Kontrollera LED-indikatorerna",
+          "description": "Efter att ha slagit på strömmen, kontrollera att dessa lampor aktiveras på din Zap-enhet:",
+          "tips": {
+            "tip1": "Om inga lampor lyser, kontrollera strömkabeln",
+            "tip2": "Den blå LED:en indikerar att enheten är redo för installation",
+            "tip3": "Felsökningsguide finns i vårt hjälpcenter"
+          }
+        },
+        "step4": {
+          "title": "Ladda ner Sourceful-appen",
+          "description": "Installera Sourceful Energy-appen från App Store eller Google Play Store. Skapa ett konto och registrera din Zap-enhet enligt instruktionerna på skärmen.",
+          "tips": {
+            "tip1": "Bluetooth måste vara aktiverat på din telefon",
+            "tip2": "Håll telefonen nära Zap under installationen",
+            "tip3": "Du ansluter Zap till ditt Wi-Fi-nätverk via appen"
+          }
+        },
+        "step5": {
+          "title": "Anslut din växelriktare",
+          "description": "I appen, välj 'Lägg till en energienhet' och ange nätverksinställningarna från Steg 1. Appen kommer att ansluta till din växelriktare via Modbus TCP.",
+          "tips": {
+            "tip1": "Se till att Zap och växelriktaren är på samma nätverk",
+            "tip2": "Ange IP-adress, port och enhets-ID exakt som i Steg 1",
+            "tip3": "Systemet stöder upp till tre DER:er (minst en måste vara en elmätare)"
+          },
+          "info": {
+            "title": "Flera enheter",
+            "message": "Du kan ansluta flera energienheter (sol, batteri, mätare) till en enda Zap. Lägg till dem en i taget via appen."
+          }
+        },
+        "step6": {
+          "title": "Verifiera lyckad anslutning",
+          "description": "När allt fungerar korrekt ska din Zap och app visa följande:",
+          "tips": {
+            "tip1": "Appen ska visa solproduktionsdata i realtid",
+            "tip2": "Bluetooth kopplas automatiskt bort efter installation",
+            "tip3": "Zap kommunicerar nu via Wi-Fi"
+          }
+        }
+      },
+      "help": {
+        "title": "Behöver du hjälp?",
+        "description": "Om du stöter på problem under installationen, kolla vårt hjälpcenter för växelriktarspecifika konfigurationsguider eller gå med i vår community för support."
+      },
+      "next": {
+        "title": "Vad händer nu?",
+        "description": "När du är ansluten, utforska Sourceful-appen för att övervaka din solproduktion, optimera egenförbrukning och hantera nätexport."
+      }
+    }
   }
 }

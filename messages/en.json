@@ -563,5 +563,243 @@
       }
     },
     "moreTools": "More Energy Tools"
+  },
+  "getStarted": {
+    "hero": {
+      "badge": "Setup Guide",
+      "title": "Get Started with",
+      "titleHighlight": "Sourceful",
+      "description": "Select the type of device you want to connect. The Zap gateway works with both electricity meters and solar inverters."
+    },
+    "devices": {
+      "meter": {
+        "title": "Electricity Meter with P1 Port",
+        "subtitle": "RJ12 Connection",
+        "description": "Connect your Zap directly to your electricity meter's P1 data port for real-time consumption monitoring.",
+        "features": {
+          "monitoring": "Real-time energy monitoring",
+          "alerts": "Peak demand alerts",
+          "history": "Historical consumption data",
+          "compatibility": "Works with all P1-enabled meters"
+        }
+      },
+      "inverter": {
+        "title": "Inverter with Modbus TCP/IP",
+        "subtitle": "Wi-Fi Connection",
+        "description": "Connect your solar inverter via Modbus TCP/IP for production monitoring and smart optimization.",
+        "features": {
+          "monitoring": "Solar production monitoring",
+          "optimization": "Self-consumption optimization",
+          "export": "Export management",
+          "compatibility": "Supports Solis, Sungrow, Deye"
+        }
+      }
+    },
+    "compatibility": {
+      "title": "Device Compatibility",
+      "description": "Zap currently supports all meters with a P1 port (RJ12) and Solis, Sungrow, and Deye inverters with Modbus TCP/IP. Check our compatibility guide for the full list of supported devices."
+    },
+    "noZap": {
+      "title": "Don't have a Zap yet?",
+      "description": "The Zap gateway is the hardware that connects your energy devices to Sourceful. It's small, affordable, and easy to install."
+    },
+    "buttons": {
+      "startSetup": "Start Setup",
+      "getTheZap": "Get the Zap",
+      "helpCentre": "Help Centre",
+      "viewIntegrations": "View All Integrations",
+      "backToSelection": "Back to Device Selection",
+      "explorePlatform": "Explore the Platform",
+      "connectInverter": "Connect an Inverter",
+      "connectMeter": "Connect a P1 Meter",
+      "joinCommunity": "Join Community",
+      "appStore": "App Store",
+      "googlePlay": "Google Play"
+    },
+    "zap": {
+      "badge": "P1 Meter Setup",
+      "title": "Connect Zap to Your",
+      "titleHighlight": "Electricity Meter",
+      "description": "Follow this 6-step guide to connect your Zap gateway to an electricity meter with a P1 (RJ12) port. Setup typically takes 10-15 minutes.",
+      "steps": {
+        "step1": {
+          "title": "Enable P1 Port on Your Meter",
+          "description": "Contact your grid operator (e.g., Ellevio, Vattenfall, E.ON) to enable the P1 (RJ12) data port. This can often be done via their website or by calling their support team for remote activation.",
+          "tips": {
+            "tip1": "Most grid operators can enable P1 remotely within 24-48 hours",
+            "tip2": "The service is usually free of charge",
+            "tip3": "You may need your meter ID (found on the meter itself)"
+          },
+          "warning": {
+            "title": "Safety Warning",
+            "message": "Do not tamper with your electricity meter. Only connect devices to the designated P1 port. Read the Safety Information before setup."
+          }
+        },
+        "step2": {
+          "title": "Connect Zap to Energy Meter",
+          "description": "Once your grid operator confirms P1 data is enabled, connect the Zap device to your electricity meter using the included RJ12 cable. The P1 port is typically located on the front or bottom of your meter.",
+          "tips": {
+            "tip1": "The Zap powers itself from the P1 port—no separate power needed",
+            "tip2": "Make sure the cable clicks securely into place",
+            "tip3": "Position the Zap within range of your Wi-Fi router"
+          }
+        },
+        "step3": {
+          "title": "Check LED Indicators",
+          "description": "After connection, verify these lights activate on your Zap device:",
+          "tips": {
+            "tip1": "If no lights appear, check the cable connection",
+            "tip2": "The blue LED indicates the device is ready for setup"
+          }
+        },
+        "step4": {
+          "title": "Verify Data Transfer",
+          "description": "The green data LED should start blinking when receiving meter data. This indicates your meter is sending consumption data to the Zap.",
+          "tips": {
+            "tip1": "This step might take a few minutes",
+            "tip2": "The LED blinks each time data is received (typically every 10 seconds)",
+            "tip3": "If it doesn't blink, your P1 port may not be enabled yet"
+          }
+        },
+        "step5": {
+          "title": "Download and Configure App",
+          "description": "Download the Sourceful Energy app from the App Store or Google Play. Create your account and register your Zap following the on-screen instructions.",
+          "tips": {
+            "tip1": "Make sure Bluetooth is enabled on your phone",
+            "tip2": "Keep your phone close to the Zap during setup",
+            "tip3": "You'll need to connect the Zap to your Wi-Fi network"
+          }
+        },
+        "step6": {
+          "title": "Completion Verification",
+          "description": "When fully operational, your Zap and app should show the following:",
+          "tips": {
+            "tip1": "The app should display real-time energy consumption",
+            "tip2": "Bluetooth automatically disconnects after setup",
+            "tip3": "The Zap now communicates via Wi-Fi"
+          }
+        }
+      },
+      "leds": {
+        "power": "Power LED",
+        "status": "Status LED",
+        "data": "Data LED",
+        "solidOn": "Solid on",
+        "setupMode": "Lit (setup mode)",
+        "blinking": "Blinks every ~10 seconds",
+        "off": "Off (normal operation)"
+      },
+      "help": {
+        "title": "Need Help?",
+        "description": "If you encounter any issues during setup, check our Help Centre for troubleshooting guides or join our community for support."
+      },
+      "next": {
+        "title": "What's Next?",
+        "description": "Once connected, explore the Sourceful app to monitor your energy usage, set up alerts, and start optimizing your consumption."
+      }
+    },
+    "inverter": {
+      "badge": "Inverter Setup",
+      "title": "Connect Zap to Your",
+      "titleHighlight": "Solar Inverter",
+      "description": "Follow this 6-step guide to connect your Zap gateway to a solar inverter via Modbus TCP/IP. Setup typically takes 15-20 minutes.",
+      "supportedInverters": "Supported Inverters:",
+      "inverters": {
+        "solis": {
+          "name": "Solis",
+          "models": "All hybrid and string inverters"
+        },
+        "sungrow": {
+          "name": "Sungrow",
+          "models": "SH and SG series"
+        },
+        "deye": {
+          "name": "Deye",
+          "models": "Sun-series hybrid inverters"
+        }
+      },
+      "steps": {
+        "step1": {
+          "title": "Locate Inverter Network Settings",
+          "description": "Gather your inverter's network settings: IP address, Unit ID, and Port Number. These can typically be found on the inverter's display or through your installer.",
+          "tips": {
+            "tip1": "IP Address: Usually starts with 192.168.x.x",
+            "tip2": "Unit ID: Often 1 or 247 (check your inverter's documentation)",
+            "tip3": "Port: Typically 502 for Modbus TCP"
+          },
+          "info": {
+            "title": "Modbus TCP Required",
+            "message": "If Modbus TCP is not enabled on your inverter, ask your installer to enable it or check our configuration guides. Some inverters require direct RS485 wired connections instead."
+          }
+        },
+        "step2": {
+          "title": "Power the Zap Device",
+          "description": "The Zap needs power to operate. You have two options:",
+          "options": {
+            "optionA": {
+              "title": "Option A: P1 Meter Port",
+              "description": "Connect to your electricity meter's P1 (RJ12) port for power and meter data"
+            },
+            "optionB": {
+              "title": "Option B: USB-C Power",
+              "description": "Use any USB-C power source: phone charger, computer, or inverter's USB port"
+            }
+          },
+          "tips": {
+            "tip1": "The Zap must remain within range of your Wi-Fi router",
+            "tip2": "If using USB-C, ensure the power source is always on",
+            "tip3": "P1 connection provides both power AND meter data"
+          }
+        },
+        "step3": {
+          "title": "Check LED Indicators",
+          "description": "After powering on, verify these lights activate on your Zap device:",
+          "tips": {
+            "tip1": "If no lights appear, check the power connection",
+            "tip2": "The blue LED indicates the device is ready for setup",
+            "tip3": "Troubleshooting guide available in our Help Centre"
+          }
+        },
+        "step4": {
+          "title": "Download the Sourceful App",
+          "description": "Install the Sourceful Energy app from the App Store or Google Play Store. Create an account and register your Zap device following on-screen prompts.",
+          "tips": {
+            "tip1": "Bluetooth must be enabled on your phone",
+            "tip2": "Keep your phone close to the Zap during setup",
+            "tip3": "You'll connect the Zap to your Wi-Fi network through the app"
+          }
+        },
+        "step5": {
+          "title": "Connect Your Inverter",
+          "description": "In the app, select 'Add an Energy Device' and enter the network settings from Step 1. The app will connect to your inverter via Modbus TCP.",
+          "tips": {
+            "tip1": "Make sure the Zap and inverter are on the same network",
+            "tip2": "Enter the IP address, port, and unit ID exactly as found in Step 1",
+            "tip3": "The system supports up to three DERs (at least one must be an energy meter)"
+          },
+          "info": {
+            "title": "Multiple Devices",
+            "message": "You can connect multiple energy devices (solar, battery, meter) to a single Zap. Add them one at a time through the app."
+          }
+        },
+        "step6": {
+          "title": "Verify Successful Connection",
+          "description": "When fully operational, your Zap and app should show the following:",
+          "tips": {
+            "tip1": "The app should display real-time solar production data",
+            "tip2": "Bluetooth automatically disconnects after setup",
+            "tip3": "The Zap now communicates via Wi-Fi"
+          }
+        }
+      },
+      "help": {
+        "title": "Need Help?",
+        "description": "If you encounter any issues during setup, check our Help Centre for inverter-specific configuration guides or join our community for support."
+      },
+      "next": {
+        "title": "What's Next?",
+        "description": "Once connected, explore the Sourceful app to monitor your solar production, optimize self-consumption, and manage grid exports."
+      }
+    }
   }
 }
