@@ -51,7 +51,7 @@ export function V2XWaitlistSection() {
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
               Turn your electric vehicle into a home battery. The Zap gateway will enable
-              bidirectional charging for compatible EVs and chargers—letting you store cheap
+              bidirectional charging for compatible EVs and chargers - letting you store cheap
               electricity, power your home during outages, and sell back to the grid.
             </p>
 

@@ -96,14 +96,14 @@ export default function InstallersPage() {
                   The installation business is changing
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Solar panels, EV chargers, batteries—customers want them all.
+                  Solar panels, EV chargers, batteries - customers want them all.
                   But they also want them to work together intelligently.
                   That's where you come in.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
                   With Sourceful, you can offer a complete smart energy solution.
                   Install the Zap gateway alongside your hardware and give customers
-                  a platform they'll use every day—with your branding.
+                  a platform they'll use every day - with your branding.
                 </p>
                 <div className="bg-primary/10 rounded-lg p-6">
                   <div className="text-3xl font-bold text-primary mb-1">€5-10</div>

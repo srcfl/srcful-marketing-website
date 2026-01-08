@@ -174,7 +174,7 @@ export default function CommunityPage() {
                   Community-driven development
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  We're 90% B2B—working with utilities, OEMs, and installers.
+                  We're 90% B2B - working with utilities, OEMs, and installers.
                   But 10% of our focus is on the community: early adopters,
                   developers, and energy enthusiasts who help us build something better.
                 </p>

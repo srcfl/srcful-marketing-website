@@ -72,7 +72,7 @@ export default function IntegrationsPage() {
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Sourceful integrates with leading solar inverters, EV chargers, batteries,
-                and smart meters. No need to replace your equipment—just add the Zap gateway.
+                and smart meters. No need to replace your equipment - just add the Zap gateway.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>

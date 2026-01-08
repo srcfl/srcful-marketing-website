@@ -65,7 +65,7 @@ export default function DevelopersPage() {
     },
     {
       title: "Protocol Agnostic",
-      description: "P1, Modbus, MQTT, OCPP—we handle the translation layer so you don't have to.",
+      description: "P1, Modbus, MQTT, OCPP - we handle the translation layer so you don't have to.",
     },
     {
       title: "Real-time WebSockets",

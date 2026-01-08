@@ -87,7 +87,7 @@ export function ElectricityPrice({
               {priceLevelConfig[priceLevel].label}
             </Badge>
             <span className="text-sm text-muted-foreground">
-              — {trendText[trend]}
+              - {trendText[trend]}
             </span>
           </div>
         </div>

@@ -103,7 +103,7 @@ export default function CompanyPage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    The Zap gateway supports P1, Modbus, MQTT, OCPP—every protocol that matters.
+                    The Zap gateway supports P1, Modbus, MQTT, OCPP - every protocol that matters.
                   </CardDescription>
                 </CardContent>
               </Card>
@@ -176,7 +176,7 @@ export default function CompanyPage() {
               <p className="text-lg font-medium mb-2">Winner-take-most dynamics</p>
               <p className="text-muted-foreground">
                 In network-effect markets, second place is worth 10x less than first.
-                We're building to be first—in the Nordics, then Europe, then everywhere
+                We're building to be first - in the Nordics, then Europe, then everywhere
                 there's a grid.
               </p>
             </div>
@@ -201,7 +201,7 @@ export default function CompanyPage() {
                 </p>
                 <p className="text-lg text-muted-foreground text-left">
                   We're building network effects in a €500B market. The capital is deployed
-                  into infrastructure that compounds—every device connected makes the next
+                  into infrastructure that compounds - every device connected makes the next
                   connection more valuable.
                 </p>
               </div>

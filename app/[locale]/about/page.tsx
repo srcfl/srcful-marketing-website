@@ -182,7 +182,7 @@ export default function AboutPage() {
                   Nordic roots, global ambition
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  We're based in Kalmar, Sweden—on the southeastern coast,
+                  We're based in Kalmar, Sweden - on the southeastern coast,
                   close to our first utility partners. From here, we're building the
                   infrastructure for the global energy transition.
                 </p>

@@ -72,7 +72,7 @@
       "title": "De fysiska rälsen som får",
       "titleHighlight": "distribuerad energi",
       "titleEnd": "att faktiskt fungera",
-      "description": "Moln-API:er svarar på 2-5 sekunder. Nätstabilitet måste balanseras varje sekund. Vi bygger det lokala exekveringslagret som överbryggar detta gap—och ger energibolag och villaägare verklig kontroll över distribuerad energi."
+      "description": "Moln-API:er svarar på 2-5 sekunder. Nätstabilitet måste balanseras varje sekund. Vi bygger det lokala exekveringslagret som överbryggar detta gap - och ger energibolag och villaägare verklig kontroll över distribuerad energi."
     },
     "stats": {
       "destroyed": "Förstörs årligen i koordineringsfel",
@@ -83,7 +83,7 @@
     "dashboard": {
       "badge": "Plattformsförhandsvisning",
       "title": "Energikoordinering i realtid",
-      "description": "Övervaka anläggningar, analysera prestanda, hantera flottor och automatisera energioptimering—allt från en plattform.",
+      "description": "Övervaka anläggningar, analysera prestanda, hantera flottor och automatisera energioptimering - allt från en plattform.",
       "tabs": {
         "sites": "Anläggningar",
         "analytics": "Analys",
@@ -104,7 +104,7 @@
         },
         "zeroOEM": {
           "title": "Inget OEM-beroende",
-          "description": "Kringgå OEM-molnplattformar helt. Inga hastighetsbegränsningar, inga avbrott, inga behörighetsändringar—bara direkt åtkomst till realtidsdata."
+          "description": "Kringgå OEM-molnplattformar helt. Inga hastighetsbegränsningar, inga avbrott, inga behörighetsändringar - bara direkt åtkomst till realtidsdata."
         },
         "sovereignData": {
           "title": "Datasuveränitet",
@@ -159,7 +159,7 @@
         "response": "200ms lokal svarstid",
         "offline": "Fungerar offline med lokal beslutsfattning",
         "protocols": "P1, Modbus, MQTT, OCPP-protokoll",
-        "sovereignty": "Datasuveränitet—stannar lokalt"
+        "sovereignty": "Datasuveränitet - stannar lokalt"
       }
     },
     "partners": {
@@ -463,7 +463,7 @@
       "badge": "Integrationer",
       "title": "Fungerar med din",
       "titleHighlight": "befintliga hårdvara",
-      "description": "Sourceful integreras med ledande solväxelriktare, elbilsladdare, batterier och smartmätare. Du behöver inte byta ut din utrustning—lägg bara till Zap gateway."
+      "description": "Sourceful integreras med ledande solväxelriktare, elbilsladdare, batterier och smartmätare. Du behöver inte byta ut din utrustning - lägg bara till Zap gateway."
     },
     "categories": {
       "inverters": "Solväxelriktare",
@@ -706,7 +706,7 @@
           "title": "Anslut Zap till elmätaren",
           "description": "När din nätägare bekräftat att P1-data är aktiverat, anslut Zap-enheten till din elmätare med den medföljande RJ12-kabeln. P1-porten finns vanligtvis på framsidan eller undersidan av mätaren.",
           "tips": {
-            "tip1": "Zap får ström från P1-porten—ingen separat strömförsörjning behövs",
+            "tip1": "Zap får ström från P1-porten - ingen separat strömförsörjning behövs",
             "tip2": "Se till att kabeln klickar fast ordentligt",
             "tip3": "Placera Zap inom räckhåll för din Wi-Fi-router"
           }

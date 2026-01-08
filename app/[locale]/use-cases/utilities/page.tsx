@@ -108,7 +108,7 @@ export default function UtilitiesPage() {
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
                   40-70 million EVs in Europe by 2030. 2,800 GWh of distributed storage
-                  that needs coordination. Cloud APIs respond in 2-5 seconds—but grid
+                  that needs coordination. Cloud APIs respond in 2-5 seconds - but grid
                   frequency must balance every second.
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
@@ -127,15 +127,15 @@ export default function UtilitiesPage() {
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span><strong>Kalmar Energi</strong> — Go-live imminent</span>
+                    <span><strong>Kalmar Energi</strong>  - Go-live imminent</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span><strong>NRGi (Denmark)</strong> — 250K customer pipeline</span>
+                    <span><strong>NRGi (Denmark)</strong>  - 250K customer pipeline</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span><strong>Fortum, Skellefteå Kraft</strong> — Active discussions</span>
+                    <span><strong>Fortum, Skellefteå Kraft</strong>  - Active discussions</span>
                   </li>
                 </ul>
               </div>
@@ -151,7 +151,7 @@ export default function UtilitiesPage() {
                 Why utilities partner with us
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We enable utilities to deliver real grid services—not just dashboards.
+                We enable utilities to deliver real grid services - not just dashboards.
               </p>
             </FadeIn>
 

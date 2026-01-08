@@ -72,7 +72,7 @@
       "title": "The physical rails that make",
       "titleHighlight": "distributed energy",
       "titleEnd": "actually work",
-      "description": "Cloud APIs respond in 2-5 seconds. Grid frequency must balance every second. We build the local execution layer that bridges this gap—giving utilities and homeowners actual control over distributed energy."
+      "description": "Cloud APIs respond in 2-5 seconds. Grid frequency must balance every second. We build the local execution layer that bridges this gap - giving utilities and homeowners actual control over distributed energy."
     },
     "stats": {
       "destroyed": "Destroyed annually in coordination failures",
@@ -83,7 +83,7 @@
     "dashboard": {
       "badge": "Platform Preview",
       "title": "Real-time energy coordination",
-      "description": "Monitor sites, analyze performance, manage fleets, and automate energy optimization—all from one platform.",
+      "description": "Monitor sites, analyze performance, manage fleets, and automate energy optimization - all from one platform.",
       "tabs": {
         "sites": "Sites Overview",
         "analytics": "Analytics",
@@ -104,7 +104,7 @@
         },
         "zeroOEM": {
           "title": "Zero OEM Dependence",
-          "description": "Bypass OEM cloud platforms entirely. No rate limits, no outages, no permission changes—just direct access to real-time data."
+          "description": "Bypass OEM cloud platforms entirely. No rate limits, no outages, no permission changes - just direct access to real-time data."
         },
         "sovereignData": {
           "title": "Sovereign Data",
@@ -159,7 +159,7 @@
         "response": "200ms local response time",
         "offline": "Offline-capable with local decision making",
         "protocols": "P1, Modbus, MQTT, OCPP protocols",
-        "sovereignty": "Data sovereignty—stays local"
+        "sovereignty": "Data sovereignty - stays local"
       }
     },
     "partners": {
@@ -463,7 +463,7 @@
       "badge": "Integrations",
       "title": "Works with your",
       "titleHighlight": "existing hardware",
-      "description": "Sourceful integrates with leading solar inverters, EV chargers, batteries, and smart meters. No need to replace your equipment—just add the Zap gateway."
+      "description": "Sourceful integrates with leading solar inverters, EV chargers, batteries, and smart meters. No need to replace your equipment - just add the Zap gateway."
     },
     "categories": {
       "inverters": "Solar Inverters",
@@ -706,7 +706,7 @@
           "title": "Connect Zap to Energy Meter",
           "description": "Once your grid operator confirms P1 data is enabled, connect the Zap device to your electricity meter using the included RJ12 cable. The P1 port is typically located on the front or bottom of your meter.",
           "tips": {
-            "tip1": "The Zap powers itself from the P1 port—no separate power needed",
+            "tip1": "The Zap powers itself from the P1 port - no separate power needed",
             "tip2": "Make sure the cable clicks securely into place",
             "tip3": "Position the Zap within range of your Wi-Fi router"
           }

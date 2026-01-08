@@ -212,7 +212,7 @@ export function FleetDashboardExample() {
                             {device.power > 0 ? "+" : ""}{(device.power / 1000).toFixed(1)} kW
                           </span>
                         ) : (
-                          <span className="text-muted-foreground">—</span>
+                          <span className="text-muted-foreground">-</span>
                         )}
                       </TableCell>
                       <TableCell className="text-muted-foreground">{device.lastSeen}</TableCell>

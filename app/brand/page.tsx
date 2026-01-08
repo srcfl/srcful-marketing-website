@@ -431,7 +431,7 @@ export default function BrandPage() {
                 Typography
               </h2>
               <p className="text-muted-foreground mt-2">
-                Satoshi is our primary typeface — a modern geometric sans-serif with a clean, technical feel.
+                Satoshi is our primary typeface - a modern geometric sans-serif with a clean, technical feel.
               </p>
             </div>
 
@@ -777,7 +777,7 @@ export default function BrandPage() {
                 Icons
               </h2>
               <p className="text-muted-foreground mt-2">
-                We use <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Lucide Icons</a> — a beautiful, consistent icon set with 1000+ icons.
+                We use <a href="https://lucide.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Lucide Icons</a> - a beautiful, consistent icon set with 1000+ icons.
               </p>
             </div>
 
@@ -893,13 +893,13 @@ export default function BrandPage() {
               Mission Statement
             </h2>
             <blockquote className="border-l-4 border-primary pl-6 py-2 text-xl italic">
-              &ldquo;Building local energy coordination infrastructure — the physical rails
+              &ldquo;Building local energy coordination infrastructure - the physical rails
               that make distributed energy work.&rdquo;
             </blockquote>
             <p className="text-muted-foreground">
               We believe in physics before code, simple over clever, and local over cloud.
               Our technology enables sub-200ms edge control because grid frequency must
-              balance every second — and cloud APIs simply cannot meet this requirement.
+              balance every second - and cloud APIs simply cannot meet this requirement.
             </p>
           </section>
         </div>

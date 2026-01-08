@@ -37,17 +37,17 @@ export default function HomeownersPage() {
     {
       icon: BarChart3,
       title: "See Every kWh",
-      description: "Real-time consumption monitoring with hourly spot prices. Know exactly when electricity is cheap—and when it's 10x more expensive.",
+      description: "Real-time consumption monitoring with hourly spot prices. Know exactly when electricity is cheap - and when it's 10x more expensive.",
     },
     {
       icon: Coins,
       title: "Earn Rewards",
-      description: "Participate in grid balancing services. Your flexibility has value—get paid for helping stabilize the grid.",
+      description: "Participate in grid balancing services. Your flexibility has value - get paid for helping stabilize the grid.",
     },
     {
       icon: Shield,
       title: "Multi-Brand Coordination",
-      description: "One app for all your devices. Solar, battery, EV charger, heat pump—regardless of manufacturer.",
+      description: "One app for all your devices. Solar, battery, EV charger, heat pump - regardless of manufacturer.",
     },
   ];
 
@@ -89,7 +89,7 @@ export default function HomeownersPage() {
     {
       step: "3",
       title: "Connect Your Devices",
-      description: "Solar inverter, battery, EV charger—the Zap coordinates them all.",
+      description: "Solar inverter, battery, EV charger - the Zap coordinates them all.",
     },
     {
       step: "4",
@@ -189,7 +189,7 @@ export default function HomeownersPage() {
               One device, endless savings
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Whether you have solar, an EV, or just want to cut your electricity bill—the Zap makes it automatic.
+              Whether you have solar, an EV, or just want to cut your electricity bill - the Zap makes it automatic.
             </p>
           </FadeIn>
 
@@ -271,7 +271,7 @@ export default function HomeownersPage() {
                     Your EV is a power plant
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 text-left">
-                    A typical EV battery holds 60-100 kWh—enough to power your home for days.
+                    A typical EV battery holds 60-100 kWh - enough to power your home for days.
                     With V2X technology, your car becomes a revenue-generating asset instead of
                     sitting idle 95% of the time.
                   </p>
@@ -280,25 +280,25 @@ export default function HomeownersPage() {
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>V2H</strong> — Power your home from your EV</span>
+                      <span><strong>V2H</strong>  - Power your home from your EV</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>V2G</strong> — Sell excess energy back to the grid</span>
+                      <span><strong>V2G</strong>  - Sell excess energy back to the grid</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>Smart charging</strong> — Always ready when you need to drive</span>
+                      <span><strong>Smart charging</strong>  - Always ready when you need to drive</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>Solar integration</strong> — Store daytime solar for evening use</span>
+                      <span><strong>Solar integration</strong>  - Store daytime solar for evening use</span>
                     </li>
                   </ul>
                 </div>
