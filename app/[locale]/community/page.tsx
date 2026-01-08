@@ -44,7 +44,7 @@ export default function CommunityPage() {
   const stats = {
     developers: "500+",
     countries: "20+",
-    discord: "Active",
+    discord: t("stats.discordValue"),
     response: "< 24h",
   };
 
