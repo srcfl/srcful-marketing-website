@@ -572,6 +572,62 @@
         "title": "Smart energi för dina",
         "titleHighlight": "kunder",
         "description": "Differentiera med smarta energilösningar. Enkel integration, återkommande intäkter, nöjda kunder."
+      },
+      "partner": {
+        "elkedjanDescription": "Sveriges största installatörsnätverk"
+      },
+      "problem": {
+        "title": "Dina kunder vill ha mer än hårdvara",
+        "paragraph1": "Varje villaägare med solceller, batterier eller elbilsladdare vill att de ska fungera. Men de vill också att de ska fungera smart tillsammans. Det är där du kommer in.",
+        "paragraph2": "Med Sourceful kan du erbjuda en komplett smart energilösning. Installera Zap-gatewayen tillsammans med din hårdvara och ge kunderna en plattform de använder dagligen - med ditt varumärke.",
+        "revenueValue": "50-100 kr",
+        "revenueLabel": "Per enhet per år i återkommande intäkt"
+      },
+      "whatYouInstall": {
+        "title": "Vad du installerar",
+        "items": ["Zap gateway (399 kr kostnad)", "5 minuters installation", "Fungerar med befintlig hårdvara", "Ingen konfiguration behövs"]
+      },
+      "whatCustomersGet": {
+        "title": "Vad kunderna får",
+        "items": ["Energiövervakning i realtid", "Automatisk optimering", "Mobilappåtkomst", "Deltagande i nättjänster"]
+      },
+      "benefits": {
+        "title": "Varför installatörer samarbetar med oss",
+        "recurringRevenue": {
+          "title": "Återkommande intäkter",
+          "description": "Gå bortom engångsinstallationer. Erbjud löpande energioptimeringstjänster med månadsavgifter."
+        },
+        "simpleInstallation": {
+          "title": "Enkel installation",
+          "description": "Zap-gatewayen installeras på några minuter. Ingen komplex konfiguration. Plug and play."
+        },
+        "customerRetention": {
+          "title": "Kundlojalitet",
+          "description": "Håll kunderna engagerade med en app de använder dagligen. Lägre churn, högre livstidsvärde."
+        },
+        "technicalSupport": {
+          "title": "Teknisk support",
+          "description": "Vi hanterar plattformen. Du hanterar kundrelationen. Full utbildning ingår."
+        }
+      },
+      "howItWorks": {
+        "title": "Att komma igång är enkelt",
+        "step1": {
+          "title": "Gå med i programmet",
+          "description": "Snabb onboarding, utbildning och tillgång till marknadsföringsmaterial."
+        },
+        "step2": {
+          "title": "Installera med trygghet",
+          "description": "Lägg till Zap i dina installationer. Vi ger full support."
+        },
+        "step3": {
+          "title": "Tjäna återkommande intäkter",
+          "description": "Månadsavgifter för varje aktiv enhet. Passiv inkomst."
+        }
+      },
+      "cta": {
+        "title": "Redo att växa din verksamhet?",
+        "description": "Gå med i vårt installatörsnätverk och börja erbjuda smarta energilösningar."
       }
     },
     "oems": {
@@ -580,6 +636,62 @@
         "title": "Inbyggd",
         "titleHighlight": "intelligens",
         "description": "Integrera 200ms lokal styrning i dina elbilsladdare, batterier och växelriktare. Protokolloberoende, white-label-redo."
+      },
+      "integrations": ["Elbilsladdare", "Batterilagring", "Växelriktare", "Värmepumpar", "Smarta mätare", "V2X-system"],
+      "problem": {
+        "title": "Din hårdvara är smart. Gör den nät-smart.",
+        "paragraph1": "Energihårdvarutillverkare står inför ett val: bygg ditt eget koordineringslager (dyrt, långsamt) eller förlita dig på molnplattformar som inte kan leverera realtidsstyrning (2-5 sekunders fördröjning).",
+        "paragraph2": "Vi erbjuder ett tredje alternativ: integrera Zap-gatewayen och få lokal exekvering på 200ms, nättjänstkapacitet och en utvecklarplattform som dina kunder kommer att älska.",
+        "zapGateway": "Zap Gateway",
+        "zapGatewaySpecs": "399 kr • 200ms svarstid • Offline-kapabel"
+      },
+      "comparison": {
+        "withoutTitle": "Utan Sourceful",
+        "withoutItems": ["2-5 sekunders molnfördröjning", "Komplex protokollintegration", "Ingen nättjänstkapacitet", "Åratal av regulatoriskt arbete"],
+        "withTitle": "Med Sourceful",
+        "withItems": ["200ms lokal exekvering", "Protokolloberoende integration", "Nättjänster redo", "TSO-certifieringar ingår"]
+      },
+      "benefits": {
+        "title": "Varför OEM-tillverkare integrerar med oss",
+        "localExecution": {
+          "title": "Inbyggd lokal exekvering",
+          "description": "Leverera produkter med 200ms svarstid. Inget molnberoende för tidskritiska operationer."
+        },
+        "protocolAgnostic": {
+          "title": "Protokolloberoende",
+          "description": "Vi hanterar P1, Modbus, MQTT, OCPP-översättning. Fokusera på din hårdvara, inte integrationskaos."
+        },
+        "gridReady": {
+          "title": "Nät-redo certifiering",
+          "description": "Våra TSO-certifieringar påskyndar din väg till marknaden. 2-4 års regulatoriskt arbete, klart."
+        },
+        "developerExperience": {
+          "title": "Utvecklarupplevelse",
+          "description": "Full API-åtkomst, omfattande dokumentation och designsystem för att bygga kompanjonappar."
+        }
+      },
+      "integrationPath": {
+        "title": "Integrationsväg",
+        "step1": {
+          "title": "Teknisk granskning",
+          "description": "Vi bedömer din hårdvara och definierar integrationsomfattning"
+        },
+        "step2": {
+          "title": "Integration",
+          "description": "Bädda in Zap-gateway eller integrera via våra API:er"
+        },
+        "step3": {
+          "title": "Certifiering",
+          "description": "Dra nytta av våra TSO-certifieringar för marknadstillgång"
+        },
+        "step4": {
+          "title": "Lansering",
+          "description": "Leverera nätintelligenta produkter till marknaden"
+        }
+      },
+      "cta": {
+        "title": "Redo att göra din hårdvara nätintelligent?",
+        "description": "Låt oss diskutera hur Sourceful kan påskynda din väg till marknaden."
       }
     }
   },
@@ -787,6 +899,286 @@
       "description": "Vi lägger ständigt till nya integrationer. Kontakta oss för att begära stöd för din specifika utrustning eller kolla utvecklardokumentationen för anpassade integrationer.",
       "requestIntegration": "Begär integration",
       "developerDocs": "Utvecklardokumentation"
+    },
+    "brandPage": {
+      "compatible": "Sourceful-kompatibel",
+      "getZapGateway": "Skaffa Zap Gateway",
+      "contactSales": "Kontakta försäljning",
+      "whyTitle": "Varför {brand} + Sourceful?",
+      "supportedProtocols": "Protokoll som stöds",
+      "compatibility": "Kompatibilitet",
+      "categories": {
+        "inverter": "Solväxelriktare",
+        "charger": "Elbilsladdare",
+        "battery": "Batterilagring",
+        "utility": "Energibolagspartner",
+        "installer": "Installatörsnätverk"
+      },
+      "useCases": {
+        "title": "Vad du kan göra",
+        "subtitle": "Verkliga fördelar för {brand}-ägare som använder Sourceful"
+      },
+      "howItWorks": {
+        "title": "Så fungerar det",
+        "step1": {
+          "title": "Skaffa Zap",
+          "description": "Beställ Zap gateway för 399 kr och anslut den till ditt hemnätverk."
+        },
+        "step2": {
+          "title": "Anslut {brand}",
+          "description": "Zap upptäcker och ansluter automatiskt till din {brand} {category}."
+        },
+        "step3": {
+          "title": "Börja spara",
+          "description": "Aktivera automatiseringar, delta i nättjänster och börja optimera din energi."
+        }
+      },
+      "cta": {
+        "title": "Redo att optimera ditt {brand}-system?",
+        "description": "Skaffa Zap gateway och lås upp den fulla potentialen i ditt energisystem.",
+        "orderZap": "Beställ Zap Gateway",
+        "viewAllIntegrations": "Visa alla integrationer"
+      },
+      "brands": {
+        "solaredge": {
+          "tagline": "Premium soloptimering möter intelligent energihantering",
+          "description": "SolarEdge-växelriktare med effektoptimerare levererar maximal solproduktion. Kombinerat med Sourceful får du realtidsoptimering, deltagande i nättjänster och betydande besparingar genom smart energihantering.",
+          "features": [
+            "Modulnivå-övervakning och optimering",
+            "Realtidsproduktionsdata via SolarEdge API",
+            "Automatisk egenförbrukningsoptimering",
+            "Stöd för batteriintegration",
+            "Hantering av nätexport"
+          ],
+          "useCases": [
+            { "title": "Egenförbrukningsoptimering", "description": "Flytta automatiskt laster för att använda solenergi när den är tillgänglig", "savings": "2 000-4 000 kr/år" },
+            { "title": "Toppkapning", "description": "Minska nätimport under dyra topptimmar", "savings": "1 500-3 000 kr/år" },
+            { "title": "Nättjänster", "description": "Delta i frekvensrespons och efterfrågeflexibilitet", "savings": "1 000-2 000 kr/år" }
+          ],
+          "compatibility": "Alla SolarEdge enfas- och trefasväxelriktare"
+        },
+        "huawei": {
+          "tagline": "AI-driven sol möter lokal energikoordinering",
+          "description": "Huawei FusionSolar-växelriktare ger AI-optimering för bostäder och kommersiella solanläggningar. Med Sourceful-integration låser du upp äkta multi-enhetskoordinering och nättjänstkapacitet.",
+          "features": [
+            "AI-driven MPPT-spårning",
+            "FusionSolar molnintegration",
+            "Stöd för batterilagring (LUNA-serien)",
+            "Smart strängövervakning",
+            "Integrerad energihantering"
+          ],
+          "useCases": [
+            { "title": "Hybridsystemkontroll", "description": "Koordinera sol, batteri och nät i realtid", "savings": "3 000-5 000 kr/år" },
+            { "title": "Elbilsladdningsoptimering", "description": "Ladda din elbil med överskottssolproduktion", "savings": "2 000-4 000 kr/år" },
+            { "title": "Negativt prisrespons", "description": "Öka automatiskt förbrukningen vid negativa priser", "savings": "500-1 500 kr/år" }
+          ],
+          "compatibility": "Huawei SUN2000-serien för bostäder och kommersiella växelriktare"
+        },
+        "fronius": {
+          "tagline": "Österrikisk precisionsteknik med smarta nätfunktioner",
+          "description": "Fronius-växelriktare är kända för tillförlitlighet och kvalitet. Sourceful förbättrar ditt Fronius-system med avancerad energihantering, nättjänster och multi-enhetskoordinering.",
+          "features": [
+            "Solar.web övervakningsintegration",
+            "Fronius Ohmpilot-stöd",
+            "Batteriredo med BYD/LG",
+            "Smart mätarintegration",
+            "Lokal API-åtkomst"
+          ],
+          "useCases": [
+            { "title": "Varmvattenoptimering", "description": "Använd överskottssol för att värma vatten med Ohmpilot", "savings": "1 000-2 000 kr/år" },
+            { "title": "Lasthantering", "description": "Hantera automatiskt högeffektapparater", "savings": "1 500-3 000 kr/år" },
+            { "title": "Exportoptimering", "description": "Maximera intäkter från nätexport", "savings": "1 000-2 500 kr/år" }
+          ],
+          "compatibility": "Fronius Primo, Symo och GEN24-serien"
+        },
+        "sma": {
+          "tagline": "Tysk ingenjörskonst möter intelligent energikoordinering",
+          "description": "SMA är en pionjär inom solteknik. Sourceful-integration ger avancerad energihantering, nättjänster och multi-enhetskoordinering till ditt SMA-system.",
+          "features": [
+            "Sunny Portal-integration",
+            "Speedwire-kommunikation",
+            "Stöd för batterilagring",
+            "Sunny Home Manager-kompatibel",
+            "Nättjänster redo"
+          ],
+          "useCases": [
+            { "title": "Energihantering", "description": "Intelligent laststyrning med Sunny Home Manager", "savings": "2 000-4 000 kr/år" },
+            { "title": "Batterioptimering", "description": "Maximera egenförbrukning med smart lagring", "savings": "3 000-5 000 kr/år" },
+            { "title": "Nätflexibilitet", "description": "Delta i efterfrågeresponsprogram", "savings": "1 000-2 000 kr/år" }
+          ],
+          "compatibility": "SMA Sunny Boy, Sunny Tripower, Sunny Island"
+        },
+        "sungrow": {
+          "tagline": "Global växelriktarteknik med lokal intelligens",
+          "description": "Sungrow är en av världens största växelriktartillverkare. Med Sourceful får du smart energihantering, hybridsystemkontroll och deltagande i nättjänster.",
+          "features": [
+            "iSolarCloud-integration",
+            "Stöd för hybridväxelriktare",
+            "Batterilagring redo",
+            "Smart exportkontroll",
+            "Multi-enhetskoordinering"
+          ],
+          "useCases": [
+            { "title": "Hybridsystemkontroll", "description": "Optimera sol, batteri och nät tillsammans", "savings": "3 000-5 000 kr/år" },
+            { "title": "Egenförbrukningsökning", "description": "Maximera användningen av din egen solproduktion", "savings": "2 000-4 000 kr/år" },
+            { "title": "Toppeffekthantering", "description": "Minska dyra toppimporter", "savings": "1 500-3 000 kr/år" }
+          ],
+          "compatibility": "Sungrow SG-serien för bostäder och kommersiella växelriktare"
+        },
+        "solax": {
+          "tagline": "Innovativa hybridlösningar med smart koordinering",
+          "description": "SolaX specialiserar sig på hybridväxelriktarteknik. Sourceful förbättrar ditt SolaX-system med intelligent schemaläggning, multi-enhetskoordinering och nättjänster.",
+          "features": [
+            "SolaX Cloud-integration",
+            "Stöd för hybridväxelriktare",
+            "Elbilsladdarintegration",
+            "Batterihantering",
+            "Tidsbaserad optimering"
+          ],
+          "useCases": [
+            { "title": "Allt-i-ett energisystem", "description": "Hantera sol, batteri och elbil från en plattform", "savings": "4 000-7 000 kr/år" },
+            { "title": "Arbitragehandel", "description": "Köp lågt, använd högt med batterilagring", "savings": "2 000-4 000 kr/år" },
+            { "title": "Reservkraft", "description": "Sömlös backup vid strömavbrott", "savings": "Trygghet" }
+          ],
+          "compatibility": "SolaX X1, X3 och hybridserien"
+        },
+        "solis": {
+          "tagline": "Pålitliga strängväxelriktare med smarta nätfunktioner",
+          "description": "Solis erbjuder pålitliga och kostnadseffektiva växelriktare. Med Sourceful-integration får du avancerad övervakning, optimering och deltagande i nättjänster.",
+          "features": [
+            "SolisCloud-övervakning",
+            "Strängnivåoptimering",
+            "Exportkontroll",
+            "Hybridmodeller tillgängliga",
+            "Nätkodskompliant"
+          ],
+          "useCases": [
+            { "title": "Kostnadseffektiv sol", "description": "Maximera avkastningen från din solinvestering", "savings": "2 000-4 000 kr/år" },
+            { "title": "Exporthantering", "description": "Följ exportgränser samtidigt som du maximerar egenanvändning", "savings": "1 000-2 000 kr/år" },
+            { "title": "Kommersiella tillämpningar", "description": "Flotthantering för kommersiella installationer", "savings": "Varierar" }
+          ],
+          "compatibility": "Solis bostads- och kommersiella strängväxelriktare"
+        },
+        "deye": {
+          "tagline": "Prisvärd hybridkraft med intelligent styrning",
+          "description": "Deye erbjuder kostnadseffektiva hybridväxelriktarlösningar. Sourceful ger avancerad energihantering och optimering för att få ut det mesta av ditt Deye-system.",
+          "features": [
+            "Hybridväxelriktarteknik",
+            "Batteriintegration",
+            "Off-grid-kapabel",
+            "Tidsbaserad schemaläggning",
+            "Lokal styrning"
+          ],
+          "useCases": [
+            { "title": "Budgethybridsystem", "description": "Få hybridfördelar till ett överkomligt pris", "savings": "3 000-5 000 kr/år" },
+            { "title": "Off-grid-redo", "description": "Förbered för energioberoende", "savings": "Energitrygghet" },
+            { "title": "Lastförflyttning", "description": "Flytta förbrukning till billiga timmar", "savings": "2 000-4 000 kr/år" }
+          ],
+          "compatibility": "Deye hybridväxelriktarserie"
+        },
+        "ferroamp": {
+          "tagline": "Svensk DC-nanogridteknik för maximal effektivitet",
+          "description": "Ferroamps unika DC-nanogridarkitektur maximerar systemeffektiviteten. Med Sourceful får du intelligent koordinering av sol, lagring och elbilsladdning.",
+          "features": [
+            "DC-nanogridarkitektur",
+            "EnergyHub-integration",
+            "Fasbalansering",
+            "Stöd för elbilsladdning",
+            "Maximal effektivitet"
+          ],
+          "useCases": [
+            { "title": "DC-kopplad effektivitet", "description": "Minimera omvandlingsförluster med DC-arkitektur", "savings": "2 000-4 000 kr/år" },
+            { "title": "Fasbalansering", "description": "Optimera trefassystem", "savings": "1 000-2 000 kr/år" },
+            { "title": "Premiuminstallation", "description": "Maximal effektivitet för krävande kunder", "savings": "3 000-6 000 kr/år" }
+          ],
+          "compatibility": "Ferroamp EnergyHub och SSO-system"
+        },
+        "easee": {
+          "tagline": "Smart elbilsladdning med V2X-framtidsredo kapacitet",
+          "description": "Easee-laddare är designade för enkelhet och smarta funktioner. Med Sourceful får du intelligenta laddningsscheman, solmedveten laddning och kommande V2X-stöd.",
+          "features": [
+            "Dynamisk lastbalansering",
+            "Solmedveten laddning",
+            "Schemalagd laddning",
+            "Realtidseffektjustering",
+            "V2X-redo (kommer 2026)"
+          ],
+          "useCases": [
+            { "title": "Solladdning", "description": "Ladda din elbil med överskottssolproduktion automatiskt", "savings": "2 000-4 000 kr/år" },
+            { "title": "Prisoptimering", "description": "Ladda när elen är billigast", "savings": "3 000-6 000 kr/år" },
+            { "title": "V2X (Kommer snart)", "description": "Använd din elbil som ett hembatteri", "savings": "5 000-10 000 kr/år" }
+          ],
+          "compatibility": "Easee Home, Easee Charge, Easee Core"
+        },
+        "zaptec": {
+          "tagline": "Norsk innovation för intelligent elbilsladdning",
+          "description": "Zaptec-laddare erbjuder avancerade funktioner för hem och företag. Sourceful-integration möjliggör smart schemaläggning, soloptimering och deltagande i nättjänster.",
+          "features": [
+            "Effekthantering över flera laddare",
+            "Solintegration",
+            "Schemalagd laddning",
+            "Lastbalansering",
+            "V2X-kompatibla modeller"
+          ],
+          "useCases": [
+            { "title": "Flerladdarhantering", "description": "Koordinera flera elbilar utan att uppgradera din nätanslutning", "savings": "5 000-10 000 kr/år" },
+            { "title": "Solöverskottsladdning", "description": "Ladda automatiskt när solproduktionen överstiger förbrukningen", "savings": "2 000-4 000 kr/år" },
+            { "title": "Arbetsplatsladdning", "description": "Optimera laddning för anställdas fordon", "savings": "Varierar" }
+          ],
+          "compatibility": "Zaptec Go, Zaptec Pro"
+        },
+        "chargeamps": {
+          "tagline": "Svensk premiumladdning med smarta energifunktioner",
+          "description": "ChargeAmps levererar premium elbilsladdningslösningar. Med Sourceful får du avancerad energihantering, solintegration och sömlös koordinering med ditt hemmenergisystem.",
+          "features": [
+            "Aura för flerladdarinstallationer",
+            "Dawn för bostadsladdning",
+            "Halo för premiuminstallationer",
+            "Solmedveten laddning",
+            "Smart schemaläggning"
+          ],
+          "useCases": [
+            { "title": "Premium hemladdning", "description": "Elegant design med intelligent energihantering", "savings": "2 000-4 000 kr/år" },
+            { "title": "Solintegration", "description": "Använd automatiskt överskottssol för elbilsladdning", "savings": "2 500-4 500 kr/år" },
+            { "title": "Flerfordonshem", "description": "Hantera flera elbilar effektivt", "savings": "4 000-8 000 kr/år" }
+          ],
+          "compatibility": "ChargeAmps Dawn, Halo, Aura"
+        },
+        "pixii": {
+          "tagline": "Modulär batterilagring med intelligent hantering",
+          "description": "Pixii erbjuder flexibel, modulär batterilagring. Sourceful förbättrar ditt Pixii-system med avancerad optimering, nättjänster och sömlös solintegration.",
+          "features": [
+            "Modulär skalbarhet",
+            "Hög tur-och-retur-effektivitet",
+            "Nättjänster redo",
+            "Solintegration",
+            "Smart schemaläggning"
+          ],
+          "useCases": [
+            { "title": "Skalbar lagring", "description": "Börja smått och expandera efter behov", "savings": "3 000-6 000 kr/år" },
+            { "title": "Nättjänster", "description": "Tjäna pengar på frekvensresponsdeltagande", "savings": "2 000-4 000 kr/år" },
+            { "title": "Toppkapning", "description": "Minska efterfrågeavgifter för kommersiella användare", "savings": "5 000-15 000 kr/år" }
+          ],
+          "compatibility": "Pixii batterilagringssystem"
+        },
+        "ambibox": {
+          "tagline": "Smart energilagring för moderna hem",
+          "description": "Ambibox levererar smarta batterilagringslösningar. Med Sourceful-integration får du intelligent energihantering, nättjänster och maximalt värde från din lagringsinvestering.",
+          "features": [
+            "Bostadslagring",
+            "Solintegration",
+            "Smart schemaläggning",
+            "Reservkraft",
+            "Nättjänster redo"
+          ],
+          "useCases": [
+            { "title": "Hembatteri", "description": "Lagra solenergi för kvällsanvändning", "savings": "2 500-5 000 kr/år" },
+            { "title": "Reservkraft", "description": "Håll kritiska laster igång vid strömavbrott", "savings": "Trygghet" },
+            { "title": "Prisarbitrage", "description": "Köp lågt, använd högt", "savings": "2 000-4 000 kr/år" }
+          ],
+          "compatibility": "Ambibox bostadslagringssystem"
+        }
+      }
     }
   },
   "about": {
@@ -887,6 +1279,17 @@
       "title": "Håll dig uppdaterad",
       "description": "Få de senaste insikterna om energihantering, nättjänster och energiomställningen direkt till din inkorg.",
       "button": "Prenumerera på uppdateringar"
+    },
+    "post": {
+      "shareArticle": "Dela denna artikel",
+      "moreArticles": "Fler artiklar",
+      "viewAll": "Visa alla",
+      "cta": {
+        "title": "Redo att optimera din energi?",
+        "description": "Gå med tusentals husägare och företag som använder Sourceful för att minska kostnader och delta i energiomställningen.",
+        "getZap": "Skaffa Zap",
+        "learnMore": "Läs mer"
+      }
     }
   },
   "company": {
@@ -1237,7 +1640,10 @@
     },
     "stats": {
       "rating": "Appbetyg",
+      "ratingSource": "App Store",
       "price": "Pris",
+      "priceValue": "Gratis",
+      "priceSource": "iOS & Android",
       "users": "Användare",
       "active": "Aktiva användare",
       "monitoring": "Övervakning",

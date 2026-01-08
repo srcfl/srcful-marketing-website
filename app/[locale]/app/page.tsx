@@ -118,14 +118,14 @@ export default function AppPage() {
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">4.8</div>
                   <div className="font-medium">{t("stats.rating")}</div>
-                  <div className="text-sm text-muted-foreground">App Store</div>
+                  <div className="text-sm text-muted-foreground">{t("stats.ratingSource")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">Free</div>
+                  <div className="text-3xl md:text-4xl font-bold text-primary">{t("stats.priceValue")}</div>
                   <div className="font-medium">{t("stats.price")}</div>
-                  <div className="text-sm text-muted-foreground">iOS & Android</div>
+                  <div className="text-sm text-muted-foreground">{t("stats.priceSource")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>

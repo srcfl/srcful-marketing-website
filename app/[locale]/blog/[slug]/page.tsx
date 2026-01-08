@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/src/i18n/routing";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -102,6 +103,7 @@ function RelatedCard({ post }: { post: BlogPostMeta }) {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug, locale } = await params;
+  const t = await getTranslations("blog.post");
   const post = getPostBySlug(slug, locale || "en");
 
   if (!post) {
@@ -200,7 +202,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <Share2 className="h-4 w-4" />
-                  <span className="text-sm">Share this article</span>
+                  <span className="text-sm">{t("shareArticle")}</span>
                 </div>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" asChild>
@@ -231,10 +233,10 @@ export default async function BlogPostPage({ params }: Props) {
         {relatedPosts.length > 0 && (
           <section className="max-w-7xl mx-auto py-16 px-4 md:px-8">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold">More Articles</h2>
+              <h2 className="text-2xl font-bold">{t("moreArticles")}</h2>
               <Button variant="outline" asChild>
                 <Link href="/blog">
-                  View All
+                  {t("viewAll")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -251,21 +253,20 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="border-t bg-muted/50">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to optimize your energy?
+              {t("cta.title")}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of homeowners and businesses using Sourceful to reduce costs
-              and participate in the energy transition.
+              {t("cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
                 <Link href="/zap">
-                  Get the Zap
+                  {t("cta.getZap")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/platform">Learn More</Link>
+                <Link href="/platform">{t("cta.learnMore")}</Link>
               </Button>
             </div>
           </div>

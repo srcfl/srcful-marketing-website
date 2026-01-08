@@ -14,27 +14,11 @@ export default function InstallersPage() {
   const t = useTranslations("useCases.installers");
   const tCommon = useTranslations("common");
 
-  const benefits = [
-    {
-      icon: TrendingUp,
-      title: "Recurring Revenue",
-      description: "Move beyond one-time installations. Offer ongoing energy optimization services with monthly fees.",
-    },
-    {
-      icon: Clock,
-      title: "Simple Installation",
-      description: "The Zap gateway installs in minutes. No complex configuration. Plug and play.",
-    },
-    {
-      icon: Users,
-      title: "Customer Retention",
-      description: "Keep customers engaged with an app they use daily. Lower churn, higher lifetime value.",
-    },
-    {
-      icon: Shield,
-      title: "Technical Support",
-      description: "We handle the platform. You handle the customer relationship. Full training included.",
-    },
+  const benefitKeys = [
+    { key: "recurringRevenue", icon: TrendingUp },
+    { key: "simpleInstallation", icon: Clock },
+    { key: "customerRetention", icon: Users },
+    { key: "technicalSupport", icon: Shield },
   ];
 
   return (
@@ -81,7 +65,7 @@ export default function InstallersPage() {
             <div className="flex items-center justify-center gap-8">
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary">Elkedjan</div>
-                <div className="text-sm text-muted-foreground">Sweden's largest installer network</div>
+                <div className="text-sm text-muted-foreground">{t("partner.elkedjanDescription")}</div>
               </div>
             </div>
           </div>
@@ -93,21 +77,17 @@ export default function InstallersPage() {
             <FadeIn>
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  The installation business is changing
+                  {t("problem.title")}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Solar panels, EV chargers, batteries - customers want them all.
-                  But they also want them to work together intelligently.
-                  That's where you come in.
+                  {t("problem.paragraph1")}
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  With Sourceful, you can offer a complete smart energy solution.
-                  Install the Zap gateway alongside your hardware and give customers
-                  a platform they'll use every day - with your branding.
+                  {t("problem.paragraph2")}
                 </p>
                 <div className="bg-primary/10 rounded-lg p-6">
-                  <div className="text-3xl font-bold text-primary mb-1">€5-10</div>
-                  <div className="text-muted-foreground">Per device per year recurring revenue</div>
+                  <div className="text-3xl font-bold text-primary mb-1">{t("problem.revenueValue")}</div>
+                  <div className="text-muted-foreground">{t("problem.revenueLabel")}</div>
                 </div>
               </div>
             </FadeIn>
@@ -117,15 +97,14 @@ export default function InstallersPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Zap className="h-5 w-5 text-primary" />
-                      What you install
+                      {t("whatYouInstall.title")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-muted-foreground">
-                      <li>• Zap gateway (€39 cost)</li>
-                      <li>• 5-minute installation</li>
-                      <li>• Works with existing hardware</li>
-                      <li>• No configuration needed</li>
+                      {[0, 1, 2, 3].map((i) => (
+                        <li key={i}>• {t(`whatYouInstall.items.${i}`)}</li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
@@ -133,15 +112,14 @@ export default function InstallersPage() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Users className="h-5 w-5 text-primary" />
-                      What customers get
+                      {t("whatCustomersGet.title")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-muted-foreground">
-                      <li>• Real-time energy monitoring</li>
-                      <li>• Automatic optimization</li>
-                      <li>• Mobile app access</li>
-                      <li>• Grid services participation</li>
+                      {[0, 1, 2, 3].map((i) => (
+                        <li key={i}>• {t(`whatCustomersGet.items.${i}`)}</li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
@@ -155,25 +133,25 @@ export default function InstallersPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Why installers partner with us
+                {t("benefits.title")}
               </h2>
             </FadeIn>
 
             <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
-              {benefits.map((benefit) => {
+              {benefitKeys.map((benefit) => {
                 const Icon = benefit.icon;
                 return (
-                  <StaggerItem key={benefit.title}>
+                  <StaggerItem key={benefit.key}>
                     <Card className="h-full">
                       <CardHeader>
                         <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                           <Icon className="h-6 w-6 text-primary" />
                         </div>
-                        <CardTitle>{benefit.title}</CardTitle>
+                        <CardTitle>{t(`benefits.${benefit.key}.title`)}</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <CardDescription className="text-base">
-                          {benefit.description}
+                          {t(`benefits.${benefit.key}.description`)}
                         </CardDescription>
                       </CardContent>
                     </Card>
@@ -189,7 +167,7 @@ export default function InstallersPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Getting started is easy
+                {t("howItWorks.title")}
               </h2>
             </FadeIn>
 
@@ -199,9 +177,9 @@ export default function InstallersPage() {
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     1
                   </div>
-                  <h3 className="font-semibold mb-2">Join the program</h3>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.step1.title")}</h3>
                   <p className="text-muted-foreground">
-                    Quick onboarding, training, and access to marketing materials.
+                    {t("howItWorks.step1.description")}
                   </p>
                 </div>
               </StaggerItem>
@@ -210,9 +188,9 @@ export default function InstallersPage() {
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     2
                   </div>
-                  <h3 className="font-semibold mb-2">Install with confidence</h3>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.step2.title")}</h3>
                   <p className="text-muted-foreground">
-                    Add the Zap to your installations. We provide full support.
+                    {t("howItWorks.step2.description")}
                   </p>
                 </div>
               </StaggerItem>
@@ -221,9 +199,9 @@ export default function InstallersPage() {
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     3
                   </div>
-                  <h3 className="font-semibold mb-2">Earn recurring revenue</h3>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.step3.title")}</h3>
                   <p className="text-muted-foreground">
-                    Monthly fees for every active device. Passive income.
+                    {t("howItWorks.step3.description")}
                   </p>
                 </div>
               </StaggerItem>
@@ -236,10 +214,10 @@ export default function InstallersPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Ready to grow your business?
+                {t("cta.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Join our installer network and start offering smart energy solutions.
+                {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild>

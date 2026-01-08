@@ -14,36 +14,11 @@ export default function OEMsPage() {
   const t = useTranslations("useCases.oems");
   const tCommon = useTranslations("common");
 
-  const benefits = [
-    {
-      icon: Clock,
-      title: "Local Execution Built-in",
-      description: "Ship products with 200ms response time. No cloud dependency for time-critical operations.",
-    },
-    {
-      icon: Plug,
-      title: "Protocol Agnostic",
-      description: "We handle P1, Modbus, MQTT, OCPP translation. Focus on your hardware, not integration hell.",
-    },
-    {
-      icon: Shield,
-      title: "Grid-Ready Certification",
-      description: "Our TSO certifications accelerate your path to market. 2-4 years of regulatory work, done.",
-    },
-    {
-      icon: Code,
-      title: "Developer Experience",
-      description: "Full API access, comprehensive docs, and design system for building companion apps.",
-    },
-  ];
-
-  const integrations = [
-    "EV Chargers",
-    "Battery Storage",
-    "Inverters",
-    "Heat Pumps",
-    "Smart Meters",
-    "V2X Systems",
+  const benefitKeys = [
+    { key: "localExecution", icon: Clock },
+    { key: "protocolAgnostic", icon: Plug },
+    { key: "gridReady", icon: Shield },
+    { key: "developerExperience", icon: Code },
   ];
 
   return (
@@ -89,9 +64,9 @@ export default function OEMsPage() {
         <section className="bg-muted/30 border-b">
           <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
             <div className="flex flex-wrap items-center justify-center gap-4">
-              {integrations.map((integration) => (
-                <Badge key={integration} variant="outline" className="text-sm py-2 px-4">
-                  {integration}
+              {[0, 1, 2, 3, 4, 5].map((i) => (
+                <Badge key={i} variant="outline" className="text-sm py-2 px-4">
+                  {t(`integrations.${i}`)}
                 </Badge>
               ))}
             </div>
@@ -104,23 +79,19 @@ export default function OEMsPage() {
             <FadeIn>
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  Your hardware is smart. Make it grid-smart.
+                  {t("problem.title")}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Energy hardware manufacturers face a choice: build your own coordination
-                  layer (expensive, slow) or rely on cloud platforms that can't deliver
-                  real-time control (2-5 second latency).
+                  {t("problem.paragraph1")}
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  We offer a third option: integrate the Zap gateway and get local execution
-                  at 200ms, grid service capabilities, and a developer platform your
-                  customers will love.
+                  {t("problem.paragraph2")}
                 </p>
                 <div className="flex items-center gap-4 p-4 bg-muted rounded-lg">
                   <Zap className="h-8 w-8 text-primary" />
                   <div>
-                    <div className="font-semibold">The Zap Gateway</div>
-                    <div className="text-sm text-muted-foreground">€39 • 200ms response • Offline-capable</div>
+                    <div className="font-semibold">{t("problem.zapGateway")}</div>
+                    <div className="text-sm text-muted-foreground">{t("problem.zapGatewaySpecs")}</div>
                   </div>
                 </div>
               </div>
@@ -129,27 +100,25 @@ export default function OEMsPage() {
               <div className="space-y-4">
                 <Card className="border-destructive/50 bg-destructive/5">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-lg text-destructive">Without Sourceful</CardTitle>
+                    <CardTitle className="text-lg text-destructive">{t("comparison.withoutTitle")}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li>• 2-5 second cloud latency</li>
-                      <li>• Complex protocol integration</li>
-                      <li>• No grid service capability</li>
-                      <li>• Years of regulatory work</li>
+                      {[0, 1, 2, 3].map((i) => (
+                        <li key={i}>• {t(`comparison.withoutItems.${i}`)}</li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
                 <Card className="border-primary/50 bg-primary/5">
                   <CardHeader className="pb-2">
-                    <CardTitle className="text-lg text-primary">With Sourceful</CardTitle>
+                    <CardTitle className="text-lg text-primary">{t("comparison.withTitle")}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2 text-sm">
-                      <li>• 200ms local execution</li>
-                      <li>• Protocol-agnostic integration</li>
-                      <li>• Grid services ready</li>
-                      <li>• TSO certifications included</li>
+                      {[0, 1, 2, 3].map((i) => (
+                        <li key={i}>• {t(`comparison.withItems.${i}`)}</li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
@@ -163,25 +132,25 @@ export default function OEMsPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Why OEMs integrate with us
+                {t("benefits.title")}
               </h2>
             </FadeIn>
 
             <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
-              {benefits.map((benefit) => {
+              {benefitKeys.map((benefit) => {
                 const Icon = benefit.icon;
                 return (
-                  <StaggerItem key={benefit.title}>
+                  <StaggerItem key={benefit.key}>
                     <Card className="h-full">
                       <CardHeader>
                         <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                           <Icon className="h-6 w-6 text-primary" />
                         </div>
-                        <CardTitle>{benefit.title}</CardTitle>
+                        <CardTitle>{t(`benefits.${benefit.key}.title`)}</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <CardDescription className="text-base">
-                          {benefit.description}
+                          {t(`benefits.${benefit.key}.description`)}
                         </CardDescription>
                       </CardContent>
                     </Card>
@@ -197,24 +166,19 @@ export default function OEMsPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Integration path
+                {t("integrationPath.title")}
               </h2>
             </FadeIn>
 
             <StaggerContainer className="grid md:grid-cols-4 gap-6" staggerDelay={0.1}>
-              {[
-                { step: "1", title: "Technical Review", desc: "We assess your hardware and define integration scope" },
-                { step: "2", title: "Integration", desc: "Embed Zap gateway or integrate via our APIs" },
-                { step: "3", title: "Certification", desc: "Leverage our TSO certifications for market access" },
-                { step: "4", title: "Launch", desc: "Ship grid-intelligent products to market" },
-              ].map((item) => (
-                <StaggerItem key={item.step}>
+              {["step1", "step2", "step3", "step4"].map((stepKey, index) => (
+                <StaggerItem key={stepKey}>
                   <div className="text-center">
                     <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
-                      {item.step}
+                      {index + 1}
                     </div>
-                    <h3 className="font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    <h3 className="font-semibold mb-2">{t(`integrationPath.${stepKey}.title`)}</h3>
+                    <p className="text-sm text-muted-foreground">{t(`integrationPath.${stepKey}.description`)}</p>
                   </div>
                 </StaggerItem>
               ))}
@@ -227,10 +191,10 @@ export default function OEMsPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Ready to make your hardware grid-intelligent?
+                {t("cta.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Let's discuss how Sourceful can accelerate your path to market.
+                {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild>
