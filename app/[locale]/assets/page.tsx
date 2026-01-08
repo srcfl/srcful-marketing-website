@@ -47,9 +47,14 @@ export default function AssetsPage() {
             <h3 className="text-lg font-medium">Interactive Demo</h3>
 
             <div className="flex flex-col md:flex-row gap-8 items-start">
-              {/* Large Preview */}
-              <div className="flex-shrink-0 p-8 rounded-lg bg-[#0a0a0a] dark:bg-[#0a0a0a]">
-                <PixelGrid pattern={selectedPattern} color={selectedColor} size="lg" />
+              {/* Large Preview - Dark & Light */}
+              <div className="flex gap-4 flex-shrink-0">
+                <div className="p-8 rounded-lg bg-[#0a0a0a] pixel-grid-dark">
+                  <PixelGrid pattern={selectedPattern} color={selectedColor} size="lg" />
+                </div>
+                <div className="p-8 rounded-lg bg-white border pixel-grid-light">
+                  <PixelGrid pattern={selectedPattern} color={selectedColor} size="lg" />
+                </div>
               </div>
 
               {/* Controls */}
@@ -148,27 +153,66 @@ export default function AssetsPage() {
             </div>
           </div>
 
-          {/* Color Comparison */}
+          {/* Color Comparison - Dark vs Light */}
           <div className="rounded-xl border bg-card p-6 space-y-6">
             <h3 className="text-lg font-medium">Color Themes</h3>
-            <div className="p-6 rounded-lg bg-[#0a0a0a]">
-              <PixelGridColorComparison pattern="frame" size="md" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Dark Mode */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium text-muted-foreground">Dark Mode</span>
+                <div className="p-6 rounded-lg bg-[#0a0a0a] pixel-grid-dark">
+                  <PixelGridColorComparison pattern="frame" size="md" />
+                </div>
+              </div>
+              {/* Light Mode */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium text-muted-foreground">Light Mode</span>
+                <div className="p-6 rounded-lg bg-white border pixel-grid-light">
+                  <PixelGridColorComparison pattern="frame" size="md" />
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Size Comparison */}
+          {/* Size Comparison - Dark vs Light */}
           <div className="rounded-xl border bg-card p-6 space-y-6">
             <h3 className="text-lg font-medium">Sizes</h3>
-            <div className="p-6 rounded-lg bg-[#0a0a0a]">
-              <PixelGridSizeComparison pattern="plus-hollow" color="green" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Dark Mode */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium text-muted-foreground">Dark Mode</span>
+                <div className="p-6 rounded-lg bg-[#0a0a0a] pixel-grid-dark">
+                  <PixelGridSizeComparison pattern="plus-hollow" color="green" />
+                </div>
+              </div>
+              {/* Light Mode */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium text-muted-foreground">Light Mode</span>
+                <div className="p-6 rounded-lg bg-white border pixel-grid-light">
+                  <PixelGridSizeComparison pattern="plus-hollow" color="green" />
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* All Patterns */}
+          {/* All Patterns - Dark vs Light */}
           <div className="rounded-xl border bg-card p-6 space-y-6">
             <h3 className="text-lg font-medium">All Patterns</h3>
-            <div className="p-6 rounded-lg bg-[#0a0a0a]">
-              <PixelGridShowcase color="blue" size="sm" showCategories />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {/* Dark Mode */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium text-muted-foreground">Dark Mode</span>
+                <div className="p-6 rounded-lg bg-[#0a0a0a] pixel-grid-dark">
+                  <PixelGridShowcase color="blue" size="sm" showCategories />
+                </div>
+              </div>
+              {/* Light Mode */}
+              <div className="space-y-2">
+                <span className="text-xs font-medium text-muted-foreground">Light Mode</span>
+                <div className="p-6 rounded-lg bg-white border pixel-grid-light">
+                  <PixelGridShowcase color="blue" size="sm" showCategories />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -180,9 +224,15 @@ export default function AssetsPage() {
               <h4 className="text-sm font-medium text-muted-foreground">
                 Loading Indicator
               </h4>
-              <div className="flex items-center gap-3 p-4 rounded-lg bg-[#0a0a0a]">
-                <PixelGrid pattern="frame" color="blue" size="sm" />
-                <span className="text-sm text-neutral-400">Loading...</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 p-4 rounded-lg bg-[#0a0a0a] pixel-grid-dark">
+                  <PixelGrid pattern="frame" color="blue" size="sm" />
+                  <span className="text-sm text-neutral-400">Loading...</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 rounded-lg bg-white border pixel-grid-light">
+                  <PixelGrid pattern="frame" color="blue" size="sm" />
+                  <span className="text-sm text-neutral-600">Loading...</span>
+                </div>
               </div>
             </div>
 
@@ -190,9 +240,15 @@ export default function AssetsPage() {
               <h4 className="text-sm font-medium text-muted-foreground">
                 Status Indicator
               </h4>
-              <div className="flex items-center gap-3 p-4 rounded-lg bg-[#0a0a0a]">
-                <PixelGrid pattern="solo-center" color="green" size="sm" />
-                <span className="text-sm text-neutral-400">System Active</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 p-4 rounded-lg bg-[#0a0a0a] pixel-grid-dark">
+                  <PixelGrid pattern="solo-center" color="green" size="sm" />
+                  <span className="text-sm text-neutral-400">System Active</span>
+                </div>
+                <div className="flex items-center gap-3 p-4 rounded-lg bg-white border pixel-grid-light">
+                  <PixelGrid pattern="solo-center" color="green" size="sm" />
+                  <span className="text-sm text-neutral-600">System Active</span>
+                </div>
               </div>
             </div>
 
@@ -200,10 +256,17 @@ export default function AssetsPage() {
               <h4 className="text-sm font-medium text-muted-foreground">
                 Decorative Grid
               </h4>
-              <div className="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a]">
-                <PixelGrid pattern="corners-only" color="pink" size="sm" />
-                <PixelGrid pattern="plus-hollow" color="blue" size="sm" />
-                <PixelGrid pattern="line-diag-1" color="green" size="sm" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-[#0a0a0a] pixel-grid-dark">
+                  <PixelGrid pattern="corners-only" color="pink" size="sm" />
+                  <PixelGrid pattern="plus-hollow" color="blue" size="sm" />
+                  <PixelGrid pattern="line-diag-1" color="green" size="sm" />
+                </div>
+                <div className="flex items-center gap-4 p-4 rounded-lg bg-white border pixel-grid-light">
+                  <PixelGrid pattern="corners-only" color="pink" size="sm" />
+                  <PixelGrid pattern="plus-hollow" color="blue" size="sm" />
+                  <PixelGrid pattern="line-diag-1" color="green" size="sm" />
+                </div>
               </div>
             </div>
           </div>
