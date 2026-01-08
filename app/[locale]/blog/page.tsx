@@ -30,7 +30,7 @@ function BlogCard({ post, featured = false }: BlogCardProps) {
   if (featured) {
     return (
       <Card className="overflow-hidden group hover:shadow-lg transition-shadow">
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}`} className="no-underline">
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative aspect-[16/10] md:aspect-auto md:h-full overflow-hidden bg-muted">
               {post.featuredImage ? (
@@ -74,7 +74,7 @@ function BlogCard({ post, featured = false }: BlogCardProps) {
 
   return (
     <Card className="overflow-hidden group hover:shadow-lg transition-shadow h-full flex flex-col">
-      <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">
+      <Link href={`/blog/${post.slug}`} className="flex flex-col h-full no-underline">
         <div className="relative aspect-[16/9] overflow-hidden bg-muted">
           {post.featuredImage ? (
             <Image
