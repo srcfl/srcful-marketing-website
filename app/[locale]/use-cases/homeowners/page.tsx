@@ -31,70 +31,70 @@ export default function HomeownersPage() {
   const benefits = [
     {
       icon: TrendingDown,
-      title: "Cut Peak Demand Charges",
-      description: "Get real-time alerts before expensive peaks hit. Shift usage to cheaper hours and save up to €266/year on demand fees alone.",
+      title: t("benefits.cutPeakDemand.title"),
+      description: t("benefits.cutPeakDemand.description"),
     },
     {
       icon: BarChart3,
-      title: "See Every kWh",
-      description: "Real-time consumption monitoring with hourly spot prices. Know exactly when electricity is cheap - and when it's 10x more expensive.",
+      title: t("benefits.seeEveryKwh.title"),
+      description: t("benefits.seeEveryKwh.description"),
     },
     {
       icon: Coins,
-      title: "Earn Rewards",
-      description: "Participate in grid balancing services. Your flexibility has value - get paid for helping stabilize the grid.",
+      title: t("benefits.earnRewards.title"),
+      description: t("benefits.earnRewards.description"),
     },
     {
       icon: Shield,
-      title: "Multi-Brand Coordination",
-      description: "One app for all your devices. Solar, battery, EV charger, heat pump - regardless of manufacturer.",
+      title: t("benefits.multiBrand.title"),
+      description: t("benefits.multiBrand.description"),
     },
   ];
 
   const useCases = [
     {
       icon: Home,
-      title: "Smart Home Energy",
-      description: "Connect your P1 smart meter and see real-time consumption. Time your dishwasher, laundry, and heating to the cheapest hours.",
-      savings: "~€266/year",
-      savingsLabel: "Peak demand savings",
+      title: t("useCasesSection.smartHome.title"),
+      description: t("useCasesSection.smartHome.description"),
+      savings: t("useCasesSection.smartHome.savings"),
+      savingsLabel: t("useCasesSection.smartHome.savingsLabel"),
     },
     {
       icon: Sun,
-      title: "Solar & Battery",
-      description: "AI-driven optimization for your solar PV and battery. Automatically stop exports during negative prices and maximize self-consumption.",
-      savings: "100%",
-      savingsLabel: "Self-consumption boost",
+      title: t("useCasesSection.solarBattery.title"),
+      description: t("useCasesSection.solarBattery.description"),
+      savings: t("useCasesSection.solarBattery.savings"),
+      savingsLabel: t("useCasesSection.solarBattery.savingsLabel"),
     },
     {
       icon: Car,
-      title: "V2X & EV Charging",
-      description: "Turn your EV into a revenue-generating asset. Charge when prices are low, sell back when they're high. Vehicle-to-Home and Vehicle-to-Grid ready.",
-      savings: "3,000-8,000 SEK",
-      savingsLabel: "Annual V2X potential",
+      title: t("useCasesSection.v2x.title"),
+      description: t("useCasesSection.v2x.description"),
+      savings: t("useCasesSection.v2x.savings"),
+      savingsLabel: t("useCasesSection.v2x.savingsLabel"),
     },
   ];
 
   const howItWorks = [
     {
       step: "1",
-      title: "Get the Zap",
-      description: "€39, one-time purchase. Plugs into your P1 smart meter in 5 minutes.",
+      title: t("howItWorks.step1.title"),
+      description: t("howItWorks.step1.description"),
     },
     {
       step: "2",
-      title: "Download the App",
-      description: "iOS and Android. See real-time prices and consumption instantly.",
+      title: t("howItWorks.step2.title"),
+      description: t("howItWorks.step2.description"),
     },
     {
       step: "3",
-      title: "Connect Your Devices",
-      description: "Solar inverter, battery, EV charger - the Zap coordinates them all.",
+      title: t("howItWorks.step3.title"),
+      description: t("howItWorks.step3.description"),
     },
     {
       step: "4",
-      title: "Start Saving",
-      description: "Automatic optimization runs 24/7. No manual intervention needed.",
+      title: t("howItWorks.step4.title"),
+      description: t("howItWorks.step4.description"),
     },
   ];
 
@@ -131,7 +131,7 @@ export default function HomeownersPage() {
                     <Button size="lg" variant="outline" asChild>
                       <a href="https://sourceful.energy/app-downloads" target="_blank" rel="noopener noreferrer">
                         <Smartphone className="mr-2 h-4 w-4" />
-                        Download App
+                        {t("cta.downloadApp")}
                       </a>
                     </Button>
                   </div>
@@ -157,25 +157,25 @@ export default function HomeownersPage() {
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">€39</div>
-                  <div className="text-sm text-muted-foreground">One-time cost</div>
+                  <div className="text-sm text-muted-foreground">{t("stats.oneTimeCost")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">5 min</div>
-                  <div className="text-sm text-muted-foreground">Setup time</div>
+                  <div className="text-sm text-muted-foreground">{t("stats.setupTime")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">€266+</div>
-                  <div className="text-sm text-muted-foreground">Annual savings</div>
+                  <div className="text-sm text-muted-foreground">{t("stats.annualSavings")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">30 day</div>
-                  <div className="text-sm text-muted-foreground">Money-back guarantee</div>
+                  <div className="text-sm text-muted-foreground">{t("stats.moneyBackGuarantee")}</div>
                 </div>
               </StaggerItem>
             </StaggerContainer>
@@ -186,10 +186,10 @@ export default function HomeownersPage() {
         <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
           <FadeIn className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              One device, endless savings
+              {t("useCasesSection.title")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Whether you have solar, an EV, or just want to cut your electricity bill - the Zap makes it automatic.
+              {t("useCasesSection.description")}
             </p>
           </FadeIn>
 
@@ -226,7 +226,7 @@ export default function HomeownersPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Why homeowners love the Zap
+                {t("whyLoveZap")}
               </h2>
             </FadeIn>
 
@@ -265,62 +265,60 @@ export default function HomeownersPage() {
                 <div>
                   <Badge variant="secondary" className="mb-4">
                     <Car className="h-3 w-3 mr-1" />
-                    V2X Ready
+                    {t("v2xSection.badge")}
                   </Badge>
                   <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6 text-left">
-                    Your EV is a power plant
+                    {t("v2xSection.title")}
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 text-left">
-                    A typical EV battery holds 60-100 kWh - enough to power your home for days.
-                    With V2X technology, your car becomes a revenue-generating asset instead of
-                    sitting idle 95% of the time.
+                    {t("v2xSection.description")}
                   </p>
                   <ul className="space-y-3 mb-8">
                     <li className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>V2H</strong>  - Power your home from your EV</span>
+                      <span><strong>V2H</strong> - {t("v2xSection.v2h")}</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>V2G</strong>  - Sell excess energy back to the grid</span>
+                      <span><strong>V2G</strong> - {t("v2xSection.v2g")}</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>Smart charging</strong>  - Always ready when you need to drive</span>
+                      <span><strong>Smart charging</strong> - {t("v2xSection.smartCharging")}</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <span><strong>Solar integration</strong>  - Store daytime solar for evening use</span>
+                      <span><strong>Solar integration</strong> - {t("v2xSection.solarIntegration")}</span>
                     </li>
                   </ul>
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <div className="bg-muted rounded-lg p-8">
-                  <h3 className="font-semibold mb-6">V2X savings example (Sweden)</h3>
+                  <h3 className="font-semibold mb-6">{t("v2xSection.savingsExample")}</h3>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-3 border-b">
-                      <span className="text-muted-foreground">Energy trading profit</span>
+                      <span className="text-muted-foreground">{t("v2xSection.energyTrading")}</span>
                       <span className="font-bold text-primary">+5,200 SEK</span>
                     </div>
                     <div className="flex justify-between items-center py-3 border-b">
-                      <span className="text-muted-foreground">Peak demand reduction</span>
+                      <span className="text-muted-foreground">{t("v2xSection.peakDemand")}</span>
                       <span className="font-bold text-primary">+4,800 SEK</span>
                     </div>
                     <div className="flex justify-between items-center py-3 border-b">
-                      <span className="text-muted-foreground">Grid services rewards</span>
+                      <span className="text-muted-foreground">{t("v2xSection.gridServices")}</span>
                       <span className="font-bold text-primary">+2,200 SEK</span>
                     </div>
                     <div className="flex justify-between items-center py-3">
-                      <span className="font-semibold">Total annual benefit</span>
+                      <span className="font-semibold">{t("v2xSection.totalBenefit")}</span>
                       <span className="text-2xl font-bold text-primary">12,200 SEK</span>
                     </div>
                   </div>
@@ -335,7 +333,7 @@ export default function HomeownersPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Get started in minutes
+                {t("howItWorks.title")}
               </h2>
             </FadeIn>
 
@@ -363,10 +361,9 @@ export default function HomeownersPage() {
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <FadeIn>
                     <div>
-                      <h2 className="text-3xl font-bold mb-4">Ready to start saving?</h2>
+                      <h2 className="text-3xl font-bold mb-4">{t("cta.title")}</h2>
                       <p className="text-muted-foreground mb-6">
-                        €39 one-time. 5-minute setup. 30-day money-back guarantee.
-                        Your home's energy will never be the same.
+                        {t("cta.description")}
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3">
                         <Button size="lg" asChild>
@@ -378,7 +375,7 @@ export default function HomeownersPage() {
                         <Button size="lg" variant="outline" asChild>
                           <a href="https://sourceful.energy/app-downloads" target="_blank" rel="noopener noreferrer">
                             <Smartphone className="mr-2 h-4 w-4" />
-                            Get the App
+                            {t("cta.getTheApp")}
                           </a>
                         </Button>
                       </div>
@@ -388,8 +385,8 @@ export default function HomeownersPage() {
                     <div className="flex justify-center">
                       <div className="text-center">
                         <div className="text-6xl font-bold text-primary mb-2">€39</div>
-                        <div className="text-muted-foreground">One-time purchase</div>
-                        <div className="text-sm text-muted-foreground mt-1">Free shipping • 30-day guarantee</div>
+                        <div className="text-muted-foreground">{t("cta.oneTimePurchase")}</div>
+                        <div className="text-sm text-muted-foreground mt-1">{t("cta.freeShipping")}</div>
                       </div>
                     </div>
                   </FadeIn>

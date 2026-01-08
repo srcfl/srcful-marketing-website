@@ -2,7 +2,10 @@
   "common": {
     "nav": {
       "platform": "Plattform",
+      "platformDescription": "Lokal energikoordineringsinfrastruktur",
       "zap": "Zap",
+      "zapDescription": "399 kr gateway med 200ms svarstid",
+      "products": "Produkter",
       "useCases": "Användningsfall",
       "developers": "Utvecklare",
       "integrations": "Integrationer",
@@ -12,7 +15,14 @@
       "homeowners": "Villaägare",
       "utilities": "Energibolag",
       "installers": "Installatörer",
-      "oems": "OEM-tillverkare"
+      "oems": "OEM-tillverkare",
+      "overview": "Översikt",
+      "devPortal": "Utvecklarportalen",
+      "apiReference": "API-referens",
+      "designSystem": "Designsystem",
+      "hardwareDocs": "Hårdvarudokumentation",
+      "community": "Community",
+      "menu": "Meny"
     },
     "footer": {
       "product": "Produkt",
@@ -23,6 +33,7 @@
       "zap": "Zap Gateway",
       "app": "Mobilapp",
       "integrations": "Integrationer",
+      "v2x": "V2X",
       "pricing": "Priser",
       "about": "Om oss",
       "community": "Community",
@@ -33,6 +44,8 @@
       "api": "API-referens",
       "support": "Support",
       "discord": "Discord",
+      "designSystem": "Designsystem",
+      "companyPage": "Företaget",
       "privacy": "Integritetspolicy",
       "terms": "Användarvillkor",
       "cookies": "Cookiepolicy",
@@ -64,6 +77,23 @@
     "currency": {
       "symbol": "kr",
       "code": "SEK"
+    },
+    "contactForm": {
+      "title": "Kontakta oss",
+      "description": "Har du frågor? Vi vill gärna höra från dig.",
+      "subject": "Webbplatskontakt",
+      "successTitle": "Meddelande skickat!",
+      "successMessage": "Tack för att du hör av dig. Vi återkommer snart.",
+      "nameLabel": "Namn",
+      "namePlaceholder": "Ditt namn",
+      "emailLabel": "E-post",
+      "emailPlaceholder": "du@exempel.com",
+      "companyLabel": "Företag (valfritt)",
+      "companyPlaceholder": "Ditt företag",
+      "messageLabel": "Meddelande",
+      "messagePlaceholder": "Hur kan vi hjälpa?",
+      "sending": "Skickar...",
+      "sendMessage": "Skicka meddelande"
     }
   },
   "home": {
@@ -353,6 +383,94 @@
         "title": "Ta kontroll över dina",
         "titleHighlight": "energikostnader",
         "description": "Sänk räkningarna med realtidspriser, automatisera sol och batteri, och förbered för V2X. En enhet, total kontroll."
+      },
+      "benefits": {
+        "cutPeakDemand": {
+          "title": "Sänk effekttoppar",
+          "description": "Få varningar i realtid innan dyra toppar. Flytta förbrukningen till billigare timmar och spara upp till 2 500 kr/år enbart på effektavgifter."
+        },
+        "seeEveryKwh": {
+          "title": "Se varje kWh",
+          "description": "Realtidsövervakning av förbrukning med timpriser. Vet exakt när elen är billig - och när den är 10 gånger dyrare."
+        },
+        "earnRewards": {
+          "title": "Tjäna belöningar",
+          "description": "Delta i nätbalanseringstjänster. Din flexibilitet har värde - få betalt för att hjälpa till att stabilisera nätet."
+        },
+        "multiBrand": {
+          "title": "Flervarumärkeskoordinering",
+          "description": "En app för alla dina enheter. Solceller, batteri, elbilsladdare, värmepump - oavsett tillverkare."
+        }
+      },
+      "useCasesSection": {
+        "title": "En enhet, oändliga besparingar",
+        "description": "Oavsett om du har solceller, elbil eller bara vill sänka elräkningen - Zap gör det automatiskt.",
+        "smartHome": {
+          "title": "Smart hemenergi",
+          "description": "Anslut din P1-smartmätare och se förbrukning i realtid. Tidsstyra diskmaskin, tvätt och uppvärmning till de billigaste timmarna.",
+          "savings": "~2 500 kr/år",
+          "savingsLabel": "Besparingar på effekttoppar"
+        },
+        "solarBattery": {
+          "title": "Sol & batteri",
+          "description": "AI-driven optimering för dina solceller och batteri. Stoppa automatiskt export vid negativa priser och maximera egenförbrukning.",
+          "savings": "100%",
+          "savingsLabel": "Ökning av egenförbrukning"
+        },
+        "v2x": {
+          "title": "V2X & elbilsladdning",
+          "description": "Förvandla din elbil till en intäktsgenererande tillgång. Ladda när priserna är låga, sälj tillbaka när de är höga. Vehicle-to-Home och Vehicle-to-Grid redo.",
+          "savings": "3 000-8 000 kr",
+          "savingsLabel": "Årlig V2X-potential"
+        }
+      },
+      "whyLoveZap": "Varför villaägare älskar Zap",
+      "stats": {
+        "oneTimeCost": "Engångskostnad",
+        "setupTime": "Installationstid",
+        "annualSavings": "Årliga besparingar",
+        "moneyBackGuarantee": "Pengarna tillbaka-garanti"
+      },
+      "howItWorks": {
+        "title": "Kom igång på några minuter",
+        "step1": {
+          "title": "Skaffa Zap",
+          "description": "399 kr, engångsköp. Ansluts till din P1-smartmätare på 5 minuter."
+        },
+        "step2": {
+          "title": "Ladda ner appen",
+          "description": "iOS och Android. Se realtidspriser och förbrukning direkt."
+        },
+        "step3": {
+          "title": "Anslut dina enheter",
+          "description": "Solväxelriktare, batteri, elbilsladdare - Zap koordinerar allt."
+        },
+        "step4": {
+          "title": "Börja spara",
+          "description": "Automatisk optimering körs 24/7. Ingen manuell hantering behövs."
+        }
+      },
+      "v2xSection": {
+        "badge": "V2X-redo",
+        "title": "Din elbil är ett kraftverk",
+        "description": "Ett typiskt elbilsbatteri rymmer 60-100 kWh - tillräckligt för att driva ditt hem i flera dagar. Med V2X-teknologi blir din bil en intäktsgenererande tillgång istället för att stå still 95% av tiden.",
+        "v2h": "Driv ditt hem från din elbil",
+        "v2g": "Sälj överskottsenergi tillbaka till nätet",
+        "smartCharging": "Alltid redo när du behöver köra",
+        "solarIntegration": "Lagra dagsljusets solenergi för kvällsanvändning",
+        "savingsExample": "V2X besparingsexempel (Sverige)",
+        "energyTrading": "Energihandelsvinst",
+        "peakDemand": "Effekttoppsreducering",
+        "gridServices": "Nättjänstbelöningar",
+        "totalBenefit": "Total årlig nytta"
+      },
+      "cta": {
+        "title": "Redo att börja spara?",
+        "description": "399 kr engångsköp. 5 minuters installation. 30 dagars pengarna tillbaka-garanti. Din hemenergi blir aldrig densamma.",
+        "oneTimePurchase": "Engångsköp",
+        "freeShipping": "Fri frakt • 30 dagars garanti",
+        "downloadApp": "Ladda ner appen",
+        "getTheApp": "Hämta appen"
       }
     },
     "utilities": {

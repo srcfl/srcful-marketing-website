@@ -20,7 +20,7 @@ export function MarketingFooter() {
               <li><Link href="/zap" className="hover:text-foreground">{t("zap")}</Link></li>
               <li><Link href="/app" className="hover:text-foreground">{t("app")}</Link></li>
               <li><Link href="/integrations" className="hover:text-foreground">{t("integrations")}</Link></li>
-              <li><Link href="/v2x" className="hover:text-foreground">V2X</Link></li>
+              <li><Link href="/v2x" className="hover:text-foreground">{t("v2x")}</Link></li>
               <li><Link href="/get-started" className="hover:text-foreground">{tNav("getStarted")}</Link></li>
             </ul>
           </div>
@@ -35,7 +35,7 @@ export function MarketingFooter() {
             <h4 className="font-semibold mb-4">{tNav("developers")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="https://developer.sourceful.energy" className="hover:text-foreground">{t("docs")}</a></li>
-              <li><a href="https://design.sourceful.energy" className="hover:text-foreground">Design System</a></li>
+              <li><a href="https://design.sourceful.energy" className="hover:text-foreground">{t("designSystem")}</a></li>
               <li><a href="https://discord.gg/srcful" className="hover:text-foreground">{t("discord")}</a></li>
             </ul>
           </div>
@@ -52,7 +52,7 @@ export function MarketingFooter() {
             <h4 className="font-semibold mb-4">{t("company")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/about" className="hover:text-foreground">{t("about")}</Link></li>
-              <li><Link href="/company" className="hover:text-foreground">Company</Link></li>
+              <li><Link href="/company" className="hover:text-foreground">{t("companyPage")}</Link></li>
               <li><Link href="/blog" className="hover:text-foreground">{t("blog")}</Link></li>
               <li><Link href="/community" className="hover:text-foreground">{t("community")}</Link></li>
               <li><Link href="/contact" className="hover:text-foreground">{t("contact")}</Link></li>

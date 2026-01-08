@@ -2,7 +2,10 @@
   "common": {
     "nav": {
       "platform": "Platform",
+      "platformDescription": "Local energy coordination infrastructure",
       "zap": "Zap",
+      "zapDescription": "€39 gateway with 200ms response",
+      "products": "Products",
       "useCases": "Use Cases",
       "developers": "Developers",
       "integrations": "Integrations",
@@ -12,7 +15,14 @@
       "homeowners": "Homeowners",
       "utilities": "Utilities",
       "installers": "Installers",
-      "oems": "OEMs"
+      "oems": "OEMs",
+      "overview": "Overview",
+      "devPortal": "Developer Portal",
+      "apiReference": "API Reference",
+      "designSystem": "Design System",
+      "hardwareDocs": "Hardware Docs",
+      "community": "Community",
+      "menu": "Menu"
     },
     "footer": {
       "product": "Product",
@@ -23,6 +33,7 @@
       "zap": "Zap Gateway",
       "app": "Mobile App",
       "integrations": "Integrations",
+      "v2x": "V2X",
       "pricing": "Pricing",
       "about": "About",
       "community": "Community",
@@ -33,6 +44,8 @@
       "api": "API Reference",
       "support": "Support",
       "discord": "Discord",
+      "designSystem": "Design System",
+      "companyPage": "Company",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
       "cookies": "Cookie Policy",
@@ -64,6 +77,23 @@
     "currency": {
       "symbol": "€",
       "code": "EUR"
+    },
+    "contactForm": {
+      "title": "Get in Touch",
+      "description": "Have questions? We'd love to hear from you.",
+      "subject": "Website Contact",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thanks for reaching out. We'll get back to you soon.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "companyLabel": "Company (optional)",
+      "companyPlaceholder": "Your company",
+      "messageLabel": "Message",
+      "messagePlaceholder": "How can we help?",
+      "sending": "Sending...",
+      "sendMessage": "Send Message"
     }
   },
   "home": {
@@ -353,6 +383,94 @@
         "title": "Take control of your",
         "titleHighlight": "energy costs",
         "description": "Cut bills with real-time pricing, automate solar & battery, and prepare for V2X. One device, complete control."
+      },
+      "benefits": {
+        "cutPeakDemand": {
+          "title": "Cut Peak Demand Charges",
+          "description": "Get real-time alerts before expensive peaks hit. Shift usage to cheaper hours and save up to €266/year on demand fees alone."
+        },
+        "seeEveryKwh": {
+          "title": "See Every kWh",
+          "description": "Real-time consumption monitoring with hourly spot prices. Know exactly when electricity is cheap - and when it's 10x more expensive."
+        },
+        "earnRewards": {
+          "title": "Earn Rewards",
+          "description": "Participate in grid balancing services. Your flexibility has value - get paid for helping stabilize the grid."
+        },
+        "multiBrand": {
+          "title": "Multi-Brand Coordination",
+          "description": "One app for all your devices. Solar, battery, EV charger, heat pump - regardless of manufacturer."
+        }
+      },
+      "useCasesSection": {
+        "title": "One device, endless savings",
+        "description": "Whether you have solar, an EV, or just want to cut your electricity bill - the Zap makes it automatic.",
+        "smartHome": {
+          "title": "Smart Home Energy",
+          "description": "Connect your P1 smart meter and see real-time consumption. Time your dishwasher, laundry, and heating to the cheapest hours.",
+          "savings": "~€266/year",
+          "savingsLabel": "Peak demand savings"
+        },
+        "solarBattery": {
+          "title": "Solar & Battery",
+          "description": "AI-driven optimization for your solar PV and battery. Automatically stop exports during negative prices and maximize self-consumption.",
+          "savings": "100%",
+          "savingsLabel": "Self-consumption boost"
+        },
+        "v2x": {
+          "title": "V2X & EV Charging",
+          "description": "Turn your EV into a revenue-generating asset. Charge when prices are low, sell back when they're high. Vehicle-to-Home and Vehicle-to-Grid ready.",
+          "savings": "3,000-8,000 SEK",
+          "savingsLabel": "Annual V2X potential"
+        }
+      },
+      "whyLoveZap": "Why homeowners love the Zap",
+      "stats": {
+        "oneTimeCost": "One-time cost",
+        "setupTime": "Setup time",
+        "annualSavings": "Annual savings",
+        "moneyBackGuarantee": "Money-back guarantee"
+      },
+      "howItWorks": {
+        "title": "Get started in minutes",
+        "step1": {
+          "title": "Get the Zap",
+          "description": "€39, one-time purchase. Plugs into your P1 smart meter in 5 minutes."
+        },
+        "step2": {
+          "title": "Download the App",
+          "description": "iOS and Android. See real-time prices and consumption instantly."
+        },
+        "step3": {
+          "title": "Connect Your Devices",
+          "description": "Solar inverter, battery, EV charger - the Zap coordinates them all."
+        },
+        "step4": {
+          "title": "Start Saving",
+          "description": "Automatic optimization runs 24/7. No manual intervention needed."
+        }
+      },
+      "v2xSection": {
+        "badge": "V2X Ready",
+        "title": "Your EV is a power plant",
+        "description": "A typical EV battery holds 60-100 kWh - enough to power your home for days. With V2X technology, your car becomes a revenue-generating asset instead of sitting idle 95% of the time.",
+        "v2h": "Power your home from your EV",
+        "v2g": "Sell excess energy back to the grid",
+        "smartCharging": "Always ready when you need to drive",
+        "solarIntegration": "Store daytime solar for evening use",
+        "savingsExample": "V2X savings example (Sweden)",
+        "energyTrading": "Energy trading profit",
+        "peakDemand": "Peak demand reduction",
+        "gridServices": "Grid services rewards",
+        "totalBenefit": "Total annual benefit"
+      },
+      "cta": {
+        "title": "Ready to start saving?",
+        "description": "€39 one-time. 5-minute setup. 30-day money-back guarantee. Your home's energy will never be the same.",
+        "oneTimePurchase": "One-time purchase",
+        "freeShipping": "Free shipping • 30-day guarantee",
+        "downloadApp": "Download App",
+        "getTheApp": "Get the App"
       }
     },
     "utilities": {

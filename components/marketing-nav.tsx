@@ -47,12 +47,12 @@ export function MarketingNav() {
     {
       name: t("platform"),
       href: "/platform",
-      description: "Local energy coordination infrastructure",
+      description: t("platformDescription"),
     },
     {
       name: t("zap"),
       href: "/zap",
-      description: "€39 gateway with 200ms response",
+      description: t("zapDescription"),
     },
   ];
 
@@ -64,12 +64,12 @@ export function MarketingNav() {
   ];
 
   const developers = [
-    { name: "Overview", href: "/developers", external: false },
-    { name: "Developer Portal", href: "https://developer.sourceful.energy", external: true },
-    { name: "API Reference", href: "https://developer.sourceful.energy/api", external: true },
-    { name: "Design System", href: "https://design.sourceful.energy", external: true },
-    { name: "Hardware Docs", href: "https://developer.sourceful.energy/hardware", external: true },
-    { name: "Community", href: "/community", external: false },
+    { name: t("overview"), href: "/developers", external: false },
+    { name: t("devPortal"), href: "https://developer.sourceful.energy", external: true },
+    { name: t("apiReference"), href: "https://developer.sourceful.energy/api", external: true },
+    { name: t("designSystem"), href: "https://design.sourceful.energy", external: true },
+    { name: t("hardwareDocs"), href: "https://developer.sourceful.energy/hardware", external: true },
+    { name: t("community"), href: "/community", external: false },
   ];
 
   const toggleTheme = () => {
@@ -93,11 +93,11 @@ export function MarketingNav() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
-          {/* Products Dropdown */}
+          {/* {t("products")} Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="gap-1">
-                Products
+                {t("products")}
                 <ChevronDown className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -194,7 +194,7 @@ export function MarketingNav() {
           <div className="hidden md:flex items-center gap-2">
             <Button variant="ghost" asChild>
               <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                Dev Portal
+                {t("devPortal")}
               </a>
             </Button>
             <Button asChild>
@@ -213,12 +213,12 @@ export function MarketingNav() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
+                <SheetTitle>{t("menu")}</SheetTitle>
               </SheetHeader>
               <div className="mt-6 flex flex-col space-y-6">
                 {/* Products */}
                 <div>
-                  <h3 className="font-semibold mb-3">Products</h3>
+                  <h3 className="font-semibold mb-3">{t("products")}</h3>
                   <div className="space-y-2">
                     {products.map((item) => (
                       <Link
@@ -303,7 +303,7 @@ export function MarketingNav() {
                 <div className="pt-4 border-t space-y-3">
                   <Button variant="outline" className="w-full" asChild>
                     <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                      Dev Portal
+                      {t("devPortal")}
                     </a>
                   </Button>
                   <Button className="w-full" asChild>

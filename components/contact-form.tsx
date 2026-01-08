@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,12 +16,17 @@ interface ContactFormProps {
 }
 
 export function ContactForm({
-  title = "Get in Touch",
-  description = "Have questions? We'd love to hear from you.",
-  subject = "Website Contact"
+  title,
+  description,
+  subject
 }: ContactFormProps) {
+  const t = useTranslations("common.contactForm");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  const formTitle = title || t("title");
+  const formDescription = description || t("description");
+  const formSubject = subject || t("subject");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +47,7 @@ export function ContactForm({
           email: formData.get("email"),
           company: formData.get("company"),
           message: formData.get("message"),
-          subject: subject,
+          subject: formSubject,
         }),
       });
       setSubmitted(true);
@@ -57,9 +63,9 @@ export function ContactForm({
       <Card>
         <CardContent className="p-8 text-center">
           <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
+          <h3 className="text-xl font-semibold mb-2">{t("successTitle")}</h3>
           <p className="text-muted-foreground">
-            Thanks for reaching out. We'll get back to you soon.
+            {t("successMessage")}
           </p>
         </CardContent>
       </Card>
@@ -69,56 +75,56 @@ export function ContactForm({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+        <CardTitle>{formTitle}</CardTitle>
+        <CardDescription>{formDescription}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">{t("nameLabel")}</Label>
               <Input
                 id="name"
                 name="name"
-                placeholder="Your name"
+                placeholder={t("namePlaceholder")}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">{t("emailLabel")}</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder={t("emailPlaceholder")}
                 required
               />
             </div>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="company">Company (optional)</Label>
+            <Label htmlFor="company">{t("companyLabel")}</Label>
             <Input
               id="company"
               name="company"
-              placeholder="Your company"
+              placeholder={t("companyPlaceholder")}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="message">Message</Label>
+            <Label htmlFor="message">{t("messageLabel")}</Label>
             <Textarea
               id="message"
               name="message"
-              placeholder="How can we help?"
+              placeholder={t("messagePlaceholder")}
               rows={4}
               required
             />
           </div>
           <Button type="submit" className="w-full" disabled={submitting}>
             {submitting ? (
-              "Sending..."
+              t("sending")
             ) : (
               <>
-                Send Message
+                {t("sendMessage")}
                 <Send className="ml-2 h-4 w-4" />
               </>
             )}
