@@ -333,7 +333,29 @@
       "storage": "Lagring",
       "connectivity": "Anslutning",
       "power": "Strömförsörjning",
-      "dimensions": "Dimensioner"
+      "dimensions": "Dimensioner",
+      "protocols": "Protokoll",
+      "responseTime": "Svarstid",
+      "responseValue": "<200ms lokalt",
+      "firmware": "Firmware",
+      "firmwareValue": "OTA-uppdateringar",
+      "localExecution": "Lokal exekvering",
+      "price": "Pris",
+      "compatibility": "Kompatibilitet",
+      "euSmartMeters": "EU smartmätare"
+    },
+    "devices": {
+      "smartMeters": "Smartmätare (P1)",
+      "evChargers": "Elbilsladdare",
+      "batterySystems": "Batterisystem",
+      "inverters": "Växelriktare",
+      "heatPumps": "Värmepumpar",
+      "v2xSystems": "V2X-system"
+    },
+    "pricing": {
+      "title": "Säljs till självkostnadspris",
+      "description": "Vi är ett plattformsföretag, inte ett hårdvaruföretag. Zap säljs till BOM-kostnad för att maximera spridningen. Vi tjänar pengar på plattformstjänster.",
+      "bomCost": "BOM-kostnad per enhet"
     },
     "v2x": {
       "badge": "Kommer snart",
@@ -560,13 +582,54 @@
         "early": "Tidig åtkomst till V2X-funktioner",
         "priority": "Prioriterad support under installation",
         "updates": "Exklusiva uppdateringar om V2X-utvecklingen"
+      },
+      "successMessage": "Du är på listan! Vi hör av oss när V2X är redo för testning."
+    },
+    "useCases": {
+      "v2h": {
+        "title": "V2H (Vehicle-to-Home)",
+        "description": "Driv ditt hem från din elbil. Perfekt för prishantring och backup-kraft.",
+        "savings": "4 000-7 000 kr/år"
+      },
+      "v2g": {
+        "title": "V2G (Vehicle-to-Grid)",
+        "description": "Sälj energi tillbaka till nätet vid hög efterfrågan. Kräver energibolagspartnerskap.",
+        "savings": "2 000-4 500 kr/år"
+      },
+      "v2l": {
+        "title": "V2L (Vehicle-to-Load)",
+        "description": "Driv externa enheter direkt. Perfekt för camping, byggen eller nödsituationer.",
+        "savings": "Bekvämlighet"
       }
+    },
+    "chargers": {
+      "title": "Laddare",
+      "testing": "Testas",
+      "planned": "Planerad"
+    },
+    "evs": {
+      "title": "Kompatibla elbilar"
+    },
+    "requirements": {
+      "title": "Krav",
+      "zap": "Zap gateway (399 kr)",
+      "charger": "Dubbelriktad elbilsladdare",
+      "vehicle": "V2X-kapabel elbil",
+      "subscription": "Sourceful-plattformsprenumeration"
+    },
+    "launchTarget": "Lanseringsmål",
+    "earlyAccess": "Tidig åtkomst",
+    "cta": {
+      "title": "Börja med Zap idag",
+      "description": "Skaffa Zap gateway nu och var redo för V2X när det lanseras. Börja optimera din energi idag."
     }
   },
   "contact": {
     "title": "Kontakta oss",
     "description": "Har du frågor? Vi vill gärna höra från dig.",
     "form": {
+      "title": "Skicka ett meddelande",
+      "description": "Fyll i formuläret så återkommer vi inom 24 timmar.",
       "name": "Namn",
       "email": "E-post",
       "company": "Företag",
@@ -574,6 +637,33 @@
       "submit": "Skicka meddelande",
       "success": "Meddelande skickat! Vi återkommer snart.",
       "error": "Något gick fel. Försök igen."
+    },
+    "directContacts": "Direktkontakter",
+    "contacts": {
+      "partnerships": {
+        "title": "Partnerskap",
+        "description": "För energibolag, OEM-tillverkare och installatörspartnerskap"
+      },
+      "investors": {
+        "title": "Investerare",
+        "description": "För investeringsförfrågningar"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Teknisk hjälp och felsökning"
+      }
+    },
+    "location": {
+      "title": "Plats",
+      "description": "Vårt huvudkontor",
+      "city": "Kalmar, Sverige",
+      "regNumber": "Org.nr 559382-0458"
+    },
+    "community": {
+      "title": "Gå med i communityn",
+      "description": "Anslut med andra utvecklare och energientusiaster",
+      "discord": "Discord",
+      "github": "GitHub"
     }
   },
   "integrations": {
@@ -601,6 +691,78 @@
       "title": "Vi bygger det lokala",
       "titleHighlight": "energikoordineringslagret",
       "description": "Vi är ett team av ingenjörer besatta av ett enkelt problem: hur koordinerar man miljontals distribuerade energienheter i den hastighet fysiken kräver?"
+    },
+    "mission": {
+      "title": "Vårt uppdrag",
+      "paragraph1": "Energisystemet håller på att vända från centraliserat till distribuerat. 40-70 miljoner elbilar i Europa till 2030. Solpaneler på varje tak. Batterier i varje garage. Detta händer.",
+      "paragraph2": "Men distribuerad energi fungerar bara om den koordineras. Och koordinering kräver hastighet. Nätfrekvensen måste balanseras varje sekund. Moln-API:er svarar på 2-5 sekunder. Gapet går inte att överbrygga med enbart mjukvara.",
+      "paragraph3": "Vi bygger det lokala exekveringslagret som gör distribuerad energikoordinering faktiskt möjlig."
+    },
+    "numbers": {
+      "title": "Siffrorna",
+      "destroyed": "Förstörs årligen i koordineringsfel",
+      "negativeHours": "Timmar med negativa elpriser",
+      "storage": "Distribuerad lagring som behöver koordinering till 2030"
+    },
+    "values": {
+      "physicsBeforeCode": {
+        "title": "Fysik före kod",
+        "description": "Varje tekniskt beslut börjar med: 'Vad kräver det fysiska systemet?'"
+      },
+      "simpleOverClever": {
+        "title": "Enkelt före smart",
+        "description": "Är du stolt över hur smart det är? Förenkla det."
+      },
+      "localOverCloud": {
+        "title": "Lokalt före moln",
+        "description": "Lokalt är standard. Moln är opt-in, inte antagande."
+      },
+      "robustOverFeatureRich": {
+        "title": "Robust före funktionsrikt",
+        "description": "Skeppa något som fungerar 100% innan du lägger till funktioner."
+      },
+      "openOverProprietary": {
+        "title": "Öppet före proprietärt",
+        "description": "Nätverkseffekter, inte inlåsning."
+      }
+    },
+    "principles": {
+      "title": "Ingenjörsprinciper",
+      "description": "Hur vi bygger mjukvara som fungerar i fysikens hastighet."
+    },
+    "journey": {
+      "title": "Vår resa",
+      "founded": "Grundat i Kalmar, Sverige",
+      "seed": "3M USD seed-runda",
+      "partnerships": "Första energibolagspartnerskapen live",
+      "seedPlus": "Seed+-runda öppnar"
+    },
+    "location": {
+      "city": "Kalmar, Sverige",
+      "title": "Nordiska rötter, global ambition",
+      "paragraph1": "Vi har vårt huvudkontor i Kalmar, Sverige - på sydostkusten, nära våra första energibolagspartners. Härifrån bygger vi infrastrukturen för den globala energiomställningen.",
+      "paragraph2": "Våra första marknader är Norden och Nordeuropa, där nätinfrastrukturen är redo för distribuerad energi. Men vår teknologi fungerar överallt där det finns ett elnät."
+    },
+    "traction": {
+      "title": "Nuvarande utveckling",
+      "kalmarEnergi": {
+        "name": "Kalmar Energi (Sverige)",
+        "status": "Lansering nära förestående"
+      },
+      "nrgi": {
+        "name": "NRGi (Danmark)",
+        "status": "250K kundpipeline"
+      },
+      "elkedjan": {
+        "name": "Elkedjan (Sverige)",
+        "status": "Största installatörsnätverket"
+      }
+    },
+    "cta": {
+      "title": "Vill du vara med?",
+      "description": "Vi bygger något som spelar roll. Om du är entusiastisk över distribuerad energi och lokal-först-mjukvara, låt oss prata.",
+      "getInTouch": "Kontakta oss",
+      "joinCommunity": "Gå med i communityn"
     }
   },
   "company": {
@@ -985,6 +1147,154 @@
         "title": "Vad händer nu?",
         "description": "När du är ansluten, utforska Sourceful-appen för att övervaka din solproduktion, optimera egenförbrukning och hantera nätexport."
       }
+    }
+  },
+  "privacy": {
+    "title": "Integritetspolicy",
+    "lastUpdated": "Senast uppdaterad: 30 oktober 2025",
+    "dataController": {
+      "title": "Personuppgiftsansvarig",
+      "paragraph1": "Sourceful Labs AB (Org.nr: 559382-0458) ansvarar för behandlingen av dina personuppgifter. Vi är engagerade i att skydda din integritet och hantera dina uppgifter i enlighet med GDPR och tillämplig svensk lag.",
+      "website": "Webbplats"
+    },
+    "analytics": {
+      "title": "Webbplatsanalys",
+      "paragraph1": "Vi samlar in anonymiserad användningsdata genom analyskakskript och Google Analytics, inklusive en krypterad version av din IP-adress och enhetsinformation. Denna data lagras i 26 månader.",
+      "optOut": "Du kan välja bort Google Analytics genom att använda Googles webbläsartillägg tillgängligt på"
+    },
+    "waitlist": {
+      "title": "Tjänstintresse och väntelista",
+      "paragraph1": "Vi behandlar namn, e-post och kontaktuppgifter från intresseformulär baserat på berättigat intresse att nå ut till kunder. Dessa uppgifter lagras i ett år efter att förfrågan hanterats."
+    },
+    "contract": {
+      "title": "Avtal och hårdvaruleverans",
+      "paragraph1": "Personuppgifter inklusive namn, adress och betalningsinformation behandlas för att fullgöra prenumerationsavtal och enhetsbeställningar enligt avtalsuppfyllelsekrav."
+    },
+    "device": {
+      "title": "Enhetsanslutning (Zap-enhet)",
+      "paragraph1": "Sourceful skannar lokala nätverk för att hitta distribuerade energiresurser. Vi behåller växelriktarens IP-adresser och nätverkskonfigurationsdetaljer för att säkerställa smidig funktion av Zap-enheten."
+    },
+    "energyData": {
+      "title": "Insamling av energidata",
+      "paragraph1": "Elförbrukningsdata i realtid, tidsstämplar och mätaravläsningar samlas in genom Zap-enheten. Dessa data behålls i 36 månader efter tjänsteavslut för supportändamål."
+    },
+    "activeControl": {
+      "title": "Aktiv styrfunktion",
+      "paragraph1": "När du aktiverar automatiserade kontroller för batterier, laddare och växelriktare behandlar vi energidata i realtid för att optimera enheternas prestanda."
+    },
+    "marketing": {
+      "title": "Marknadsförings- och analysverktyg",
+      "paragraph1": "Vi använder följande verktyg för reklamutfall och analys av användarbeteende:",
+      "tools": ["Meta Pixel", "TikTok Pixel", "LinkedIn Insight Tag", "Reddit Pixel", "HubSpot", "Microsoft Clarity"]
+    },
+    "rights": {
+      "title": "Dina rättigheter",
+      "paragraph1": "Enligt GDPR har du rätt att:",
+      "list": [
+        "Få tillgång till dina personuppgifter",
+        "Rätta felaktiga uppgifter",
+        "Radera dina uppgifter (\"rätten att bli glömd\")",
+        "Begränsa behandling",
+        "Dataportabilitet",
+        "Invända mot behandling",
+        "Lämna klagomål till Integritetsskyddsmyndigheten (IMY)"
+      ]
+    },
+    "contact": {
+      "title": "Kontakta oss",
+      "paragraph1": "För integritetsrelaterade frågor, kontakta oss på"
+    }
+  },
+  "terms": {
+    "title": "Allmänna villkor",
+    "effectiveDate": "Gäller från: 30 oktober 2025",
+    "introduction": {
+      "title": "1. Introduktion",
+      "paragraph1": "Dessa allmänna villkor reglerar din användning av tjänster som tillhandahålls av Sourceful Labs AB (svenskt organisationsnummer: 559382-0458), inklusive Sourceful-plattformen, Zap-hårdvaruenheten, mobilapplikationen och molntjänster.",
+      "paragraph2": "Genom att använda våra tjänster godkänner du dessa villkor. Läs dem noggrant."
+    },
+    "services": {
+      "title": "2. Tjänsteöversikt",
+      "paragraph1": "Sourceful tillhandahåller en energihanteringsplattform inklusive Zap-hårdvaruenheten, mobilapp och molntjänster för övervakning och styrning av distribuerade energiresurser som solpaneler, batterier, elbilsladdare och värmepumpar."
+    },
+    "zapPurchase": {
+      "title": "3A. Köp av Zap-enhet",
+      "list": [
+        "Zap-enheten är ett engångsköp med äganderätt vid leverans",
+        "Du har 30 dagars ångerrätt från leveransdatum",
+        "Enheten måste returneras i återförsäljningsbart skick för full återbetalning",
+        "Självinstallation med medföljande instruktioner",
+        "Ett års kommersiell garanti som täcker tillverkningsfel"
+      ]
+    },
+    "subscription": {
+      "title": "3B. Prenumerationstjänster",
+      "list": [
+        "Valfria betalplaner tillgängliga för ytterligare funktioner utöver gratisnivån",
+        "Faktureras månadsvis eller årligen i förskott",
+        "Avbokning tillgänglig när som helst; träder i kraft vid faktureringsperiodens slut",
+        "Sourceful kan säga upp med 30 dagars varsel eller omedelbart vid väsentligt avtalsbrott",
+        "Gratisnivån förblir tillgänglig efter att prenumerationen upphör"
+      ]
+    },
+    "responsibilities": {
+      "title": "4. Användaransvar",
+      "paragraph1": "Du ansvarar för:",
+      "list": [
+        "Att tillhandahålla korrekt kontoinformation",
+        "Att upprätthålla säkerheten för dina kontouppgifter",
+        "Att säkerställa korrekt installation och användning av hårdvara",
+        "Att följa lokala elektriska normer och föreskrifter",
+        "Att endast använda tjänsterna för lagliga ändamål"
+      ]
+    },
+    "prohibited": {
+      "title": "5. Förbjudna aktiviteter",
+      "paragraph1": "Du får inte:",
+      "list": [
+        "Omvända, kopiera eller modifiera mjukvaran eller hårdvaran",
+        "Manipulera energidata eller avläsningar",
+        "Automatisera interaktioner utöver avsedd användning",
+        "Begå bedrägeri eller lämna felaktiga uppgifter",
+        "Använda tjänsterna för att skada elnätet eller andra användare"
+      ],
+      "paragraph2": "Överträdelser kan leda till avstängning eller uppsägning av åtkomst."
+    },
+    "consumer": {
+      "title": "6. Konsumentskydd",
+      "paragraph1": "Enligt svensk konsumentlag kvalificerar defekta enheter för åtgärder i följande prioritetsordning:",
+      "list": [
+        "Reparation eller ersättning",
+        "Prisavdrag",
+        "Hävning med full återbetalning"
+      ],
+      "paragraph2": "Reklamationer gäller i tre år efter leverans."
+    },
+    "liability": {
+      "title": "7. Ansvarsbegränsning",
+      "paragraph1": "I den utsträckning lagen tillåter är Sourcefuls ansvar begränsat till det belopp du betalat för tjänsterna. Vi ansvarar inte för indirekta, tillfälliga eller följdskador, inklusive utebliven vinst eller dataförlust."
+    },
+    "dataPrivacy": {
+      "title": "8. Data och integritet",
+      "paragraph1": "Personuppgiftshantering följer vår",
+      "privacyPolicy": "Integritetspolicy",
+      "paragraph2": ". Autentisering hanteras via Privy. Data kan delas med partners enligt GDPR-krav."
+    },
+    "ip": {
+      "title": "9. Immateriella rättigheter",
+      "paragraph1": "All mjukvara, hårdvarudesign, varumärken och innehåll ägs av Sourceful Labs AB. Ditt köp ger en licens att använda, inte äganderätt till immateriella rättigheter."
+    },
+    "changes": {
+      "title": "10. Ändringar av villkor",
+      "paragraph1": "Vi kan uppdatera dessa villkor med rimligt varsel. Fortsatt användning efter ändringar utgör godkännande. Väsentliga ändringar kommer att meddelas via e-post eller i appen."
+    },
+    "governing": {
+      "title": "11. Tillämplig lag",
+      "paragraph1": "Dessa villkor lyder under svensk lag. Tvister ska lösas genom förhandling eller i svensk domstol. Konsumenter kan också kontakta Konsumentverket eller Allmänna reklamationsnämnden (ARN)."
+    },
+    "contact": {
+      "title": "12. Kontakt",
+      "paragraph1": "För frågor om dessa villkor, kontakta oss på"
     }
   }
 }

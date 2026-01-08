@@ -15,32 +15,37 @@ export default function AboutPage() {
   const tCommon = useTranslations("common");
   const values = [
     {
-      title: "Physics Before Code",
-      description: "Every technical decision starts with: 'What does the physical system require?'",
+      key: "physicsBeforeCode",
+      title: t("values.physicsBeforeCode.title"),
+      description: t("values.physicsBeforeCode.description"),
     },
     {
-      title: "Simple Over Clever",
-      description: "If you're proud of how clever it is, simplify it.",
+      key: "simpleOverClever",
+      title: t("values.simpleOverClever.title"),
+      description: t("values.simpleOverClever.description"),
     },
     {
-      title: "Local Over Cloud",
-      description: "Default to local. Cloud is opt-in, not assumed.",
+      key: "localOverCloud",
+      title: t("values.localOverCloud.title"),
+      description: t("values.localOverCloud.description"),
     },
     {
-      title: "Robust Over Feature-Rich",
-      description: "Ship something that works 100% before adding features.",
+      key: "robustOverFeatureRich",
+      title: t("values.robustOverFeatureRich.title"),
+      description: t("values.robustOverFeatureRich.description"),
     },
     {
-      title: "Open Over Proprietary",
-      description: "Network effects, not lock-in.",
+      key: "openOverProprietary",
+      title: t("values.openOverProprietary.title"),
+      description: t("values.openOverProprietary.description"),
     },
   ];
 
   const milestones = [
-    { year: "2023", event: "Founded in Kalmar, Sweden" },
-    { year: "2024", event: "$3M seed raised" },
-    { year: "2025", event: "First utility partnerships live" },
-    { year: "2026", event: "Seed+ round opening" },
+    { year: "2023", event: t("journey.founded") },
+    { year: "2024", event: t("journey.seed") },
+    { year: "2025", event: t("journey.partnerships") },
+    { year: "2026", event: t("journey.seedPlus") },
   ];
 
   return (
@@ -73,37 +78,32 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Our mission
+                {t("mission.title")}
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
-                The energy system is flipping from centralized to distributed.
-                40-70 million EVs in Europe by 2030. Rooftop solar on every house.
-                Batteries in every garage. This is happening.
+                {t("mission.paragraph1")}
               </p>
               <p className="text-lg text-muted-foreground mb-6">
-                But distributed energy only works if it's coordinated. And coordination
-                requires speed. Grid frequency must balance every second. Cloud APIs
-                respond in 2-5 seconds. The gap is unbridgeable through software alone.
+                {t("mission.paragraph2")}
               </p>
               <p className="text-lg font-medium">
-                We're building the local execution layer that makes distributed
-                energy coordination actually possible.
+                {t("mission.paragraph3")}
               </p>
             </div>
             <div className="bg-muted rounded-lg p-8">
-              <h3 className="font-semibold mb-6">The numbers</h3>
+              <h3 className="font-semibold mb-6">{t("numbers.title")}</h3>
               <div className="space-y-6">
                 <div>
-                  <div className="text-3xl font-bold text-primary">€2.5B</div>
-                  <div className="text-muted-foreground">Destroyed annually in coordination failures</div>
+                  <div className="text-3xl font-bold text-primary">{tCommon("currency.symbol")}2.5B</div>
+                  <div className="text-muted-foreground">{t("numbers.destroyed")}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-primary">700+</div>
-                  <div className="text-muted-foreground">Hours of negative electricity pricing</div>
+                  <div className="text-muted-foreground">{t("numbers.negativeHours")}</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-primary">2,800 GWh</div>
-                  <div className="text-muted-foreground">Distributed storage needing coordination by 2030</div>
+                  <div className="text-muted-foreground">{t("numbers.storage")}</div>
                 </div>
               </div>
             </div>
@@ -115,16 +115,16 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Engineering principles
+                {t("principles.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                How we build software that works at the speed of physics.
+                {t("principles.description")}
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {values.map((value, index) => (
-                <Card key={value.title}>
+                <Card key={value.key}>
                   <CardHeader>
                     <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-sm font-bold">
                       {index + 1}
@@ -145,7 +145,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center">
-                Our journey
+                {t("journey.title")}
               </h2>
               <div className="space-y-8">
                 {milestones.map((milestone, index) => (
@@ -176,44 +176,40 @@ export default function AboutPage() {
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <Globe className="h-5 w-5 text-primary" />
-                  <span className="font-medium">Kalmar, Sweden</span>
+                  <span className="font-medium">{t("location.city")}</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  Nordic roots, global ambition
+                  {t("location.title")}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  We're based in Kalmar, Sweden - on the southeastern coast,
-                  close to our first utility partners. From here, we're building the
-                  infrastructure for the global energy transition.
+                  {t("location.paragraph1")}
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  Our first markets are the Nordics and Northern Europe, where
-                  grid infrastructure is ready for distributed energy. But our
-                  technology works anywhere there's a grid.
+                  {t("location.paragraph2")}
                 </p>
               </div>
               <div className="bg-background rounded-lg p-8 border">
-                <h3 className="font-semibold mb-4">Current traction</h3>
+                <h3 className="font-semibold mb-4">{t("traction.title")}</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                     <div>
-                      <div className="font-medium">Kalmar Energi (Sweden)</div>
-                      <div className="text-sm text-muted-foreground">Go-live imminent</div>
+                      <div className="font-medium">{t("traction.kalmarEnergi.name")}</div>
+                      <div className="text-sm text-muted-foreground">{t("traction.kalmarEnergi.status")}</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                     <div>
-                      <div className="font-medium">NRGi (Denmark)</div>
-                      <div className="text-sm text-muted-foreground">250K customer pipeline</div>
+                      <div className="font-medium">{t("traction.nrgi.name")}</div>
+                      <div className="text-sm text-muted-foreground">{t("traction.nrgi.status")}</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                     <div>
-                      <div className="font-medium">Elkedjan (Sweden)</div>
-                      <div className="text-sm text-muted-foreground">Largest installer network</div>
+                      <div className="font-medium">{t("traction.elkedjan.name")}</div>
+                      <div className="text-sm text-muted-foreground">{t("traction.elkedjan.status")}</div>
                     </div>
                   </li>
                 </ul>
@@ -226,22 +222,21 @@ export default function AboutPage() {
         <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Want to join us?
+              {t("cta.title")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              We're building something that matters. If you're excited about
-              distributed energy and local-first software, let's talk.
+              {t("cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
                 <Link href="/contact">
-                  Get in Touch
+                  {t("cta.getInTouch")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/community">
-                  Join Community
+                  {t("cta.joinCommunity")}
                 </Link>
               </Button>
             </div>

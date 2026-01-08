@@ -16,21 +16,24 @@ export default function ContactPage() {
 
   const contacts = [
     {
+      key: "partnerships",
       icon: Building2,
-      title: "Partnerships",
-      description: "For utilities, OEMs, and installer partnerships",
+      title: t("contacts.partnerships.title"),
+      description: t("contacts.partnerships.description"),
       email: "partners@sourceful.energy",
     },
     {
+      key: "investors",
       icon: Mail,
-      title: "Investors",
-      description: "For investment inquiries",
+      title: t("contacts.investors.title"),
+      description: t("contacts.investors.description"),
       email: "invest@sourceful.energy",
     },
     {
+      key: "support",
       icon: MessageSquare,
-      title: "Support",
-      description: "Technical help and troubleshooting",
+      title: t("contacts.support.title"),
+      description: t("contacts.support.description"),
       email: "support@sourceful.energy",
     },
   ];
@@ -65,21 +68,21 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div>
               <ContactForm
-                title="Send us a message"
-                description="Fill out the form and we'll get back to you within 24 hours."
-                subject="Website Contact"
+                title={t("form.title")}
+                description={t("form.description")}
+                subject={tCommon("contactForm.subject")}
               />
             </div>
 
             {/* Contact Info */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold mb-6">Direct contacts</h2>
+                <h2 className="text-2xl font-bold mb-6">{t("directContacts")}</h2>
                 <div className="space-y-4">
                   {contacts.map((contact) => {
                     const Icon = contact.icon;
                     return (
-                      <Card key={contact.title}>
+                      <Card key={contact.key}>
                         <CardHeader className="pb-2">
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -113,15 +116,15 @@ export default function ContactPage() {
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <CardTitle className="text-lg">Location</CardTitle>
-                      <CardDescription>Our headquarters</CardDescription>
+                      <CardTitle className="text-lg">{t("location.title")}</CardTitle>
+                      <CardDescription>{t("location.description")}</CardDescription>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-medium">Kalmar, Sweden</p>
+                  <p className="font-medium">{t("location.city")}</p>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Reg. 559382-0458
+                    {t("location.regNumber")}
                   </p>
                 </CardContent>
               </Card>
@@ -129,9 +132,9 @@ export default function ContactPage() {
               {/* Community */}
               <Card className="bg-muted/50">
                 <CardHeader>
-                  <CardTitle className="text-lg">Join the community</CardTitle>
+                  <CardTitle className="text-lg">{t("community.title")}</CardTitle>
                   <CardDescription>
-                    Connect with other developers and energy enthusiasts
+                    {t("community.description")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex gap-4">
@@ -141,7 +144,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium"
                   >
-                    Discord
+                    {t("community.discord")}
                   </a>
                   <a
                     href="https://github.com/srcfl"
@@ -149,7 +152,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium"
                   >
-                    GitHub
+                    {t("community.github")}
                   </a>
                 </CardContent>
               </Card>

@@ -51,27 +51,30 @@ export default function V2XPage() {
 
   const useCases = [
     {
-      title: "V2H (Vehicle-to-Home)",
-      description: "Power your home from your EV. Ideal for off-peak arbitrage and backup power.",
-      savings: "€500-800/year",
+      key: "v2h",
+      title: t("useCases.v2h.title"),
+      description: t("useCases.v2h.description"),
+      savings: t("useCases.v2h.savings"),
     },
     {
-      title: "V2G (Vehicle-to-Grid)",
-      description: "Sell energy back to the grid during high demand. Requires utility partnership.",
-      savings: "€200-500/year",
+      key: "v2g",
+      title: t("useCases.v2g.title"),
+      description: t("useCases.v2g.description"),
+      savings: t("useCases.v2g.savings"),
     },
     {
-      title: "V2L (Vehicle-to-Load)",
-      description: "Power external devices directly. Great for camping, construction, or emergencies.",
-      savings: "Convenience",
+      key: "v2l",
+      title: t("useCases.v2l.title"),
+      description: t("useCases.v2l.description"),
+      savings: t("useCases.v2l.savings"),
     },
   ];
 
   const compatibleChargers = [
-    { name: "Easee Home", status: "Testing" },
-    { name: "Zaptec Go", status: "Testing" },
-    { name: "ChargeAmps Halo", status: "Planned" },
-    { name: "Wallbox Quasar 2", status: "Planned" },
+    { name: "Easee Home", status: t("chargers.testing") },
+    { name: "Zaptec Go", status: t("chargers.testing") },
+    { name: "ChargeAmps Halo", status: t("chargers.planned") },
+    { name: "Wallbox Quasar 2", status: t("chargers.planned") },
   ];
 
   const compatibleEVs = [
@@ -84,10 +87,10 @@ export default function V2XPage() {
   ];
 
   const requirements = [
-    "Zap gateway (€39)",
-    "Bidirectional EV charger",
-    "V2X-capable electric vehicle",
-    "Sourceful platform subscription",
+    t("requirements.zap"),
+    t("requirements.charger"),
+    t("requirements.vehicle"),
+    t("requirements.subscription"),
   ];
 
   return (
@@ -176,7 +179,7 @@ export default function V2XPage() {
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-yellow-600 dark:text-yellow-400">2026</div>
-                  <div className="text-sm text-muted-foreground">Launch target</div>
+                  <div className="text-sm text-muted-foreground">{t("launchTarget")}</div>
                 </div>
               </StaggerItem>
             </StaggerContainer>
@@ -294,12 +297,12 @@ export default function V2XPage() {
                   </p>
 
                   <div className="mb-8">
-                    <h3 className="font-semibold mb-4">Chargers</h3>
+                    <h3 className="font-semibold mb-4">{t("chargers.title")}</h3>
                     <div className="space-y-3">
                       {compatibleChargers.map((charger) => (
                         <div key={charger.name} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                           <span className="font-medium">{charger.name}</span>
-                          <Badge variant={charger.status === "Testing" ? "secondary" : "outline"}>
+                          <Badge variant={charger.status === t("chargers.testing") ? "secondary" : "outline"}>
                             {charger.status}
                           </Badge>
                         </div>
@@ -312,7 +315,7 @@ export default function V2XPage() {
               <FadeIn delay={0.2}>
                 <div>
                   <div className="bg-muted rounded-lg p-6 mb-6">
-                    <h3 className="font-semibold mb-4">Compatible EVs</h3>
+                    <h3 className="font-semibold mb-4">{t("evs.title")}</h3>
                     <div className="grid grid-cols-2 gap-2">
                       {compatibleEVs.map((ev) => (
                         <div key={ev} className="flex items-center gap-2 text-sm">
@@ -327,10 +330,10 @@ export default function V2XPage() {
                   </div>
 
                   <div className="bg-background border rounded-lg p-6">
-                    <h3 className="font-semibold mb-4">Requirements</h3>
+                    <h3 className="font-semibold mb-4">{t("requirements.title")}</h3>
                     <ul className="space-y-2">
-                      {requirements.map((req) => (
-                        <li key={req} className="flex items-center gap-2 text-sm">
+                      {requirements.map((req, index) => (
+                        <li key={index} className="flex items-center gap-2 text-sm">
                           <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
                           <span>{req}</span>
                         </li>
@@ -348,7 +351,7 @@ export default function V2XPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="max-w-xl mx-auto text-center">
               <Badge variant="outline" className="mb-4 border-yellow-500/50 text-yellow-600 dark:text-yellow-400">
-                Early Access
+                {t("earlyAccess")}
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("waitlist.title")}
@@ -364,7 +367,7 @@ export default function V2XPage() {
                     title={t("waitlist.title")}
                     description={t("waitlist.description")}
                     buttonText={tCommon("buttons.joinWaitlist")}
-                    successMessage="You're on the list! We'll be in touch when V2X is ready for testing."
+                    successMessage={t("waitlist.successMessage")}
                   />
                 </CardContent>
               </Card>
@@ -383,11 +386,10 @@ export default function V2XPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Start with the Zap today
+                {t("cta.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Get the Zap gateway now and be ready for V2X when it launches.
-                Start optimizing your energy today.
+                {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild>

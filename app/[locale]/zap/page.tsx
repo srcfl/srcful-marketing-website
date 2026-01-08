@@ -15,13 +15,6 @@ export default function ZapPage() {
   const t = useTranslations("zap");
   const tCommon = useTranslations("common");
 
-  const specs = [
-    { label: t("features.speed.title"), value: "200ms", description: t("features.speed.description").substring(0, 30) + "..." },
-    { label: t("hero.price"), value: t("hero.price"), description: t("hero.priceNote") },
-    { label: "Compatibility", value: "180M", description: "EU smart meters" },
-    { label: t("features.protocols.title"), value: "5+", description: "P1, Modbus, MQTT, OCPP" },
-  ];
-
   const features = [
     {
       icon: Clock,
@@ -43,6 +36,15 @@ export default function ZapPage() {
       title: t("features.protocols.title"),
       description: t("features.protocols.description"),
     },
+  ];
+
+  const devices = [
+    t("devices.smartMeters"),
+    t("devices.evChargers"),
+    t("devices.batterySystems"),
+    t("devices.inverters"),
+    t("devices.heatPumps"),
+    t("devices.v2xSystems"),
   ];
 
   return (
@@ -103,27 +105,27 @@ export default function ZapPage() {
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">200ms</div>
                   <div className="font-medium">{t("features.speed.title")}</div>
-                  <div className="text-sm text-muted-foreground">Local execution</div>
+                  <div className="text-sm text-muted-foreground">{t("specs.localExecution")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">{t("hero.price")}</div>
-                  <div className="font-medium">Price</div>
+                  <div className="font-medium">{t("specs.price")}</div>
                   <div className="text-sm text-muted-foreground">{t("hero.priceNote")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">180M</div>
-                  <div className="font-medium">Compatibility</div>
-                  <div className="text-sm text-muted-foreground">EU smart meters</div>
+                  <div className="font-medium">{t("specs.compatibility")}</div>
+                  <div className="text-sm text-muted-foreground">{t("specs.euSmartMeters")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary">5+</div>
-                  <div className="font-medium">Protocols</div>
+                  <div className="font-medium">{t("specs.protocols")}</div>
                   <div className="text-sm text-muted-foreground">P1, Modbus, MQTT, OCPP</div>
                 </div>
               </StaggerItem>
@@ -190,7 +192,7 @@ export default function ZapPage() {
                       <span className="font-medium">WiFi, Ethernet, RS485</span>
                     </div>
                     <div className="flex justify-between py-3 border-b">
-                      <span className="text-muted-foreground">Protocols</span>
+                      <span className="text-muted-foreground">{t("specs.protocols")}</span>
                       <span className="font-medium">P1, Modbus, MQTT, OCPP</span>
                     </div>
                     <div className="flex justify-between py-3 border-b">
@@ -198,12 +200,12 @@ export default function ZapPage() {
                       <span className="font-medium">USB-C, 5V</span>
                     </div>
                     <div className="flex justify-between py-3 border-b">
-                      <span className="text-muted-foreground">Response Time</span>
-                      <span className="font-medium">&lt;200ms local</span>
+                      <span className="text-muted-foreground">{t("specs.responseTime")}</span>
+                      <span className="font-medium">{t("specs.responseValue")}</span>
                     </div>
                     <div className="flex justify-between py-3">
-                      <span className="text-muted-foreground">Firmware</span>
-                      <span className="font-medium">OTA updates</span>
+                      <span className="text-muted-foreground">{t("specs.firmware")}</span>
+                      <span className="font-medium">{t("specs.firmwareValue")}</span>
                     </div>
                   </div>
                 </div>
@@ -212,14 +214,7 @@ export default function ZapPage() {
                 <div className="bg-muted rounded-lg p-8">
                   <h3 className="font-semibold mb-4">{t("compatibility.title")}</h3>
                   <div className="grid grid-cols-2 gap-4">
-                    {[
-                      "Smart Meters (P1)",
-                      "EV Chargers",
-                      "Battery Systems",
-                      "Inverters",
-                      "Heat Pumps",
-                      "V2X Systems",
-                    ].map((device) => (
+                    {devices.map((device) => (
                       <div key={device} className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-primary" />
                         <span className="text-sm">{device}</span>
@@ -243,16 +238,15 @@ export default function ZapPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="max-w-xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Sold at cost
+                {t("pricing.title")}
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                We're a platform company, not a hardware company. The Zap is sold
-                at BOM cost to maximize adoption. We make money on platform services.
+                {t("pricing.description")}
               </p>
               <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
                 <CardContent className="p-8">
                   <div className="text-5xl font-bold text-primary mb-2">{t("hero.price")}</div>
-                  <div className="text-muted-foreground mb-6">BOM cost per unit</div>
+                  <div className="text-muted-foreground mb-6">{t("pricing.bomCost")}</div>
                   <Button size="lg" asChild>
                     <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
                       {tCommon("buttons.orderNow")}

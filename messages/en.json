@@ -333,7 +333,29 @@
       "storage": "Storage",
       "connectivity": "Connectivity",
       "power": "Power",
-      "dimensions": "Dimensions"
+      "dimensions": "Dimensions",
+      "protocols": "Protocols",
+      "responseTime": "Response Time",
+      "responseValue": "<200ms local",
+      "firmware": "Firmware",
+      "firmwareValue": "OTA updates",
+      "localExecution": "Local execution",
+      "price": "Price",
+      "compatibility": "Compatibility",
+      "euSmartMeters": "EU smart meters"
+    },
+    "devices": {
+      "smartMeters": "Smart Meters (P1)",
+      "evChargers": "EV Chargers",
+      "batterySystems": "Battery Systems",
+      "inverters": "Inverters",
+      "heatPumps": "Heat Pumps",
+      "v2xSystems": "V2X Systems"
+    },
+    "pricing": {
+      "title": "Sold at cost",
+      "description": "We're a platform company, not a hardware company. The Zap is sold at BOM cost to maximize adoption. We make money on platform services.",
+      "bomCost": "BOM cost per unit"
     },
     "v2x": {
       "badge": "Coming Soon",
@@ -560,13 +582,54 @@
         "early": "Early access to V2X features",
         "priority": "Priority support during setup",
         "updates": "Exclusive updates on V2X development"
+      },
+      "successMessage": "You're on the list! We'll be in touch when V2X is ready for testing."
+    },
+    "useCases": {
+      "v2h": {
+        "title": "V2H (Vehicle-to-Home)",
+        "description": "Power your home from your EV. Ideal for off-peak arbitrage and backup power.",
+        "savings": "€500-800/year"
+      },
+      "v2g": {
+        "title": "V2G (Vehicle-to-Grid)",
+        "description": "Sell energy back to the grid during high demand. Requires utility partnership.",
+        "savings": "€200-500/year"
+      },
+      "v2l": {
+        "title": "V2L (Vehicle-to-Load)",
+        "description": "Power external devices directly. Great for camping, construction, or emergencies.",
+        "savings": "Convenience"
       }
+    },
+    "chargers": {
+      "title": "Chargers",
+      "testing": "Testing",
+      "planned": "Planned"
+    },
+    "evs": {
+      "title": "Compatible EVs"
+    },
+    "requirements": {
+      "title": "Requirements",
+      "zap": "Zap gateway (€39)",
+      "charger": "Bidirectional EV charger",
+      "vehicle": "V2X-capable electric vehicle",
+      "subscription": "Sourceful platform subscription"
+    },
+    "launchTarget": "Launch target",
+    "earlyAccess": "Early Access",
+    "cta": {
+      "title": "Start with the Zap today",
+      "description": "Get the Zap gateway now and be ready for V2X when it launches. Start optimizing your energy today."
     }
   },
   "contact": {
     "title": "Get in Touch",
     "description": "Have questions? We'd love to hear from you.",
     "form": {
+      "title": "Send us a message",
+      "description": "Fill out the form and we'll get back to you within 24 hours.",
       "name": "Name",
       "email": "Email",
       "company": "Company",
@@ -574,6 +637,33 @@
       "submit": "Send Message",
       "success": "Message sent! We'll get back to you soon.",
       "error": "Something went wrong. Please try again."
+    },
+    "directContacts": "Direct contacts",
+    "contacts": {
+      "partnerships": {
+        "title": "Partnerships",
+        "description": "For utilities, OEMs, and installer partnerships"
+      },
+      "investors": {
+        "title": "Investors",
+        "description": "For investment inquiries"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Technical help and troubleshooting"
+      }
+    },
+    "location": {
+      "title": "Location",
+      "description": "Our headquarters",
+      "city": "Kalmar, Sweden",
+      "regNumber": "Reg. 559382-0458"
+    },
+    "community": {
+      "title": "Join the community",
+      "description": "Connect with other developers and energy enthusiasts",
+      "discord": "Discord",
+      "github": "GitHub"
     }
   },
   "integrations": {
@@ -601,6 +691,78 @@
       "title": "Building the local energy",
       "titleHighlight": "coordination layer",
       "description": "We're a team of engineers obsessed with a simple problem: how do you coordinate millions of distributed energy devices at the speed physics demands?"
+    },
+    "mission": {
+      "title": "Our mission",
+      "paragraph1": "The energy system is flipping from centralized to distributed. 40-70 million EVs in Europe by 2030. Rooftop solar on every house. Batteries in every garage. This is happening.",
+      "paragraph2": "But distributed energy only works if it's coordinated. And coordination requires speed. Grid frequency must balance every second. Cloud APIs respond in 2-5 seconds. The gap is unbridgeable through software alone.",
+      "paragraph3": "We're building the local execution layer that makes distributed energy coordination actually possible."
+    },
+    "numbers": {
+      "title": "The numbers",
+      "destroyed": "Destroyed annually in coordination failures",
+      "negativeHours": "Hours of negative electricity pricing",
+      "storage": "Distributed storage needing coordination by 2030"
+    },
+    "values": {
+      "physicsBeforeCode": {
+        "title": "Physics Before Code",
+        "description": "Every technical decision starts with: 'What does the physical system require?'"
+      },
+      "simpleOverClever": {
+        "title": "Simple Over Clever",
+        "description": "If you're proud of how clever it is, simplify it."
+      },
+      "localOverCloud": {
+        "title": "Local Over Cloud",
+        "description": "Default to local. Cloud is opt-in, not assumed."
+      },
+      "robustOverFeatureRich": {
+        "title": "Robust Over Feature-Rich",
+        "description": "Ship something that works 100% before adding features."
+      },
+      "openOverProprietary": {
+        "title": "Open Over Proprietary",
+        "description": "Network effects, not lock-in."
+      }
+    },
+    "principles": {
+      "title": "Engineering principles",
+      "description": "How we build software that works at the speed of physics."
+    },
+    "journey": {
+      "title": "Our journey",
+      "founded": "Founded in Kalmar, Sweden",
+      "seed": "$3M seed raised",
+      "partnerships": "First utility partnerships live",
+      "seedPlus": "Seed+ round opening"
+    },
+    "location": {
+      "city": "Kalmar, Sweden",
+      "title": "Nordic roots, global ambition",
+      "paragraph1": "We're based in Kalmar, Sweden - on the southeastern coast, close to our first utility partners. From here, we're building the infrastructure for the global energy transition.",
+      "paragraph2": "Our first markets are the Nordics and Northern Europe, where grid infrastructure is ready for distributed energy. But our technology works anywhere there's a grid."
+    },
+    "traction": {
+      "title": "Current traction",
+      "kalmarEnergi": {
+        "name": "Kalmar Energi (Sweden)",
+        "status": "Go-live imminent"
+      },
+      "nrgi": {
+        "name": "NRGi (Denmark)",
+        "status": "250K customer pipeline"
+      },
+      "elkedjan": {
+        "name": "Elkedjan (Sweden)",
+        "status": "Largest installer network"
+      }
+    },
+    "cta": {
+      "title": "Want to join us?",
+      "description": "We're building something that matters. If you're excited about distributed energy and local-first software, let's talk.",
+      "getInTouch": "Get in Touch",
+      "joinCommunity": "Join Community"
     }
   },
   "company": {
@@ -985,6 +1147,154 @@
         "title": "What's Next?",
         "description": "Once connected, explore the Sourceful app to monitor your solar production, optimize self-consumption, and manage grid exports."
       }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: October 30, 2025",
+    "dataController": {
+      "title": "Data Controller",
+      "paragraph1": "Sourceful Labs AB (Corporate ID: 559382-0458) is responsible for processing your personal data. We are committed to protecting your privacy and handling your data in accordance with GDPR and applicable Swedish law.",
+      "website": "Website"
+    },
+    "analytics": {
+      "title": "Website Analytics",
+      "paragraph1": "We collect anonymized usage data through analytics cookies and Google Analytics, including an encrypted version of your IP address and device information. This data is retained for 26 months.",
+      "optOut": "You may opt out of Google Analytics by using Google's browser add-on available at"
+    },
+    "waitlist": {
+      "title": "Service Interest & Waitlist",
+      "paragraph1": "We process names, emails, and contact details from interest forms based on legitimate interest in reaching out to customers. This data is stored for one year after request handling."
+    },
+    "contract": {
+      "title": "Contract & Hardware Provision",
+      "paragraph1": "Personal data including name, address, and payment information are processed to fulfill subscription agreements and device orders under contract performance requirements."
+    },
+    "device": {
+      "title": "Device Connectivity (Zap Device)",
+      "paragraph1": "Sourceful scans local networks to locate distributed energy resources. We retain inverter IP addresses and network configuration details for seamless functionality of the Zap device."
+    },
+    "energyData": {
+      "title": "Energy Data Collection",
+      "paragraph1": "Real-time electricity consumption data, timestamps, and meter readings are collected through the Zap device. This data is retained for 36 months after service termination for support purposes."
+    },
+    "activeControl": {
+      "title": "Active Control Feature",
+      "paragraph1": "When you enable automated controls for batteries, chargers, and inverters, we process real-time energy data to optimize device performance."
+    },
+    "marketing": {
+      "title": "Marketing & Analytics Tools",
+      "paragraph1": "We use the following tools for advertising measurement and user behavior analysis:",
+      "tools": ["Meta Pixel", "TikTok Pixel", "LinkedIn Insight Tag", "Reddit Pixel", "HubSpot", "Microsoft Clarity"]
+    },
+    "rights": {
+      "title": "Your Rights",
+      "paragraph1": "Under GDPR, you have the right to:",
+      "list": [
+        "Access your personal data",
+        "Rectify inaccurate data",
+        "Erase your data (\"right to be forgotten\")",
+        "Restrict processing",
+        "Data portability",
+        "Object to processing",
+        "Lodge a complaint with the Swedish Authority for Privacy Protection (IMY)"
+      ]
+    },
+    "contact": {
+      "title": "Contact Us",
+      "paragraph1": "For privacy-related inquiries, please contact us at"
+    }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "effectiveDate": "Effective Date: October 30, 2025",
+    "introduction": {
+      "title": "1. Introduction",
+      "paragraph1": "These Terms and Conditions govern your use of services provided by Sourceful Labs AB (Swedish registration number: 559382-0458), including the Sourceful Platform, Zap hardware device, mobile application, and cloud services.",
+      "paragraph2": "By using our services, you agree to these terms. Please read them carefully."
+    },
+    "services": {
+      "title": "2. Services Overview",
+      "paragraph1": "Sourceful provides an energy management platform including the Zap hardware device, mobile app, and cloud services for monitoring and controlling distributed energy resources such as solar panels, batteries, EV chargers, and heat pumps."
+    },
+    "zapPurchase": {
+      "title": "3A. Zap Device Purchase",
+      "list": [
+        "The Zap device is a one-time purchase with ownership transfer upon delivery",
+        "You have a 30-day right of withdrawal from the date of delivery",
+        "Device must be returned in resalable condition for full refund",
+        "Self-installation with provided instructions",
+        "One-year commercial warranty covering manufacturing defects"
+      ]
+    },
+    "subscription": {
+      "title": "3B. Subscription Services",
+      "list": [
+        "Optional paid plans available for additional features beyond the free tier",
+        "Billed monthly or annually in advance",
+        "Cancellation available anytime; takes effect at billing period end",
+        "Sourceful may terminate with 30 days notice or immediately for material breach",
+        "Free tier remains accessible after subscription ends"
+      ]
+    },
+    "responsibilities": {
+      "title": "4. User Responsibilities",
+      "paragraph1": "You are responsible for:",
+      "list": [
+        "Providing accurate account information",
+        "Maintaining the security of your account credentials",
+        "Ensuring proper installation and use of hardware",
+        "Complying with local electrical codes and regulations",
+        "Using services only for lawful purposes"
+      ]
+    },
+    "prohibited": {
+      "title": "5. Prohibited Activities",
+      "paragraph1": "You may not:",
+      "list": [
+        "Reverse-engineer, copy, or modify the software or hardware",
+        "Manipulate energy data or readings",
+        "Automate interactions beyond intended use",
+        "Commit fraud or misrepresent information",
+        "Use services to harm the grid or other users"
+      ],
+      "paragraph2": "Violations may result in access suspension or termination."
+    },
+    "consumer": {
+      "title": "6. Consumer Protections",
+      "paragraph1": "Under Swedish consumer law, defective devices qualify for remedies in the following priority:",
+      "list": [
+        "Repair or replacement",
+        "Price reduction",
+        "Cancellation with full refund"
+      ],
+      "paragraph2": "Claims are valid for three years after delivery."
+    },
+    "liability": {
+      "title": "7. Limitation of Liability",
+      "paragraph1": "To the maximum extent permitted by law, Sourceful's liability is limited to the amount you paid for the services. We are not liable for indirect, incidental, or consequential damages, including lost profits or data loss."
+    },
+    "dataPrivacy": {
+      "title": "8. Data & Privacy",
+      "paragraph1": "Personal data handling follows our",
+      "privacyPolicy": "Privacy Policy",
+      "paragraph2": ". Authentication is handled via Privy. Data may be shared with partners under GDPR compliance requirements."
+    },
+    "ip": {
+      "title": "9. Intellectual Property",
+      "paragraph1": "All software, hardware designs, trademarks, and content are owned by Sourceful Labs AB. Your purchase grants a license to use, not ownership of intellectual property."
+    },
+    "changes": {
+      "title": "10. Changes to Terms",
+      "paragraph1": "We may update these terms with reasonable notice. Continued use after changes constitutes acceptance. Material changes will be communicated via email or in-app notification."
+    },
+    "governing": {
+      "title": "11. Governing Law",
+      "paragraph1": "These terms are governed by Swedish substantive law. Disputes will be resolved through negotiation or Swedish courts. Consumers may also contact the Swedish Consumer Agency (Konsumentverket) or the National Board for Consumer Disputes (ARN)."
+    },
+    "contact": {
+      "title": "12. Contact",
+      "paragraph1": "For questions about these terms, contact us at"
     }
   }
 }
