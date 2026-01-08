@@ -9,7 +9,7 @@ import { join } from 'path';
 
 const BLOG_DIR = './content/blog';
 
-// Known heading patterns that should be ### headings
+// Known heading patterns that should be ## headings
 const headingPatterns = [
   'What We Actually Built',
   "What's New",
@@ -22,6 +22,10 @@ const headingPatterns = [
   'Varför detta nu',
   'Vad innebär det för dig',
   'Från energi till effekt',
+  'The Trillion-Dollar Merry-Go-Round',
+  'Claude Code and the Democratisation of Building',
+  'The Layer Below the Layer Below',
+  'What Sourceful Is Actually Building',
 ];
 
 // Known definition-list patterns that should be **bold**
@@ -54,8 +58,17 @@ const definitionPatterns = [
 function cleanupContent(content, frontmatter) {
   let text = content;
 
-  // Remove date at the start (e.g., "9 Sept 2025")
-  text = text.replace(/^\s*\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\w*\s+\d{4}\s*\n/i, '');
+  // Remove date at the start (e.g., "9 Sept 2025" or "6 Jan 2026")
+  text = text.replace(/^\s*\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\w*\s+\d{4}\s*\n+/gi, '');
+
+  // Remove orphaned asterisks on their own line (before other cleanup)
+  text = text.replace(/^\*\s*$/gm, '');
+
+  // Remove duplicate title+description in bold at start (e.g., "**Title.And description**")
+  if (frontmatter.title) {
+    const titleStart = frontmatter.title.substring(0, 30).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    text = text.replace(new RegExp(`^\\*\\*${titleStart}[^*]*\\*\\*\\s*\n*`, 'i'), '');
+  }
 
   // Remove author name if it appears at the start after the title
   if (frontmatter.author && frontmatter.author !== 'Sourceful Team') {
@@ -64,7 +77,15 @@ function cleanupContent(content, frontmatter) {
     // Also try without title
     const authorOnlyRegex = new RegExp(`^\\s*${frontmatter.author}\\s*\n`, 'i');
     text = text.replace(authorOnlyRegex, '');
+    // Also try after h1
+    text = text.replace(new RegExp(`(# [^\n]+\n+)${frontmatter.author}\\s*\n+`, 'gi'), '$1');
   }
+
+  // Fix specific broken content: curl -o command in AI design system article
+  text = text.replace(
+    /curl -o\s*\n+\*\*Live Component Previews\*\*/gi,
+    '```bash\ncurl -o CLAUDE.md https://raw.githubusercontent.com/srcfl/srcful-design-system/main/CLAUDE.project-template.md\n```\n\n**Live Component Previews**'
+  );
 
   // Fix list formatting (- \n**text** -> - **text**)
   text = text.replace(/- \s*\n\*\*/g, '- **');
@@ -78,11 +99,11 @@ function cleanupContent(content, frontmatter) {
     text = text.replace(dupImageRegex, '$1');
   }
 
-  // Convert known heading patterns to ### headings
+  // Convert known heading patterns to ## headings
   for (const pattern of headingPatterns) {
     const escapedPattern = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`^(${escapedPattern})$`, 'gm');
-    text = text.replace(regex, '### $1');
+    text = text.replace(regex, '## $1');
   }
 
   // Convert known definition patterns to **bold**
@@ -108,6 +129,9 @@ function cleanupContent(content, frontmatter) {
 
   // Remove "Håll dig informerad" footer sections (Swedish newsletter signup)
   text = text.replace(/\n*Håll dig informerad\n+Anmäl dig för att ta emot insikter.*$/s, '');
+
+  // Remove Sourceful logo image that appears at end of articles
+  text = text.replace(/\n*!\[\]\([^)]*c19FPR4Noc1A6RRUP6R1u5AUr8[^)]*\)\s*$/gi, '');
 
   // Clean up multiple consecutive newlines
   text = text.replace(/\n{4,}/g, '\n\n\n');
