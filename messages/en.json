@@ -564,6 +564,72 @@
     },
     "moreTools": "More Energy Tools"
   },
+  "app": {
+    "hero": {
+      "badge": "Mobile App",
+      "title": "Your energy, in your pocket",
+      "description": "Monitor real-time energy usage, track spot prices, and manage your Sourceful devices - all from the palm of your hand.",
+      "downloadIOS": "Download for iOS",
+      "downloadAndroid": "Download for Android"
+    },
+    "stats": {
+      "rating": "App Rating",
+      "price": "Price",
+      "users": "Users",
+      "active": "Active users",
+      "monitoring": "Monitoring",
+      "realtime": "Real-time data"
+    },
+    "features": {
+      "title": "Everything you need to manage your energy",
+      "description": "The Sourceful app gives you complete visibility and control over your energy consumption, production, and costs.",
+      "realtime": {
+        "title": "Real-time Monitoring",
+        "description": "See your energy consumption and solar production update live, second by second."
+      },
+      "spotPrices": {
+        "title": "Spot Price Tracking",
+        "description": "View current and upcoming electricity prices to optimize when you use energy."
+      },
+      "alerts": {
+        "title": "Smart Alerts",
+        "description": "Get notified about price spikes, high consumption, or when it's the best time to charge."
+      },
+      "security": {
+        "title": "Secure & Private",
+        "description": "Your data stays on your device. End-to-end encryption for all communications."
+      },
+      "rewards": {
+        "title": "Earn Rewards",
+        "description": "Participate in grid services and earn rewards for helping balance the energy system."
+      },
+      "control": {
+        "title": "Device Control",
+        "description": "Manage your Zap gateway, view connected devices, and configure automations."
+      }
+    },
+    "howItWorks": {
+      "title": "Get started in minutes",
+      "step1": {
+        "title": "Download the App",
+        "description": "Available free on iOS and Android. Create your account in seconds."
+      },
+      "step2": {
+        "title": "Connect Your Zap",
+        "description": "Pair your Zap gateway via Bluetooth. The app guides you through setup."
+      },
+      "step3": {
+        "title": "Start Monitoring",
+        "description": "See your energy data flow in real-time. Set up alerts and automations."
+      }
+    },
+    "cta": {
+      "title": "Ready to take control?",
+      "description": "Download the free Sourceful app and start monitoring your energy today.",
+      "zapNote": "Need hardware to connect?",
+      "getZap": "Get the Zap gateway"
+    }
+  },
   "getStarted": {
     "hero": {
       "badge": "Setup Guide",

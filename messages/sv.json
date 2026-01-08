@@ -564,6 +564,72 @@
     },
     "moreTools": "Fler energiverktyg"
   },
+  "app": {
+    "hero": {
+      "badge": "Mobilapp",
+      "title": "Din energi i fickan",
+      "description": "Övervaka energiförbrukning i realtid, följ spotpriser och hantera dina Sourceful-enheter - allt i din hand.",
+      "downloadIOS": "Ladda ner för iOS",
+      "downloadAndroid": "Ladda ner för Android"
+    },
+    "stats": {
+      "rating": "Appbetyg",
+      "price": "Pris",
+      "users": "Användare",
+      "active": "Aktiva användare",
+      "monitoring": "Övervakning",
+      "realtime": "Realtidsdata"
+    },
+    "features": {
+      "title": "Allt du behöver för att hantera din energi",
+      "description": "Sourceful-appen ger dig fullständig insyn och kontroll över din energiförbrukning, produktion och kostnader.",
+      "realtime": {
+        "title": "Realtidsövervakning",
+        "description": "Se din energiförbrukning och solproduktion uppdateras live, sekund för sekund."
+      },
+      "spotPrices": {
+        "title": "Spotprisövervakning",
+        "description": "Visa aktuella och kommande elpriser för att optimera när du använder energi."
+      },
+      "alerts": {
+        "title": "Smarta varningar",
+        "description": "Få notiser om pristoppar, hög förbrukning eller när det är bäst att ladda."
+      },
+      "security": {
+        "title": "Säkert & privat",
+        "description": "Din data stannar på din enhet. End-to-end-kryptering för all kommunikation."
+      },
+      "rewards": {
+        "title": "Tjäna belöningar",
+        "description": "Delta i nättjänster och tjäna belöningar för att hjälpa till att balansera energisystemet."
+      },
+      "control": {
+        "title": "Enhetskontroll",
+        "description": "Hantera din Zap-gateway, visa anslutna enheter och konfigurera automatiseringar."
+      }
+    },
+    "howItWorks": {
+      "title": "Kom igång på några minuter",
+      "step1": {
+        "title": "Ladda ner appen",
+        "description": "Gratis på iOS och Android. Skapa ditt konto på sekunder."
+      },
+      "step2": {
+        "title": "Anslut din Zap",
+        "description": "Koppla ihop din Zap-gateway via Bluetooth. Appen guidar dig genom installationen."
+      },
+      "step3": {
+        "title": "Börja övervaka",
+        "description": "Se din energidata flöda i realtid. Ställ in varningar och automatiseringar."
+      }
+    },
+    "cta": {
+      "title": "Redo att ta kontroll?",
+      "description": "Ladda ner den gratis Sourceful-appen och börja övervaka din energi idag.",
+      "zapNote": "Behöver du hårdvara för att ansluta?",
+      "getZap": "Skaffa Zap-gatewayen"
+    }
+  },
   "getStarted": {
     "hero": {
       "badge": "Installationsguide",
