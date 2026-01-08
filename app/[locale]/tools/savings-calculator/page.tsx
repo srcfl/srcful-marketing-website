@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import { MarketingNav } from "@/components/marketing-nav";
@@ -20,15 +20,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { ArrowRight, Sun, Battery, Car, Zap, Leaf, Euro, Lock } from "lucide-react";
-
-// Swedish regions for electricity pricing
-const regions = [
-  { value: "SE1", label: "SE1 - Luleå (North)" },
-  { value: "SE2", label: "SE2 - Sundsvall" },
-  { value: "SE3", label: "SE3 - Stockholm" },
-  { value: "SE4", label: "SE4 - Malmö (South)" },
-];
+import { ArrowRight, Sun, Battery, Car, Zap, Lock } from "lucide-react";
 
 // Average electricity prices by region (öre/kWh) - sample data
 const regionPrices: Record<string, { avg: number; peak: number; offPeak: number }> = {
@@ -39,6 +31,17 @@ const regionPrices: Record<string, { avg: number; peak: number; offPeak: number 
 };
 
 export default function SavingsCalculatorPage() {
+  const t = useTranslations("tools");
+  const tCommon = useTranslations("common");
+
+  // Swedish regions for electricity pricing
+  const regions = [
+    { value: "SE1", label: t("regions.SE1") },
+    { value: "SE2", label: t("regions.SE2") },
+    { value: "SE3", label: t("regions.SE3") },
+    { value: "SE4", label: t("regions.SE4") },
+  ];
+
   // Form state
   const [region, setRegion] = useState("SE3");
   const [annualConsumption, setAnnualConsumption] = useState(15000); // kWh
@@ -178,20 +181,20 @@ export default function SavingsCalculatorPage() {
       <main className="flex-1 pt-16">
         <section className="py-16 md:py-24 px-4 md:px-8">
           <CalculatorLayout
-            title="Energy Savings Calculator"
-            description="Estimate your potential savings with solar, battery storage, and smart energy management in Sweden."
-            badge="Free Tool"
+            title={t("calculator.title")}
+            description={t("calculator.description")}
+            badge={t("calculator.badge")}
           >
             <div className="space-y-8">
               {/* Location */}
               <div className="space-y-4">
                 <h3 className="font-semibold flex items-center gap-2">
                   <Zap className="h-4 w-4 text-primary" />
-                  Location & Consumption
+                  {t("calculator.location")}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="region">Electricity Region</Label>
+                    <Label htmlFor="region">{t("calculator.region")}</Label>
                     <Select value={region} onValueChange={setRegion}>
                       <SelectTrigger>
                         <SelectValue />
@@ -205,11 +208,11 @@ export default function SavingsCalculatorPage() {
                       </SelectContent>
                     </Select>
                     <p className="text-xs text-muted-foreground">
-                      Avg price: {regionPrices[region].avg} öre/kWh
+                      {t("calculator.avgPrice")}: {regionPrices[region].avg} öre/kWh
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="consumption">Annual Consumption (kWh)</Label>
+                    <Label htmlFor="consumption">{t("calculator.consumption")}</Label>
                     <Input
                       id="consumption"
                       type="number"
@@ -219,7 +222,7 @@ export default function SavingsCalculatorPage() {
                       max={100000}
                     />
                     <p className="text-xs text-muted-foreground">
-                      Average Swedish home: 15,000-20,000 kWh
+                      {t("calculator.consumptionNote")}
                     </p>
                   </div>
                 </div>
@@ -229,12 +232,12 @@ export default function SavingsCalculatorPage() {
               <div className="space-y-4">
                 <h3 className="font-semibold flex items-center gap-2">
                   <Sun className="h-4 w-4 text-yellow-500" />
-                  Solar Installation
+                  {t("calculator.solar")}
                 </h3>
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <Label>Solar System Size</Label>
+                      <Label>{t("calculator.solarSize")}</Label>
                       <span className="text-sm font-medium">{solarSize} kWp</span>
                     </div>
                     <Slider
@@ -245,7 +248,7 @@ export default function SavingsCalculatorPage() {
                       step={1}
                     />
                     <p className="text-xs text-muted-foreground">
-                      Estimated production: {(solarSize * 900).toLocaleString()} kWh/year
+                      {t("calculator.solarProduction")}: {(solarSize * 900).toLocaleString()} kWh/year
                     </p>
                   </div>
                 </div>
@@ -256,14 +259,14 @@ export default function SavingsCalculatorPage() {
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold flex items-center gap-2">
                     <Battery className="h-4 w-4 text-green-500" />
-                    Battery Storage
+                    {t("calculator.battery")}
                   </h3>
                   <Switch checked={hasBattery} onCheckedChange={setHasBattery} />
                 </div>
                 {hasBattery && (
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <Label>Battery Capacity</Label>
+                      <Label>{t("calculator.batteryCapacity")}</Label>
                       <span className="text-sm font-medium">{batterySize} kWh</span>
                     </div>
                     <Slider
@@ -282,14 +285,14 @@ export default function SavingsCalculatorPage() {
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold flex items-center gap-2">
                     <Car className="h-4 w-4 text-blue-500" />
-                    Electric Vehicle
+                    {t("calculator.ev")}
                   </h3>
                   <Switch checked={hasEV} onCheckedChange={setHasEV} />
                 </div>
                 {hasEV && (
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <Label>Annual Driving Distance</Label>
+                      <Label>{t("calculator.evDistance")}</Label>
                       <span className="text-sm font-medium">{evKmPerYear.toLocaleString()} km</span>
                     </div>
                     <Slider
@@ -305,53 +308,53 @@ export default function SavingsCalculatorPage() {
 
               {/* Calculate Button */}
               <Button className="w-full" size="lg" onClick={handleCalculate}>
-                Calculate My Savings
+                {t("calculator.calculate")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
 
             {/* Results */}
             {showResults && (
-              <CalculatorResults title="Your Estimated Annual Savings">
+              <CalculatorResults title={t("calculator.results.title")}>
                 {/* Email Gate */}
                 {showEmailGate && !submitted && (
                   <Card className="mb-8 border-primary">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-2 mb-4">
                         <Lock className="h-5 w-5 text-primary" />
-                        <h3 className="font-semibold">Unlock Your Full Results</h3>
+                        <h3 className="font-semibold">{t("calculator.results.unlock")}</h3>
                       </div>
                       <p className="text-sm text-muted-foreground mb-4">
-                        Enter your email to see your detailed savings breakdown and get personalized recommendations.
+                        {t("calculator.results.unlockDescription")}
                       </p>
                       <form onSubmit={handleSubmitEmail} className="space-y-4">
                         <div className="grid md:grid-cols-2 gap-4">
                           <div className="space-y-2">
-                            <Label htmlFor="name">Name (optional)</Label>
+                            <Label htmlFor="name">{t("calculator.results.name")}</Label>
                             <Input
                               id="name"
                               value={name}
                               onChange={(e) => setName(e.target.value)}
-                              placeholder="Your name"
+                              placeholder={tCommon("contactForm.namePlaceholder")}
                             />
                           </div>
                           <div className="space-y-2">
-                            <Label htmlFor="email">Email *</Label>
+                            <Label htmlFor="email">{t("calculator.results.email")} *</Label>
                             <Input
                               id="email"
                               type="email"
                               value={email}
                               onChange={(e) => setEmail(e.target.value)}
-                              placeholder="your@email.com"
+                              placeholder={tCommon("contactForm.emailPlaceholder")}
                               required
                             />
                           </div>
                         </div>
                         <Button type="submit" disabled={submitting} className="w-full">
-                          {submitting ? "Submitting..." : "Get My Results"}
+                          {submitting ? t("submitting") : t("calculator.results.getResults")}
                         </Button>
                         <p className="text-xs text-muted-foreground text-center">
-                          We respect your privacy. No spam, unsubscribe anytime.
+                          {t("calculator.results.privacy")}
                         </p>
                       </form>
                     </CardContent>
@@ -362,43 +365,43 @@ export default function SavingsCalculatorPage() {
                 <div className={showEmailGate && !submitted ? "blur-sm pointer-events-none select-none" : ""}>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     <ResultCard
-                      label="Total Annual Savings"
+                      label={t("calculator.results.totalSavings")}
                       value={`${results.totalSavings.toLocaleString()} kr`}
-                      subtext="per year"
+                      subtext={t("calculator.results.perYear")}
                       highlight
                     />
                     <ResultCard
-                      label="Solar Production"
+                      label={t("calculator.results.solarProduction")}
                       value={`${results.solarProduction.toLocaleString()} kWh`}
-                      subtext="per year"
+                      subtext={t("calculator.results.perYear")}
                     />
                     <ResultCard
-                      label="CO2 Reduction"
+                      label={t("calculator.results.co2Reduction")}
                       value={`${results.co2Saved} kg`}
-                      subtext="per year"
+                      subtext={t("calculator.results.perYear")}
                     />
                     <ResultCard
-                      label="Payback Period"
+                      label={t("calculator.results.paybackPeriod")}
                       value={`${results.paybackYears} years`}
-                      subtext={`Total investment: ${results.totalCost.toLocaleString()} kr`}
+                      subtext={`${t("calculator.results.totalInvestment")}: ${results.totalCost.toLocaleString()} kr`}
                     />
                   </div>
 
                   {/* Savings Breakdown */}
                   <div className="space-y-4">
-                    <h3 className="font-semibold">Savings Breakdown</h3>
+                    <h3 className="font-semibold">{t("calculator.results.breakdown")}</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
                         <div className="flex items-center gap-2">
                           <Sun className="h-4 w-4 text-yellow-500" />
-                          <span>Self-consumed solar</span>
+                          <span>{t("calculator.results.selfConsumed")}</span>
                         </div>
                         <span className="font-medium">{results.selfConsumptionSavings.toLocaleString()} kr</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
                         <div className="flex items-center gap-2">
                           <Zap className="h-4 w-4 text-primary" />
-                          <span>Grid export revenue</span>
+                          <span>{t("calculator.results.gridExport")}</span>
                         </div>
                         <span className="font-medium">{results.exportRevenue.toLocaleString()} kr</span>
                       </div>
@@ -406,7 +409,7 @@ export default function SavingsCalculatorPage() {
                         <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
                           <div className="flex items-center gap-2">
                             <Battery className="h-4 w-4 text-green-500" />
-                            <span>Battery arbitrage</span>
+                            <span>{t("calculator.results.batteryArbitrage")}</span>
                           </div>
                           <span className="font-medium">{results.batterySavings.toLocaleString()} kr</span>
                         </div>
@@ -415,7 +418,7 @@ export default function SavingsCalculatorPage() {
                         <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
                           <div className="flex items-center gap-2">
                             <Car className="h-4 w-4 text-blue-500" />
-                            <span>Smart EV charging</span>
+                            <span>{t("calculator.results.smartCharging")}</span>
                           </div>
                           <span className="font-medium">{results.evSavings.toLocaleString()} kr</span>
                         </div>
@@ -425,20 +428,20 @@ export default function SavingsCalculatorPage() {
 
                   {/* CTA */}
                   <div className="mt-8 p-6 bg-primary/10 rounded-lg text-center">
-                    <h3 className="font-semibold mb-2">Ready to start saving?</h3>
+                    <h3 className="font-semibold mb-2">{t("calculator.results.readyToSave")}</h3>
                     <p className="text-sm text-muted-foreground mb-4">
-                      Get the Zap gateway to unlock smart energy management and start optimizing your system.
+                      {t("calculator.results.readyDescription")}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Button asChild>
                         <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                          Get the Zap - €39
+                          {tCommon("buttons.getTheZap")} - {tCommon("currency.symbol")}39
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
                       <Button variant="outline" asChild>
                         <Link href="/contact">
-                          Contact Sales
+                          {tCommon("buttons.contactSales")}
                         </Link>
                       </Button>
                     </div>
@@ -447,7 +450,7 @@ export default function SavingsCalculatorPage() {
 
                 {/* Disclaimer */}
                 <p className="text-xs text-muted-foreground text-center mt-6">
-                  * These estimates are based on average data and your actual savings may vary based on your specific setup, usage patterns, and electricity prices. Prices shown are examples and may not reflect current market conditions.
+                  {t("calculator.results.disclaimer")}
                 </p>
               </CalculatorResults>
             )}
@@ -457,27 +460,27 @@ export default function SavingsCalculatorPage() {
         {/* Related Tools */}
         <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <h2 className="text-xl font-semibold mb-6 text-center">More Energy Tools</h2>
+            <h2 className="text-xl font-semibold mb-6 text-center">{t("moreTools")}</h2>
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <Card className="opacity-60">
                 <CardContent className="p-4 text-center">
                   <Battery className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <h3 className="font-medium">Battery Sizing</h3>
-                  <Badge variant="outline" className="mt-2 text-xs">Coming Soon</Badge>
+                  <h3 className="font-medium">{t("batterySizing")}</h3>
+                  <Badge variant="outline" className="mt-2 text-xs">{t("comingSoon")}</Badge>
                 </CardContent>
               </Card>
               <Card className="opacity-60">
                 <CardContent className="p-4 text-center">
                   <Car className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <h3 className="font-medium">V2X Savings</h3>
-                  <Badge variant="outline" className="mt-2 text-xs">Coming Soon</Badge>
+                  <h3 className="font-medium">{t("v2xSavings")}</h3>
+                  <Badge variant="outline" className="mt-2 text-xs">{t("comingSoon")}</Badge>
                 </CardContent>
               </Card>
               <Card className="opacity-60">
                 <CardContent className="p-4 text-center">
                   <Zap className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <h3 className="font-medium">Grid Export</h3>
-                  <Badge variant="outline" className="mt-2 text-xs">Coming Soon</Badge>
+                  <h3 className="font-medium">{t("gridExport")}</h3>
+                  <Badge variant="outline" className="mt-2 text-xs">{t("comingSoon")}</Badge>
                 </CardContent>
               </Card>
             </div>

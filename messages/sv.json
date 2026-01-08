@@ -843,7 +843,18 @@
         "disclaimer": "* Dessa uppskattningar baseras på genomsnittlig data och dina faktiska besparingar kan variera beroende på din specifika installation, användningsmönster och elpriser. Priserna som visas är exempel och återspeglar kanske inte aktuella marknadsförhållanden."
       }
     },
-    "moreTools": "Fler energiverktyg"
+    "moreTools": "Fler energiverktyg",
+    "comingSoon": "Kommer snart",
+    "batterySizing": "Batteristorlek",
+    "v2xSavings": "V2X-besparingar",
+    "gridExport": "Nätexport",
+    "regions": {
+      "SE1": "SE1 - Luleå (Norr)",
+      "SE2": "SE2 - Sundsvall",
+      "SE3": "SE3 - Stockholm",
+      "SE4": "SE4 - Malmö (Syd)"
+    },
+    "submitting": "Skickar..."
   },
   "app": {
     "hero": {

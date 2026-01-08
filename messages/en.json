@@ -843,7 +843,18 @@
         "disclaimer": "* These estimates are based on average data and your actual savings may vary based on your specific setup, usage patterns, and electricity prices. Prices shown are examples and may not reflect current market conditions."
       }
     },
-    "moreTools": "More Energy Tools"
+    "moreTools": "More Energy Tools",
+    "comingSoon": "Coming Soon",
+    "batterySizing": "Battery Sizing",
+    "v2xSavings": "V2X Savings",
+    "gridExport": "Grid Export",
+    "regions": {
+      "SE1": "SE1 - Luleå (North)",
+      "SE2": "SE2 - Sundsvall",
+      "SE3": "SE3 - Stockholm",
+      "SE4": "SE4 - Malmö (South)"
+    },
+    "submitting": "Submitting..."
   },
   "app": {
     "hero": {
