@@ -9,6 +9,48 @@ import { join } from 'path';
 
 const BLOG_DIR = './content/blog';
 
+// Known heading patterns that should be ### headings
+const headingPatterns = [
+  'What We Actually Built',
+  "What's New",
+  'Coming Soon',
+  'What are Sites',
+  'The Point',
+  'The Inverted Opportunity',
+  'Our ambition',
+  'Vår ambition',
+  'Varför detta nu',
+  'Vad innebär det för dig',
+  'Från energi till effekt',
+];
+
+// Known definition-list patterns that should be **bold**
+const definitionPatterns = [
+  'Primary Response',
+  'Secondary Response',
+  'Tertiary Response',
+  'Variability',
+  'Inverter Mediation',
+  'Geographical Distribution',
+  'Bi-directional Flows',
+  'Ramping Requirements',
+  'Inertia Reduction',
+  'Market Design Misalignment',
+  'Control System Complexity',
+  'Redesigned Navigation',
+  'Improved Data Views',
+  'Delegated Wallet Login',
+  'Tweaks & Fixes',
+  'Open-Source Security',
+  'Real-Time Data Processing',
+  'Scalable Distribution Model',
+  'Immediate Impact',
+  'Future Vision',
+  'Hydropower Management Decisions',
+  'Growth in Battery Storage',
+  'Savings Vary by Customer and Provider',
+];
+
 function cleanupContent(content, frontmatter) {
   let text = content;
 
@@ -35,6 +77,37 @@ function cleanupContent(content, frontmatter) {
     const dupImageRegex = new RegExp(`(#[^\n]+\n+)!\\[\\]\\(${imageUrl.replace(/\\\\/g, '\\')}[^)]*\\)\n*`, 'i');
     text = text.replace(dupImageRegex, '$1');
   }
+
+  // Convert known heading patterns to ### headings
+  for (const pattern of headingPatterns) {
+    const escapedPattern = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`^(${escapedPattern})$`, 'gm');
+    text = text.replace(regex, '### $1');
+  }
+
+  // Convert known definition patterns to **bold**
+  for (const pattern of definitionPatterns) {
+    const escapedPattern = pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`^(${escapedPattern})$`, 'gm');
+    text = text.replace(regex, '**$1**');
+  }
+
+  // Fix unclosed bold markers: **Text at start of line without closing **
+  // Pattern: line starts with **, contains text without *, and ends without ** before newline
+  text = text.replace(/^(\*\*)([^*\n]+)$/gm, '$1$2**');
+
+  // Add line break after paragraphs that end without one before next paragraph
+  // Match: text ending with period/colon/etc, no blank line, then new paragraph starting with capital
+  text = text.replace(/([.!?:"])\n([A-Z])/g, '$1\n\n$2');
+
+  // Add line break after bold definitions before their explanation
+  text = text.replace(/(\*\*[^*]+\*\*)\n([A-Z])/g, '$1\n\n$2');
+
+  // Remove orphaned asterisks on their own line
+  text = text.replace(/^\*$/gm, '');
+
+  // Remove "Håll dig informerad" footer sections (Swedish newsletter signup)
+  text = text.replace(/\n*Håll dig informerad\n+Anmäl dig för att ta emot insikter.*$/s, '');
 
   // Clean up multiple consecutive newlines
   text = text.replace(/\n{4,}/g, '\n\n\n');

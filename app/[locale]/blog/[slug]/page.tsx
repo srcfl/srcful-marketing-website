@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { getPostBySlug, getAllPostSlugs, getAllPosts, CATEGORY_LABELS, AUTHORS, type BlogPostMeta } from "@/lib/blog";
@@ -55,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function RelatedCard({ post }: { post: BlogPostMeta }) {
   return (
     <Card className="overflow-hidden group hover:shadow-lg transition-shadow">
-      <Link href={`/blog/${post.slug}`}>
+      <Link href={`/blog/${post.slug}`} className="no-underline">
         <div className="relative aspect-[16/9] overflow-hidden bg-muted">
           {post.featuredImage ? (
             <Image
@@ -133,14 +132,14 @@ export default async function BlogPostPage({ params }: Props) {
               {/* Back link */}
               <Link
                 href="/blog"
-                className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-6"
+                className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-4"
               >
                 <ArrowLeft className="h-4 w-4 mr-1" />
                 Back to Blog
               </Link>
 
               {/* Category badge */}
-              <Badge variant="secondary" className="mb-4">
+              <Badge variant="secondary" className="mb-6 block w-fit">
                 {CATEGORY_LABELS[post.category] || post.category}
               </Badge>
 
@@ -151,24 +150,10 @@ export default async function BlogPostPage({ params }: Props) {
 
               {/* Meta info */}
               <div className="flex flex-wrap items-center gap-4 md:gap-6 text-muted-foreground">
-                <div className="flex items-center gap-3">
-                  {author.avatar && (
-                    <div className="relative h-10 w-10 rounded-full overflow-hidden bg-muted">
-                      <Image
-                        src={author.avatar}
-                        alt={author.name}
-                        fill
-                        className="object-cover"
-                        unoptimized
-                      />
-                    </div>
-                  )}
-                  <div>
-                    <div className="font-medium text-foreground">{author.name}</div>
-                    <div className="text-sm">{author.role}</div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <User className="h-4 w-4" />
+                  <span className="font-medium text-foreground">{author.name}</span>
                 </div>
-                <Separator orientation="vertical" className="h-8 hidden md:block" />
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   {formattedDate}
@@ -185,12 +170,6 @@ export default async function BlogPostPage({ params }: Props) {
         {/* Article Content */}
         <section className="max-w-4xl mx-auto px-4 md:px-8">
           <div className="bg-background border-x border-b rounded-b-xl p-6 md:p-12 pt-0">
-            {post.description && (
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                {post.description}
-              </p>
-            )}
-
             <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary prose-img:rounded-lg">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {post.content}
