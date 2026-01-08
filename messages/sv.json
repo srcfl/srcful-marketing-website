@@ -26,6 +26,7 @@
       "about": "Om oss",
       "community": "Community",
       "careers": "Karriär",
+      "blog": "Blogg",
       "contact": "Kontakt",
       "docs": "Dokumentation",
       "api": "API-referens",
@@ -89,6 +90,29 @@
         "monitor": "Energiövervakning",
         "automate": "Automatisering",
         "savings": "Besparingar"
+      }
+    },
+    "connectivity": {
+      "badge": "Universell anslutning",
+      "title": "En enhet. Alla energitillgångar.",
+      "description": "Sourceful förvandlar elmätare, solcellsanläggningar, batterier och elbilsladdare till ett lokalt koordinerat energinätverk. Samla data, automatisera beslut och styr enheter vid kanten.",
+      "features": {
+        "edgeConnectivity": {
+          "title": "Motståndskraftig edge-anslutning",
+          "description": "Zap ansluter direkt till mätare, batterier, växelriktare och elbilsladdare. Fungerar även när internet går ner."
+        },
+        "zeroOEM": {
+          "title": "Inget OEM-beroende",
+          "description": "Kringgå OEM-molnplattformar helt. Inga hastighetsbegränsningar, inga avbrott, inga behörighetsändringar—bara direkt åtkomst till realtidsdata."
+        },
+        "sovereignData": {
+          "title": "Datasuveränitet",
+          "description": "Data fångas lokalt, vilket säkerställer fullt ägande, konfigurerbar routing och högre upplösning än OEM-API:er."
+        },
+        "unifiedAPI": {
+          "title": "Enhetligt API",
+          "description": "Integrera mätare, batterier, solceller och elbilsladdare genom ett konsekvent API. Accelerera deployment."
+        }
       }
     },
     "audiences": {

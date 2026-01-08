@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins, Zap, Building2, Wrench, Code, Users, ExternalLink, CircuitBoard } from "lucide-react";
+import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins, Zap, Building2, Wrench, Code, Users, ExternalLink, CircuitBoard, Wifi, WifiOff, Database, Layers } from "lucide-react";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -27,6 +27,29 @@ export default function Home() {
     { value: "700+", label: t("stats.negativeHours") },
     { value: "200ms", label: t("stats.responseTime") },
     { value: "€39", label: t("stats.zapCost") },
+  ];
+
+  const connectivityFeatures = [
+    {
+      icon: Wifi,
+      title: t("connectivity.features.edgeConnectivity.title"),
+      description: t("connectivity.features.edgeConnectivity.description"),
+    },
+    {
+      icon: WifiOff,
+      title: t("connectivity.features.zeroOEM.title"),
+      description: t("connectivity.features.zeroOEM.description"),
+    },
+    {
+      icon: Database,
+      title: t("connectivity.features.sovereignData.title"),
+      description: t("connectivity.features.sovereignData.description"),
+    },
+    {
+      icon: Layers,
+      title: t("connectivity.features.unifiedAPI.title"),
+      description: t("connectivity.features.unifiedAPI.description"),
+    },
   ];
 
   const audiences = [
@@ -198,8 +221,49 @@ export default function Home() {
           </Tabs>
         </section>
 
-        {/* Audiences */}
+        {/* Universal Connectivity Layer */}
         <section className="border-t bg-muted/30">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">
+                <Zap className="h-3 w-3 mr-1" />
+                {t("connectivity.badge")}
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("connectivity.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                {t("connectivity.description")}
+              </p>
+            </FadeIn>
+
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
+              {connectivityFeatures.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <StaggerItem key={feature.title}>
+                    <Card className="h-full text-center">
+                      <CardHeader>
+                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                          <Icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <CardTitle className="text-lg">{feature.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription className="text-sm">
+                          {feature.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* Audiences */}
+        <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">

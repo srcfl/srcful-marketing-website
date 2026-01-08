@@ -26,6 +26,7 @@
       "about": "About",
       "community": "Community",
       "careers": "Careers",
+      "blog": "Blog",
       "contact": "Contact",
       "docs": "Documentation",
       "api": "API Reference",
@@ -89,6 +90,29 @@
         "monitor": "Energy Monitor",
         "automate": "Automate",
         "savings": "Savings"
+      }
+    },
+    "connectivity": {
+      "badge": "Universal Connectivity",
+      "title": "One device. Every energy asset.",
+      "description": "Sourceful turns electricity meters, solar systems, batteries, and EV chargers into a locally coordinated energy network. Collect data, automate decisions, and control devices at the edge.",
+      "features": {
+        "edgeConnectivity": {
+          "title": "Resilient Edge Connectivity",
+          "description": "Zap connects directly to meters, batteries, inverters, and EV chargers. Operates even when the internet goes down."
+        },
+        "zeroOEM": {
+          "title": "Zero OEM Dependence",
+          "description": "Bypass OEM cloud platforms entirely. No rate limits, no outages, no permission changes—just direct access to real-time data."
+        },
+        "sovereignData": {
+          "title": "Sovereign Data",
+          "description": "Data is captured locally, ensuring full ownership, configurable routing, and higher-resolution insights than OEM APIs."
+        },
+        "unifiedAPI": {
+          "title": "Unified API",
+          "description": "Integrate meters, batteries, solar, and EV chargers through one consistent API surface. Accelerate deployment."
+        }
       }
     },
     "audiences": {

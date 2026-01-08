@@ -1,8 +1,8 @@
 # Sourceful Marketing Site Update Plan
 
 **Created:** 2026-01-06
-**Updated:** 2026-01-07
-**Status:** ✅ Questions answered - Ready to implement
+**Updated:** 2026-01-08
+**Status:** ✅ Phase 1 & Phase 7 complete
 
 ---
 
@@ -10,12 +10,12 @@
 
 Based on your answers, here's the prioritized implementation plan:
 
-### Phase 1: Foundation (Do First)
-1. [ ] **Partner Logo Carousel** - Simple win, assets ready
-2. [ ] **Swedish Translation (i18n)** - /sv/ URL structure, full site
-3. [ ] **Replace mailto: links** - Direct to contact forms
-4. [ ] **GDPR Cookie Banner** - Required for compliance
-5. [ ] **V2X Waitlist** - Landing section + form (Formspark)
+### Phase 1: Foundation ✅ COMPLETE
+1. [x] **Partner Logo Carousel** - `partner-logo-carousel.tsx`
+2. [x] **Swedish Translation (i18n)** - `[locale]` folder structure
+3. [x] **Replace mailto: links** - Only intentional ones remain (contact emails, investor)
+4. [x] **GDPR Cookie Banner** - `cookie-consent.tsx`
+5. [x] **V2X Waitlist** - `/v2x` page with `WaitlistForm`
 
 ### Phase 2: Platform Page Enhancements
 6. [ ] **Interactive Dashboard Hero** - Reuse homepage components
@@ -43,6 +43,29 @@ Based on your answers, here's the prioritized implementation plan:
 ### Phase 6: E-commerce
 21. [ ] **API Pricing Page** - Public tiers + Enterprise contact
 22. [ ] **Bulk Sales Flow** - Form + sales-assisted
+
+### Phase 7: Content Migration & New Pages ✅ COMPLETE
+23. [x] **Blog Migration** - Migrated 30 articles from sourceful.energy/blog
+    - 30 English articles, 29 Swedish articles
+    - Authors: Fredrik Ahlgren (9), Viktor Olofsson (15), Paul Cooper (1), Johan Leitet (2), Sourceful Team (3)
+    - Includes: images, categories, SEO tags, author info
+    - Files: `content/blog/en/*.mdx`, `content/blog/sv/*.mdx`
+    - Scripts: `scripts/migrate-blog.mjs`, `scripts/cleanup-blog.mjs`
+24. [x] **Blog Index Page** - Categories, filtering, featured post
+    - Files: `app/[locale]/blog/page.tsx`, `app/[locale]/blog/[slug]/page.tsx`
+    - Lib: `lib/blog.ts`
+25. [x] **Get Started Guides** - 3 pages (selector + 2 setup guides)
+    - `/get-started` - Device selection (P1 meter vs Inverter)
+    - `/get-started/zap` - 6-step P1 meter setup guide
+    - `/get-started/zap-for-inverters` - 6-step inverter setup guide
+26. [x] **B2B Content Integration** - Added to homepage
+    - New "Universal Connectivity Layer" section on homepage
+    - Features: Resilient Edge Connectivity, Zero OEM Dependence, Sovereign Data, Unified API
+    - Translations: EN + SV
+27. [x] **Developer Use Case Page** - Already existed at `/developers`
+    - SDKs, APIs, webhooks, real-time event streams
+    - Developer Portal CTA
+    - Integration examples
 
 ---
 
@@ -291,12 +314,18 @@ Based on your answers, here's the prioritized implementation plan:
 
 ## What's Next?
 
-Ready to start implementing. Which task from Phase 1 should we tackle first?
+**Phase 1 & Phase 7 complete!** Ready for Phase 2 (Platform Page Enhancements):
 
-1. **Partner Logo Carousel** - Quick win, all assets ready
-2. **Swedish Translation (i18n setup)** - Foundation for all pages
-3. **GDPR Cookie Banner** - Compliance requirement
-4. **Replace mailto: links** - Quick cleanup
-5. **V2X Waitlist** - Landing section + Formspark form
+1. **Interactive Dashboard Hero** - Reuse homepage components
+2. **Animated Icons** - Integrate itshover.com icons with CSS animations
+3. **Rewards Section** - Vague but compelling (points → future rewards)
+4. **Scroll Animations** - Framer Motion reveals
+
+### Phase 7 Summary (Completed)
+- ✅ Blog migrated: 30 EN + 29 SV articles with authors, categories, images
+- ✅ Blog index page with filtering and featured posts
+- ✅ Get Started guides: 3 pages (device selector + P1 meter + Inverter setup)
+- ✅ B2B content: "Universal Connectivity Layer" section added to homepage
+- ✅ Developer use case page already existed
 
 

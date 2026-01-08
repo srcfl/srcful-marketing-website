@@ -19,6 +19,7 @@ export function MarketingFooter() {
               <li><Link href="/zap" className="hover:text-foreground">{t("zap")}</Link></li>
               <li><Link href="/integrations" className="hover:text-foreground">{t("integrations")}</Link></li>
               <li><Link href="/v2x" className="hover:text-foreground">V2X</Link></li>
+              <li><Link href="/get-started" className="hover:text-foreground">{tNav("getStarted")}</Link></li>
             </ul>
           </div>
           <div>
@@ -50,6 +51,7 @@ export function MarketingFooter() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/about" className="hover:text-foreground">{t("about")}</Link></li>
               <li><Link href="/company" className="hover:text-foreground">Company</Link></li>
+              <li><Link href="/blog" className="hover:text-foreground">{t("blog")}</Link></li>
               <li><Link href="/community" className="hover:text-foreground">{t("community")}</Link></li>
               <li><Link href="/contact" className="hover:text-foreground">{t("contact")}</Link></li>
             </ul>
