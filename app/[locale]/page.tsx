@@ -170,32 +170,32 @@ export default function Home() {
                 <TabsTrigger value="sites" className="gap-2">
                   <Map className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">{t("dashboard.tabs.sites")}</span>
-                  <span className="sm:hidden">Sites</span>
+                  <span className="sm:hidden">{t("dashboard.tabsMobile.sites")}</span>
                 </TabsTrigger>
                 <TabsTrigger value="analytics" className="gap-2">
                   <BarChart3 className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">{t("dashboard.tabs.analytics")}</span>
-                  <span className="sm:hidden">Charts</span>
+                  <span className="sm:hidden">{t("dashboard.tabsMobile.analytics")}</span>
                 </TabsTrigger>
                 <TabsTrigger value="fleet" className="gap-2">
                   <Table2 className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">{t("dashboard.tabs.fleet")}</span>
-                  <span className="sm:hidden">Table</span>
+                  <span className="sm:hidden">{t("dashboard.tabsMobile.fleet")}</span>
                 </TabsTrigger>
                 <TabsTrigger value="monitor" className="gap-2">
                   <Activity className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">{t("dashboard.tabs.monitor")}</span>
-                  <span className="sm:hidden">Monitor</span>
+                  <span className="sm:hidden">{t("dashboard.tabsMobile.monitor")}</span>
                 </TabsTrigger>
                 <TabsTrigger value="ems" className="gap-2">
                   <Cpu className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">{t("dashboard.tabs.automate")}</span>
-                  <span className="sm:hidden">Auto</span>
+                  <span className="sm:hidden">{t("dashboard.tabsMobile.automate")}</span>
                 </TabsTrigger>
                 <TabsTrigger value="savings" className="gap-2">
                   <Coins className="hidden sm:block h-4 w-4" />
                   <span className="hidden sm:inline">{t("dashboard.tabs.savings")}</span>
-                  <span className="sm:hidden">Save</span>
+                  <span className="sm:hidden">{t("dashboard.tabsMobile.savings")}</span>
                 </TabsTrigger>
               </TabsList>
             </div>

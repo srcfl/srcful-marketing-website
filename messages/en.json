@@ -121,6 +121,14 @@
         "monitor": "Energy Monitor",
         "automate": "Automate",
         "savings": "Savings"
+      },
+      "tabsMobile": {
+        "sites": "Sites",
+        "analytics": "Charts",
+        "fleet": "Table",
+        "monitor": "Monitor",
+        "automate": "Auto",
+        "savings": "Save"
       }
     },
     "connectivity": {
@@ -754,6 +762,25 @@
       "installers": {
         "subtitle": "Certified installation partners"
       }
+    },
+    "brands": {
+      "solaredge": "Premium solar inverters with module-level optimization",
+      "huawei": "Smart PV solutions with AI-powered optimization",
+      "fronius": "Austrian quality inverters for residential and commercial",
+      "sma": "German engineering for solar power conversion",
+      "sungrow": "Global leader in inverter technology",
+      "solax": "Innovative hybrid inverter solutions",
+      "solis": "Reliable string inverters for all applications",
+      "deye": "Cost-effective hybrid inverter systems",
+      "ferroamp": "Swedish DC nanogrid technology",
+      "easee": "Smart EV charging for homes and businesses",
+      "zaptec": "Norwegian charging solutions",
+      "chargeamps": "Swedish premium EV chargers",
+      "pixii": "Modular battery storage systems",
+      "ambibox": "Smart energy storage solutions",
+      "kalmar-energi": "Swedish regional utility partner",
+      "nrgi": "Danish energy company with 250K customers",
+      "elkedjan": "Sweden's largest installer network"
     },
     "cta": {
       "title": "Don't see your hardware?",

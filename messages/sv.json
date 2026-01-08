@@ -121,6 +121,14 @@
         "monitor": "Energiövervakning",
         "automate": "Automatisering",
         "savings": "Besparingar"
+      },
+      "tabsMobile": {
+        "sites": "Platser",
+        "analytics": "Diagram",
+        "fleet": "Tabell",
+        "monitor": "Övervakning",
+        "automate": "Auto",
+        "savings": "Spara"
       }
     },
     "connectivity": {
@@ -754,6 +762,25 @@
       "installers": {
         "subtitle": "Certifierade installationspartners"
       }
+    },
+    "brands": {
+      "solaredge": "Premium solcellsväxelriktare med modulnivåoptimering",
+      "huawei": "Smarta PV-lösningar med AI-driven optimering",
+      "fronius": "Österrikisk kvalitet för hem och företag",
+      "sma": "Tysk ingenjörskonst för solkraftsomvandling",
+      "sungrow": "Global ledare inom växelriktarteknik",
+      "solax": "Innovativa hybridväxelriktarlösningar",
+      "solis": "Pålitliga strängväxelriktare för alla tillämpningar",
+      "deye": "Kostnadseffektiva hybridväxelriktarsystem",
+      "ferroamp": "Svensk DC-nanogridteknik",
+      "easee": "Smart elbilsladdning för hem och företag",
+      "zaptec": "Norska laddningslösningar",
+      "chargeamps": "Svenska premiumladdare för elbilar",
+      "pixii": "Modulära batterilagringssystem",
+      "ambibox": "Smarta energilagringslösningar",
+      "kalmar-energi": "Svensk regional energipartner",
+      "nrgi": "Danskt energibolag med 250 000 kunder",
+      "elkedjan": "Sveriges största installatörsnätverk"
     },
     "cta": {
       "title": "Ser du inte din hårdvara?",

@@ -13,34 +13,34 @@ export const metadata: Metadata = {
   description: "Sourceful integrates with leading solar inverters, EV chargers, batteries, and smart meters. See all compatible devices.",
 };
 
-// Brand data with categories
+// Brand data with categories (descriptions come from translations)
 const brands = {
   inverters: [
-    { name: "SolarEdge", slug: "solaredge", description: "Premium solar inverters with module-level optimization" },
-    { name: "Huawei", slug: "huawei", description: "Smart PV solutions with AI-powered optimization" },
-    { name: "Fronius", slug: "fronius", description: "Austrian quality inverters for residential and commercial" },
-    { name: "SMA", slug: "sma", description: "German engineering for solar power conversion" },
-    { name: "Sungrow", slug: "sungrow", description: "Global leader in inverter technology" },
-    { name: "SolaX", slug: "solax", description: "Innovative hybrid inverter solutions" },
-    { name: "Solis", slug: "solis", description: "Reliable string inverters for all applications" },
-    { name: "Deye", slug: "deye", description: "Cost-effective hybrid inverter systems" },
-    { name: "Ferroamp", slug: "ferroamp", description: "Swedish DC nanogrid technology" },
+    { name: "SolarEdge", slug: "solaredge" },
+    { name: "Huawei", slug: "huawei" },
+    { name: "Fronius", slug: "fronius" },
+    { name: "SMA", slug: "sma" },
+    { name: "Sungrow", slug: "sungrow" },
+    { name: "SolaX", slug: "solax" },
+    { name: "Solis", slug: "solis" },
+    { name: "Deye", slug: "deye" },
+    { name: "Ferroamp", slug: "ferroamp" },
   ],
   chargers: [
-    { name: "Easee", slug: "easee", description: "Smart EV charging for homes and businesses" },
-    { name: "Zaptec", slug: "zaptec", description: "Norwegian charging solutions" },
-    { name: "ChargeAmps", slug: "chargeamps", description: "Swedish premium EV chargers" },
+    { name: "Easee", slug: "easee" },
+    { name: "Zaptec", slug: "zaptec" },
+    { name: "ChargeAmps", slug: "chargeamps" },
   ],
   batteries: [
-    { name: "Pixii", slug: "pixii", description: "Modular battery storage systems" },
-    { name: "Ambibox", slug: "ambibox", description: "Smart energy storage solutions" },
+    { name: "Pixii", slug: "pixii" },
+    { name: "Ambibox", slug: "ambibox" },
   ],
   utilities: [
-    { name: "Kalmar Energi", slug: "kalmar-energi", description: "Swedish regional utility partner" },
-    { name: "NRGi", slug: "nrgi", description: "Danish energy company with 250K customers" },
+    { name: "Kalmar Energi", slug: "kalmar-energi" },
+    { name: "NRGi", slug: "nrgi" },
   ],
   installers: [
-    { name: "Elkedjan", slug: "elkedjan", description: "Sweden's largest installer network" },
+    { name: "Elkedjan", slug: "elkedjan" },
   ],
 };
 
@@ -139,7 +139,7 @@ export default async function IntegrationsPage() {
                     <CardTitle className="text-lg">{brand.name}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription>{brand.description}</CardDescription>
+                    <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
                   </CardContent>
                 </Card>
               </Link>
@@ -170,7 +170,7 @@ export default async function IntegrationsPage() {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription>{brand.description}</CardDescription>
+                      <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
                     </CardContent>
                   </Card>
                 </Link>
@@ -199,7 +199,7 @@ export default async function IntegrationsPage() {
                       <CardTitle className="text-lg">{brand.name}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription>{brand.description}</CardDescription>
+                      <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
                     </CardContent>
                   </Card>
                 </Link>
@@ -230,7 +230,7 @@ export default async function IntegrationsPage() {
                         <CardTitle className="text-lg">{brand.name}</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <CardDescription>{brand.description}</CardDescription>
+                        <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
                       </CardContent>
                     </Card>
                   ))}
@@ -255,7 +255,7 @@ export default async function IntegrationsPage() {
                         <CardTitle className="text-lg">{brand.name}</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <CardDescription>{brand.description}</CardDescription>
+                        <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
                       </CardContent>
                     </Card>
                   ))}
