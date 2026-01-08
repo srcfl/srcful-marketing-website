@@ -16,43 +16,37 @@ export default function ToolsPage() {
 
   const tools = [
     {
-      title: "Savings Calculator",
-      description: "Estimate your total energy savings with solar, battery storage, and smart management in Sweden.",
+      key: "savingsCalculator",
       href: "/tools/savings-calculator",
       icon: Calculator,
       available: true,
     },
     {
-      title: "Solar ROI Calculator",
-      description: "Calculate the return on investment for your solar panel installation.",
+      key: "solarRoi",
       href: "/tools/solar-roi",
       icon: Sun,
       available: false,
     },
     {
-      title: "Battery Sizing Tool",
-      description: "Find the optimal battery size for your home based on consumption patterns.",
+      key: "batterySizing",
       href: "/tools/battery-sizing",
       icon: Battery,
       available: false,
     },
     {
-      title: "EV Charging Calculator",
-      description: "Estimate your EV charging costs and savings with smart charging.",
+      key: "evCharging",
       href: "/tools/ev-charging",
       icon: Car,
       available: false,
     },
     {
-      title: "V2X Savings Estimator",
-      description: "Calculate potential earnings from vehicle-to-grid energy trading.",
+      key: "v2xSavings",
       href: "/tools/v2x-savings",
       icon: Zap,
       available: false,
     },
     {
-      title: "Negative Price Analyzer",
-      description: "Check historical negative electricity prices in your region.",
+      key: "negativePrices",
       href: "/tools/negative-prices",
       icon: TrendingDown,
       available: false,
@@ -91,7 +85,7 @@ export default function ToolsPage() {
               const Icon = tool.icon;
               return (
                 <Card
-                  key={tool.title}
+                  key={tool.key}
                   className={`relative overflow-hidden ${
                     tool.available
                       ? "hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer"
@@ -105,13 +99,13 @@ export default function ToolsPage() {
                           <Icon className="h-6 w-6 text-primary" />
                         </div>
                         <CardTitle className="flex items-center gap-2">
-                          {tool.title}
+                          {t(`list.${tool.key}.title`)}
                           <ArrowRight className="h-4 w-4" />
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
                         <CardDescription className="text-base">
-                          {tool.description}
+                          {t(`list.${tool.key}.description`)}
                         </CardDescription>
                       </CardContent>
                     </Link>
@@ -122,13 +116,13 @@ export default function ToolsPage() {
                           <Icon className="h-6 w-6 text-muted-foreground" />
                         </div>
                         <CardTitle className="flex items-center gap-2">
-                          {tool.title}
+                          {t(`list.${tool.key}.title`)}
                           <Badge variant="outline" className="text-xs">{t("comingSoon")}</Badge>
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
                         <CardDescription className="text-base">
-                          {tool.description}
+                          {t(`list.${tool.key}.description`)}
                         </CardDescription>
                       </CardContent>
                     </>

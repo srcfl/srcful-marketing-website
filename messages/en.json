@@ -501,6 +501,61 @@
         "title": "Unlock distributed",
         "titleHighlight": "flexibility",
         "description": "Enable grid services at scale with local execution. 200ms response time for frequency regulation, demand response, and more."
+      },
+      "stats": {
+        "coordinationLosses": "Annual coordination losses in EU",
+        "negativePricing": "Hours of negative pricing (2023)",
+        "ourResponse": "Our response time",
+        "cloudResponse": "Cloud API response time"
+      },
+      "problem": {
+        "title": "The coordination gap is costing you billions",
+        "paragraph1": "40-70 million EVs in Europe by 2030. 2,800 GWh of distributed storage that needs coordination. Cloud APIs respond in 2-5 seconds - but grid frequency must balance every second.",
+        "paragraph2": "The result? €2.5B destroyed annually in coordination failures. 700+ hours of negative electricity pricing. Assets sitting idle when the grid needs them most.",
+        "paragraph3": "We bridge this gap with local execution infrastructure.",
+        "partnershipsTitle": "Current partnerships",
+        "kalmar": "Go-live imminent",
+        "nrgi": "250K customer pipeline",
+        "others": "Active discussions"
+      },
+      "benefits": {
+        "title": "Why utilities partner with us",
+        "description": "We enable utilities to deliver real grid services - not just dashboards.",
+        "gridServices": {
+          "title": "Real-time Grid Services",
+          "description": "Enable frequency response and demand flexibility with millisecond-level control that cloud APIs can't deliver."
+        },
+        "coordinationFailures": {
+          "title": "Reduce Coordination Failures",
+          "description": "Stop losing money to negative pricing and curtailment. Our local execution layer bridges the gap between distributed assets and grid needs."
+        },
+        "distributedFlexibility": {
+          "title": "Unlock Distributed Flexibility",
+          "description": "Aggregate residential and commercial assets into a virtual power plant you can actually control."
+        },
+        "whiteLabel": {
+          "title": "White-label Platform",
+          "description": "Offer your customers a branded energy management experience while we handle the infrastructure."
+        }
+      },
+      "howItWorks": {
+        "title": "How the partnership works",
+        "step1": {
+          "title": "We provide the infrastructure",
+          "description": "Zap gateways, platform access, and API integration. You focus on customers."
+        },
+        "step2": {
+          "title": "Your brand, our technology",
+          "description": "White-label the platform for your customers. We stay invisible."
+        },
+        "step3": {
+          "title": "Share the value",
+          "description": "Platform licensing + grid services margin. Aligned incentives."
+        }
+      },
+      "cta": {
+        "title": "Ready to unlock distributed flexibility?",
+        "description": "Let's discuss how Sourceful can help you deliver real grid services."
       }
     },
     "installers": {
@@ -671,7 +726,9 @@
       "badge": "Integrations",
       "title": "Works with your",
       "titleHighlight": "existing hardware",
-      "description": "Sourceful integrates with leading solar inverters, EV chargers, batteries, and smart meters. No need to replace your equipment - just add the Zap gateway."
+      "description": "Sourceful integrates with leading solar inverters, EV chargers, batteries, and smart meters. No need to replace your equipment - just add the Zap gateway.",
+      "getTheZap": "Get the Zap",
+      "hardwareDocs": "Hardware Docs"
     },
     "categories": {
       "inverters": "Solar Inverters",
@@ -680,9 +737,29 @@
       "utilities": "Utility Partners",
       "installers": "Installer Networks"
     },
+    "sections": {
+      "inverters": {
+        "subtitle": "Compatible with leading brands"
+      },
+      "chargers": {
+        "subtitle": "Smart charging and V2X ready",
+        "v2xReady": "V2X Ready"
+      },
+      "batteries": {
+        "subtitle": "Home and commercial storage solutions"
+      },
+      "utilities": {
+        "subtitle": "Energy companies we work with"
+      },
+      "installers": {
+        "subtitle": "Certified installation partners"
+      }
+    },
     "cta": {
       "title": "Don't see your hardware?",
-      "description": "We're constantly adding new integrations. Contact us to request support for your specific equipment or check the developer docs for custom integrations."
+      "description": "We're constantly adding new integrations. Contact us to request support for your specific equipment or check the developer docs for custom integrations.",
+      "requestIntegration": "Request Integration",
+      "developerDocs": "Developer Docs"
     }
   },
   "about": {
@@ -765,12 +842,121 @@
       "joinCommunity": "Join Community"
     }
   },
+  "blog": {
+    "hero": {
+      "badge": "Blog",
+      "title": "Insights &",
+      "titleHighlight": "Updates",
+      "description": "News, insights, and deep dives into the energy transition, grid services, V2X technology, and smart energy management from the Sourceful team."
+    },
+    "filters": {
+      "all": "All"
+    },
+    "featured": "Featured Article",
+    "allArticles": "All Articles",
+    "moreArticles": "More",
+    "emptyState": "No articles found in this category.",
+    "cta": {
+      "title": "Stay up to date",
+      "description": "Get the latest insights on energy management, grid services, and the energy transition delivered to your inbox.",
+      "button": "Subscribe to Updates"
+    }
+  },
   "company": {
     "hero": {
       "badge": "Company",
       "title": "The last-mile problem",
       "titleHighlight": "nobody's solving",
-      "description": "Renewable energy costs have dropped 90%. Solar is on every roof. EVs are in every garage. The generation problem is solved."
+      "description": "Renewable energy costs have dropped 90%. Solar is on every roof. EVs are in every garage. The generation problem is solved.",
+      "paragraph2": "But energy coordination is still broken. The grid can't talk to your battery. Your EV doesn't know when electricity is cheapest. Your solar panels don't coordinate with your neighbors.",
+      "paragraph3": "The coordination layer is missing. We're building it."
+    },
+    "valueProps": {
+      "coordinator": {
+        "value": "€39",
+        "title": "Universal coordinator",
+        "description": "The Zap gateway supports P1, Modbus, MQTT, OCPP - every protocol that matters."
+      },
+      "subscription": {
+        "value": "€3/mo",
+        "title": "Platform subscription",
+        "description": "Captures €1,000-2,500 in annual value through optimization and grid services."
+      },
+      "architecture": {
+        "value": "Open",
+        "title": "Platform architecture",
+        "description": "Homes become programmable APIs. Developers build on top. Network effects compound."
+      },
+      "network": {
+        "value": "N²",
+        "title": "Network effects",
+        "description": "Value increases with every connection. Winner-take-most dynamics."
+      }
+    },
+    "whyWin": {
+      "title": "Why Sourceful will win",
+      "description": "This is an infrastructure transition. Like AWS vs. hardware manufacturers. Like internet protocols vs. telecom. Like payment platforms vs. banks.",
+      "utilities": {
+        "title": "Utilities can't build this",
+        "description": "They're optimizing for centralized control, not distributed coordination."
+      },
+      "manufacturers": {
+        "title": "Manufacturers won't",
+        "description": "They prefer closed ecosystems that lock in customers."
+      },
+      "traditional": {
+        "title": "Traditional energy firms",
+        "description": "They're solving yesterday's problems with yesterday's architecture."
+      },
+      "winnerTakemost": {
+        "title": "Winner-take-most dynamics",
+        "description": "In network-effect markets, second place is worth 10x less than first. We're building to be first - in the Nordics, then Europe, then everywhere there's a grid."
+      }
+    },
+    "funding": {
+      "badge": "Funding",
+      "title": "€3M Seed raised",
+      "paragraph1": "January 2025. Led by Crucible Capital and Eviny Ventures, with participation from Variant Fund, Paper Ventures, and Kosmos Capital.",
+      "paragraph2": "We're building network effects in a €500B market. The capital is deployed into infrastructure that compounds - every device connected makes the next connection more valuable.",
+      "investorsTitle": "Investors",
+      "lead": "Lead"
+    },
+    "roadmap": {
+      "title": "Growth roadmap",
+      "description": "Network effects unlock at each milestone. Value compounds exponentially.",
+      "milestones": {
+        "1000": {
+          "connections": "1,000",
+          "status": "Network activation",
+          "description": "Critical mass for local grid services"
+        },
+        "10000": {
+          "connections": "10,000",
+          "status": "Virtual power plant",
+          "description": "Utility-scale flexibility resource"
+        },
+        "100000": {
+          "connections": "100,000",
+          "status": "Infrastructure-grade",
+          "description": "Regional energy coordination"
+        },
+        "100M": {
+          "connections": "100M",
+          "status": "Energy internet",
+          "description": "Continental-scale coordination"
+        }
+      }
+    },
+    "seriesA": {
+      "badge": "Series A Opening",
+      "title": "Infrastructure coordination at scale",
+      "paragraph1": "Platform companies trade at 40x revenue (Stripe). Utilities trade at 1.5x. We're building a platform company in a utility market.",
+      "paragraph2": "If you're deploying capital into energy infrastructure with network effects, let's talk."
+    },
+    "companyInfo": {
+      "location": "Kalmar, Sweden",
+      "regNumber": "Reg. 559382-0458",
+      "disclaimer": "Content provided for general information purposes. Not financial advice or investment solicitation."
     }
   },
   "community": {
@@ -778,7 +964,70 @@
       "badge": "Community",
       "title": "Build the future of energy",
       "titleHighlight": "together",
-      "description": "Join a community of developers, installers, and energy enthusiasts who are building the local execution layer for distributed energy."
+      "description": "Join a community of developers, installers, and energy enthusiasts who are building the local execution layer for distributed energy.",
+      "joinDiscord": "Join Discord",
+      "github": "GitHub"
+    },
+    "stats": {
+      "developers": "Developers",
+      "countries": "Countries",
+      "discord": "Discord",
+      "supportResponse": "Support Response"
+    },
+    "channels": {
+      "title": "Connect with us",
+      "description": "Multiple ways to get involved, get help, and contribute.",
+      "discord": {
+        "title": "Discord",
+        "description": "Join our active community of developers, installers, and energy enthusiasts. Get help, share projects, and connect with the team.",
+        "cta": "Join Discord"
+      },
+      "github": {
+        "title": "GitHub",
+        "description": "Explore our open source projects, report issues, and contribute to the codebase. We build in the open.",
+        "cta": "View GitHub"
+      },
+      "docs": {
+        "title": "Developer Docs",
+        "description": "Comprehensive documentation for building on the Sourceful platform. API references, guides, and examples.",
+        "cta": "Read Docs"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Need help? Our support team is available through Intercom for technical questions and troubleshooting.",
+        "cta": "Contact Support"
+      }
+    },
+    "tenPercent": {
+      "label": "The 10%",
+      "title": "Community-driven development",
+      "paragraph1": "We're 90% B2B - working with utilities, OEMs, and installers. But 10% of our focus is on the community: early adopters, developers, and energy enthusiasts who help us build something better.",
+      "paragraph2": "The community provides feedback, tests new features, and keeps us honest. In return, they get early access, direct influence on the roadmap, and a voice in how we build.",
+      "whatYouGet": "What you get",
+      "benefits": {
+        "earlyAccess": {
+          "title": "Early access",
+          "description": "Test new features before public release"
+        },
+        "feedback": {
+          "title": "Direct feedback channel",
+          "description": "Your input shapes the product"
+        },
+        "recognition": {
+          "title": "Community recognition",
+          "description": "Contributors get credited"
+        },
+        "openSource": {
+          "title": "Open source",
+          "description": "MIT licensed, build what you want"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to join?",
+      "description": "Whether you're a developer, installer, or just curious about distributed energy, there's a place for you in our community.",
+      "joinDiscord": "Join Discord",
+      "startBuilding": "Start Building"
     }
   },
   "developers": {
@@ -787,6 +1036,75 @@
       "title": "Build energy apps that",
       "titleHighlight": "actually respond",
       "description": "Cloud APIs are 2-5 seconds. Grid frequency must balance every second. Our local execution layer gives you the speed you need to build real energy applications."
+    },
+    "tools": {
+      "title": "Everything you need to build",
+      "description": "Comprehensive tools, documentation, and resources for integrating with the Sourceful platform.",
+      "primary": "Primary",
+      "devPortal": {
+        "title": "Developer Portal",
+        "description": "Full API access, authentication, device management, and real-time data streams."
+      },
+      "apiRef": {
+        "title": "API Reference",
+        "description": "Complete endpoint documentation with examples in multiple languages."
+      },
+      "designSystem": {
+        "title": "Design System",
+        "description": "50+ React components, design tokens, and brand guidelines for building Sourceful apps."
+      },
+      "hardwareDocs": {
+        "title": "Hardware Docs",
+        "description": "Zap gateway integration, protocol specs, and firmware documentation."
+      }
+    },
+    "features": {
+      "title": "Platform capabilities",
+      "description": "Built for developers who need real-time control over energy infrastructure.",
+      "localResponse": {
+        "title": "200ms Local Response",
+        "description": "Execute commands at the edge. No round-trip to the cloud for time-critical operations."
+      },
+      "protocolAgnostic": {
+        "title": "Protocol Agnostic",
+        "description": "P1, Modbus, MQTT, OCPP - we handle the translation layer so you don't have to."
+      },
+      "websockets": {
+        "title": "Real-time WebSockets",
+        "description": "Subscribe to device events, energy data, and grid signals in real-time."
+      },
+      "webhooks": {
+        "title": "Comprehensive Webhooks",
+        "description": "Get notified of device state changes, alerts, and energy events."
+      },
+      "auth": {
+        "title": "OAuth 2.0 & API Keys",
+        "description": "Flexible authentication for different integration scenarios."
+      },
+      "sandbox": {
+        "title": "Sandbox Environment",
+        "description": "Test your integration with simulated devices before going live."
+      }
+    },
+    "api": {
+      "title": "Simple, powerful API",
+      "description": "Control devices, read energy data, and respond to grid signals with a clean, well-documented API.",
+      "feature1": "RESTful endpoints with JSON responses",
+      "feature2": "WebSocket streams for real-time data",
+      "feature3": "Idempotent operations for reliability",
+      "codeComment": "# List all devices"
+    },
+    "community": {
+      "title": "Join the Community",
+      "description": "Connect with other developers building on Sourceful. Get help, share projects, and shape the future of the platform.",
+      "developers": "Developers",
+      "support": "Support",
+      "components": "Components",
+      "openSource": "Open Source"
+    },
+    "cta": {
+      "title": "Ready to start building?",
+      "description": "Get API access, explore the documentation, and ship your first integration today."
     }
   },
   "tools": {
@@ -802,6 +1120,32 @@
       "button": "Contact Us"
     },
     "comingSoon": "Coming Soon",
+    "list": {
+      "savingsCalculator": {
+        "title": "Savings Calculator",
+        "description": "Estimate your total energy savings with solar, battery storage, and smart management in Sweden."
+      },
+      "solarRoi": {
+        "title": "Solar ROI Calculator",
+        "description": "Calculate the return on investment for your solar panel installation."
+      },
+      "batterySizing": {
+        "title": "Battery Sizing Tool",
+        "description": "Find the optimal battery size for your home based on consumption patterns."
+      },
+      "evCharging": {
+        "title": "EV Charging Calculator",
+        "description": "Estimate your EV charging costs and savings with smart charging."
+      },
+      "v2xSavings": {
+        "title": "V2X Savings Estimator",
+        "description": "Calculate potential earnings from vehicle-to-grid energy trading."
+      },
+      "negativePrices": {
+        "title": "Negative Price Analyzer",
+        "description": "Check historical negative electricity prices in your region."
+      }
+    },
     "calculator": {
       "title": "Energy Savings Calculator",
       "description": "Estimate your potential savings with solar, battery storage, and smart energy management in Sweden.",

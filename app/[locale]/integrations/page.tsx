@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -43,15 +44,24 @@ const brands = {
   ],
 };
 
-const categories = [
-  { key: "inverters", label: "Solar Inverters", icon: Sun, count: brands.inverters.length },
-  { key: "chargers", label: "EV Chargers", icon: Car, count: brands.chargers.length },
-  { key: "batteries", label: "Battery Storage", icon: Battery, count: brands.batteries.length },
-  { key: "utilities", label: "Utility Partners", icon: Gauge, count: brands.utilities.length },
-  { key: "installers", label: "Installer Networks", icon: Plug, count: brands.installers.length },
-];
+const categoryIcons = {
+  inverters: Sun,
+  chargers: Car,
+  batteries: Battery,
+  utilities: Gauge,
+  installers: Plug,
+};
 
-export default function IntegrationsPage() {
+export default async function IntegrationsPage() {
+  const t = await getTranslations("integrations");
+
+  const categories = [
+    { key: "inverters", icon: categoryIcons.inverters, count: brands.inverters.length },
+    { key: "chargers", icon: categoryIcons.chargers, count: brands.chargers.length },
+    { key: "batteries", icon: categoryIcons.batteries, count: brands.batteries.length },
+    { key: "utilities", icon: categoryIcons.utilities, count: brands.utilities.length },
+    { key: "installers", icon: categoryIcons.installers, count: brands.installers.length },
+  ];
   return (
     <div className="flex min-h-screen flex-col">
       <MarketingNav />
@@ -64,26 +74,25 @@ export default function IntegrationsPage() {
             <div className="max-w-3xl">
               <Badge variant="secondary" className="mb-6">
                 <Plug className="h-3 w-3 mr-1" />
-                Integrations
+                {t("hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Works with your{" "}
-                <span className="text-primary">existing hardware</span>
+                {t("hero.title")}{" "}
+                <span className="text-primary">{t("hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Sourceful integrates with leading solar inverters, EV chargers, batteries,
-                and smart meters. No need to replace your equipment - just add the Zap gateway.
+                {t("hero.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild>
                   <Link href="/zap">
-                    Get the Zap
+                    {t("hero.getTheZap")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
-                    Hardware Docs
+                    {t("hero.hardwareDocs")}
                   </a>
                 </Button>
               </div>
@@ -103,7 +112,7 @@ export default function IntegrationsPage() {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <div className="text-2xl font-bold">{category.count}</div>
-                    <div className="text-sm text-muted-foreground">{category.label}</div>
+                    <div className="text-sm text-muted-foreground">{t(`categories.${category.key}`)}</div>
                   </div>
                 );
               })}
@@ -118,8 +127,8 @@ export default function IntegrationsPage() {
               <Sun className="h-5 w-5 text-yellow-500" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold">Solar Inverters</h2>
-              <p className="text-muted-foreground">Compatible with leading brands</p>
+              <h2 className="text-2xl font-bold">{t("categories.inverters")}</h2>
+              <p className="text-muted-foreground">{t("sections.inverters.subtitle")}</p>
             </div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -146,8 +155,8 @@ export default function IntegrationsPage() {
                 <Car className="h-5 w-5 text-blue-500" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">EV Chargers</h2>
-                <p className="text-muted-foreground">Smart charging and V2X ready</p>
+                <h2 className="text-2xl font-bold">{t("categories.chargers")}</h2>
+                <p className="text-muted-foreground">{t("sections.chargers.subtitle")}</p>
               </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -157,7 +166,7 @@ export default function IntegrationsPage() {
                     <CardHeader className="pb-2">
                       <div className="flex items-center justify-between">
                         <CardTitle className="text-lg">{brand.name}</CardTitle>
-                        <Badge variant="outline" className="text-xs">V2X Ready</Badge>
+                        <Badge variant="outline" className="text-xs">{t("sections.chargers.v2xReady")}</Badge>
                       </div>
                     </CardHeader>
                     <CardContent>
@@ -178,8 +187,8 @@ export default function IntegrationsPage() {
                 <Battery className="h-5 w-5 text-green-500" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold">Battery Storage</h2>
-                <p className="text-muted-foreground">Home and commercial storage solutions</p>
+                <h2 className="text-2xl font-bold">{t("categories.batteries")}</h2>
+                <p className="text-muted-foreground">{t("sections.batteries.subtitle")}</p>
               </div>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -210,8 +219,8 @@ export default function IntegrationsPage() {
                     <Gauge className="h-5 w-5 text-purple-500" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold">Utility Partners</h2>
-                    <p className="text-muted-foreground">Energy companies we work with</p>
+                    <h2 className="text-2xl font-bold">{t("categories.utilities")}</h2>
+                    <p className="text-muted-foreground">{t("sections.utilities.subtitle")}</p>
                   </div>
                 </div>
                 <div className="space-y-4">
@@ -235,8 +244,8 @@ export default function IntegrationsPage() {
                     <Plug className="h-5 w-5 text-orange-500" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold">Installer Networks</h2>
-                    <p className="text-muted-foreground">Certified installation partners</p>
+                    <h2 className="text-2xl font-bold">{t("categories.installers")}</h2>
+                    <p className="text-muted-foreground">{t("sections.installers.subtitle")}</p>
                   </div>
                 </div>
                 <div className="space-y-4">
@@ -260,22 +269,21 @@ export default function IntegrationsPage() {
         <section className="border-t bg-gradient-to-br from-primary/10 via-primary/5 to-background">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Don't see your hardware?
+              {t("cta.title")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              We're constantly adding new integrations. Contact us to request support
-              for your specific equipment or check the developer docs for custom integrations.
+              {t("cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
                 <Link href="/contact">
-                  Request Integration
+                  {t("cta.requestIntegration")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
-                  Developer Docs
+                  {t("cta.developerDocs")}
                 </a>
               </Button>
             </div>

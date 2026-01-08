@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -16,11 +17,12 @@ interface BlogCardProps {
   featured?: boolean;
   authors: Record<string, { name: string; role: string; avatar?: string }>;
   categoryLabels: Record<string, string>;
+  locale: string;
 }
 
-function BlogCard({ post, featured = false, authors, categoryLabels }: BlogCardProps) {
+function BlogCard({ post, featured = false, authors, categoryLabels, locale }: BlogCardProps) {
   const author = authors[post.author] || authors["Sourceful Team"];
-  const formattedDate = new Date(post.publishDate).toLocaleDateString("en-US", {
+  const formattedDate = new Date(post.publishDate).toLocaleDateString(locale === "sv" ? "sv-SE" : "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -124,6 +126,8 @@ interface BlogContentProps {
 }
 
 export function BlogContent({ posts, categoryLabels, authors }: BlogContentProps) {
+  const t = useTranslations("blog");
+  const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   // Filter posts by category
@@ -152,15 +156,14 @@ export function BlogContent({ posts, categoryLabels, authors }: BlogContentProps
             <div className="max-w-3xl">
               <Badge variant="secondary" className="mb-6">
                 <BookOpen className="h-3 w-3 mr-1" />
-                Blog
+                {t("hero.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Insights &{" "}
-                <span className="text-primary">Updates</span>
+                {t("hero.title")}{" "}
+                <span className="text-primary">{t("hero.titleHighlight")}</span>
               </h1>
               <p className="text-xl text-muted-foreground">
-                News, insights, and deep dives into the energy transition, grid services,
-                V2X technology, and smart energy management from the Sourceful team.
+                {t("hero.description")}
               </p>
             </div>
           </div>
@@ -171,7 +174,7 @@ export function BlogContent({ posts, categoryLabels, authors }: BlogContentProps
           <div className="flex flex-wrap gap-2">
             {CATEGORY_ORDER.map((category) => {
               const count = category === "all" ? posts.length : (categoryCounts[category] || 0);
-              const label = category === "all" ? "All" : categoryLabels[category];
+              const label = category === "all" ? t("filters.all") : categoryLabels[category];
 
               if (category !== "all" && count === 0) return null;
 
@@ -201,9 +204,9 @@ export function BlogContent({ posts, categoryLabels, authors }: BlogContentProps
         {featuredPost && (
           <section className="max-w-7xl mx-auto py-12 px-4 md:px-8">
             <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-6">
-              {selectedCategory === "all" ? "Featured Article" : categoryLabels[selectedCategory] || selectedCategory}
+              {selectedCategory === "all" ? t("featured") : categoryLabels[selectedCategory] || selectedCategory}
             </h2>
-            <BlogCard post={featuredPost} featured authors={authors} categoryLabels={categoryLabels} />
+            <BlogCard post={featuredPost} featured authors={authors} categoryLabels={categoryLabels} locale={locale} />
           </section>
         )}
 
@@ -211,11 +214,11 @@ export function BlogContent({ posts, categoryLabels, authors }: BlogContentProps
         {remainingPosts.length > 0 && (
           <section className="max-w-7xl mx-auto py-12 px-4 md:px-8">
             <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-6">
-              {selectedCategory === "all" ? `All Articles (${remainingPosts.length})` : `More ${categoryLabels[selectedCategory] || selectedCategory} (${remainingPosts.length})`}
+              {selectedCategory === "all" ? `${t("allArticles")} (${remainingPosts.length})` : `${t("moreArticles")} ${categoryLabels[selectedCategory] || selectedCategory} (${remainingPosts.length})`}
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {remainingPosts.map((post) => (
-                <BlogCard key={post.slug} post={post} authors={authors} categoryLabels={categoryLabels} />
+                <BlogCard key={post.slug} post={post} authors={authors} categoryLabels={categoryLabels} locale={locale} />
               ))}
             </div>
           </section>
@@ -224,7 +227,7 @@ export function BlogContent({ posts, categoryLabels, authors }: BlogContentProps
         {/* Empty State */}
         {filteredPosts.length === 0 && (
           <section className="max-w-7xl mx-auto py-24 px-4 md:px-8 text-center">
-            <p className="text-muted-foreground">No articles found in this category.</p>
+            <p className="text-muted-foreground">{t("emptyState")}</p>
           </section>
         )}
 
@@ -232,15 +235,14 @@ export function BlogContent({ posts, categoryLabels, authors }: BlogContentProps
         <section className="border-t bg-muted/50">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Stay up to date
+              {t("cta.title")}
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Get the latest insights on energy management, grid services, and the energy transition
-              delivered to your inbox.
+              {t("cta.description")}
             </p>
             <Button size="lg" asChild>
               <Link href="/contact">
-                Subscribe to Updates
+                {t("cta.button")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

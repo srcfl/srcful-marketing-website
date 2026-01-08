@@ -14,34 +14,18 @@ export default function UtilitiesPage() {
   const t = useTranslations("useCases.utilities");
   const tCommon = useTranslations("common");
 
-  const benefits = [
-    {
-      icon: Clock,
-      title: "Real-time Grid Services",
-      description: "Enable frequency response and demand flexibility with millisecond-level control that cloud APIs can't deliver.",
-    },
-    {
-      icon: Shield,
-      title: "Reduce Coordination Failures",
-      description: "Stop losing money to negative pricing and curtailment. Our local execution layer bridges the gap between distributed assets and grid needs.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Unlock Distributed Flexibility",
-      description: "Aggregate residential and commercial assets into a virtual power plant you can actually control.",
-    },
-    {
-      icon: Users,
-      title: "White-label Platform",
-      description: "Offer your customers a branded energy management experience while we handle the infrastructure.",
-    },
+  const benefitKeys = [
+    { key: "gridServices", icon: Clock },
+    { key: "coordinationFailures", icon: Shield },
+    { key: "distributedFlexibility", icon: TrendingUp },
+    { key: "whiteLabel", icon: Users },
   ];
 
   const stats = [
-    { value: "€2.5B", label: "Annual coordination losses in EU" },
-    { value: "700+", label: "Hours of negative pricing (2023)" },
-    { value: "200ms", label: "Our response time" },
-    { value: "2-5s", label: "Cloud API response time" },
+    { value: "€2.5B", labelKey: "coordinationLosses" },
+    { value: "700+", labelKey: "negativePricing" },
+    { value: "200ms", labelKey: "ourResponse" },
+    { value: "2-5s", labelKey: "cloudResponse" },
   ];
 
   return (
@@ -87,10 +71,10 @@ export default function UtilitiesPage() {
           <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
               {stats.map((stat) => (
-                <StaggerItem key={stat.label}>
+                <StaggerItem key={stat.labelKey}>
                   <div className="text-center">
                     <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                    <div className="text-sm text-muted-foreground mt-1">{t(`stats.${stat.labelKey}`)}</div>
                   </div>
                 </StaggerItem>
               ))}
@@ -104,38 +88,34 @@ export default function UtilitiesPage() {
             <FadeIn>
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  The coordination gap is costing you billions
+                  {t("problem.title")}
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  40-70 million EVs in Europe by 2030. 2,800 GWh of distributed storage
-                  that needs coordination. Cloud APIs respond in 2-5 seconds - but grid
-                  frequency must balance every second.
+                  {t("problem.paragraph1")}
                 </p>
                 <p className="text-lg text-muted-foreground mb-6">
-                  The result? €2.5B destroyed annually in coordination failures.
-                  700+ hours of negative electricity pricing. Assets sitting idle
-                  when the grid needs them most.
+                  {t("problem.paragraph2")}
                 </p>
                 <p className="text-lg font-medium">
-                  We bridge this gap with local execution infrastructure.
+                  {t("problem.paragraph3")}
                 </p>
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
               <div className="bg-muted rounded-lg p-8">
-                <h3 className="font-semibold mb-4">Current partnerships</h3>
+                <h3 className="font-semibold mb-4">{t("problem.partnerships.title")}</h3>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span><strong>Kalmar Energi</strong>  - Go-live imminent</span>
+                    <span><strong>{t("problem.partnerships.kalmar.name")}</strong> - {t("problem.partnerships.kalmar.status")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span><strong>NRGi (Denmark)</strong>  - 250K customer pipeline</span>
+                    <span><strong>{t("problem.partnerships.nrgi.name")}</strong> - {t("problem.partnerships.nrgi.status")}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span><strong>Fortum, Skellefteå Kraft</strong>  - Active discussions</span>
+                    <span><strong>{t("problem.partnerships.fortum.name")}</strong> - {t("problem.partnerships.fortum.status")}</span>
                   </li>
                 </ul>
               </div>
@@ -148,28 +128,28 @@ export default function UtilitiesPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Why utilities partner with us
+                {t("benefits.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                We enable utilities to deliver real grid services - not just dashboards.
+                {t("benefits.description")}
               </p>
             </FadeIn>
 
             <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
-              {benefits.map((benefit) => {
+              {benefitKeys.map((benefit) => {
                 const Icon = benefit.icon;
                 return (
-                  <StaggerItem key={benefit.title}>
+                  <StaggerItem key={benefit.key}>
                     <Card className="h-full">
                       <CardHeader>
                         <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                           <Icon className="h-6 w-6 text-primary" />
                         </div>
-                        <CardTitle>{benefit.title}</CardTitle>
+                        <CardTitle>{t(`benefits.${benefit.key}.title`)}</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <CardDescription className="text-base">
-                          {benefit.description}
+                          {t(`benefits.${benefit.key}.description`)}
                         </CardDescription>
                       </CardContent>
                     </Card>
@@ -185,7 +165,7 @@ export default function UtilitiesPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                How the partnership works
+                {t("howItWorks.title")}
               </h2>
             </FadeIn>
 
@@ -195,9 +175,9 @@ export default function UtilitiesPage() {
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     1
                   </div>
-                  <h3 className="font-semibold mb-2">We provide the infrastructure</h3>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.step1.title")}</h3>
                   <p className="text-muted-foreground">
-                    Zap gateways, platform access, and API integration. You focus on customers.
+                    {t("howItWorks.step1.description")}
                   </p>
                 </div>
               </StaggerItem>
@@ -206,9 +186,9 @@ export default function UtilitiesPage() {
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     2
                   </div>
-                  <h3 className="font-semibold mb-2">Your brand, our technology</h3>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.step2.title")}</h3>
                   <p className="text-muted-foreground">
-                    White-label the platform for your customers. We stay invisible.
+                    {t("howItWorks.step2.description")}
                   </p>
                 </div>
               </StaggerItem>
@@ -217,9 +197,9 @@ export default function UtilitiesPage() {
                   <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     3
                   </div>
-                  <h3 className="font-semibold mb-2">Share the value</h3>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.step3.title")}</h3>
                   <p className="text-muted-foreground">
-                    Platform licensing + grid services margin. Aligned incentives.
+                    {t("howItWorks.step3.description")}
                   </p>
                 </div>
               </StaggerItem>
@@ -232,10 +212,10 @@ export default function UtilitiesPage() {
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                Ready to unlock distributed flexibility?
+                {t("cta.title")}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Let's discuss how Sourceful can help you deliver real grid services.
+                {t("cta.description")}
               </p>
               <Button size="lg" asChild>
                 <Link href="/contact">

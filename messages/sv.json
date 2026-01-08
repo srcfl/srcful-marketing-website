@@ -501,6 +501,61 @@
         "title": "Lås upp distribuerad",
         "titleHighlight": "flexibilitet",
         "description": "Möjliggör nättjänster i stor skala med lokal exekvering. 200ms svarstid för frekvensreglering, efterfrågestyrning och mer."
+      },
+      "stats": {
+        "coordinationLosses": "Årliga koordineringsförluster i EU",
+        "negativePricing": "Timmar med negativt elpris (2023)",
+        "ourResponse": "Vår svarstid",
+        "cloudResponse": "Moln-API svarstid"
+      },
+      "problem": {
+        "title": "Koordineringsgapet kostar er miljarder",
+        "paragraph1": "40-70 miljoner elbilar i Europa till 2030. 2 800 GWh distribuerad lagring som behöver koordinering. Moln-API:er svarar på 2-5 sekunder - men nätfrekvensen måste balanseras varje sekund.",
+        "paragraph2": "Resultatet? €2,5 miljarder förstörs årligen i koordineringsfel. 700+ timmar med negativt elpris. Tillgångar som står stilla när nätet behöver dem som mest.",
+        "paragraph3": "Vi överbryggar detta gap med lokal exekveringsinfrastruktur.",
+        "partnershipsTitle": "Nuvarande samarbeten",
+        "kalmar": "Lansering nära förestående",
+        "nrgi": "250K-kundpipeline",
+        "others": "Aktiva diskussioner"
+      },
+      "benefits": {
+        "title": "Varför energibolag samarbetar med oss",
+        "description": "Vi möjliggör för energibolag att leverera riktiga nättjänster - inte bara dashboards.",
+        "gridServices": {
+          "title": "Realtids nättjänster",
+          "description": "Möjliggör frekvensrespons och efterfrågeflexibilitet med millisekundskontroll som moln-API:er inte kan leverera."
+        },
+        "coordinationFailures": {
+          "title": "Minska koordineringsfel",
+          "description": "Sluta förlora pengar på negativt pris och nedstängning. Vårt lokala exekveringslager överbryggar gapet mellan distribuerade tillgångar och nätets behov."
+        },
+        "distributedFlexibility": {
+          "title": "Lås upp distribuerad flexibilitet",
+          "description": "Aggregera bostads- och kommersiella tillgångar till ett virtuellt kraftverk du faktiskt kan styra."
+        },
+        "whiteLabel": {
+          "title": "White-label-plattform",
+          "description": "Erbjud dina kunder en varumärkesanpassad energihanteringsupplevelse medan vi hanterar infrastrukturen."
+        }
+      },
+      "howItWorks": {
+        "title": "Så fungerar samarbetet",
+        "step1": {
+          "title": "Vi tillhandahåller infrastrukturen",
+          "description": "Zap gateways, plattformsåtkomst och API-integration. Du fokuserar på kunderna."
+        },
+        "step2": {
+          "title": "Ditt varumärke, vår teknologi",
+          "description": "White-labela plattformen för dina kunder. Vi förblir osynliga."
+        },
+        "step3": {
+          "title": "Dela värdet",
+          "description": "Plattformslicensiering + nättjänstmarginal. Samordnade incitament."
+        }
+      },
+      "cta": {
+        "title": "Redo att låsa upp distribuerad flexibilitet?",
+        "description": "Låt oss diskutera hur Sourceful kan hjälpa er leverera riktiga nättjänster."
       }
     },
     "installers": {
@@ -671,7 +726,9 @@
       "badge": "Integrationer",
       "title": "Fungerar med din",
       "titleHighlight": "befintliga hårdvara",
-      "description": "Sourceful integreras med ledande solväxelriktare, elbilsladdare, batterier och smartmätare. Du behöver inte byta ut din utrustning - lägg bara till Zap gateway."
+      "description": "Sourceful integreras med ledande solväxelriktare, elbilsladdare, batterier och smartmätare. Du behöver inte byta ut din utrustning - lägg bara till Zap gateway.",
+      "getTheZap": "Skaffa Zap",
+      "hardwareDocs": "Hårdvarudokumentation"
     },
     "categories": {
       "inverters": "Solväxelriktare",
@@ -680,9 +737,29 @@
       "utilities": "Energibolagspartners",
       "installers": "Installatörsnätverk"
     },
+    "sections": {
+      "inverters": {
+        "subtitle": "Kompatibel med ledande varumärken"
+      },
+      "chargers": {
+        "subtitle": "Smart laddning och V2X-redo",
+        "v2xReady": "V2X-redo"
+      },
+      "batteries": {
+        "subtitle": "Lagringslösningar för hem och företag"
+      },
+      "utilities": {
+        "subtitle": "Energibolag vi samarbetar med"
+      },
+      "installers": {
+        "subtitle": "Certifierade installationspartners"
+      }
+    },
     "cta": {
       "title": "Ser du inte din hårdvara?",
-      "description": "Vi lägger ständigt till nya integrationer. Kontakta oss för att begära stöd för din specifika utrustning eller kolla utvecklardokumentationen för anpassade integrationer."
+      "description": "Vi lägger ständigt till nya integrationer. Kontakta oss för att begära stöd för din specifika utrustning eller kolla utvecklardokumentationen för anpassade integrationer.",
+      "requestIntegration": "Begär integration",
+      "developerDocs": "Utvecklardokumentation"
     }
   },
   "about": {
@@ -765,12 +842,121 @@
       "joinCommunity": "Gå med i communityn"
     }
   },
+  "blog": {
+    "hero": {
+      "badge": "Blogg",
+      "title": "Insikter &",
+      "titleHighlight": "Nyheter",
+      "description": "Nyheter, insikter och djupdykningar i energiomställningen, nättjänster, V2X-teknik och smart energihantering från Sourceful-teamet."
+    },
+    "filters": {
+      "all": "Alla"
+    },
+    "featured": "Utvald artikel",
+    "allArticles": "Alla artiklar",
+    "moreArticles": "Fler",
+    "emptyState": "Inga artiklar hittades i denna kategori.",
+    "cta": {
+      "title": "Håll dig uppdaterad",
+      "description": "Få de senaste insikterna om energihantering, nättjänster och energiomställningen direkt till din inkorg.",
+      "button": "Prenumerera på uppdateringar"
+    }
+  },
   "company": {
     "hero": {
       "badge": "Företag",
       "title": "Sista-milen-problemet",
       "titleHighlight": "ingen löser",
-      "description": "Förnybar energi har blivit 90% billigare. Solpaneler finns på varje tak. Elbilar i varje garage. Produktionsproblemet är löst."
+      "description": "Förnybar energi har blivit 90% billigare. Solpaneler finns på varje tak. Elbilar i varje garage. Produktionsproblemet är löst.",
+      "paragraph2": "Men energikoordineringen är fortfarande trasig. Elnätet kan inte prata med ditt batteri. Din elbil vet inte när elen är billigast. Dina solpaneler koordinerar inte med grannarna.",
+      "paragraph3": "Koordineringslagret saknas. Vi bygger det."
+    },
+    "valueProps": {
+      "coordinator": {
+        "value": "€39",
+        "title": "Universal koordinator",
+        "description": "Zap gateway stödjer P1, Modbus, MQTT, OCPP - alla protokoll som spelar roll."
+      },
+      "subscription": {
+        "value": "€3/mån",
+        "title": "Plattformsabonnemang",
+        "description": "Fångar €1 000-2 500 i årligt värde genom optimering och nättjänster."
+      },
+      "architecture": {
+        "value": "Öppen",
+        "title": "Plattformsarkitektur",
+        "description": "Hem blir programmerbara API:er. Utvecklare bygger ovanpå. Nätverkseffekter förstärks."
+      },
+      "network": {
+        "value": "N²",
+        "title": "Nätverkseffekter",
+        "description": "Värdet ökar med varje anslutning. Winner-take-most-dynamik."
+      }
+    },
+    "whyWin": {
+      "title": "Varför Sourceful kommer vinna",
+      "description": "Detta är en infrastrukturomvandling. Som AWS vs. hårdvarutillverkare. Som internetprotokoll vs. telekombolag. Som betalningsplattformar vs. banker.",
+      "utilities": {
+        "title": "Energibolag kan inte bygga detta",
+        "description": "De optimerar för centraliserad kontroll, inte distribuerad koordinering."
+      },
+      "manufacturers": {
+        "title": "Tillverkare vill inte",
+        "description": "De föredrar slutna ekosystem som låser in kunder."
+      },
+      "traditional": {
+        "title": "Traditionella energiföretag",
+        "description": "De löser gårdagens problem med gårdagens arkitektur."
+      },
+      "winnerTakemost": {
+        "title": "Winner-take-most-dynamik",
+        "description": "På marknader med nätverkseffekter är andraplatsen värd 10x mindre än förstaplatsen. Vi bygger för att bli först - i Norden, sedan Europa, sedan överallt där det finns ett elnät."
+      }
+    },
+    "funding": {
+      "badge": "Finansiering",
+      "title": "€3M Seed insamlat",
+      "paragraph1": "Januari 2025. Ledd av Crucible Capital och Eviny Ventures, med deltagande från Variant Fund, Paper Ventures och Kosmos Capital.",
+      "paragraph2": "Vi bygger nätverkseffekter på en marknad värd €500 miljarder. Kapitalet investeras i infrastruktur som växer exponentiellt - varje anslutet enhet gör nästa anslutning mer värdefull.",
+      "investorsTitle": "Investerare",
+      "lead": "Lead"
+    },
+    "roadmap": {
+      "title": "Tillväxtplan",
+      "description": "Nätverkseffekter låses upp vid varje milstolpe. Värdet växer exponentiellt.",
+      "milestones": {
+        "1000": {
+          "connections": "1 000",
+          "status": "Nätverksaktivering",
+          "description": "Kritisk massa för lokala nättjänster"
+        },
+        "10000": {
+          "connections": "10 000",
+          "status": "Virtuellt kraftverk",
+          "description": "Flexibilitetsresurs i energibolagsskala"
+        },
+        "100000": {
+          "connections": "100 000",
+          "status": "Infrastrukturklass",
+          "description": "Regional energikoordinering"
+        },
+        "100M": {
+          "connections": "100M",
+          "status": "Energi-internet",
+          "description": "Kontinental koordinering"
+        }
+      }
+    },
+    "seriesA": {
+      "badge": "Series A öppnar",
+      "title": "Infrastrukturkoordinering i stor skala",
+      "paragraph1": "Plattformsbolag handlas till 40x omsättning (Stripe). Energibolag handlas till 1,5x. Vi bygger ett plattformsbolag på en energibolagsmarknad.",
+      "paragraph2": "Om du investerar kapital i energiinfrastruktur med nätverkseffekter, låt oss prata."
+    },
+    "companyInfo": {
+      "location": "Kalmar, Sverige",
+      "regNumber": "Org.nr 559382-0458",
+      "disclaimer": "Innehåll tillhandahållet för allmän information. Inte finansiell rådgivning eller investeringsrekommendation."
     }
   },
   "community": {
@@ -778,7 +964,70 @@
       "badge": "Community",
       "title": "Bygg framtidens energi",
       "titleHighlight": "tillsammans",
-      "description": "Gå med i en community av utvecklare, installatörer och energientusiaster som bygger det lokala exekveringslagret för distribuerad energi."
+      "description": "Gå med i en community av utvecklare, installatörer och energientusiaster som bygger det lokala exekveringslagret för distribuerad energi.",
+      "joinDiscord": "Gå med i Discord",
+      "github": "GitHub"
+    },
+    "stats": {
+      "developers": "Utvecklare",
+      "countries": "Länder",
+      "discord": "Discord",
+      "supportResponse": "Supportrespons"
+    },
+    "channels": {
+      "title": "Kontakta oss",
+      "description": "Flera sätt att engagera dig, få hjälp och bidra.",
+      "discord": {
+        "title": "Discord",
+        "description": "Gå med i vår aktiva community av utvecklare, installatörer och energientusiaster. Få hjälp, dela projekt och anslut med teamet.",
+        "cta": "Gå med i Discord"
+      },
+      "github": {
+        "title": "GitHub",
+        "description": "Utforska våra open source-projekt, rapportera problem och bidra till kodbasen. Vi bygger öppet.",
+        "cta": "Visa GitHub"
+      },
+      "docs": {
+        "title": "Utvecklardokumentation",
+        "description": "Omfattande dokumentation för att bygga på Sourceful-plattformen. API-referenser, guider och exempel.",
+        "cta": "Läs dokumentation"
+      },
+      "support": {
+        "title": "Support",
+        "description": "Behöver du hjälp? Vårt supportteam finns tillgängligt via Intercom för tekniska frågor och felsökning.",
+        "cta": "Kontakta support"
+      }
+    },
+    "tenPercent": {
+      "label": "De 10%",
+      "title": "Community-driven utveckling",
+      "paragraph1": "Vi är 90% B2B - vi arbetar med energibolag, OEM:er och installatörer. Men 10% av vårt fokus är på communityn: early adopters, utvecklare och energientusiaster som hjälper oss bygga något bättre.",
+      "paragraph2": "Communityn ger feedback, testar nya funktioner och håller oss ärliga. I gengäld får de tidig tillgång, direkt inflytande på roadmappen och en röst i hur vi bygger.",
+      "whatYouGet": "Vad du får",
+      "benefits": {
+        "earlyAccess": {
+          "title": "Tidig tillgång",
+          "description": "Testa nya funktioner före offentlig release"
+        },
+        "feedback": {
+          "title": "Direkt feedbackkanal",
+          "description": "Din input formar produkten"
+        },
+        "recognition": {
+          "title": "Community-erkännande",
+          "description": "Bidragsgivare får credit"
+        },
+        "openSource": {
+          "title": "Open source",
+          "description": "MIT-licensierat, bygg vad du vill"
+        }
+      }
+    },
+    "cta": {
+      "title": "Redo att gå med?",
+      "description": "Oavsett om du är utvecklare, installatör eller bara nyfiken på distribuerad energi, finns det en plats för dig i vår community.",
+      "joinDiscord": "Gå med i Discord",
+      "startBuilding": "Börja bygga"
     }
   },
   "developers": {
@@ -787,6 +1036,75 @@
       "title": "Bygg energiappar som",
       "titleHighlight": "faktiskt svarar",
       "description": "Moln-API:er tar 2-5 sekunder. Nätfrekvensen måste balanseras varje sekund. Vårt lokala exekveringslager ger dig hastigheten du behöver för att bygga riktiga energiapplikationer."
+    },
+    "tools": {
+      "title": "Allt du behöver för att bygga",
+      "description": "Omfattande verktyg, dokumentation och resurser för integration med Sourceful-plattformen.",
+      "primary": "Primär",
+      "devPortal": {
+        "title": "Utvecklarportal",
+        "description": "Full API-åtkomst, autentisering, enhetshantering och dataströmmar i realtid."
+      },
+      "apiRef": {
+        "title": "API-referens",
+        "description": "Komplett dokumentation av endpoints med exempel i flera programmeringsspråk."
+      },
+      "designSystem": {
+        "title": "Designsystem",
+        "description": "50+ React-komponenter, designtokens och varumärkesriktlinjer för att bygga Sourceful-appar."
+      },
+      "hardwareDocs": {
+        "title": "Hårdvarudokumentation",
+        "description": "Zap gateway-integration, protokollspecifikationer och firmware-dokumentation."
+      }
+    },
+    "features": {
+      "title": "Plattformsfunktioner",
+      "description": "Byggd för utvecklare som behöver realtidskontroll över energiinfrastruktur.",
+      "localResponse": {
+        "title": "200ms lokal respons",
+        "description": "Exekvera kommandon vid kanten. Ingen rundresa till molnet för tidskritiska operationer."
+      },
+      "protocolAgnostic": {
+        "title": "Protokollagnostisk",
+        "description": "P1, Modbus, MQTT, OCPP - vi hanterar översättningslagret så du slipper."
+      },
+      "websockets": {
+        "title": "Realtids-WebSockets",
+        "description": "Prenumerera på enhetshändelser, energidata och nätsignaler i realtid."
+      },
+      "webhooks": {
+        "title": "Omfattande webhooks",
+        "description": "Få notifieringar om enhetstillståndsändringar, larm och energihändelser."
+      },
+      "auth": {
+        "title": "OAuth 2.0 & API-nycklar",
+        "description": "Flexibel autentisering för olika integrationsscenarier."
+      },
+      "sandbox": {
+        "title": "Sandlådemiljö",
+        "description": "Testa din integration med simulerade enheter innan du går live."
+      }
+    },
+    "api": {
+      "title": "Enkelt, kraftfullt API",
+      "description": "Kontrollera enheter, läs energidata och svara på nätsignaler med ett rent, väldokumenterat API.",
+      "feature1": "RESTful endpoints med JSON-svar",
+      "feature2": "WebSocket-strömmar för realtidsdata",
+      "feature3": "Idempotenta operationer för tillförlitlighet",
+      "codeComment": "# Lista alla enheter"
+    },
+    "community": {
+      "title": "Gå med i communityn",
+      "description": "Anslut med andra utvecklare som bygger på Sourceful. Få hjälp, dela projekt och forma plattformens framtid.",
+      "developers": "Utvecklare",
+      "support": "Support",
+      "components": "Komponenter",
+      "openSource": "Open Source"
+    },
+    "cta": {
+      "title": "Redo att börja bygga?",
+      "description": "Få API-åtkomst, utforska dokumentationen och leverera din första integration idag."
     }
   },
   "tools": {
@@ -802,6 +1120,32 @@
       "button": "Kontakta oss"
     },
     "comingSoon": "Kommer snart",
+    "list": {
+      "savingsCalculator": {
+        "title": "Besparingskalkylator",
+        "description": "Uppskatta dina totala energibesparingar med solceller, batterilagring och smart styrning i Sverige."
+      },
+      "solarRoi": {
+        "title": "Solcells-ROI-kalkylator",
+        "description": "Beräkna avkastningen på din solcellsinstallation."
+      },
+      "batterySizing": {
+        "title": "Batteridimensionering",
+        "description": "Hitta optimal batteristorlek för ditt hem baserat på förbrukningsmönster."
+      },
+      "evCharging": {
+        "title": "Elbilsladdningskalkylator",
+        "description": "Uppskatta dina laddningskostnader och besparingar med smart laddning."
+      },
+      "v2xSavings": {
+        "title": "V2X-besparingsberäknare",
+        "description": "Beräkna potentiella intäkter från vehicle-to-grid energihandel."
+      },
+      "negativePrices": {
+        "title": "Negativprisanalys",
+        "description": "Se historiska negativa elpriser i din region."
+      }
+    },
     "calculator": {
       "title": "Energibesparingskalkylator",
       "description": "Uppskatta dina potentiella besparingar med solenergi, batterilagring och smart energihantering i Sverige.",

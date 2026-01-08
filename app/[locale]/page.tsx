@@ -483,7 +483,7 @@ export default function Home() {
                     </Button>
                     <Button asChild>
                       <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                        Dev Portal
+                        {tCommon("buttons.openDevPortal")}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
