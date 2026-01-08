@@ -52,9 +52,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function RelatedCard({ post }: { post: BlogPostMeta }) {
+  const author = AUTHORS[post.author] || AUTHORS["Sourceful Team"];
+  const formattedDate = new Date(post.publishDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
-    <Card className="overflow-hidden group hover:shadow-lg transition-shadow">
-      <Link href={`/blog/${post.slug}`} className="no-underline">
+    <Card className="overflow-hidden group hover:shadow-lg transition-shadow h-full flex flex-col">
+      <Link href={`/blog/${post.slug}`} className="flex flex-col h-full no-underline">
         <div className="relative aspect-[16/9] overflow-hidden bg-muted">
           {post.featuredImage ? (
             <Image
@@ -76,6 +83,18 @@ function RelatedCard({ post }: { post: BlogPostMeta }) {
             {post.title}
           </CardTitle>
         </CardHeader>
+        <CardContent className="pt-0 mt-auto">
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1">
+              <User className="h-3 w-3" />
+              {author.name}
+            </div>
+            <div className="flex items-center gap-1">
+              <Calendar className="h-3 w-3" />
+              {formattedDate}
+            </div>
+          </div>
+        </CardContent>
       </Link>
     </Card>
   );
