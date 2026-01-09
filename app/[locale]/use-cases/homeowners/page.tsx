@@ -222,7 +222,7 @@ export default function HomeownersPage() {
                 <StaggerItem key={useCase.id}>
                   <Card className="h-full">
                     <CardHeader className="pb-2">
-                      <div className="mb-4 -mx-2">
+                      <div className="mb-4 -mx-2 -mt-2">
                         <Visualization />
                       </div>
                       <CardTitle>{useCase.title}</CardTitle>
