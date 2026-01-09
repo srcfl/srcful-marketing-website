@@ -5,14 +5,14 @@ import { Card, CardContent } from "@/components/ui/card";
 // Simple static SVG chart (no recharts dependency for lightweight card)
 export function EnergyFlowCard() {
   return (
-    <Card className="w-[280px] shadow-lg border-border/50">
-      <CardContent className="p-5">
+    <Card className="w-[420px] h-[220px] shadow-lg border-border/50">
+      <CardContent className="p-5 h-full flex flex-col">
         <div className="mb-3">
           <p className="text-sm font-medium">Today's Energy Flow</p>
           <p className="text-xs text-muted-foreground">Solar production vs consumption</p>
         </div>
         {/* Mini area chart SVG */}
-        <div className="h-[100px] relative">
+        <div className="flex-1 relative min-h-0">
           <svg viewBox="0 0 240 80" className="w-full h-full">
             {/* Grid lines */}
             <line x1="0" y1="20" x2="240" y2="20" stroke="currentColor" strokeOpacity="0.1" />

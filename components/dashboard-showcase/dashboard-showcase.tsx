@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence, type Transition } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export interface DashboardShowcaseProps {
   /** Array of card components to display in the carousel */
@@ -17,20 +17,18 @@ export interface DashboardShowcaseProps {
 // Easing curve consistent with animations.tsx
 const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 
-// Card position variants for stacked effect
+// Card position variants - front card at origin, others offset down-left
 const getCardStyle = (position: number) => {
-  // position: 0 = front (focused), 1 = middle, 2 = back, 3+ = hidden
   const configs = [
-    // Front (focused)
+    // Front (focused) - at origin
     { x: 0, y: 0, scale: 1, opacity: 1, blur: 0, zIndex: 30 },
-    // Middle
-    { x: -50, y: -35, scale: 0.92, opacity: 0.7, blur: 1, zIndex: 20 },
-    // Back
-    { x: -100, y: -70, scale: 0.84, opacity: 0.4, blur: 2, zIndex: 10 },
+    // Middle - offset down-left
+    { x: -40, y: 30, scale: 0.97, opacity: 0.6, blur: 1, zIndex: 20 },
+    // Back - further offset
+    { x: -80, y: 60, scale: 0.94, opacity: 0.3, blur: 2, zIndex: 10 },
     // Hidden (exit)
-    { x: -150, y: -105, scale: 0.76, opacity: 0, blur: 3, zIndex: 0 },
+    { x: -120, y: 90, scale: 0.91, opacity: 0, blur: 3, zIndex: 0 },
   ];
-
   return configs[Math.min(position, 3)];
 };
 
@@ -85,73 +83,66 @@ export function DashboardShowcase({
 
   return (
     <div
-      className={`relative h-[260px] w-[340px] ${className}`}
+      className={`relative ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       role="region"
       aria-label="Dashboard feature showcase"
       aria-live="polite"
     >
-      {/* Gradient mask for depth effect */}
-      <div className="absolute inset-0 pointer-events-none z-40">
-        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-background via-background/50 to-transparent" />
+      {/* Cards wrapper with perspective */}
+      <div
+        className="relative pt-12"
+        style={{
+          perspective: "1200px",
+          perspectiveOrigin: "center center",
+        }}
+      >
+        {/* Cards container - positioned to allow left/down offsets */}
+        <div
+          className="relative ml-20"
+          style={{
+            transformStyle: "preserve-3d",
+            transform: "rotateY(-22deg) rotateX(8deg)",
+          }}
+        >
+          <AnimatePresence mode="popLayout">
+            {getVisibleCards().map(({ index, position, Card }) => {
+              const style = getCardStyle(position);
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
+                  animate={{
+                    x: style.x,
+                    y: style.y,
+                    scale: style.scale,
+                    opacity: style.opacity,
+                    filter: `blur(${style.blur}px)`,
+                  }}
+                  exit={prefersReducedMotion ? { opacity: 0 } : {
+                    x: -120,
+                    y: 90,
+                    scale: 0.91,
+                    opacity: 0,
+                    filter: "blur(3px)",
+                  }}
+                  transition={{
+                    duration: prefersReducedMotion ? 0.1 : 0.5,
+                    ease,
+                  }}
+                  className={position === 0 ? "relative" : "absolute top-0 left-0"}
+                  style={{ zIndex: style.zIndex }}
+                >
+                  <Card />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* Cards container */}
-      <div className="absolute bottom-0 right-0">
-        <AnimatePresence mode="popLayout">
-          {getVisibleCards().map(({ index, position, Card }) => {
-            const style = getCardStyle(position);
-
-            return (
-              <motion.div
-                key={index}
-                initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.8 }}
-                animate={{
-                  x: style.x,
-                  y: style.y,
-                  scale: style.scale,
-                  opacity: style.opacity,
-                  filter: `blur(${style.blur}px)`,
-                  zIndex: style.zIndex,
-                }}
-                exit={prefersReducedMotion ? { opacity: 0 } : {
-                  x: -150,
-                  y: -105,
-                  scale: 0.76,
-                  opacity: 0,
-                  filter: "blur(3px)",
-                }}
-                transition={{
-                  duration: prefersReducedMotion ? 0.1 : 0.6,
-                  ease,
-                }}
-                className="absolute bottom-0 right-0 origin-bottom-right"
-                style={{ zIndex: style.zIndex }}
-              >
-                <Card />
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
-      </div>
-
-      {/* Navigation dots */}
-      <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 flex gap-1.5">
-        {cards.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveIndex(i)}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              i === activeIndex
-                ? "bg-primary w-4"
-                : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-            }`}
-            aria-label={`Go to card ${i + 1}`}
-            aria-current={i === activeIndex ? "true" : undefined}
-          />
-        ))}
-      </div>
     </div>
   );
 }
