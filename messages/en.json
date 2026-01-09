@@ -482,6 +482,14 @@
         }
       },
       "whyLoveZap": "Why homeowners love the Zap",
+      "zapSection": {
+        "badge": "The Hardware",
+        "title": "Meet the Zap",
+        "description": "A tiny device that connects to your smart meter and transforms how you use energy. No subscriptions, no cloud dependency - just smart, local control.",
+        "feature1": "5-minute plug-and-play setup",
+        "feature2": "Works with solar, batteries, and EV chargers",
+        "feature3": "Your data stays local and private"
+      },
       "stats": {
         "oneTimeCost": "One-time cost",
         "setupTime": "Setup time",

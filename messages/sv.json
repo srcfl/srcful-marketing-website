@@ -482,6 +482,14 @@
         }
       },
       "whyLoveZap": "Varför villaägare älskar Zap",
+      "zapSection": {
+        "badge": "Hårdvaran",
+        "title": "Möt Zap",
+        "description": "En liten enhet som ansluts till din smartmätare och förändrar hur du använder energi. Inga prenumerationer, inget molnberoende - bara smart, lokal kontroll.",
+        "feature1": "5 minuters plug-and-play installation",
+        "feature2": "Fungerar med solceller, batterier och elbilsladdare",
+        "feature3": "Din data stannar lokalt och privat"
+      },
       "stats": {
         "oneTimeCost": "Engångskostnad",
         "setupTime": "Installationstid",

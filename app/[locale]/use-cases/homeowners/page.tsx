@@ -298,6 +298,71 @@ export default function HomeownersPage() {
           </div>
         </section>
 
+        {/* Meet the Zap */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <FadeIn>
+                <div className="flex items-center justify-center">
+                  <img
+                    src="https://framerusercontent.com/images/52u6CS3UoJqPVCIoGLR1YrUww.png?scale-down-to=1024"
+                    alt="Sourceful Energy Zap"
+                    className="w-full max-w-sm rounded-2xl"
+                  />
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <div>
+                  <Badge variant="secondary" className="mb-4">
+                    <Zap className="h-3 w-3 mr-1" />
+                    {t("zapSection.badge")}
+                  </Badge>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                    {t("zapSection.title")}
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    {t("zapSection.description")}
+                  </p>
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Clock className="h-3 w-3 text-primary" />
+                      </div>
+                      <span>{t("zapSection.feature1")}</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Battery className="h-3 w-3 text-primary" />
+                      </div>
+                      <span>{t("zapSection.feature2")}</span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                        <Shield className="h-3 w-3 text-primary" />
+                      </div>
+                      <span>{t("zapSection.feature3")}</span>
+                    </li>
+                  </ul>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button size="lg" asChild>
+                      <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                        {tCommon("buttons.getTheZap")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button size="lg" variant="outline" asChild>
+                      <Link href="/zap">
+                        {tCommon("buttons.learnMore")}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+
         {/* V2X Feature */}
         <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
