@@ -43,13 +43,13 @@ export default function ToolsPage() {
       key: "v2xSavings",
       href: "/tools/v2x-savings",
       icon: Zap,
-      available: false,
+      available: true,
     },
     {
       key: "negativePrices",
       href: "/tools/negative-prices",
       icon: TrendingDown,
-      available: false,
+      available: true,
     },
   ];
 
