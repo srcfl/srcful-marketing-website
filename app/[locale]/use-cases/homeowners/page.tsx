@@ -17,6 +17,7 @@ import {
   EnergyFlowCard,
   ScheduleCard,
 } from "@/components/dashboard-showcase";
+import { SavingsCalculatorMini } from "@/components/savings-calculator-mini";
 import {
   ArrowRight,
   Home,
@@ -237,8 +238,27 @@ export default function HomeownersPage() {
           </StaggerContainer>
         </section>
 
-        {/* Benefits */}
+        {/* Savings Calculator */}
         <section className="border-t bg-muted/30">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                Calculate your savings
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                See how much you could save with solar and battery optimization
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div className="max-w-xl mx-auto">
+                <SavingsCalculatorMini />
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
