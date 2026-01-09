@@ -29,6 +29,11 @@ export function MarketingFooter() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link href="/tools" className="hover:text-foreground">{t("allTools")}</Link></li>
               <li><Link href="/tools/savings-calculator" className="hover:text-foreground">{t("savingsCalculator")}</Link></li>
+              <li><Link href="/tools/negative-prices" className="hover:text-foreground">{t("negativePrices")}</Link></li>
+              <li><Link href="/tools/solar-roi" className="hover:text-foreground">{t("solarRoi")}</Link></li>
+              <li><Link href="/tools/battery-sizing" className="hover:text-foreground">{t("batterySizing")}</Link></li>
+              <li><Link href="/tools/ev-charging" className="hover:text-foreground">{t("evCharging")}</Link></li>
+              <li><Link href="/tools/v2x-savings" className="hover:text-foreground">{t("v2xSavings")}</Link></li>
             </ul>
           </div>
           <div>
