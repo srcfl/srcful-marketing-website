@@ -25,7 +25,7 @@ export default function ToolsPage() {
       key: "solarRoi",
       href: "/tools/solar-roi",
       icon: Sun,
-      available: false,
+      available: true,
     },
     {
       key: "batterySizing",
