@@ -8,6 +8,15 @@ import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
+import {
+  DashboardShowcase,
+  ConnectedDevicesCard,
+  ApiLatencyCard,
+  ProtocolsCard,
+  UptimeCard,
+  ResponseTimeCard,
+  FlexibilityCard,
+} from "@/components/dashboard-showcase";
 import { ArrowRight, Zap, Cpu, Plug, Shield, Clock, Code, ExternalLink } from "lucide-react";
 
 export default function OEMsPage() {
@@ -30,33 +39,53 @@ export default function OEMsPage() {
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <FadeIn className="max-w-3xl">
-              <Badge variant="secondary" className="mb-6">
-                <Cpu className="h-3 w-3 mr-1" />
-                {t("hero.badge")}
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                {t("hero.title")}{" "}
-                <span className="text-primary">{t("hero.titleHighlight")}</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                {t("hero.description")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild>
-                  <Link href="/contact">
-                    {tCommon("buttons.contactSales")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.viewDocs")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-            </FadeIn>
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <FadeIn>
+                <div>
+                  <Badge variant="secondary" className="mb-6">
+                    <Cpu className="h-3 w-3 mr-1" />
+                    {t("hero.badge")}
+                  </Badge>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-left">
+                    {t("hero.title")}{" "}
+                    <span className="text-primary">{t("hero.titleHighlight")}</span>
+                  </h1>
+                  <p className="text-xl text-muted-foreground mb-8 text-left">
+                    {t("hero.description")}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button size="lg" asChild>
+                      <Link href="/contact">
+                        {tCommon("buttons.contactSales")}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                    <Button size="lg" variant="outline" asChild>
+                      <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
+                        {tCommon("buttons.viewDocs")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <div className="flex items-start justify-center lg:justify-end">
+                  <DashboardShowcase
+                    cards={[
+                      ConnectedDevicesCard,
+                      ApiLatencyCard,
+                      ProtocolsCard,
+                      UptimeCard,
+                      ResponseTimeCard,
+                      FlexibilityCard,
+                    ]}
+                    interval={4000}
+                    pauseOnHover
+                  />
+                </div>
+              </FadeIn>
+            </div>
           </div>
         </section>
 
