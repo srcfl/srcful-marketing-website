@@ -14,8 +14,13 @@ export interface DashboardShowcaseProps {
   className?: string;
 }
 
-// Easing curve consistent with animations.tsx
-const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+// Spring config - smooth with subtle settle, not bouncy
+const springTransition = {
+  type: "spring" as const,
+  stiffness: 300,
+  damping: 30,
+  mass: 1,
+};
 
 // Card position variants - front card at origin, others offset down-left
 const getCardStyle = (position: number) => {
@@ -23,9 +28,9 @@ const getCardStyle = (position: number) => {
     // Front (focused) - at origin
     { x: 0, y: 0, scale: 1, opacity: 1, blur: 0, zIndex: 30 },
     // Middle - offset down-left
-    { x: -40, y: 30, scale: 0.97, opacity: 0.6, blur: 1, zIndex: 20 },
+    { x: -40, y: 30, scale: 0.97, opacity: 0.7, blur: 1, zIndex: 20 },
     // Back - further offset
-    { x: -80, y: 60, scale: 0.94, opacity: 0.3, blur: 2, zIndex: 10 },
+    { x: -80, y: 60, scale: 0.94, opacity: 0.4, blur: 2, zIndex: 10 },
     // Hidden (exit)
     { x: -120, y: 90, scale: 0.91, opacity: 0, blur: 3, zIndex: 0 },
   ];
@@ -113,7 +118,12 @@ export function DashboardShowcase({
               return (
                 <motion.div
                   key={index}
-                  initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.9 }}
+                  initial={prefersReducedMotion ? false : {
+                    x: 80,
+                    y: -20,
+                    opacity: 0,
+                    scale: 1.02,
+                  }}
                   animate={{
                     x: style.x,
                     y: style.y,
@@ -122,15 +132,16 @@ export function DashboardShowcase({
                     filter: `blur(${style.blur}px)`,
                   }}
                   exit={prefersReducedMotion ? { opacity: 0 } : {
-                    x: -120,
-                    y: 90,
-                    scale: 0.91,
+                    x: -140,
+                    y: 100,
+                    scale: 0.88,
                     opacity: 0,
-                    filter: "blur(3px)",
+                    filter: "blur(4px)",
                   }}
-                  transition={{
-                    duration: prefersReducedMotion ? 0.1 : 0.5,
-                    ease,
+                  transition={prefersReducedMotion ? { duration: 0.1 } : {
+                    ...springTransition,
+                    opacity: { duration: 0.3 },
+                    filter: { duration: 0.4 },
                   }}
                   className={position === 0 ? "relative" : "absolute top-0 left-0"}
                   style={{ zIndex: style.zIndex }}
