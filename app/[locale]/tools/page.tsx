@@ -37,7 +37,7 @@ export default function ToolsPage() {
       key: "evCharging",
       href: "/tools/ev-charging",
       icon: Car,
-      available: false,
+      available: true,
     },
     {
       key: "v2xSavings",
