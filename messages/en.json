@@ -464,19 +464,19 @@
         "description": "Whether you have solar, an EV, or just want to cut your electricity bill - the Zap makes it automatic.",
         "smartHome": {
           "title": "Smart Home Energy",
-          "description": "Connect your P1 smart meter and see real-time consumption. Time your dishwasher, laundry, and heating to the cheapest hours.",
+          "description": "Connect your P1 smart meter for real-time consumption data. Automatically time your appliances to the cheapest hours.",
           "savings": "~€266/year",
           "savingsLabel": "Peak demand savings"
         },
         "solarBattery": {
           "title": "Solar & Battery",
-          "description": "AI-driven optimization for your solar PV and battery. Automatically stop exports during negative prices and maximize self-consumption.",
+          "description": "AI-driven optimization for your solar and battery. Stop exports during negative prices and boost self-consumption.",
           "savings": "100%",
           "savingsLabel": "Self-consumption boost"
         },
         "v2x": {
           "title": "V2X & EV Charging",
-          "description": "Turn your EV into a revenue-generating asset. Charge when prices are low, sell back when they're high. Vehicle-to-Home and Vehicle-to-Grid ready.",
+          "description": "Turn your EV into a revenue-generating asset. Charge low, sell high. Vehicle-to-Home and Vehicle-to-Grid ready.",
           "savings": "3,000-8,000 SEK",
           "savingsLabel": "Annual V2X potential"
         }

@@ -464,19 +464,19 @@
         "description": "Oavsett om du har solceller, elbil eller bara vill sänka elräkningen - Zap gör det automatiskt.",
         "smartHome": {
           "title": "Smart hemenergi",
-          "description": "Anslut din P1-smartmätare och se förbrukning i realtid. Tidsstyra diskmaskin, tvätt och uppvärmning till de billigaste timmarna.",
+          "description": "Anslut din P1-smartmätare för realtidsdata. Tidsstyr automatiskt dina apparater till de billigaste timmarna.",
           "savings": "~2 500 kr/år",
           "savingsLabel": "Besparingar på effekttoppar"
         },
         "solarBattery": {
           "title": "Sol & batteri",
-          "description": "AI-driven optimering för dina solceller och batteri. Stoppa automatiskt export vid negativa priser och maximera egenförbrukning.",
+          "description": "AI-driven optimering för solceller och batteri. Stoppa export vid negativa priser och öka egenförbrukningen.",
           "savings": "100%",
           "savingsLabel": "Ökning av egenförbrukning"
         },
         "v2x": {
           "title": "V2X & elbilsladdning",
-          "description": "Förvandla din elbil till en intäktsgenererande tillgång. Ladda när priserna är låga, sälj tillbaka när de är höga. Vehicle-to-Home och Vehicle-to-Grid redo.",
+          "description": "Förvandla din elbil till en intäktsgenererande tillgång. Ladda billigt, sälj dyrt. V2H och V2G redo.",
           "savings": "3 000-8 000 kr",
           "savingsLabel": "Årlig V2X-potential"
         }
