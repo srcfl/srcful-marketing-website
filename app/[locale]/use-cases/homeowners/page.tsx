@@ -18,6 +18,8 @@ import {
   ScheduleCard,
 } from "@/components/dashboard-showcase";
 import { SavingsCalculatorMini } from "@/components/savings-calculator-mini";
+import { V2xSavingsCard } from "@/components/v2x-savings-card";
+import { SmartHomeViz, SolarBatteryViz, V2xViz } from "@/components/use-case-visualizations";
 import {
   ArrowRight,
   Home,
@@ -63,21 +65,24 @@ export default function HomeownersPage() {
 
   const useCases = [
     {
-      icon: Home,
+      id: "smartHome",
+      visualization: SmartHomeViz,
       title: t("useCasesSection.smartHome.title"),
       description: t("useCasesSection.smartHome.description"),
       savings: t("useCasesSection.smartHome.savings"),
       savingsLabel: t("useCasesSection.smartHome.savingsLabel"),
     },
     {
-      icon: Sun,
+      id: "solarBattery",
+      visualization: SolarBatteryViz,
       title: t("useCasesSection.solarBattery.title"),
       description: t("useCasesSection.solarBattery.description"),
       savings: t("useCasesSection.solarBattery.savings"),
       savingsLabel: t("useCasesSection.solarBattery.savingsLabel"),
     },
     {
-      icon: Car,
+      id: "v2x",
+      visualization: V2xViz,
       title: t("useCasesSection.v2x.title"),
       description: t("useCasesSection.v2x.description"),
       savings: t("useCasesSection.v2x.savings"),
@@ -212,13 +217,13 @@ export default function HomeownersPage() {
 
           <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
             {useCases.map((useCase) => {
-              const Icon = useCase.icon;
+              const Visualization = useCase.visualization;
               return (
-                <StaggerItem key={useCase.title}>
+                <StaggerItem key={useCase.id}>
                   <Card className="h-full">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Icon className="h-6 w-6 text-primary" />
+                    <CardHeader className="pb-2">
+                      <div className="mb-4 -mx-2">
+                        <Visualization />
                       </div>
                       <CardTitle>{useCase.title}</CardTitle>
                     </CardHeader>
@@ -338,27 +343,7 @@ export default function HomeownersPage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <div className="bg-muted rounded-lg p-8">
-                  <h3 className="font-semibold mb-6">{t("v2xSection.savingsExample")}</h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center py-3 border-b">
-                      <span className="text-muted-foreground">{t("v2xSection.energyTrading")}</span>
-                      <span className="font-bold text-primary">+5,200 SEK</span>
-                    </div>
-                    <div className="flex justify-between items-center py-3 border-b">
-                      <span className="text-muted-foreground">{t("v2xSection.peakDemand")}</span>
-                      <span className="font-bold text-primary">+4,800 SEK</span>
-                    </div>
-                    <div className="flex justify-between items-center py-3 border-b">
-                      <span className="text-muted-foreground">{t("v2xSection.gridServices")}</span>
-                      <span className="font-bold text-primary">+2,200 SEK</span>
-                    </div>
-                    <div className="flex justify-between items-center py-3">
-                      <span className="font-semibold">{t("v2xSection.totalBenefit")}</span>
-                      <span className="text-2xl font-bold text-primary">12,200 SEK</span>
-                    </div>
-                  </div>
-                </div>
+                <V2xSavingsCard />
               </FadeIn>
             </div>
           </div>
