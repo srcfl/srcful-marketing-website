@@ -9,6 +9,15 @@ import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import {
+  DashboardShowcase,
+  ProductionCard,
+  SavingsCard,
+  BatteryCard,
+  SelfSufficiencyCard,
+  EnergyFlowCard,
+  ScheduleCard,
+} from "@/components/dashboard-showcase";
+import {
   ArrowRight,
   Home,
   Zap,
@@ -138,11 +147,18 @@ export default function HomeownersPage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <div className="flex items-center justify-center">
-                  <img
-                    src="https://framerusercontent.com/images/52u6CS3UoJqPVCIoGLR1YrUww.png?scale-down-to=1024"
-                    alt="Sourceful Energy Zap Gateway"
-                    className="w-full max-w-sm rounded-2xl"
+                <div className="flex items-center justify-center lg:justify-end">
+                  <DashboardShowcase
+                    cards={[
+                      ProductionCard,
+                      SavingsCard,
+                      BatteryCard,
+                      SelfSufficiencyCard,
+                      EnergyFlowCard,
+                      ScheduleCard,
+                    ]}
+                    interval={4000}
+                    pauseOnHover
                   />
                 </div>
               </FadeIn>
