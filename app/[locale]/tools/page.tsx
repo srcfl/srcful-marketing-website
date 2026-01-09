@@ -31,7 +31,7 @@ export default function ToolsPage() {
       key: "batterySizing",
       href: "/tools/battery-sizing",
       icon: Battery,
-      available: false,
+      available: true,
     },
     {
       key: "evCharging",

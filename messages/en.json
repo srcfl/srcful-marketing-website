@@ -1797,8 +1797,88 @@
         "disclaimer": "* Savings estimates are based on typical price spreads and usage patterns. Actual savings depend on your specific electricity prices, driving habits, and V2X charger capabilities."
       }
     },
+    "batterySizing": {
+      "title": "Battery Sizing Calculator",
+      "description": "Find the optimal battery size for your home based on your consumption, solar installation, and energy goals.",
+      "badge": "Sizing Tool",
+      "location": "Location",
+      "country": "Country",
+      "priceZone": "Price Zone",
+      "consumption": "Energy Consumption",
+      "annualConsumption": "Annual Consumption",
+      "consumptionNote": "Average Swedish home: 15,000-20,000 kWh/year",
+      "solarSystem": "Solar Installation",
+      "solarSize": "Solar System Size",
+      "estimatedProduction": "~{production} kWh/year estimated production",
+      "primaryGoal": "Primary Goal",
+      "goals": {
+        "selfConsumption": "Self-Consumption",
+        "backup": "Backup Power",
+        "arbitrage": "Price Arbitrage",
+        "all": "All of the Above"
+      },
+      "backupSettings": "Backup Power Settings",
+      "backupHours": "Backup Duration Needed",
+      "hours": "hours",
+      "averageLoad": "Average Load During Outage",
+      "loadNote": "Typical home essential loads: 2-4 kW",
+      "infoNote": "Battery sizing depends on your goals. Self-consumption optimizes solar usage, backup ensures power during outages, and arbitrage maximizes savings from price differences.",
+      "calculate": "Calculate Recommended Size",
+      "invalidEmail": "Please enter a valid email address",
+      "emailGate": {
+        "title": "Get your battery recommendation",
+        "ready": "Your analysis is ready",
+        "teaser": "Based on your inputs, we recommend a {size} kWh battery. Enter your email to see the full analysis with savings breakdown.",
+        "email": "Email",
+        "emailPlaceholder": "you@example.com",
+        "name": "Name",
+        "namePlaceholder": "Your name (optional)",
+        "getResults": "Unlock Results",
+        "submitting": "Processing...",
+        "privacy": "We'll occasionally send energy tips. Unsubscribe anytime."
+      },
+      "results": {
+        "title": "Your Battery Recommendation",
+        "recommended": "Recommended Battery Size",
+        "range": "Practical range: {min}-{max} kWh",
+        "annualSavings": "Annual Savings",
+        "perYear": "per year",
+        "payback": "Payback Period",
+        "years": "years",
+        "estimatedCost": "Estimated Cost",
+        "installed": "installed",
+        "dailyExcess": "Daily Excess Solar",
+        "storeable": "available to store",
+        "sizeComparison": "Size Comparison",
+        "batterySize": "Battery Size",
+        "annualSavingsShort": "Annual Savings",
+        "paybackYears": "Payback",
+        "recommendedBadge": "Recommended",
+        "yrs": "yrs",
+        "insight": {
+          "self-consumption": {
+            "title": "Optimized for Solar Self-Consumption",
+            "description": "This size captures most of your daily excess solar production, maximizing the value of your solar investment by using more of your own clean energy."
+          },
+          "backup": {
+            "title": "Sized for Backup Power",
+            "description": "This battery can power your essential loads for the duration you specified, providing peace of mind during grid outages."
+          },
+          "arbitrage": {
+            "title": "Optimized for Price Arbitrage",
+            "description": "This size balances cost and returns for price arbitrage, charging during cheap hours and discharging during expensive peak times."
+          },
+          "all": {
+            "title": "Balanced for All Goals",
+            "description": "This recommendation balances self-consumption, backup power, and arbitrage benefits, giving you flexibility for all use cases."
+          }
+        },
+        "readyToStart": "Ready to optimize your battery?",
+        "readyDescription": "The Zap gateway automatically manages your battery for maximum savings, whether optimizing solar, providing backup, or trading on price.",
+        "disclaimer": "* Estimates based on typical consumption patterns and current electricity prices. Actual savings depend on your specific usage, battery brand, and installation costs."
+      }
+    },
     "moreTools": "More Energy Tools",
-    "batterySizing": "Battery Sizing",
     "gridExport": "Grid Export",
     "regions": {
       "SE1": "SE1 - Luleå (North)",

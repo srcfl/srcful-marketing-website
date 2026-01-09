@@ -1797,8 +1797,88 @@
         "disclaimer": "* Besparingsuppskattningar baseras på typiska prisspridningar och användningsmönster. Faktiska besparingar beror på dina specifika elpriser, körvanor och V2X-laddarens kapacitet."
       }
     },
+    "batterySizing": {
+      "title": "Batteristorlekskalkylator",
+      "description": "Hitta den optimala batteristorleken för ditt hem baserat på din förbrukning, solcellsanläggning och energimål.",
+      "badge": "Storleksverktyg",
+      "location": "Plats",
+      "country": "Land",
+      "priceZone": "Prisområde",
+      "consumption": "Energiförbrukning",
+      "annualConsumption": "Årlig förbrukning",
+      "consumptionNote": "Genomsnittligt svenskt hem: 15 000-20 000 kWh/år",
+      "solarSystem": "Solcellsanläggning",
+      "solarSize": "Solcellssystemets storlek",
+      "estimatedProduction": "~{production} kWh/år uppskattad produktion",
+      "primaryGoal": "Primärt mål",
+      "goals": {
+        "selfConsumption": "Egenförbrukning",
+        "backup": "Reservkraft",
+        "arbitrage": "Prisarbitrage",
+        "all": "Alla ovanstående"
+      },
+      "backupSettings": "Reservkraftsinställningar",
+      "backupHours": "Önskad reservkraftstid",
+      "hours": "timmar",
+      "averageLoad": "Genomsnittlig last vid strömavbrott",
+      "loadNote": "Typiska hushållslaster: 2-4 kW",
+      "infoNote": "Batteristorleken beror på dina mål. Egenförbrukning optimerar solanvändningen, reservkraft säkerställer ström vid avbrott och arbitrage maximerar besparingar från prisskillnader.",
+      "calculate": "Beräkna rekommenderad storlek",
+      "invalidEmail": "Ange en giltig e-postadress",
+      "emailGate": {
+        "title": "Få din batterirekommendation",
+        "ready": "Din analys är klar",
+        "teaser": "Baserat på dina uppgifter rekommenderar vi ett batteri på {size} kWh. Ange din e-post för att se hela analysen med besparingsöversikt.",
+        "email": "E-post",
+        "emailPlaceholder": "du@exempel.se",
+        "name": "Namn",
+        "namePlaceholder": "Ditt namn (valfritt)",
+        "getResults": "Visa resultat",
+        "submitting": "Bearbetar...",
+        "privacy": "Vi skickar ibland energitips. Avregistrera när som helst."
+      },
+      "results": {
+        "title": "Din batterirekommendation",
+        "recommended": "Rekommenderad batteristorlek",
+        "range": "Praktiskt intervall: {min}-{max} kWh",
+        "annualSavings": "Årliga besparingar",
+        "perYear": "per år",
+        "payback": "Återbetalningstid",
+        "years": "år",
+        "estimatedCost": "Uppskattad kostnad",
+        "installed": "installerat",
+        "dailyExcess": "Dagligt solöverskott",
+        "storeable": "tillgängligt att lagra",
+        "sizeComparison": "Storleksjämförelse",
+        "batterySize": "Batteristorlek",
+        "annualSavingsShort": "Årliga besparingar",
+        "paybackYears": "Återbetalning",
+        "recommendedBadge": "Rekommenderad",
+        "yrs": "år",
+        "insight": {
+          "self-consumption": {
+            "title": "Optimerad för egenförbrukning av solel",
+            "description": "Denna storlek fångar det mesta av ditt dagliga solöverskott och maximerar värdet av din solinvestering genom att använda mer av din egen rena energi."
+          },
+          "backup": {
+            "title": "Dimensionerad för reservkraft",
+            "description": "Detta batteri kan driva dina viktigaste laster under den tid du angav och ger trygghet vid strömavbrott."
+          },
+          "arbitrage": {
+            "title": "Optimerad för prisarbitrage",
+            "description": "Denna storlek balanserar kostnad och avkastning för prisarbitrage, laddar under billiga timmar och laddar ur under dyra topptimmar."
+          },
+          "all": {
+            "title": "Balanserad för alla mål",
+            "description": "Denna rekommendation balanserar egenförbrukning, reservkraft och arbitragefördelar, vilket ger dig flexibilitet för alla användningsområden."
+          }
+        },
+        "readyToStart": "Redo att optimera ditt batteri?",
+        "readyDescription": "Zap gateway hanterar automatiskt ditt batteri för maximal besparing, oavsett om det gäller soloptimering, reservkraft eller prishandel.",
+        "disclaimer": "* Uppskattningar baserade på typiska förbrukningsmönster och aktuella elpriser. Faktiska besparingar beror på din specifika användning, batterimärke och installationskostnader."
+      }
+    },
     "moreTools": "Fler energiverktyg",
-    "batterySizing": "Batteristorlek",
     "gridExport": "Nätexport",
     "regions": {
       "SE1": "SE1 - Luleå (Norr)",
