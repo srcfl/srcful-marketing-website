@@ -65,16 +65,17 @@ export function AnalyticsProvider({ children }: { children: React.ReactNode }) {
     <>
       {children}
 
-      {/* Google Ads (gtag.js) */}
+      {/* Google Analytics 4 + Google Ads (gtag.js) */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-17553632236"
+        src="https://www.googletagmanager.com/gtag/js?id=G-BKLJLE20S1"
         strategy="afterInteractive"
       />
-      <Script id="google-ads" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
+          gtag('config', 'G-BKLJLE20S1');
           gtag('config', 'AW-17553632236');
         `}
       </Script>
