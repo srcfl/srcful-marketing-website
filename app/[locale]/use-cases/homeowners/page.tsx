@@ -74,7 +74,7 @@ export default function HomeownersPage() {
   }[] = [
     {
       id: "smartHome",
-      pattern: "frame",
+      pattern: "sparse-1",
       color: "green",
       title: t("useCasesSection.smartHome.title"),
       description: t("useCasesSection.smartHome.description"),
