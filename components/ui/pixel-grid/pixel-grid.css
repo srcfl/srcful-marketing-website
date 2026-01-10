@@ -67,6 +67,17 @@
     0 0 16px rgba(0, 255, 132, 0.4), 0 0 24px rgba(0, 255, 132, 0.2);
 }
 
+/* Orange/Solar theme */
+.pixel-grid-orange .pixel-grid-pixel {
+  background-color: rgba(255, 107, 0, 0.08);
+}
+
+.pixel-grid-orange .pixel-grid-pixel.pixel-active {
+  background-color: #ff8533;
+  box-shadow: 0 0 4px #ff8533, 0 0 8px rgba(255, 133, 51, 0.6),
+    0 0 16px rgba(255, 133, 51, 0.4), 0 0 24px rgba(255, 133, 51, 0.2);
+}
+
 /* ----------------------------------------
    Light Mode Adjustments
    Deeper saturated colors with soft shadows
@@ -110,6 +121,17 @@
     0 4px 16px rgba(22, 163, 74, 0.25);
 }
 
+/* Orange theme - light mode */
+:root:not(.dark) .pixel-grid-orange .pixel-grid-pixel {
+  background-color: rgba(204, 86, 0, 0.12);
+}
+
+:root:not(.dark) .pixel-grid-orange .pixel-grid-pixel.pixel-active {
+  background-color: #cc5600;
+  box-shadow: 0 2px 8px rgba(204, 86, 0, 0.5),
+    0 4px 16px rgba(204, 86, 0, 0.25);
+}
+
 /* ----------------------------------------
    Forced Theme Contexts
    Use .pixel-grid-light or .pixel-grid-dark to force a specific theme
@@ -150,6 +172,16 @@
     0 4px 16px rgba(22, 163, 74, 0.25);
 }
 
+.pixel-grid-light .pixel-grid-orange .pixel-grid-pixel {
+  background-color: rgba(204, 86, 0, 0.12);
+}
+
+.pixel-grid-light .pixel-grid-orange .pixel-grid-pixel.pixel-active {
+  background-color: #cc5600;
+  box-shadow: 0 2px 8px rgba(204, 86, 0, 0.5),
+    0 4px 16px rgba(204, 86, 0, 0.25);
+}
+
 .pixel-grid-light .pixel-grid-label {
   color: #525252;
 }
@@ -187,6 +219,16 @@
   background-color: #00ff84;
   box-shadow: 0 0 4px #00ff84, 0 0 8px rgba(0, 255, 132, 0.6),
     0 0 16px rgba(0, 255, 132, 0.4), 0 0 24px rgba(0, 255, 132, 0.2);
+}
+
+.pixel-grid-dark .pixel-grid-orange .pixel-grid-pixel {
+  background-color: rgba(255, 107, 0, 0.08);
+}
+
+.pixel-grid-dark .pixel-grid-orange .pixel-grid-pixel.pixel-active {
+  background-color: #ff8533;
+  box-shadow: 0 0 4px #ff8533, 0 0 8px rgba(255, 133, 51, 0.6),
+    0 0 16px rgba(255, 133, 51, 0.4), 0 0 24px rgba(255, 133, 51, 0.2);
 }
 
 .pixel-grid-dark .pixel-grid-label {

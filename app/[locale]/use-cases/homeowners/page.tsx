@@ -84,7 +84,7 @@ export default function HomeownersPage() {
     {
       id: "solarBattery",
       pattern: "plus-hollow",
-      color: "pink",
+      color: "orange",
       title: t("useCasesSection.solarBattery.title"),
       description: t("useCasesSection.solarBattery.description"),
       savings: t("useCasesSection.solarBattery.savings"),
