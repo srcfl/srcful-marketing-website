@@ -19,7 +19,7 @@ import {
 } from "@/components/dashboard-showcase";
 import { SavingsCalculatorMini } from "@/components/savings-calculator-mini";
 import { V2xSavingsCard } from "@/components/v2x-savings-card";
-import { SmartHomeViz, SolarBatteryViz, V2xViz } from "@/components/use-case-visualizations";
+import { PixelGrid, type PixelGridColor, type PatternType } from "@/components/ui/pixel-grid";
 import {
   ArrowRight,
   Home,
@@ -63,10 +63,19 @@ export default function HomeownersPage() {
     },
   ];
 
-  const useCases = [
+  const useCases: {
+    id: string;
+    pattern: PatternType;
+    color: PixelGridColor;
+    title: string;
+    description: string;
+    savings: string;
+    savingsLabel: string;
+  }[] = [
     {
       id: "smartHome",
-      visualization: SmartHomeViz,
+      pattern: "frame",
+      color: "green",
       title: t("useCasesSection.smartHome.title"),
       description: t("useCasesSection.smartHome.description"),
       savings: t("useCasesSection.smartHome.savings"),
@@ -74,7 +83,8 @@ export default function HomeownersPage() {
     },
     {
       id: "solarBattery",
-      visualization: SolarBatteryViz,
+      pattern: "plus-hollow",
+      color: "pink",
       title: t("useCasesSection.solarBattery.title"),
       description: t("useCasesSection.solarBattery.description"),
       savings: t("useCasesSection.solarBattery.savings"),
@@ -82,7 +92,8 @@ export default function HomeownersPage() {
     },
     {
       id: "v2x",
-      visualization: V2xViz,
+      pattern: "corners-sync",
+      color: "blue",
       title: t("useCasesSection.v2x.title"),
       description: t("useCasesSection.v2x.description"),
       savings: t("useCasesSection.v2x.savings"),
@@ -216,14 +227,12 @@ export default function HomeownersPage() {
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {useCases.map((useCase) => {
-              const Visualization = useCase.visualization;
-              return (
+            {useCases.map((useCase) => (
                 <StaggerItem key={useCase.id}>
                   <Card className="h-full">
                     <CardHeader className="pb-2">
-                      <div className="mb-4 -mx-2 -mt-2">
-                        <Visualization />
+                      <div className="mb-4 flex justify-center py-4">
+                        <PixelGrid pattern={useCase.pattern} color={useCase.color} size="md" />
                       </div>
                       <CardTitle>{useCase.title}</CardTitle>
                     </CardHeader>
@@ -238,8 +247,7 @@ export default function HomeownersPage() {
                     </CardContent>
                   </Card>
                 </StaggerItem>
-              );
-            })}
+            ))}
           </StaggerContainer>
         </section>
 
