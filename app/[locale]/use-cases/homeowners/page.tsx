@@ -92,7 +92,7 @@ export default function HomeownersPage() {
     },
     {
       id: "v2x",
-      pattern: "corners-sync",
+      pattern: "frame",
       color: "blue",
       title: t("useCasesSection.v2x.title"),
       description: t("useCasesSection.v2x.description"),
