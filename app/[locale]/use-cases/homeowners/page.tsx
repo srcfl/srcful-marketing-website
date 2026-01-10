@@ -231,7 +231,7 @@ export default function HomeownersPage() {
                 <StaggerItem key={useCase.id}>
                   <Card className="h-full">
                     <CardHeader className="pb-2">
-                      <div className="mb-4 flex justify-center py-4">
+                      <div className="mb-4 flex py-4">
                         <PixelGrid pattern={useCase.pattern} color={useCase.color} size="md" />
                       </div>
                       <CardTitle>{useCase.title}</CardTitle>
