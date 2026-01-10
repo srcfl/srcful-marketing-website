@@ -19,6 +19,7 @@ import {
 } from "@/components/dashboard-showcase";
 import { SavingsCalculatorMini } from "@/components/savings-calculator-mini";
 import { V2xSavingsCard } from "@/components/v2x-savings-card";
+import { RewardsSection } from "@/components/rewards-section";
 import { PixelGrid, type PixelGridColor, type PatternType } from "@/components/ui/pixel-grid";
 import {
   ArrowRight,
@@ -421,6 +422,9 @@ export default function HomeownersPage() {
             </div>
           </div>
         </section>
+
+        {/* Rewards */}
+        <RewardsSection audience="homeowners" />
 
         {/* How it works */}
         <section className="border-t bg-muted/30">

@@ -18,6 +18,7 @@ import {
   ScheduleCard,
 } from "@/components/dashboard-showcase";
 import { ArrowRight, Building2, Zap, Clock, Shield, TrendingUp, Users } from "lucide-react";
+import { RewardsSection } from "@/components/rewards-section";
 
 export default function UtilitiesPage() {
   const t = useTranslations("useCases.utilities");
@@ -235,6 +236,9 @@ export default function UtilitiesPage() {
             </StaggerContainer>
           </div>
         </section>
+
+        {/* Rewards */}
+        <RewardsSection audience="utilities" />
 
         {/* CTA */}
         <section className="border-t bg-gradient-to-br from-primary/10 via-primary/5 to-background">

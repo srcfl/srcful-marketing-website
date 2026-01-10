@@ -2522,5 +2522,66 @@
       "title": "12. Kontakt",
       "paragraph1": "För frågor om dessa villkor, kontakta oss på"
     }
+  },
+  "rewards": {
+    "badge": "Belöningsprogram",
+    "pointsLabel": "intjänade poäng",
+    "cta": "Börja tjäna",
+    "disclaimer": "Belöningar omfattas av programvillkor. Poäng representerar inte valuta eller garanterat värde. Framtida belöningsalternativ kan inkludera kuponger, rabatter eller andra förmåner.",
+    "stats": {
+      "perDay": "poäng/dag",
+      "multiplier": "bonusevent",
+      "potential": "möjligheter"
+    },
+    "features": {
+      "connectDevices": {
+        "title": "Anslut dina enheter",
+        "description": "Koppla upp din solcell, batteri eller elbilsladdare för att börja tjäna"
+      },
+      "optimizeUsage": {
+        "title": "Optimera automatiskt",
+        "description": "Smart schemaläggning ger dig fler poäng över tid"
+      },
+      "earnPoints": {
+        "title": "Lås upp belöningar",
+        "description": "Lös in poäng för framtida förmåner och exklusiva erbjudanden"
+      },
+      "customerLoyalty": {
+        "title": "Inbyggt lojalitetsprogram",
+        "description": "Erbjud dina kunder belöningar utan att bygga infrastruktur"
+      },
+      "brandedRewards": {
+        "title": "White-label-belöningar",
+        "description": "Ditt varumärke, ditt belöningsprogram, drivet av Sourceful"
+      },
+      "increaseEngagement": {
+        "title": "Öka engagemanget",
+        "description": "Håll kunderna aktiva och minska churn med löpande incitament"
+      },
+      "earnPerInstall": {
+        "title": "Tjäna per installation",
+        "description": "Bli belönad varje gång du ansluter en kund"
+      },
+      "recurringRewards": {
+        "title": "Löpande provisioner",
+        "description": "Fortsätt tjäna när dina kunder använder plattformen"
+      },
+      "customerReferrals": {
+        "title": "Hänvisningsbonusar",
+        "description": "Bygg ditt nätverk och tjäna extra för hänvisningar"
+      }
+    },
+    "homeowners": {
+      "title": "Tjäna belöningar medan du sparar",
+      "description": "Anslut dina energienheter och börja tjäna poäng. Ju mer du optimerar, desto mer tjänar du. Lös in för framtida förmåner när vårt belöningsprogram växer."
+    },
+    "utilities": {
+      "title": "Inbyggd kundlojalitet",
+      "description": "Erbjud dina kunder ett belöningsprogram utan extra arbete. Öka engagemanget, minska churn och differentiera ditt erbjudande med Sourceful-drivna incitament."
+    },
+    "installers": {
+      "title": "Bli belönad för varje installation",
+      "description": "Tjäna poäng för varje enhet du ansluter. Bygg en återkommande inkomstström när dina kunder drar nytta av smart energioptimering."
+    }
   }
 }

@@ -18,6 +18,7 @@ import {
   BatteryCard,
 } from "@/components/dashboard-showcase";
 import { ArrowRight, Wrench, TrendingUp, Users, Zap, Clock, Shield, ExternalLink } from "lucide-react";
+import { RewardsSection } from "@/components/rewards-section";
 
 export default function InstallersPage() {
   const t = useTranslations("useCases.installers");
@@ -237,6 +238,9 @@ export default function InstallersPage() {
             </StaggerContainer>
           </div>
         </section>
+
+        {/* Rewards */}
+        <RewardsSection audience="installers" />
 
         {/* CTA */}
         <section className="border-t bg-gradient-to-br from-primary/10 via-primary/5 to-background">

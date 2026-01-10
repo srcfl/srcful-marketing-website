@@ -2522,5 +2522,66 @@
       "title": "12. Contact",
       "paragraph1": "For questions about these terms, contact us at"
     }
+  },
+  "rewards": {
+    "badge": "Rewards Program",
+    "pointsLabel": "points earned",
+    "cta": "Start Earning",
+    "disclaimer": "Rewards are subject to program terms. Points do not represent currency or guaranteed value. Future reward options may include vouchers, discounts, or other benefits.",
+    "stats": {
+      "perDay": "points/day",
+      "multiplier": "bonus events",
+      "potential": "possibilities"
+    },
+    "features": {
+      "connectDevices": {
+        "title": "Connect your devices",
+        "description": "Link your solar, battery, or EV charger to start earning"
+      },
+      "optimizeUsage": {
+        "title": "Optimize automatically",
+        "description": "Smart scheduling earns you more points over time"
+      },
+      "earnPoints": {
+        "title": "Unlock rewards",
+        "description": "Redeem points for future benefits and exclusive perks"
+      },
+      "customerLoyalty": {
+        "title": "Built-in loyalty program",
+        "description": "Offer your customers rewards without building infrastructure"
+      },
+      "brandedRewards": {
+        "title": "White-label rewards",
+        "description": "Your brand, your rewards program, powered by Sourceful"
+      },
+      "increaseEngagement": {
+        "title": "Boost engagement",
+        "description": "Keep customers active and reduce churn with ongoing incentives"
+      },
+      "earnPerInstall": {
+        "title": "Earn per installation",
+        "description": "Get rewarded every time you connect a customer"
+      },
+      "recurringRewards": {
+        "title": "Ongoing commissions",
+        "description": "Continue earning as your customers use the platform"
+      },
+      "customerReferrals": {
+        "title": "Referral bonuses",
+        "description": "Grow your network and earn extra for referrals"
+      }
+    },
+    "homeowners": {
+      "title": "Earn rewards while you save",
+      "description": "Connect your energy devices and start earning points. The more you optimize, the more you earn. Redeem for future benefits as our rewards program grows."
+    },
+    "utilities": {
+      "title": "Built-in customer loyalty",
+      "description": "Offer your customers a rewards program without the overhead. Increase engagement, reduce churn, and differentiate your offering with Sourceful-powered incentives."
+    },
+    "installers": {
+      "title": "Get rewarded for every install",
+      "description": "Earn points for each device you connect. Build a recurring income stream as your customers benefit from smart energy optimization."
+    }
   }
 }
