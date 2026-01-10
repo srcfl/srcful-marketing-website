@@ -11,9 +11,6 @@ import { Separator } from "@/components/ui/separator";
 import { Lock, Search, ExternalLink, Copy, Check, Image as ImageIcon, Globe, Twitter, Upload, Loader2, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
-// Simple password - in production, use proper auth
-const ADMIN_PASSWORD = "sourceful2026";
-
 // Helper for character count color coding
 function getCharCountColor(count: number, min: number, optimalMin: number, max: number): string {
   if (count < min || count > max) {
@@ -46,8 +43,10 @@ interface SeoData {
 
 export default function SeoAdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loggingIn, setLoggingIn] = useState(false);
   const [seoData, setSeoData] = useState<SeoData | null>(null);
   const [selectedPage, setSelectedPage] = useState<string>("/");
   const [editedConfig, setEditedConfig] = useState<PageSeoConfig | null>(null);
@@ -59,13 +58,23 @@ export default function SeoAdminPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Check if already authenticated in session
-    const auth = sessionStorage.getItem("seo-admin-auth");
-    if (auth === "true") {
-      setIsAuthenticated(true);
-      loadSeoData();
-    }
+    // Check if already authenticated via server
+    checkAuthStatus();
   }, []);
+
+  const checkAuthStatus = async () => {
+    try {
+      const response = await fetch("/api/admin/auth");
+      const data = await response.json();
+      if (data.authenticated) {
+        setIsAuthenticated(true);
+        loadSeoData();
+      }
+    } catch (err) {
+      console.error("Auth check failed:", err);
+    }
+    setCheckingAuth(false);
+  };
 
   const loadSeoData = async () => {
     try {
@@ -82,16 +91,32 @@ export default function SeoAdminPage() {
     }
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem("seo-admin-auth", "true");
-      loadSeoData();
-      setError("");
-    } else {
-      setError("Incorrect password");
+    setLoggingIn(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsAuthenticated(true);
+        loadSeoData();
+      } else {
+        setError(data.error || "Incorrect password");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError("Login failed. Please try again.");
     }
+
+    setLoggingIn(false);
   };
 
   const handleSelectPage = (path: string) => {
@@ -219,6 +244,26 @@ export default function SeoAdminPage() {
       )
     : [];
 
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/auth", { method: "DELETE" });
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+    setIsAuthenticated(false);
+  };
+
+  if (checkingAuth) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background p-4">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-5 w-5 animate-spin text-muted-foreground" />
+          <span className="text-muted-foreground">Checking authentication...</span>
+        </div>
+      </div>
+    );
+  }
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background p-4">
@@ -239,11 +284,19 @@ export default function SeoAdminPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className={error ? "border-destructive" : ""}
+                  disabled={loggingIn}
                 />
                 {error && <p className="text-sm text-destructive mt-1">{error}</p>}
               </div>
-              <Button type="submit" className="w-full">
-                Login
+              <Button type="submit" className="w-full" disabled={loggingIn}>
+                {loggingIn ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Logging in...
+                  </>
+                ) : (
+                  "Login"
+                )}
               </Button>
             </form>
           </CardContent>
@@ -260,13 +313,7 @@ export default function SeoAdminPage() {
             <h1 className="text-xl font-semibold">SEO Admin</h1>
             <p className="text-sm text-muted-foreground">Manage page metadata and OG tags</p>
           </div>
-          <Button
-            variant="outline"
-            onClick={() => {
-              sessionStorage.removeItem("seo-admin-auth");
-              setIsAuthenticated(false);
-            }}
-          >
+          <Button variant="outline" onClick={handleLogout}>
             Logout
           </Button>
         </div>

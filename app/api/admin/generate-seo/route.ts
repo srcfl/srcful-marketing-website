@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { verifyAdminAuth } from "@/lib/admin-auth";
 
 // SEO-optimized templates based on search intent for each page
 const SEO_TEMPLATES: Record<string, { title: string; description: string; keywords: string[] }> = {
@@ -169,6 +170,15 @@ function generateKeywords(title: string, description: string): string[] {
 }
 
 export async function POST(request: NextRequest) {
+  // Verify authentication
+  const isAuthenticated = await verifyAdminAuth();
+  if (!isAuthenticated) {
+    return NextResponse.json(
+      { error: "Unauthorized" },
+      { status: 401 }
+    );
+  }
+
   try {
     const { pagePath } = await request.json();
 

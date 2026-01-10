@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
+import { verifyAdminAuth } from "@/lib/admin-auth";
 
 const SEO_CONFIG_PATH = path.join(process.cwd(), "content/seo/metadata.json");
 
 export async function GET() {
+  // Verify authentication
+  const isAuthenticated = await verifyAdminAuth();
+  if (!isAuthenticated) {
+    return NextResponse.json(
+      { error: "Unauthorized" },
+      { status: 401 }
+    );
+  }
+
   try {
     const data = await fs.readFile(SEO_CONFIG_PATH, "utf-8");
     return NextResponse.json(JSON.parse(data));
@@ -18,6 +28,15 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  // Verify authentication
+  const isAuthenticated = await verifyAdminAuth();
+  if (!isAuthenticated) {
+    return NextResponse.json(
+      { error: "Unauthorized" },
+      { status: 401 }
+    );
+  }
+
   try {
     const data = await request.json();
 

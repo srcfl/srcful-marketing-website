@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
+import { verifyAdminAuth } from "@/lib/admin-auth";
 
 const OG_IMAGES_DIR = path.join(process.cwd(), "public/images/og");
 
 export async function POST(request: NextRequest) {
+  // Verify authentication
+  const isAuthenticated = await verifyAdminAuth();
+  if (!isAuthenticated) {
+    return NextResponse.json(
+      { error: "Unauthorized" },
+      { status: 401 }
+    );
+  }
+
   try {
     const formData = await request.formData();
     const file = formData.get("file") as File;
