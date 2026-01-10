@@ -125,11 +125,11 @@
   },
   "home": {
     "hero": {
-      "badge": "Local Energy Coordination Infrastructure",
-      "title": "The physical rails that make",
-      "titleHighlight": "distributed energy",
-      "titleEnd": "actually work",
-      "description": "Cloud APIs respond in 2-5 seconds. Grid frequency must balance every second. We build the local execution layer that bridges this gap - giving utilities and homeowners actual control over distributed energy."
+      "badge": "Local Energy Coordination",
+      "title": "Millisecond control for the",
+      "titleHighlight": "distributed grid",
+      "description": "Turn solar, batteries, and EVs into coordinated energy assets. 200ms response. No cloud dependencies. One platform for homeowners, utilities, and OEMs.",
+      "partnersLabel": "Integrated with leading energy brands"
     },
     "stats": {
       "destroyed": "Destroyed annually in coordination failures",

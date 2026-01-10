@@ -10,24 +10,17 @@ import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins, Zap, Building
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
+import { Hero } from "@/components/hero";
 import { SitesOverviewExample } from "@/components/examples/sites-overview";
 import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
 import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
 import { EMSDashboardExample } from "@/components/examples/ems-dashboard";
 import { SavingsRewardsExample } from "@/components/examples/savings-rewards";
-import { PartnerLogoCarousel } from "@/components/partner-logo-carousel";
 
 export default function Home() {
   const t = useTranslations("home");
   const tCommon = useTranslations("common");
-
-  const stats = [
-    { value: "€2.5B", label: t("stats.destroyed") },
-    { value: "700+", label: t("stats.negativeHours") },
-    { value: "200ms", label: t("stats.responseTime") },
-    { value: "€39", label: t("stats.zapCost") },
-  ];
 
   const connectivityFeatures = [
     {
@@ -89,68 +82,9 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <MarketingNav />
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-dot-pattern" />
-          <div className="absolute inset-x-0 bottom-0 h-32 hero-gradient" />
-
-          <div className="relative max-w-7xl mx-auto flex flex-col items-center justify-center gap-6 pb-16 pt-24 md:pt-32 md:pb-24 text-center px-4 md:px-8">
-            <FadeIn delay={0}>
-              <Badge variant="outline" className="border-primary/50">
-                <span className="mr-2">⚡</span>
-                {t("hero.badge")}
-              </Badge>
-            </FadeIn>
-
-            <FadeIn delay={0.1}>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl max-w-5xl">
-                {t("hero.title")}{" "}
-                <span className="text-primary">{t("hero.titleHighlight")}</span>{" "}
-                {t("hero.titleEnd")}
-              </h1>
-            </FadeIn>
-
-            <FadeIn delay={0.2}>
-              <p className="max-w-[42rem] text-lg text-muted-foreground sm:text-xl">
-                {t("hero.description")}
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
-                <Button size="lg" asChild>
-                  <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.startBuilding")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.getTheZap")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="border-y bg-muted/30">
-          <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
-              {stats.map((stat) => (
-                <StaggerItem key={stat.value}>
-                  <div className="text-center">
-                    <div className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </section>
+        <Hero />
 
         {/* Dashboard Demo */}
         <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
@@ -442,18 +376,6 @@ export default function Home() {
                 />
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Partner Logos */}
-        <section className="border-t">
-          <div className="max-w-7xl mx-auto py-12 md:py-16 px-4 md:px-8">
-            <div className="text-center mb-8">
-              <p className="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-                {t("partners.title")}
-              </p>
-            </div>
-            <PartnerLogoCarousel speed={40} />
           </div>
         </section>
 

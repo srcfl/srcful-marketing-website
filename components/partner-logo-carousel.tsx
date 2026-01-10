@@ -43,15 +43,24 @@ interface PartnerLogoCarouselProps {
   direction?: "left" | "right";
   /** Show partner names below logos */
   showNames?: boolean;
+  /** Logo size variant */
+  logoSize?: "sm" | "md" | "lg";
   /** Custom className for the container */
   className?: string;
 }
+
+const logoSizeClasses = {
+  sm: "h-8 md:h-10 w-20 md:w-24",
+  md: "h-10 md:h-12 w-24 md:w-32",
+  lg: "h-12 md:h-14 w-28 md:w-36",
+};
 
 export function PartnerLogoCarousel({
   partners,
   speed = 30,
   direction = "left",
   showNames = false,
+  logoSize = "md",
   className = "",
 }: PartnerLogoCarouselProps) {
   const { resolvedTheme } = useTheme();
@@ -92,7 +101,7 @@ export function PartnerLogoCarousel({
             key={`${partner.slug}-${index}`}
             className="flex-shrink-0 flex flex-col items-center justify-center"
           >
-            <div className="h-10 md:h-12 w-24 md:w-32 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+            <div className={`${logoSizeClasses[logoSize]} flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300`}>
               {mounted ? (
                 <img
                   src={`/images/partner-logos/${themeFolder}/${partner.slug}.svg`}
