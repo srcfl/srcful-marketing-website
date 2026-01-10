@@ -6,11 +6,62 @@ const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
 // Extract datacenter from API key (e.g., "us14" from "xxx-us14")
 const MAILCHIMP_DC = MAILCHIMP_API_KEY?.split("-").pop();
 
+// Rate limiting for newsletter subscriptions
+const subscriptionAttempts = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+
+function getClientIP(request: NextRequest): string {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  if (forwardedFor) return forwardedFor.split(",")[0].trim();
+  return request.headers.get("x-real-ip") || "unknown";
+}
+
+function checkSubscriptionRateLimit(ip: string): { allowed: boolean; retryAfter?: number } {
+  const now = Date.now();
+  const attempt = subscriptionAttempts.get(ip);
+
+  if (attempt && attempt.resetAt < now) {
+    subscriptionAttempts.delete(ip);
+    return { allowed: true };
+  }
+
+  if (!attempt) {
+    subscriptionAttempts.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true };
+  }
+
+  if (attempt.count >= RATE_LIMIT_MAX) {
+    return { allowed: false, retryAfter: Math.ceil((attempt.resetAt - now) / 1000) };
+  }
+
+  attempt.count++;
+  return { allowed: true };
+}
+
+// RFC 5322 compliant email validation (simplified but more robust)
+function isValidEmail(email: string): boolean {
+  if (!email || typeof email !== "string") return false;
+  if (email.length > 254) return false;
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  return emailRegex.test(email);
+}
+
 export async function POST(request: NextRequest) {
+  // Rate limit check
+  const clientIP = getClientIP(request);
+  const rateLimit = checkSubscriptionRateLimit(clientIP);
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: `Too many subscription attempts. Try again later.` },
+      { status: 429, headers: { "Retry-After": String(rateLimit.retryAfter) } }
+    );
+  }
+
   try {
     const { email } = await request.json();
 
-    if (!email || !email.includes("@")) {
+    if (!isValidEmail(email)) {
       return NextResponse.json(
         { error: "Valid email is required" },
         { status: 400 }

@@ -16,6 +16,15 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    // Validate zone format (e.g., "SE1", "NO2", "DK1", etc.)
+    // Only allow alphanumeric characters to prevent URL injection
+    if (!/^[A-Z]{2}[0-9]?$/.test(zone.toUpperCase())) {
+      return NextResponse.json(
+        { error: "Invalid zone format. Use format like SE1, NO2, DK1" },
+        { status: 400 }
+      );
+    }
+
     if (!date) {
       return NextResponse.json(
         { error: "Missing required parameter: date" },

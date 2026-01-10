@@ -41,11 +41,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate filename from page path
+    // Sanitize path to prevent path traversal attacks
+    // Remove any potentially dangerous characters and patterns
     const sanitizedPath = pagePath
       .replace(/^\//, "") // Remove leading slash
+      .replace(/\.\./g, "") // Remove directory traversal attempts
+      .replace(/[<>:"|?*\x00-\x1f]/g, "") // Remove null bytes and other dangerous chars
       .replace(/\//g, "-") // Replace slashes with dashes
+      .replace(/^-+|-+$/g, "") // Remove leading/trailing dashes
+      .slice(0, 100) // Limit length
       || "home";
+
+    // Validate the sanitized path only contains safe characters
+    if (!/^[a-zA-Z0-9_-]+$/.test(sanitizedPath)) {
+      return NextResponse.json(
+        { error: "Invalid page path format" },
+        { status: 400 }
+      );
+    }
 
     const extension = file.type.split("/")[1].replace("jpeg", "jpg");
     const filename = `${sanitizedPath}.${extension}`;
@@ -58,7 +71,16 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(bytes);
     const filePath = path.join(OG_IMAGES_DIR, filename);
 
-    await writeFile(filePath, buffer);
+    // Final safety check: ensure resolved path is within OG_IMAGES_DIR
+    const resolvedPath = path.resolve(filePath);
+    if (!resolvedPath.startsWith(path.resolve(OG_IMAGES_DIR))) {
+      return NextResponse.json(
+        { error: "Invalid file path" },
+        { status: 400 }
+      );
+    }
+
+    await writeFile(resolvedPath, buffer);
 
     const publicPath = `/images/og/${filename}`;
 
