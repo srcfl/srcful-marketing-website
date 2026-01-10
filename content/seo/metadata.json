@@ -1,0 +1,294 @@
+{
+  "defaults": {
+    "siteName": "Sourceful Energy",
+    "siteUrl": "https://sourceful.energy",
+    "defaultImage": "/images/og/default.png",
+    "twitterHandle": "@srcful",
+    "locale": "en_US"
+  },
+  "pages": {
+    "/": {
+      "title": "Home",
+      "description": "Learn more about home on Sourceful Energy. Local energy coordination infrastructure for the distributed energy future.",
+      "keywords": [
+        "energy"
+      ],
+      "image": "/images/og/home.png"
+    },
+    "/platform": {
+      "title": "Platform",
+      "description": "The Sourceful Platform connects your energy devices for real-time coordination, grid services, and smart optimization.",
+      "keywords": [
+        "energy platform",
+        "smart grid",
+        "energy management",
+        "DER coordination"
+      ]
+    },
+    "/zap": {
+      "title": "Zap - Smart Energy Gateway",
+      "description": "Connect your solar, battery, and EV charger to the Sourceful network. Get real-time optimization and earn rewards.",
+      "keywords": [
+        "Zap",
+        "energy gateway",
+        "smart home energy",
+        "solar monitoring",
+        "battery optimization"
+      ]
+    },
+    "/v2x": {
+      "title": "V2X - Vehicle-to-Everything",
+      "description": "Turn your EV into a home battery. Charge when cheap, power your home during peak prices, and earn from grid services.",
+      "keywords": [
+        "V2X",
+        "vehicle to grid",
+        "bidirectional charging",
+        "EV battery",
+        "V2H",
+        "V2G"
+      ]
+    },
+    "/developers": {
+      "title": "Developers",
+      "description": "Build on the Sourceful Platform. Access real-time energy data, control APIs, and SDKs for energy applications.",
+      "keywords": [
+        "energy API",
+        "developer tools",
+        "energy SDK",
+        "real-time energy data",
+        "smart grid API"
+      ]
+    },
+    "/use-cases/homeowners": {
+      "title": "For Homeowners",
+      "description": "Take control of your home energy. Optimize solar, battery, and EV charging automatically to cut bills and earn rewards.",
+      "keywords": [
+        "home energy management",
+        "solar optimization",
+        "smart home energy",
+        "reduce electricity bills"
+      ]
+    },
+    "/use-cases/utilities": {
+      "title": "For Utilities",
+      "description": "Coordinate thousands of distributed energy resources in real-time. Local execution at 200ms for grid flexibility and VPP services.",
+      "keywords": [
+        "utility DER management",
+        "virtual power plant",
+        "grid flexibility",
+        "demand response",
+        "DER coordination"
+      ]
+    },
+    "/use-cases/installers": {
+      "title": "For Installers",
+      "description": "Offer your customers ongoing value with Sourceful. White-label apps, monitoring, and recurring revenue opportunities.",
+      "keywords": [
+        "solar installer",
+        "energy installer",
+        "white-label energy app",
+        "installer portal"
+      ]
+    },
+    "/use-cases/oems": {
+      "title": "For OEMs",
+      "description": "Integrate Sourceful into your hardware. Pre-integrated connectivity, cloud services, and grid services out of the box.",
+      "keywords": [
+        "OEM integration",
+        "hardware integration",
+        "energy device OEM",
+        "embedded connectivity"
+      ]
+    },
+    "/about": {
+      "title": "About Us",
+      "description": "Sourceful is building the local energy coordination infrastructure. Based in Sweden, serving the global energy transition.",
+      "keywords": [
+        "about Sourceful",
+        "energy startup",
+        "Sweden energy",
+        "energy transition"
+      ]
+    },
+    "/contact": {
+      "title": "Contact",
+      "description": "Get in touch with the Sourceful team. We're here to help with integrations, partnerships, and support.",
+      "keywords": [
+        "contact Sourceful",
+        "energy support",
+        "partnerships"
+      ]
+    },
+    "/community": {
+      "title": "Community",
+      "description": "Join the Sourceful community. Connect with other users, share insights, and help shape the future of distributed energy.",
+      "keywords": [
+        "energy community",
+        "Sourceful community",
+        "distributed energy network"
+      ]
+    },
+    "/blog": {
+      "title": "Blog",
+      "description": "Insights on distributed energy, grid flexibility, home energy optimization, and the future of local energy coordination.",
+      "keywords": [
+        "energy blog",
+        "distributed energy",
+        "grid flexibility",
+        "home energy"
+      ]
+    },
+    "/integrations": {
+      "title": "Integrations",
+      "description": "Sourceful works with leading solar inverters, batteries, and EV chargers. See all supported brands and devices.",
+      "keywords": [
+        "solar integration",
+        "battery integration",
+        "EV charger integration",
+        "energy device compatibility"
+      ]
+    },
+    "/get-started": {
+      "title": "Get Started",
+      "description": "Set up your Zap and connect your energy devices to Sourceful. Quick guides for P1 meters and inverters.",
+      "keywords": [
+        "Zap setup",
+        "energy setup guide",
+        "connect solar",
+        "connect battery"
+      ]
+    },
+    "/get-started/zap": {
+      "title": "Zap Setup Guide",
+      "description": "Step-by-step guide to set up your Zap with a P1 meter. Connect to your home energy in minutes.",
+      "keywords": [
+        "Zap P1 setup",
+        "P1 meter guide",
+        "energy monitor setup"
+      ]
+    },
+    "/get-started/zap-for-inverters": {
+      "title": "Zap for Inverters Setup Guide",
+      "description": "Connect your Zap directly to your solar inverter. Full guide for inverter integration.",
+      "keywords": [
+        "Zap inverter setup",
+        "solar inverter connection",
+        "inverter integration guide"
+      ]
+    },
+    "/tools": {
+      "title": "Energy Tools & Calculators",
+      "description": "Free tools to understand your energy usage. Calculate savings, size your battery, and estimate EV charging costs.",
+      "keywords": [
+        "energy calculator",
+        "savings calculator",
+        "battery sizing",
+        "EV charging cost"
+      ]
+    },
+    "/tools/savings-calculator": {
+      "title": "Energy Savings Calculator",
+      "description": "Calculate how much you could save with smart energy management. Based on Swedish electricity prices.",
+      "keywords": [
+        "energy savings calculator",
+        "electricity savings",
+        "Sweden energy prices"
+      ]
+    },
+    "/tools/battery-sizing": {
+      "title": "Battery Sizing Calculator",
+      "description": "Find the right battery size for your home. Based on your consumption and solar production.",
+      "keywords": [
+        "battery sizing",
+        "home battery calculator",
+        "energy storage sizing"
+      ]
+    },
+    "/tools/ev-charging": {
+      "title": "EV Charging Cost Calculator",
+      "description": "Calculate your EV charging costs at home vs public charging. Optimize your charging schedule.",
+      "keywords": [
+        "EV charging cost",
+        "electric vehicle charging",
+        "home charging calculator"
+      ]
+    },
+    "/tools/solar-roi": {
+      "title": "Solar ROI Calculator",
+      "description": "Calculate the return on investment for solar panels. See payback time and lifetime savings.",
+      "keywords": [
+        "solar ROI",
+        "solar panel payback",
+        "solar investment calculator"
+      ]
+    },
+    "/tools/v2x-savings": {
+      "title": "V2X Savings Calculator",
+      "description": "Estimate your savings with vehicle-to-grid technology. Turn your EV into a revenue source.",
+      "keywords": [
+        "V2X savings",
+        "vehicle to grid calculator",
+        "EV battery arbitrage"
+      ]
+    },
+    "/privacy": {
+      "title": "Privacy Policy",
+      "description": "How Sourceful handles your data. Our commitment to privacy and GDPR compliance.",
+      "keywords": [
+        "privacy policy",
+        "GDPR",
+        "data protection"
+      ]
+    },
+    "/terms": {
+      "title": "Terms of Service",
+      "description": "Terms and conditions for using Sourceful products and services.",
+      "keywords": [
+        "terms of service",
+        "terms and conditions"
+      ]
+    },
+    "/app": {
+      "title": "Sourceful App",
+      "description": "Download the Sourceful app to monitor and control your home energy. Available on iOS and Android.",
+      "keywords": [
+        "Sourceful app",
+        "energy app",
+        "home energy monitoring",
+        "iOS",
+        "Android"
+      ]
+    },
+    "/company": {
+      "title": "Company",
+      "description": "Learn about Sourceful Energy. Our mission, team, and vision for the future of distributed energy.",
+      "keywords": [
+        "Sourceful company",
+        "energy company",
+        "about us",
+        "team"
+      ]
+    },
+    "/tools/negative-prices": {
+      "title": "Negative Price Analyzer",
+      "description": "Analyze negative electricity prices in your area. Find opportunities to get paid for using energy.",
+      "keywords": [
+        "negative electricity prices",
+        "price analyzer",
+        "energy arbitrage",
+        "spot prices"
+      ]
+    },
+    "/assets": {
+      "title": "Brand Assets",
+      "description": "Sourceful brand assets, logos, and design resources for partners and press.",
+      "keywords": [
+        "brand assets",
+        "logos",
+        "press kit",
+        "media resources"
+      ],
+      "noIndex": true
+    }
+  }
+}

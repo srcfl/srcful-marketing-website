@@ -5,14 +5,14 @@ export default createMiddleware(routing);
 
 export const config = {
   // Match internationalized pathnames only
-  // Exclude: api, _next, static files, and non-localized sections (docs, components, brand, changelog, roadmap)
+  // Exclude: api, _next, static files, and non-localized sections (docs, components, brand, changelog, roadmap, admin)
   matcher: [
     // Match all pathnames except for
     // - API routes (/api/*)
     // - Next.js internals (/_next/*)
     // - Static files (*.*)
     // - Non-localized sections
-    "/((?!api|_next|_vercel|.*\\..*|docs|components|brand|changelog|roadmap).*)",
+    "/((?!api|_next|_vercel|.*\\..*|docs|components|brand|changelog|roadmap|admin).*)",
     // Always run for root
     "/",
   ],

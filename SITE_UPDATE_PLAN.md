@@ -307,7 +307,7 @@ Based on your answers, here's the prioritized implementation plan:
 - [x] i18n for Swedish - Full site translation
 - [x] GA4 events - Measurement ID `G-BKLJLE20S1`
 - [x] GDPR cookie consent - `cookie-consent.tsx`
-- [ ] Meta/Facebook Pixel (not yet configured)
+- [x] Meta/Facebook Pixel (1353576696484651)
 
 </details>
 
@@ -320,6 +320,13 @@ Based on your answers, here's the prioritized implementation plan:
 ### Remaining Phase 2 Items
 - [ ] **Rewards Section** - Vague but compelling (points → future rewards)
 - [ ] **Scroll Animations** - Framer Motion reveals
+
+### SEO & Meta Tags (New Priority) ✅ COMPLETE
+- [x] **Metadata Utility** - `lib/metadata.ts` with `generatePageMetadata()` function
+- [x] **SEO Config** - `content/seo/metadata.json` with 25+ pages configured
+- [x] **SEO Admin Page** - Hidden `/admin/seo` page with password protection
+- [x] **OG Image Management** - Default OG at `/images/og/default.png`, per-page paths in config
+- [x] **Preview Tool** - Google and Twitter/X previews in admin page
 
 ### Remaining Phase 4 Items
 - [ ] **Grid Export Earnings Calculator**
@@ -338,5 +345,11 @@ Based on your answers, here's the prioritized implementation plan:
 - ✅ Mailchimp server-side API integration
 - ✅ GA4 tracking (G-BKLJLE20S1)
 - ✅ Intercom already configured (uqngf2sv)
+- ✅ Meta/Facebook Pixel (1353576696484651)
+- ✅ Reddit Pixel, TikTok Pixel, Microsoft Clarity added
+- ✅ SEO metadata utility (`lib/metadata.ts`)
+- ✅ SEO config with 25+ pages (`content/seo/metadata.json`)
+- ✅ SEO admin page at `/admin/seo` with password auth
+- ✅ Default OG image at `/images/og/default.png`
 
 
