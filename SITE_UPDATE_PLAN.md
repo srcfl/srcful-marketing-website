@@ -1,8 +1,8 @@
 # Sourceful Marketing Site Update Plan
 
 **Created:** 2026-01-06
-**Updated:** 2026-01-08
-**Status:** ✅ Phase 1 & Phase 7 complete
+**Updated:** 2026-01-10
+**Status:** ✅ Phase 1, 7 complete | Phase 2, 4 in progress
 
 ---
 
@@ -17,9 +17,9 @@ Based on your answers, here's the prioritized implementation plan:
 4. [x] **GDPR Cookie Banner** - `cookie-consent.tsx`
 5. [x] **V2X Waitlist** - `/v2x` page with `WaitlistForm`
 
-### Phase 2: Platform Page Enhancements
-6. [ ] **Interactive Dashboard Hero** - Reuse homepage components
-7. [ ] **Animated Icons** - Integrate itshover.com icons with CSS animations
+### Phase 2: Platform Page Enhancements (In Progress)
+6. [x] **Interactive Dashboard Hero** - DashboardShowcase on use-case pages
+7. [x] **Animated Icons** - PixelGrid component with patterns (green/orange/blue)
 8. [ ] **Rewards Section** - Vague but compelling (points → future rewards)
 9. [ ] **Scroll Animations** - Framer Motion reveals
 
@@ -27,11 +27,11 @@ Based on your answers, here's the prioritized implementation plan:
 10. [ ] **Brand Page Template** - One template, 17 brands
 11. [ ] **SEO Optimization** - "SolarEdge smart home integration" etc.
 
-### Phase 4: Calculators & Tools
-12. [ ] **Savings Calculator** - Sweden-focused, email-gated
-13. [ ] **Battery Sizing Calculator**
-14. [ ] **EV Charging Cost Calculator**
-15. [ ] **Solar ROI Calculator**
+### Phase 4: Calculators & Tools (In Progress)
+12. [x] **Savings Calculator** - Sweden-focused with mini version on homeowners page
+13. [x] **Battery Sizing Calculator** - `/tools/battery-sizing-calculator`
+14. [x] **EV Charging Cost Calculator** - `/tools/ev-charging-calculator`
+15. [x] **Solar ROI Calculator** - `/tools/solar-roi-calculator`
 16. [ ] **Grid Export Earnings Calculator**
 17. [ ] **Negative Price Analyzer** - Port from GitHub repo
 
@@ -301,12 +301,13 @@ Based on your answers, here's the prioritized implementation plan:
 
 ### To Set Up
 - [x] Mapbox API key (in .env)
-- [ ] Formspark form IDs
-- [ ] Mailchimp integration
-- [ ] Intercom chat widget
-- [ ] i18n for Swedish
-- [ ] GA4 events
-- [ ] GDPR cookie consent
+- [x] Formspark form IDs
+- [x] Mailchimp integration - Server-side API at `/api/newsletter/subscribe`
+- [x] Intercom chat widget - App ID `uqngf2sv`
+- [x] i18n for Swedish - Full site translation
+- [x] GA4 events - Measurement ID `G-BKLJLE20S1`
+- [x] GDPR cookie consent - `cookie-consent.tsx`
+- [ ] Meta/Facebook Pixel (not yet configured)
 
 </details>
 
@@ -314,18 +315,28 @@ Based on your answers, here's the prioritized implementation plan:
 
 ## What's Next?
 
-**Phase 1 & Phase 7 complete!** Ready for Phase 2 (Platform Page Enhancements):
+**Phase 1, 2 (partial), 4 (partial), 7 complete!**
 
-1. **Interactive Dashboard Hero** - Reuse homepage components
-2. **Animated Icons** - Integrate itshover.com icons with CSS animations
-3. **Rewards Section** - Vague but compelling (points → future rewards)
-4. **Scroll Animations** - Framer Motion reveals
+### Remaining Phase 2 Items
+- [ ] **Rewards Section** - Vague but compelling (points → future rewards)
+- [ ] **Scroll Animations** - Framer Motion reveals
 
-### Phase 7 Summary (Completed)
-- ✅ Blog migrated: 30 EN + 29 SV articles with authors, categories, images
-- ✅ Blog index page with filtering and featured posts
-- ✅ Get Started guides: 3 pages (device selector + P1 meter + Inverter setup)
-- ✅ B2B content: "Universal Connectivity Layer" section added to homepage
-- ✅ Developer use case page already existed
+### Remaining Phase 4 Items
+- [ ] **Grid Export Earnings Calculator**
+- [ ] **Negative Price Analyzer** - Port from GitHub repo
+
+### Phase 3: Brand Pages (Not Started)
+- [ ] **Brand Page Template** - One template, 17 brands
+- [ ] **SEO Optimization** - "[Brand] smart home integration" keywords
+
+### Recent Completions (2026-01-10)
+- ✅ DashboardShowcase added to use-case pages (utilities, installers, OEMs, homeowners)
+- ✅ PixelGrid animated icons with orange color theme for Solar
+- ✅ Mini savings calculator on homeowners page
+- ✅ V2X savings card with animated numbers
+- ✅ "Meet the Zap" product section on homeowners page
+- ✅ Mailchimp server-side API integration
+- ✅ GA4 tracking (G-BKLJLE20S1)
+- ✅ Intercom already configured (uqngf2sv)
 
 
