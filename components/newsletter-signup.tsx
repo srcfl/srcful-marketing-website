@@ -6,9 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle } from "lucide-react";
 
-const MAILCHIMP_URL =
-  "https://energy.us14.list-manage.com/subscribe/post?u=62589c643a6b3d8c1160756b9&id=d4341d7a0f&f_id=006686e0f0";
-
 export function NewsletterSignup() {
   const t = useTranslations("common.footer");
   const [email, setEmail] = useState("");
@@ -20,40 +17,26 @@ export function NewsletterSignup() {
 
     setStatus("loading");
 
-    // Mailchimp requires form submission via their endpoint
-    // We'll use a hidden iframe to avoid CORS issues and page navigation
     try {
-      const form = document.createElement("form");
-      form.action = MAILCHIMP_URL;
-      form.method = "POST";
-      form.target = "mailchimp-iframe";
+      const response = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
-      const emailInput = document.createElement("input");
-      emailInput.type = "hidden";
-      emailInput.name = "EMAIL";
-      emailInput.value = email;
-      form.appendChild(emailInput);
+      const data = await response.json();
 
-      // Create hidden iframe if it doesn't exist
-      let iframe = document.getElementById("mailchimp-iframe") as HTMLIFrameElement;
-      if (!iframe) {
-        iframe = document.createElement("iframe");
-        iframe.id = "mailchimp-iframe";
-        iframe.name = "mailchimp-iframe";
-        iframe.style.display = "none";
-        document.body.appendChild(iframe);
-      }
-
-      document.body.appendChild(form);
-      form.submit();
-      document.body.removeChild(form);
-
-      // Assume success after submission (Mailchimp doesn't provide easy feedback)
-      setTimeout(() => {
+      if (response.ok || data.alreadySubscribed) {
         setStatus("success");
         setEmail("");
-      }, 1000);
-    } catch {
+      } else {
+        console.error("Newsletter error:", data.error);
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Newsletter error:", error);
       setStatus("error");
     }
   };
