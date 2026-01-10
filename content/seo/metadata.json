@@ -8,21 +8,26 @@
   },
   "pages": {
     "/": {
-      "title": "Home",
-      "description": "Learn more about home on Sourceful Energy. Local energy coordination infrastructure for the distributed energy future.",
+      "title": "Smart Home Energy Management & Optimization Platform",
+      "description": "Connect your solar, battery, and EV charger to save money automatically. Real-time optimization, grid services, and rewards for distributed energy resources.",
       "keywords": [
-        "energy"
+        "smart home energy",
+        "energy management",
+        "solar optimization",
+        "home battery",
+        "EV charging"
       ],
       "image": "/images/og/home.png"
     },
     "/platform": {
-      "title": "Platform",
-      "description": "The Sourceful Platform connects your energy devices for real-time coordination, grid services, and smart optimization.",
+      "title": "Energy Coordination Platform for DER Management",
+      "description": "Real-time coordination of distributed energy resources with 200ms local execution. Connect inverters, batteries, and EV chargers to one unified platform.",
       "keywords": [
+        "DER management",
         "energy platform",
-        "smart grid",
-        "energy management",
-        "DER coordination"
+        "distributed energy",
+        "grid coordination",
+        "energy API"
       ]
     },
     "/zap": {
