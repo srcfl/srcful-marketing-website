@@ -3,20 +3,14 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { DashboardTabs } from "@/components/dashboard-tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Map, BarChart3, Table2, Activity, Cpu, Coins, Zap, Building2, Wrench, Code, Users, ExternalLink, CircuitBoard, Wifi, WifiOff, Database, Layers } from "lucide-react";
+import { ArrowRight, Zap, Building2, Wrench, Code, Users, ExternalLink, CircuitBoard, Wifi, WifiOff, Database, Layers } from "lucide-react";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Hero } from "@/components/hero";
-import { SitesOverviewExample } from "@/components/examples/sites-overview";
-import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
-import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
-import { EnergyMonitorExample } from "@/components/examples/energy-monitor";
-import { EMSDashboardExample } from "@/components/examples/ems-dashboard";
-import { SavingsRewardsExample } from "@/components/examples/savings-rewards";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -98,61 +92,7 @@ export default function Home() {
             </p>
           </FadeIn>
 
-          <Tabs defaultValue="sites" className="w-full">
-            <div className="flex items-center justify-center mb-6 overflow-x-auto">
-              <TabsList className="h-10">
-                <TabsTrigger value="sites" className="gap-2">
-                  <Map className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">{t("dashboard.tabs.sites")}</span>
-                  <span className="sm:hidden">{t("dashboard.tabsMobile.sites")}</span>
-                </TabsTrigger>
-                <TabsTrigger value="analytics" className="gap-2">
-                  <BarChart3 className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">{t("dashboard.tabs.analytics")}</span>
-                  <span className="sm:hidden">{t("dashboard.tabsMobile.analytics")}</span>
-                </TabsTrigger>
-                <TabsTrigger value="fleet" className="gap-2">
-                  <Table2 className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">{t("dashboard.tabs.fleet")}</span>
-                  <span className="sm:hidden">{t("dashboard.tabsMobile.fleet")}</span>
-                </TabsTrigger>
-                <TabsTrigger value="monitor" className="gap-2">
-                  <Activity className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">{t("dashboard.tabs.monitor")}</span>
-                  <span className="sm:hidden">{t("dashboard.tabsMobile.monitor")}</span>
-                </TabsTrigger>
-                <TabsTrigger value="ems" className="gap-2">
-                  <Cpu className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">{t("dashboard.tabs.automate")}</span>
-                  <span className="sm:hidden">{t("dashboard.tabsMobile.automate")}</span>
-                </TabsTrigger>
-                <TabsTrigger value="savings" className="gap-2">
-                  <Coins className="hidden sm:block h-4 w-4" />
-                  <span className="hidden sm:inline">{t("dashboard.tabs.savings")}</span>
-                  <span className="sm:hidden">{t("dashboard.tabsMobile.savings")}</span>
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="sites" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
-              <SitesOverviewExample />
-            </TabsContent>
-            <TabsContent value="analytics" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
-              <AnalyticsDashboardExample />
-            </TabsContent>
-            <TabsContent value="fleet" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
-              <FleetDashboardExample />
-            </TabsContent>
-            <TabsContent value="monitor" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
-              <EnergyMonitorExample />
-            </TabsContent>
-            <TabsContent value="ems" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
-              <EMSDashboardExample />
-            </TabsContent>
-            <TabsContent value="savings" className="mt-0 focus-visible:outline-none focus-visible:ring-0 data-[state=inactive]:hidden" tabIndex={-1} forceMount>
-              <SavingsRewardsExample />
-            </TabsContent>
-          </Tabs>
+          <DashboardTabs />
         </section>
 
         {/* Universal Connectivity Layer */}
