@@ -126,11 +126,10 @@
   },
   "home": {
     "hero": {
-      "badge": "Lokal energikoordineringsinfrastruktur",
-      "title": "De fysiska rälsen som får",
-      "titleHighlight": "distribuerad energi",
-      "titleEnd": "att faktiskt fungera",
-      "description": "Moln-API:er svarar på 2-5 sekunder. Nätstabilitet måste balanseras varje sekund. Vi bygger det lokala exekveringslagret som överbryggar detta gap - och ger energibolag och villaägare verklig kontroll över distribuerad energi.",
+      "badge": "Lokal energikoordinering",
+      "title": "Lokal energistyrning",
+      "titleHighlight": "du kan bygga på.",
+      "description": "Sourceful erbjuder stabil edge-kontroll för hemmets energienheter, med AI-driven intelligens på toppen.",
       "partnersLabel": "Integrerat med ledande energivarumärken"
     },
     "stats": {

@@ -127,9 +127,9 @@
   "home": {
     "hero": {
       "badge": "Local Energy Coordination",
-      "title": "Millisecond control for the",
-      "titleHighlight": "distributed grid",
-      "description": "Turn solar, batteries, and EVs into coordinated energy assets. 200ms response. No cloud dependencies. One platform for homeowners, utilities, and OEMs.",
+      "title": "Local energy control",
+      "titleHighlight": "you can build on.",
+      "description": "Sourceful provides stable edge control for home energy devices, with AI-enabled intelligence on top.",
       "partnersLabel": "Integrated with leading energy brands"
     },
     "stats": {
