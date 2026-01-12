@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
@@ -6,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
-import { ArrowRight, Plug, Zap, Battery, Car, Sun, Gauge } from "lucide-react";
+import { ArrowRight, Plug, Zap, Battery, Car, Sun, Gauge, Thermometer } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Integrations",
@@ -14,33 +15,39 @@ export const metadata: Metadata = {
 };
 
 // Brand data with categories (descriptions come from translations)
+// Logo files are in /images/partner-logos/dark-mode/ and /images/partner-logos/light-mode/
 const brands = {
   inverters: [
-    { name: "SolarEdge", slug: "solaredge" },
-    { name: "Huawei", slug: "huawei" },
-    { name: "Fronius", slug: "fronius" },
-    { name: "SMA", slug: "sma" },
-    { name: "Sungrow", slug: "sungrow" },
-    { name: "SolaX", slug: "solax" },
-    { name: "Solis", slug: "solis" },
-    { name: "Deye", slug: "deye" },
-    { name: "Ferroamp", slug: "ferroamp" },
+    { name: "SolarEdge", slug: "solaredge", status: "supported" as const, logo: "solaredge" },
+    { name: "Sungrow", slug: "sungrow", status: "supported" as const, logo: "sungrow" },
+    { name: "Solis", slug: "solis", status: "supported" as const, logo: "solis" },
+    { name: "Deye", slug: "deye", status: "supported" as const, logo: "deye" },
+    { name: "Huawei", slug: "huawei", status: "coming" as const, logo: "huawei" },
+    { name: "Fronius", slug: "fronius", status: "coming" as const, logo: "fronius" },
+    { name: "SMA", slug: "sma", status: "coming" as const, logo: "sma" },
+    { name: "Ferroamp", slug: "ferroamp", status: "coming" as const, logo: "ferroamp" },
+    { name: "SolaX", slug: "solax", status: "coming" as const, logo: "solax" },
+    { name: "Solinteg", slug: "solinteg", status: "coming" as const, logo: null },
   ],
   chargers: [
-    { name: "Easee", slug: "easee" },
-    { name: "Zaptec", slug: "zaptec" },
-    { name: "ChargeAmps", slug: "chargeamps" },
+    { name: "Ambibox", slug: "ambibox", status: "supported" as const, logo: "ambibox" },
+    { name: "Ferroamp", slug: "ferroamp-charger", status: "testing" as const, logo: "ferroamp" },
+    { name: "Easee", slug: "easee", status: "testing" as const, logo: "easee" },
+    { name: "Zaptec", slug: "zaptec", status: "testing" as const, logo: "zaptec" },
+    { name: "ChargeAmps", slug: "chargeamps", status: "testing" as const, logo: "chargeamps" },
   ],
   batteries: [
-    { name: "Pixii", slug: "pixii" },
-    { name: "Ambibox", slug: "ambibox" },
+    { name: "Pixii", slug: "pixii", logo: "pixii" },
+  ],
+  hvac: [
+    { name: "NIBE", slug: "nibe", status: "coming" as const, logo: null },
   ],
   utilities: [
-    { name: "Kalmar Energi", slug: "kalmar-energi" },
-    { name: "NRGi", slug: "nrgi" },
+    { name: "Kalmar Energi", slug: "kalmar-energi", logo: "kalmar-energi" },
+    { name: "NRGi", slug: "nrgi", logo: "nrgi" },
   ],
   installers: [
-    { name: "Elkedjan", slug: "elkedjan" },
+    { name: "Elkedjan", slug: "elkedjan", logo: "elkedjan" },
   ],
 };
 
@@ -48,6 +55,7 @@ const categoryIcons = {
   inverters: Sun,
   chargers: Car,
   batteries: Battery,
+  hvac: Thermometer,
   utilities: Gauge,
   installers: Plug,
 };
@@ -59,6 +67,7 @@ export default async function IntegrationsPage() {
     { key: "inverters", icon: categoryIcons.inverters, count: brands.inverters.length },
     { key: "chargers", icon: categoryIcons.chargers, count: brands.chargers.length },
     { key: "batteries", icon: categoryIcons.batteries, count: brands.batteries.length },
+    { key: "hvac", icon: categoryIcons.hvac, count: brands.hvac.length },
     { key: "utilities", icon: categoryIcons.utilities, count: brands.utilities.length },
     { key: "installers", icon: categoryIcons.installers, count: brands.installers.length },
   ];
@@ -135,12 +144,42 @@ export default async function IntegrationsPage() {
             {brands.inverters.map((brand) => (
               <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
                 <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg">{brand.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
-                  </CardContent>
+                  <div className="flex">
+                    {brand.logo && (
+                      <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                        <Image
+                          src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
+                          alt={brand.name}
+                          width={120}
+                          height={48}
+                          className="h-14 w-auto object-contain dark:hidden"
+                        />
+                        <Image
+                          src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
+                          alt={brand.name}
+                          width={120}
+                          height={48}
+                          className="h-14 w-auto object-contain hidden dark:block"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1">
+                      <CardHeader className="pb-2">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-lg">{brand.name}</CardTitle>
+                          <Badge
+                            variant={brand.status === "supported" ? "default" : "outline"}
+                            className="text-xs shrink-0"
+                          >
+                            {brand.status === "supported" ? t("sections.inverters.supported") : t("sections.inverters.comingSoon")}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
+                      </CardContent>
+                    </div>
+                  </div>
                 </Card>
               </Link>
             ))}
@@ -163,15 +202,42 @@ export default async function IntegrationsPage() {
               {brands.chargers.map((brand) => (
                 <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
                   <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
-                    <CardHeader className="pb-2">
-                      <div className="flex items-center justify-between">
-                        <CardTitle className="text-lg">{brand.name}</CardTitle>
-                        <Badge variant="outline" className="text-xs">{t("sections.chargers.v2xReady")}</Badge>
+                    <div className="flex">
+                      {brand.logo && (
+                        <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                          <Image
+                            src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
+                            alt={brand.name}
+                            width={120}
+                            height={48}
+                            className="h-14 w-auto object-contain dark:hidden"
+                          />
+                          <Image
+                            src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
+                            alt={brand.name}
+                            width={120}
+                            height={48}
+                            className="h-14 w-auto object-contain hidden dark:block"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <CardHeader className="pb-2">
+                          <div className="flex items-center justify-between">
+                            <CardTitle className="text-lg">{brand.name}</CardTitle>
+                            <Badge
+                              variant={brand.status === "supported" ? "default" : "outline"}
+                              className="text-xs shrink-0"
+                            >
+                              {brand.status === "supported" ? t("sections.chargers.supported") : t("sections.chargers.inTesting")}
+                            </Badge>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
+                        </CardContent>
                       </div>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
-                    </CardContent>
+                    </div>
                   </Card>
                 </Link>
               ))}
@@ -195,12 +261,34 @@ export default async function IntegrationsPage() {
               {brands.batteries.map((brand) => (
                 <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
                   <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{brand.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
-                    </CardContent>
+                    <div className="flex">
+                      {brand.logo && (
+                        <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                          <Image
+                            src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
+                            alt={brand.name}
+                            width={120}
+                            height={48}
+                            className="h-14 w-auto object-contain dark:hidden"
+                          />
+                          <Image
+                            src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
+                            alt={brand.name}
+                            width={120}
+                            height={48}
+                            className="h-14 w-auto object-contain hidden dark:block"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <CardHeader className="pb-2">
+                          <CardTitle className="text-lg">{brand.name}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
+                        </CardContent>
+                      </div>
+                    </div>
                   </Card>
                 </Link>
               ))}
@@ -208,8 +296,62 @@ export default async function IntegrationsPage() {
           </div>
         </section>
 
-        {/* Partners */}
+        {/* HVAC */}
         <section className="border-t bg-muted/30">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center">
+                <Thermometer className="h-5 w-5 text-cyan-500" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold">{t("categories.hvac")}</h2>
+                <p className="text-muted-foreground">{t("sections.hvac.subtitle")}</p>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {brands.hvac.map((brand) => (
+                <Card key={brand.slug} className="h-full">
+                  <div className="flex">
+                    {brand.logo && (
+                      <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                        <Image
+                          src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
+                          alt={brand.name}
+                          width={120}
+                          height={48}
+                          className="h-14 w-auto object-contain dark:hidden"
+                        />
+                        <Image
+                          src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
+                          alt={brand.name}
+                          width={120}
+                          height={48}
+                          className="h-14 w-auto object-contain hidden dark:block"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1">
+                      <CardHeader className="pb-2">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-lg">{brand.name}</CardTitle>
+                          <Badge variant="outline" className="text-xs shrink-0">
+                            {t("sections.hvac.comingSoon")}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
+                      </CardContent>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Partners */}
+        <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Utilities */}
@@ -226,12 +368,34 @@ export default async function IntegrationsPage() {
                 <div className="space-y-4">
                   {brands.utilities.map((brand) => (
                     <Card key={brand.slug}>
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-lg">{brand.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
-                      </CardContent>
+                      <div className="flex">
+                        {brand.logo && (
+                          <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                            <Image
+                              src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
+                              alt={brand.name}
+                              width={120}
+                              height={48}
+                              className="h-14 w-auto object-contain dark:hidden"
+                            />
+                            <Image
+                              src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
+                              alt={brand.name}
+                              width={120}
+                              height={48}
+                              className="h-14 w-auto object-contain hidden dark:block"
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1">
+                          <CardHeader className="pb-2">
+                            <CardTitle className="text-lg">{brand.name}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
+                          </CardContent>
+                        </div>
+                      </div>
                     </Card>
                   ))}
                 </div>
@@ -251,12 +415,34 @@ export default async function IntegrationsPage() {
                 <div className="space-y-4">
                   {brands.installers.map((brand) => (
                     <Card key={brand.slug}>
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-lg">{brand.name}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
-                      </CardContent>
+                      <div className="flex">
+                        {brand.logo && (
+                          <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                            <Image
+                              src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
+                              alt={brand.name}
+                              width={120}
+                              height={48}
+                              className="h-14 w-auto object-contain dark:hidden"
+                            />
+                            <Image
+                              src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
+                              alt={brand.name}
+                              width={120}
+                              height={48}
+                              className="h-14 w-auto object-contain hidden dark:block"
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1">
+                          <CardHeader className="pb-2">
+                            <CardTitle className="text-lg">{brand.name}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <CardDescription>{t(`brands.${brand.slug}`)}</CardDescription>
+                          </CardContent>
+                        </div>
+                      </div>
                     </Card>
                   ))}
                 </div>

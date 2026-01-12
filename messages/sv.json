@@ -143,7 +143,7 @@
       "title": "Energikoordinering i realtid",
       "description": "Övervaka anläggningar, analysera prestanda, hantera flottor och automatisera energioptimering - allt från en plattform.",
       "tabs": {
-        "sites": "Anläggningar",
+        "vpp": "VPP",
         "analytics": "Analys",
         "fleet": "Flotta",
         "monitor": "Energiövervakning",
@@ -151,7 +151,7 @@
         "savings": "Besparingar"
       },
       "tabsMobile": {
-        "sites": "Platser",
+        "vpp": "VPP",
         "analytics": "Diagram",
         "fleet": "Tabell",
         "monitor": "Övervakning",
@@ -901,19 +901,28 @@
       "inverters": "Solväxelriktare",
       "chargers": "Elbilsladdare",
       "batteries": "Batterilagring",
+      "hvac": "Värmepumpar",
       "utilities": "Energibolagspartners",
       "installers": "Installatörsnätverk"
     },
     "sections": {
       "inverters": {
-        "subtitle": "Kompatibel med ledande varumärken"
+        "subtitle": "Kompatibel med ledande varumärken",
+        "supported": "Stöds",
+        "comingSoon": "Kommer snart"
       },
       "chargers": {
         "subtitle": "Smart laddning och V2X-redo",
-        "v2xReady": "V2X-redo"
+        "v2xReady": "V2X-redo",
+        "supported": "Stöds",
+        "inTesting": "Under testning"
       },
       "batteries": {
         "subtitle": "Lagringslösningar för hem och företag"
+      },
+      "hvac": {
+        "subtitle": "Värmepumpar och klimatstyrning",
+        "comingSoon": "Kommer snart"
       },
       "utilities": {
         "subtitle": "Energibolag vi samarbetar med"
@@ -932,11 +941,14 @@
       "solis": "Pålitliga strängväxelriktare för alla tillämpningar",
       "deye": "Kostnadseffektiva hybridväxelriktarsystem",
       "ferroamp": "Svensk DC-nanogridteknik",
+      "solinteg": "Avancerade hybridväxelriktarlösningar",
       "easee": "Smart elbilsladdning för hem och företag",
       "zaptec": "Norska laddningslösningar",
       "chargeamps": "Svenska premiumladdare för elbilar",
+      "ferroamp-charger": "Svensk V2X-redo elbilsladdning",
       "pixii": "Modulära batterilagringssystem",
-      "ambibox": "Smarta energilagringslösningar",
+      "ambibox": "Dubbelriktade V2X-laddningslösningar",
+      "nibe": "Svensk värmepumpsteknik i världsklass",
       "kalmar-energi": "Svensk regional energipartner",
       "nrgi": "Danskt energibolag med 250 000 kunder",
       "elkedjan": "Sveriges största installatörsnätverk"
@@ -2071,7 +2083,6 @@
       }
     },
     "moreTools": "Fler energiverktyg",
-    "gridExport": "Nätexport",
     "regions": {
       "SE1": "SE1 - Luleå (Norr)",
       "SE2": "SE2 - Sundsvall",

@@ -143,7 +143,7 @@
       "title": "Real-time energy coordination",
       "description": "Monitor sites, analyze performance, manage fleets, and automate energy optimization - all from one platform.",
       "tabs": {
-        "sites": "Sites Overview",
+        "vpp": "VPP",
         "analytics": "Analytics",
         "fleet": "Fleet",
         "monitor": "Energy Monitor",
@@ -151,7 +151,7 @@
         "savings": "Savings"
       },
       "tabsMobile": {
-        "sites": "Sites",
+        "vpp": "VPP",
         "analytics": "Charts",
         "fleet": "Table",
         "monitor": "Monitor",
@@ -901,19 +901,28 @@
       "inverters": "Solar Inverters",
       "chargers": "EV Chargers",
       "batteries": "Battery Storage",
+      "hvac": "HVAC",
       "utilities": "Utility Partners",
       "installers": "Installer Networks"
     },
     "sections": {
       "inverters": {
-        "subtitle": "Compatible with leading brands"
+        "subtitle": "Compatible with leading brands",
+        "supported": "Supported",
+        "comingSoon": "Coming Soon"
       },
       "chargers": {
         "subtitle": "Smart charging and V2X ready",
-        "v2xReady": "V2X Ready"
+        "v2xReady": "V2X Ready",
+        "supported": "Supported",
+        "inTesting": "In Testing"
       },
       "batteries": {
         "subtitle": "Home and commercial storage solutions"
+      },
+      "hvac": {
+        "subtitle": "Heat pumps and climate control",
+        "comingSoon": "Coming Soon"
       },
       "utilities": {
         "subtitle": "Energy companies we work with"
@@ -932,11 +941,14 @@
       "solis": "Reliable string inverters for all applications",
       "deye": "Cost-effective hybrid inverter systems",
       "ferroamp": "Swedish DC nanogrid technology",
+      "solinteg": "Advanced hybrid inverter solutions",
       "easee": "Smart EV charging for homes and businesses",
       "zaptec": "Norwegian charging solutions",
       "chargeamps": "Swedish premium EV chargers",
+      "ferroamp-charger": "Swedish V2X-ready EV charging",
       "pixii": "Modular battery storage systems",
-      "ambibox": "Smart energy storage solutions",
+      "ambibox": "Bi-directional V2X charging solutions",
+      "nibe": "Swedish heat pump technology leader",
       "kalmar-energi": "Swedish regional utility partner",
       "nrgi": "Danish energy company with 250K customers",
       "elkedjan": "Sweden's largest installer network"
@@ -2071,7 +2083,6 @@
       }
     },
     "moreTools": "More Energy Tools",
-    "gridExport": "Grid Export",
     "regions": {
       "SE1": "SE1 - Luleå (North)",
       "SE2": "SE2 - Sundsvall",
