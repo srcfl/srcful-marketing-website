@@ -22,7 +22,8 @@
       "designSystem": "Design System",
       "hardwareDocs": "Hardware Docs",
       "community": "Community",
-      "menu": "Menu"
+      "menu": "Menu",
+      "displaySettings": "Display Settings"
     },
     "footer": {
       "product": "Product",

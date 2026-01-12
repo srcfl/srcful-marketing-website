@@ -94,11 +94,11 @@ export function DashboardTabs() {
     >
       {/* Tab list */}
       <div className="flex items-center justify-center mb-8">
-        <div className="relative inline-flex items-center bg-muted rounded-lg p-1">
+        <div className="relative inline-flex items-center bg-muted rounded-lg p-1.5">
           {/* Animated background pill */}
           {tabDimensions.length > 0 && tabDimensions[activeIndex] && (
             <motion.div
-              className="absolute h-[calc(100%-8px)] bg-background rounded-md shadow-sm"
+              className="absolute h-[calc(100%-12px)] bg-background rounded-md shadow-sm"
               initial={false}
               animate={{
                 x: tabDimensions[activeIndex].left,
@@ -109,7 +109,7 @@ export function DashboardTabs() {
                 stiffness: 400,
                 damping: 30,
               }}
-              style={{ top: 4 }}
+              style={{ top: 6, left: 0 }}
             />
           )}
 

@@ -41,7 +41,12 @@ const colorModeOptions: { value: ColorMode; label: string }[] = [
   { value: "achromatopsia", label: "Achromatopsia (Monochrome)" },
 ];
 
-export function DisplaySettings() {
+interface DisplaySettingsProps {
+  variant?: "icon" | "outline" | "mobile";
+  label?: string;
+}
+
+export function DisplaySettings({ variant = "icon", label = "Display Settings" }: DisplaySettingsProps) {
   const { theme, setTheme } = useTheme();
   const locale = useLocale();
   const router = useRouter();
@@ -70,12 +75,26 @@ export function DisplaySettings() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative">
-          <SlidersHorizontal className="h-4 w-4" />
-          {hasActiveAccessibility && (
-            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-primary" />
-          )}
-        </Button>
+        {variant === "mobile" ? (
+          <button className="flex items-center justify-between w-full text-xl font-semibold text-primary py-5 border-b border-border/30">
+            <span>{label}</span>
+            <SlidersHorizontal className="h-5 w-5" />
+          </button>
+        ) : variant === "outline" ? (
+          <Button variant="outline" className="relative h-9 w-9 bg-muted/50">
+            <SlidersHorizontal className="h-4 w-4" />
+            {hasActiveAccessibility && (
+              <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-primary" />
+            )}
+          </Button>
+        ) : (
+          <Button variant="ghost" size="icon" className="relative">
+            <SlidersHorizontal className="h-4 w-4" />
+            {hasActiveAccessibility && (
+              <span className="absolute -top-0.5 -right-0.5 h-2 w-2 rounded-full bg-primary" />
+            )}
+          </Button>
+        )}
       </SheetTrigger>
       <SheetContent side="right" className="w-[340px] sm:w-[400px]">
         <SheetHeader>
