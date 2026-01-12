@@ -55,7 +55,7 @@ Based on your answers, here's the prioritized implementation plan:
     - Enhanced text spacing (WCAG 1.4.12)
     - Enhanced focus indicators (WCAG 2.4.7)
     - Settings UI in footer at `components/accessibility-settings.tsx`
-30. [ ] **Animated Hero Background** - Homepage hero animation
+30. [x] **Animated Hero Background** - Self-hosted Unicorn Studio animation (dark mode only), updated hero copy
 31. [ ] **Marketing Campaign Landing Pages** - Simple templates for campaigns
 32. [ ] **V2X Live Product Page** - Convert waitlist to product page
 
@@ -344,6 +344,8 @@ Based on your answers, here's the prioritized implementation plan:
 - [ ] **Negative Price Analyzer** - Port from GitHub repo
 
 ### Recent Completions (2026-01-12)
+- ✅ Animated hero background - Self-hosted Unicorn Studio pixel ripple animation (dark mode only)
+- ✅ Updated hero copy: "Local energy control you can build on"
 - ✅ Elevated theme from design system (`@sourceful-energy/ui@0.1.31`)
 - ✅ DesignSystemProvider with theme, accessibility hooks
 - ✅ Design system CSS import with elevated styles
