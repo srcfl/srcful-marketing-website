@@ -349,8 +349,12 @@ Based on your answers, here's the prioritized implementation plan:
 - ✅ Design system CSS import with elevated styles
 - ✅ Accessibility modes (color blind, dyslexic font, spacing, focus)
 - ✅ Lexend font for dyslexic-friendly reading
-- ✅ Accessibility settings UI in footer
-- ✅ Fixed missing translation keys (utilities partnerships, hero partnersLabel)
+- ✅ Display Settings panel (`components/display-settings.tsx`) - Theme, language, accessibility in one slide-out
+- ✅ Mobile menu redesign - Sliding panels with back navigation, large green text links
+- ✅ Elevated button styling site-wide - Shadows, hover effects on all button variants
+- ✅ Dark mode lightened slightly (background 4%→7%, cards 9%→11%)
+- ✅ Hero and main sections now 100vh with centered content
+- ✅ Fixed missing translation keys (utilities partnerships, hero partnersLabel, displaySettings)
 
 ### Previous Completions (2026-01-10)
 - ✅ DashboardShowcase added to use-case pages (utilities, installers, OEMs, homeowners)
