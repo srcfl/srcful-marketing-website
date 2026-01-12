@@ -96,8 +96,8 @@ export default function Home() {
         </section>
 
         {/* Universal Connectivity Layer */}
-        <section className="border-t bg-muted/30">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <Badge variant="secondary" className="mb-4">
                 <Zap className="h-3 w-3 mr-1" />
@@ -137,8 +137,8 @@ export default function Home() {
         </section>
 
         {/* Audiences */}
-        <section className="border-t">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("audiences.title")}
@@ -176,8 +176,8 @@ export default function Home() {
         </section>
 
         {/* Developer Section */}
-        <section className="border-t">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge variant="secondary" className="mb-4">
@@ -261,8 +261,8 @@ export default function Home() {
         </section>
 
         {/* The Zap */}
-        <section className="border-t bg-muted/30">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge variant="secondary" className="mb-4">{t("zap.badge")}</Badge>

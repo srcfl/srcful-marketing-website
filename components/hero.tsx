@@ -22,10 +22,10 @@ export function Hero() {
   const tCommon = useTranslations("common");
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden min-h-screen flex flex-col">
       <div className="absolute inset-0 bg-dot-pattern" />
 
-      <div className="relative max-w-7xl mx-auto pt-24 md:pt-32 pb-12 md:pb-16 px-4 md:px-8">
+      <div className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full pt-32 md:pt-40 pb-16 md:pb-24 px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <FadeIn>
             <div>
@@ -91,9 +91,9 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Logo carousel */}
-      <div className="relative">
-        <div className="max-w-7xl mx-auto py-8 md:py-12 px-4 md:px-8">
+      {/* Logo carousel - anchored at bottom */}
+      <div className="relative mt-auto pb-8 md:pb-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <FadeIn delay={0.3}>
             <p className="text-center text-sm text-muted-foreground mb-8">
               {t("hero.partnersLabel")}

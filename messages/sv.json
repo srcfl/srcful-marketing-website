@@ -129,7 +129,8 @@
       "title": "De fysiska rälsen som får",
       "titleHighlight": "distribuerad energi",
       "titleEnd": "att faktiskt fungera",
-      "description": "Moln-API:er svarar på 2-5 sekunder. Nätstabilitet måste balanseras varje sekund. Vi bygger det lokala exekveringslagret som överbryggar detta gap - och ger energibolag och villaägare verklig kontroll över distribuerad energi."
+      "description": "Moln-API:er svarar på 2-5 sekunder. Nätstabilitet måste balanseras varje sekund. Vi bygger det lokala exekveringslagret som överbryggar detta gap - och ger energibolag och villaägare verklig kontroll över distribuerad energi.",
+      "partnersLabel": "Integrerat med ledande energivarumärken"
     },
     "stats": {
       "destroyed": "Förstörs årligen i koordineringsfel",
@@ -556,10 +557,21 @@
         "paragraph1": "40-70 miljoner elbilar i Europa till 2030. 2 800 GWh distribuerad lagring som behöver koordinering. Moln-API:er svarar på 2-5 sekunder - men nätfrekvensen måste balanseras varje sekund.",
         "paragraph2": "Resultatet? €2,5 miljarder förstörs årligen i koordineringsfel. 700+ timmar med negativt elpris. Tillgångar som står stilla när nätet behöver dem som mest.",
         "paragraph3": "Vi överbryggar detta gap med lokal exekveringsinfrastruktur.",
-        "partnershipsTitle": "Nuvarande samarbeten",
-        "kalmar": "Lansering nära förestående",
-        "nrgi": "250K-kundpipeline",
-        "others": "Aktiva diskussioner"
+        "partnerships": {
+          "title": "Nuvarande samarbeten",
+          "kalmar": {
+            "name": "Kalmar Energi",
+            "status": "Lansering nära förestående"
+          },
+          "nrgi": {
+            "name": "NRGi",
+            "status": "250K-kundpipeline"
+          },
+          "fortum": {
+            "name": "Fortum",
+            "status": "Aktiva diskussioner"
+          }
+        }
       },
       "benefits": {
         "title": "Varför energibolag samarbetar med oss",

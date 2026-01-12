@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Lexend } from "next/font/google";
+import "@sourceful-energy/ui/styles.css";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { DesignSystemProvider } from "@/components/design-system-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { LenisProvider } from "@/components/lenis-provider";
 import { AuthProvider } from "@/components/auth-provider";
@@ -29,6 +31,12 @@ const satoshi = localFont({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
+});
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  variable: "--font-dyslexic",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -72,7 +80,8 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           satoshi.variable,
-          jetbrainsMono.variable
+          jetbrainsMono.variable,
+          lexend.variable
         )}
       >
         <AuthProvider>
@@ -82,15 +91,17 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange={false}
           >
-            <LenisProvider>
-              <IntercomProvider>
-                {children}
-              </IntercomProvider>
-            </LenisProvider>
-            <CookieConsent />
-            <AnalyticsProvider>
-              <Toaster />
-            </AnalyticsProvider>
+            <DesignSystemProvider defaultTheme="elevated">
+              <LenisProvider>
+                <IntercomProvider>
+                  {children}
+                </IntercomProvider>
+              </LenisProvider>
+              <CookieConsent />
+              <AnalyticsProvider>
+                <Toaster />
+              </AnalyticsProvider>
+            </DesignSystemProvider>
           </ThemeProvider>
         </AuthProvider>
       </body>

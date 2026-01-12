@@ -556,10 +556,21 @@
         "paragraph1": "40-70 million EVs in Europe by 2030. 2,800 GWh of distributed storage that needs coordination. Cloud APIs respond in 2-5 seconds - but grid frequency must balance every second.",
         "paragraph2": "The result? €2.5B destroyed annually in coordination failures. 700+ hours of negative electricity pricing. Assets sitting idle when the grid needs them most.",
         "paragraph3": "We bridge this gap with local execution infrastructure.",
-        "partnershipsTitle": "Current partnerships",
-        "kalmar": "Go-live imminent",
-        "nrgi": "250K customer pipeline",
-        "others": "Active discussions"
+        "partnerships": {
+          "title": "Current partnerships",
+          "kalmar": {
+            "name": "Kalmar Energi",
+            "status": "Go-live imminent"
+          },
+          "nrgi": {
+            "name": "NRGi",
+            "status": "250K customer pipeline"
+          },
+          "fortum": {
+            "name": "Fortum",
+            "status": "Active discussions"
+          }
+        }
       },
       "benefits": {
         "title": "Why utilities partner with us",
