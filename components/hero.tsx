@@ -26,7 +26,7 @@ export function Hero() {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex flex-col bg-background dark:bg-[#030712]">
+    <section className="relative overflow-hidden min-h-screen flex flex-col bg-background dark:bg-[#0a0a0a]">
       {isDark && (
         <div className="absolute inset-0 opacity-25">
           <UnicornScene
