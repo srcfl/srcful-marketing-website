@@ -462,27 +462,30 @@ export default function SavingsCalculatorPage() {
           <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
             <h2 className="text-xl font-semibold mb-6 text-center">{t("moreTools")}</h2>
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <Card className="opacity-60">
-                <CardContent className="p-4 text-center">
-                  <Battery className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <h3 className="font-medium">{t("batterySizing")}</h3>
-                  <Badge variant="outline" className="mt-2 text-xs">{t("comingSoon")}</Badge>
-                </CardContent>
-              </Card>
-              <Card className="opacity-60">
-                <CardContent className="p-4 text-center">
-                  <Car className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <h3 className="font-medium">{t("v2xSavings")}</h3>
-                  <Badge variant="outline" className="mt-2 text-xs">{t("comingSoon")}</Badge>
-                </CardContent>
-              </Card>
-              <Card className="opacity-60">
-                <CardContent className="p-4 text-center">
-                  <Zap className="h-6 w-6 mx-auto mb-2 text-muted-foreground" />
-                  <h3 className="font-medium">{t("gridExport")}</h3>
-                  <Badge variant="outline" className="mt-2 text-xs">{t("comingSoon")}</Badge>
-                </CardContent>
-              </Card>
+              <Link href="/tools/battery-sizing">
+                <Card className="hover:border-primary/50 transition-colors cursor-pointer h-full">
+                  <CardContent className="p-4 text-center">
+                    <Battery className="h-6 w-6 mx-auto mb-2 text-primary" />
+                    <h3 className="font-medium">{t("batterySizing.title")}</h3>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/tools/v2x-savings">
+                <Card className="hover:border-primary/50 transition-colors cursor-pointer h-full">
+                  <CardContent className="p-4 text-center">
+                    <Car className="h-6 w-6 mx-auto mb-2 text-primary" />
+                    <h3 className="font-medium">{t("v2xSavings.title")}</h3>
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/tools/solar-roi">
+                <Card className="hover:border-primary/50 transition-colors cursor-pointer h-full">
+                  <CardContent className="p-4 text-center">
+                    <Sun className="h-6 w-6 mx-auto mb-2 text-primary" />
+                    <h3 className="font-medium">{t("solarRoi.title")}</h3>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>

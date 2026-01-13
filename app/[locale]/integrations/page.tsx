@@ -27,7 +27,7 @@ const brands = {
     { name: "SMA", slug: "sma", status: "coming" as const, logo: "sma" },
     { name: "Ferroamp", slug: "ferroamp", status: "coming" as const, logo: "ferroamp" },
     { name: "SolaX", slug: "solax", status: "coming" as const, logo: "solax" },
-    { name: "Solinteg", slug: "solinteg", status: "coming" as const, logo: null },
+    { name: "Solinteg", slug: "solinteg", status: "coming" as const, logo: "solinteg" },
   ],
   chargers: [
     { name: "Ambibox", slug: "ambibox", status: "supported" as const, logo: "ambibox" },
@@ -51,26 +51,9 @@ const brands = {
   ],
 };
 
-const categoryIcons = {
-  inverters: Sun,
-  chargers: Car,
-  batteries: Battery,
-  hvac: Thermometer,
-  utilities: Gauge,
-  installers: Plug,
-};
-
 export default async function IntegrationsPage() {
   const t = await getTranslations("integrations");
 
-  const categories = [
-    { key: "inverters", icon: categoryIcons.inverters, count: brands.inverters.length },
-    { key: "chargers", icon: categoryIcons.chargers, count: brands.chargers.length },
-    { key: "batteries", icon: categoryIcons.batteries, count: brands.batteries.length },
-    { key: "hvac", icon: categoryIcons.hvac, count: brands.hvac.length },
-    { key: "utilities", icon: categoryIcons.utilities, count: brands.utilities.length },
-    { key: "installers", icon: categoryIcons.installers, count: brands.installers.length },
-  ];
   return (
     <div className="flex min-h-screen flex-col">
       <MarketingNav />
@@ -109,26 +92,6 @@ export default async function IntegrationsPage() {
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="bg-muted/30 border-b">
-          <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-              {categories.map((category) => {
-                const Icon = category.icon;
-                return (
-                  <div key={category.key} className="text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-2">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="text-2xl font-bold">{category.count}</div>
-                    <div className="text-sm text-muted-foreground">{t(`categories.${category.key}`)}</div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
         {/* Solar Inverters */}
         <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
           <div className="flex items-center gap-3 mb-8">
@@ -143,23 +106,23 @@ export default async function IntegrationsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {brands.inverters.map((brand) => (
               <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
-                <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
-                  <div className="flex">
+                <Card className="h-full">
+                  <div className="flex h-full">
                     {brand.logo && (
-                      <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                      <div className="w-36 shrink-0 flex items-center justify-center border-r bg-muted/30 p-2 self-stretch">
                         <Image
                           src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
                           alt={brand.name}
                           width={120}
                           height={48}
-                          className="h-14 w-auto object-contain dark:hidden"
+                          className="h-24 w-auto object-contain dark:hidden"
                         />
                         <Image
                           src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
                           alt={brand.name}
                           width={120}
                           height={48}
-                          className="h-14 w-auto object-contain hidden dark:block"
+                          className="h-24 w-auto object-contain hidden dark:block"
                         />
                       </div>
                     )}
@@ -201,23 +164,23 @@ export default async function IntegrationsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {brands.chargers.map((brand) => (
                 <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
-                  <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
-                    <div className="flex">
+                  <Card className="h-full">
+                    <div className="flex h-full">
                       {brand.logo && (
-                        <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                        <div className="w-36 shrink-0 flex items-center justify-center border-r bg-muted/30 p-2 self-stretch">
                           <Image
                             src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
                             alt={brand.name}
                             width={120}
                             height={48}
-                            className="h-14 w-auto object-contain dark:hidden"
+                            className="h-24 w-auto object-contain dark:hidden"
                           />
                           <Image
                             src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
                             alt={brand.name}
                             width={120}
                             height={48}
-                            className="h-14 w-auto object-contain hidden dark:block"
+                            className="h-24 w-auto object-contain hidden dark:block"
                           />
                         </div>
                       )}
@@ -260,23 +223,23 @@ export default async function IntegrationsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {brands.batteries.map((brand) => (
                 <Link key={brand.slug} href={`/integrations/${brand.slug}`} className="no-underline">
-                  <Card className="h-full hover:border-primary/50 hover:shadow-md transition-all">
-                    <div className="flex">
+                  <Card className="h-full">
+                    <div className="flex h-full">
                       {brand.logo && (
-                        <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                        <div className="w-36 shrink-0 flex items-center justify-center border-r bg-muted/30 p-2 self-stretch">
                           <Image
                             src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
                             alt={brand.name}
                             width={120}
                             height={48}
-                            className="h-14 w-auto object-contain dark:hidden"
+                            className="h-24 w-auto object-contain dark:hidden"
                           />
                           <Image
                             src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
                             alt={brand.name}
                             width={120}
                             height={48}
-                            className="h-14 w-auto object-contain hidden dark:block"
+                            className="h-24 w-auto object-contain hidden dark:block"
                           />
                         </div>
                       )}
@@ -311,22 +274,22 @@ export default async function IntegrationsPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {brands.hvac.map((brand) => (
                 <Card key={brand.slug} className="h-full">
-                  <div className="flex">
+                  <div className="flex h-full">
                     {brand.logo && (
-                      <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                      <div className="w-36 shrink-0 flex items-center justify-center border-r bg-muted/30 p-2 self-stretch">
                         <Image
                           src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
                           alt={brand.name}
                           width={120}
                           height={48}
-                          className="h-14 w-auto object-contain dark:hidden"
+                          className="h-24 w-auto object-contain dark:hidden"
                         />
                         <Image
                           src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
                           alt={brand.name}
                           width={120}
                           height={48}
-                          className="h-14 w-auto object-contain hidden dark:block"
+                          className="h-24 w-auto object-contain hidden dark:block"
                         />
                       </div>
                     )}
@@ -368,22 +331,22 @@ export default async function IntegrationsPage() {
                 <div className="space-y-4">
                   {brands.utilities.map((brand) => (
                     <Card key={brand.slug}>
-                      <div className="flex">
+                      <div className="flex h-full">
                         {brand.logo && (
-                          <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                          <div className="w-36 shrink-0 flex items-center justify-center border-r bg-muted/30 p-2 self-stretch">
                             <Image
                               src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
                               alt={brand.name}
                               width={120}
                               height={48}
-                              className="h-14 w-auto object-contain dark:hidden"
+                              className="h-24 w-auto object-contain dark:hidden"
                             />
                             <Image
                               src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
                               alt={brand.name}
                               width={120}
                               height={48}
-                              className="h-14 w-auto object-contain hidden dark:block"
+                              className="h-24 w-auto object-contain hidden dark:block"
                             />
                           </div>
                         )}
@@ -415,22 +378,22 @@ export default async function IntegrationsPage() {
                 <div className="space-y-4">
                   {brands.installers.map((brand) => (
                     <Card key={brand.slug}>
-                      <div className="flex">
+                      <div className="flex h-full">
                         {brand.logo && (
-                          <div className="w-28 shrink-0 flex items-center justify-center border-r bg-muted/30 p-4">
+                          <div className="w-36 shrink-0 flex items-center justify-center border-r bg-muted/30 p-2 self-stretch">
                             <Image
                               src={`/images/partner-logos/light-mode/${brand.logo}.svg`}
                               alt={brand.name}
                               width={120}
                               height={48}
-                              className="h-14 w-auto object-contain dark:hidden"
+                              className="h-24 w-auto object-contain dark:hidden"
                             />
                             <Image
                               src={`/images/partner-logos/dark-mode/${brand.logo}.svg`}
                               alt={brand.name}
                               width={120}
                               height={48}
-                              className="h-14 w-auto object-contain hidden dark:block"
+                              className="h-24 w-auto object-contain hidden dark:block"
                             />
                           </div>
                         )}

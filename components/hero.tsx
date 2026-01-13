@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -23,11 +24,22 @@ export function Hero() {
   const t = useTranslations("home");
   const tCommon = useTranslations("common");
   const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
+  const [mounted, setMounted] = useState(false);
+
+  // Only render theme-dependent content after mounting to avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <section className="relative overflow-hidden min-h-screen flex flex-col bg-background dark:bg-[#0a0a0a]">
-      {isDark && (
+      {/* Light mode: dot pattern (also shown during SSR to avoid hydration mismatch) */}
+      <div className={`absolute inset-0 bg-dot-pattern transition-opacity duration-300 ${isDark ? 'opacity-0' : 'opacity-100'}`} />
+
+      {/* Dark mode: Unicorn animation (only rendered after mount) */}
+      {mounted && isDark && (
         <div className="absolute inset-0 opacity-25">
           <UnicornScene
             jsonFilePath="/unicorn-hero.json"
@@ -39,7 +51,6 @@ export function Hero() {
           />
         </div>
       )}
-      {!isDark && <div className="absolute inset-0 bg-dot-pattern" />}
 
       <div className="relative flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full pt-32 md:pt-40 pb-16 md:pb-24 px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-start">

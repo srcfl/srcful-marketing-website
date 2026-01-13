@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { Map, BarChart3, Table2, Activity, Cpu, Coins } from "lucide-react";
+import { Map, BarChart3, Table2, Activity, Cpu, Coins, Play, Pause } from "lucide-react";
 import { SitesOverviewExample } from "@/components/examples/sites-overview";
 import { AnalyticsDashboardExample } from "@/components/examples/analytics-dashboard";
 import { FleetDashboardExample } from "@/components/examples/fleet-dashboard";
@@ -17,7 +17,7 @@ const tabs = [
   { id: "savings", icon: Coins, labelKey: "savings", component: SavingsRewardsExample },
   { id: "monitor", icon: Activity, labelKey: "monitor", component: EnergyMonitorExample },
   { id: "analytics", icon: BarChart3, labelKey: "analytics", component: AnalyticsDashboardExample },
-  { id: "sites", icon: Map, labelKey: "sites", component: SitesOverviewExample },
+  { id: "vpp", icon: Map, labelKey: "vpp", component: SitesOverviewExample },
   { id: "fleet", icon: Table2, labelKey: "fleet", component: FleetDashboardExample },
 ];
 
@@ -44,10 +44,11 @@ export function DashboardTabs() {
   const handleTabClick = useCallback((index: number) => {
     setDirection(index > activeIndex ? 1 : -1);
     setActiveIndex(index);
-    setIsPaused(true);
-    // Resume auto-cycling after 10 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 10000);
   }, [activeIndex]);
+
+  const togglePause = useCallback(() => {
+    setIsPaused(prev => !prev);
+  }, []);
 
   const ActiveComponent = tabs[activeIndex].component;
   const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
@@ -88,10 +89,7 @@ export function DashboardTabs() {
   };
 
   return (
-    <div
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <div>
       {/* Tab list */}
       <div className="flex items-center justify-center mb-8">
         <div className="relative inline-flex items-center bg-muted rounded-lg p-1.5">
@@ -136,10 +134,10 @@ export function DashboardTabs() {
         </div>
       </div>
 
-      {/* Progress bar */}
-      <div className="flex justify-center mb-6">
+      {/* Progress bar with play/pause */}
+      <div className="flex justify-center items-center gap-3 mb-6">
         <div className="flex gap-1.5">
-          {tabs.map((_, index) => (
+          {tabs.slice(0, 3).map((_, index) => (
             <div
               key={index}
               className="relative h-1 w-8 bg-muted rounded-full overflow-hidden cursor-pointer"
@@ -162,6 +160,47 @@ export function DashboardTabs() {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Play/Pause button */}
+        <button
+          onClick={togglePause}
+          className="h-6 w-6 flex items-center justify-center rounded-full bg-muted hover:bg-muted/80 transition-colors"
+        >
+          {isPaused ? (
+            <Play className="h-3 w-3 text-foreground ml-0.5" />
+          ) : (
+            <Pause className="h-3 w-3 text-foreground" />
+          )}
+        </button>
+
+        <div className="flex gap-1.5">
+          {tabs.slice(3).map((_, i) => {
+            const index = i + 3;
+            return (
+              <div
+                key={index}
+                className="relative h-1 w-8 bg-muted rounded-full overflow-hidden cursor-pointer"
+                onClick={() => handleTabClick(index)}
+              >
+                {index === activeIndex && !isPaused && (
+                  <motion.div
+                    className="absolute inset-0 bg-primary rounded-full"
+                    initial={{ scaleX: 0, originX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: CYCLE_DURATION / 1000, ease: "linear" }}
+                    key={activeIndex}
+                  />
+                )}
+                {index === activeIndex && isPaused && (
+                  <div className="absolute inset-0 bg-primary rounded-full" />
+                )}
+                {index < activeIndex && (
+                  <div className="absolute inset-0 bg-primary/40 rounded-full" />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 

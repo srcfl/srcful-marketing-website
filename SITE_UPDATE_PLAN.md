@@ -1,11 +1,11 @@
 # Sourceful Marketing Site Update Plan
 
 **Created:** 2026-01-06
-**Updated:** 2026-01-12
+**Updated:** 2026-01-13
 **Status:** ✅ Phase 1, 2, 3, 7 complete | Phase 4 in progress | Phase 8 in progress
 
 ---
-
+    
 ## Implementation Roadmap
 
 Based on your answers, here's the prioritized implementation plan:
@@ -55,7 +55,7 @@ Based on your answers, here's the prioritized implementation plan:
     - Enhanced text spacing (WCAG 1.4.12)
     - Enhanced focus indicators (WCAG 2.4.7)
     - Settings UI in footer at `components/accessibility-settings.tsx`
-30. [x] **Animated Hero Background** - Self-hosted Unicorn Studio animation (dark mode only), updated hero copy
+30. [ ] **Animated Hero Background** - Homepage hero animation
 31. [ ] **Marketing Campaign Landing Pages** - Simple templates for campaigns
 32. [ ] **V2X Live Product Page** - Convert waitlist to product page
 
@@ -343,9 +343,18 @@ Based on your answers, here's the prioritized implementation plan:
 - [ ] **Grid Export Earnings Calculator**
 - [ ] **Negative Price Analyzer** - Port from GitHub repo
 
-### Recent Completions (2026-01-12)
-- ✅ Animated hero background - Self-hosted Unicorn Studio pixel ripple animation (dark mode only)
-- ✅ Updated hero copy: "Local energy control you can build on"
+### Recent Completions (2026-01-13)
+- ✅ Integrations page updated with roadmap data from support docs
+- ✅ Inverters now show "Supported" vs "Coming Soon" status badges
+- ✅ Added Solinteg inverter (Coming Soon)
+- ✅ Moved Ambibox to EV Chargers section (Supported)
+- ✅ Added Ferroamp to EV Chargers (In Testing)
+- ✅ Added HVAC category with NIBE heat pump (Coming Soon)
+- ✅ Brand logos displayed on left side of integration cards
+- ✅ Theme-aware logos (light/dark mode switching)
+- ✅ Removed stats section from integrations page
+
+### Previous Completions (2026-01-12)
 - ✅ Elevated theme from design system (`@sourceful-energy/ui@0.1.31`)
 - ✅ DesignSystemProvider with theme, accessibility hooks
 - ✅ Design system CSS import with elevated styles

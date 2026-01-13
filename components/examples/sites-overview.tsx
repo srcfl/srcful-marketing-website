@@ -1,66 +1,57 @@
 "use client";
 
-import { useState } from "react";
 import { SitesMap, type Site } from "@/components/ui/sites-map";
-import { EnergyFlow } from "@/components/ui/energy-flow";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-import { MapPin, Zap, ArrowUpRight, ArrowDownRight, ArrowLeft, Plus, Minus, Maximize, Lock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MapPin, Zap } from "lucide-react";
 
-const demoSites: Site[] = [
-  {
-    id: "1",
-    name: "Stockholm HQ",
-    status: "live",
-    coordinates: { lat: 59.3293, lng: 18.0686 },
-    currentProduction: 4500,
-    address: "Kungsgatan 1, Stockholm",
-  },
-  {
-    id: "2",
-    name: "Gothenburg Office",
-    status: "live",
-    coordinates: { lat: 57.7089, lng: 11.9746 },
-    currentProduction: 3200,
-    address: "Avenyn 10, Gothenburg",
-  },
-  {
-    id: "3",
-    name: "Malmö Site",
-    status: "offline",
-    coordinates: { lat: 55.6050, lng: 13.0038 },
-    currentProduction: 0,
-    address: "Stortorget 5, Malmö",
-  },
-  {
-    id: "4",
-    name: "Uppsala Campus",
-    status: "commissioning",
-    coordinates: { lat: 59.8586, lng: 17.6389 },
-    currentProduction: 1200,
-    address: "Universitetsvägen 1, Uppsala",
-  },
-];
+// Generate 420 sites around Kalmar, Sweden
+const generateKalmarSites = (): Site[] => {
+  const kalmarCenter = { lat: 56.6634, lng: 16.3568 };
+  const sites: Site[] = [];
 
-const siteDetails: Record<string, { solarPower: number; batteryPower: number; gridImport: number; homeConsumption: number; batterySoC: number }> = {
-  "1": { solarPower: 4500, batteryPower: -1200, gridImport: 0, homeConsumption: 3300, batterySoC: 82 },
-  "2": { solarPower: 3200, batteryPower: 800, gridImport: 0, homeConsumption: 2400, batterySoC: 45 },
-  "3": { solarPower: 0, batteryPower: 0, gridImport: 1500, homeConsumption: 1500, batterySoC: 20 },
-  "4": { solarPower: 1200, batteryPower: 500, gridImport: 300, homeConsumption: 1000, batterySoC: 60 },
+  // Seed for consistent random generation
+  const seededRandom = (seed: number) => {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+  };
+
+  for (let i = 0; i < 420; i++) {
+    // Spread sites within ~15km radius of Kalmar
+    const angle = seededRandom(i * 3) * Math.PI * 2;
+    const distance = seededRandom(i * 7) * 0.15; // ~15km in degrees
+    const lat = kalmarCenter.lat + Math.cos(angle) * distance;
+    const lng = kalmarCenter.lng + Math.sin(angle) * distance * 1.8; // Adjust for latitude
+
+    // 92% live, 5% offline, 3% commissioning
+    const statusRand = seededRandom(i * 11);
+    const status: Site["status"] = statusRand < 0.92 ? "live" : statusRand < 0.97 ? "offline" : "commissioning";
+
+    // Random production 2-8 kW for live sites
+    const production = status === "live" ? Math.floor(2000 + seededRandom(i * 13) * 6000) : 0;
+
+    sites.push({
+      id: String(i + 1),
+      name: `Site ${i + 1}`,
+      status,
+      coordinates: { lat, lng },
+      currentProduction: production,
+      address: `Kalmar area`,
+    });
+  }
+
+  return sites;
 };
 
-export function SitesOverviewExample() {
-  const [selectedSiteId, setSelectedSiteId] = useState<string | null>(null);
-  const [hoveredSiteId, setHoveredSiteId] = useState<string | null>(null);
+const demoSites: Site[] = generateKalmarSites();
 
+export function SitesOverviewExample() {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
-  const selectedSite = selectedSiteId ? demoSites.find(s => s.id === selectedSiteId) : null;
-  const selectedDetails = selectedSiteId ? siteDetails[selectedSiteId] : null;
 
   const totalProduction = demoSites.reduce((sum, site) => sum + (site.currentProduction || 0), 0);
   const onlineSites = demoSites.filter(s => s.status === "live").length;
+  const offlineSites = demoSites.filter(s => s.status === "offline").length;
+  const commissioningSites = demoSites.filter(s => s.status === "commissioning").length;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-4 min-h-[500px] lg:h-[700px]">
@@ -70,8 +61,6 @@ export function SitesOverviewExample() {
           <SitesMap
             sites={demoSites}
             mapboxToken={mapboxToken}
-            onSiteSelect={setSelectedSiteId}
-            hoveredSiteId={hoveredSiteId}
             className="h-full min-h-[300px]"
           />
         ) : (
@@ -84,7 +73,7 @@ export function SitesOverviewExample() {
         )}
       </div>
 
-      {/* Side Panel */}
+      {/* Side Panel - VPP Stats */}
       <div className="flex flex-col gap-4 overflow-auto">
         {/* Summary Cards */}
         <div className="grid grid-cols-2 gap-3">
@@ -92,129 +81,100 @@ export function SitesOverviewExample() {
             <CardContent className="p-4">
               <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
                 <Zap className="h-4 w-4" />
-                Total Production
+                Total Capacity
               </div>
-              <div className="text-2xl font-bold">{(totalProduction / 1000).toFixed(1)} kW</div>
+              <div className="text-2xl font-bold">{(totalProduction / 1000).toFixed(0)} kW</div>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-4">
               <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
                 <MapPin className="h-4 w-4" />
-                Sites Online
+                Total Sites
               </div>
-              <div className="text-2xl font-bold">{onlineSites}/{demoSites.length}</div>
+              <div className="text-2xl font-bold">{demoSites.length}</div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Site List or Energy Flow */}
-        {selectedSite && selectedDetails ? (
-          <Card className="flex-1 relative">
-            <CardHeader className="pb-2">
+        {/* VPP Status Card */}
+        <Card className="flex-1">
+          <CardHeader>
+            <CardTitle className="text-lg">VPP Status</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Status breakdown */}
+            <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8"
-                    onClick={() => setSelectedSiteId(null)}
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                  </Button>
-                  <CardTitle className="text-lg">{selectedSite.name}</CardTitle>
+                  <div className="h-2.5 w-2.5 rounded-full bg-green-500" />
+                  <span className="text-sm">Online</span>
                 </div>
-                <Badge variant={selectedSite.status === "live" ? "default" : "secondary"}>
-                  {selectedSite.status}
-                </Badge>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium">{onlineSites}</span>
+                  <span className="text-xs text-muted-foreground">({((onlineSites / demoSites.length) * 100).toFixed(1)}%)</span>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground ml-10">{selectedSite.address}</p>
-            </CardHeader>
-            <CardContent className="p-2">
-              <EnergyFlow
-                solarPower={selectedDetails.solarPower}
-                batteryPower={selectedDetails.batteryPower}
-                gridImport={selectedDetails.gridImport}
-                homeConsumption={selectedDetails.homeConsumption}
-                batterySoC={selectedDetails.batterySoC}
-                className="h-[350px] border-0"
-                showControls={false}
-              />
-            </CardContent>
-            {/* Controls positioned at card level */}
-            <div className="absolute bottom-4 left-4 z-10">
-              <div className="flex flex-col bg-white dark:bg-[#141414] border border-sourceful-gray-200 dark:border-[#262626] rounded-lg shadow-sm overflow-hidden">
-                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors">
-                  <Plus className="h-4 w-4" />
-                </button>
-                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
-                  <Minus className="h-4 w-4" />
-                </button>
-                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
-                  <Maximize className="h-4 w-4" />
-                </button>
-                <button className="p-2 hover:bg-sourceful-gray-100 dark:hover:bg-[#262626] transition-colors border-t border-sourceful-gray-200 dark:border-[#262626]">
-                  <Lock className="h-4 w-4" />
-                </button>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="h-2.5 w-2.5 rounded-full bg-red-500" />
+                  <span className="text-sm">Offline</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium">{offlineSites}</span>
+                  <span className="text-xs text-muted-foreground">({((offlineSites / demoSites.length) * 100).toFixed(1)}%)</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+                  <span className="text-sm">Commissioning</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-medium">{commissioningSites}</span>
+                  <span className="text-xs text-muted-foreground">({((commissioningSites / demoSites.length) * 100).toFixed(1)}%)</span>
+                </div>
               </div>
             </div>
-          </Card>
-        ) : (
-          <Card className="flex-1">
-            <CardHeader>
-              <CardTitle className="text-lg">Sites</CardTitle>
-            </CardHeader>
-            <CardContent className="p-0">
-              <div className="divide-y">
-                {demoSites.map((site) => (
-                  <div
-                    key={site.id}
-                    onMouseEnter={() => setHoveredSiteId(site.id)}
-                    onMouseLeave={() => setHoveredSiteId(null)}
-                    onClick={() => setSelectedSiteId(site.id)}
-                    className={cn(
-                      "flex items-center justify-between p-4 cursor-pointer transition-colors",
-                      hoveredSiteId === site.id ? "bg-primary/5" : "hover:bg-muted/50"
-                    )}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="h-2.5 w-2.5 rounded-full"
-                        style={{
-                          backgroundColor:
-                            site.status === "live" ? "#10b981" :
-                            site.status === "offline" ? "#ef4444" : "#f59e0b",
-                        }}
-                      />
-                      <div>
-                        <p className="font-medium text-sm">{site.name}</p>
-                        <p className="text-xs text-muted-foreground">{site.address}</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-medium text-sm">
-                        {((site.currentProduction || 0) / 1000).toFixed(1)} kW
-                      </p>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        {site.status === "live" ? (
-                          <>
-                            <ArrowUpRight className="h-3 w-3 text-green-500" />
-                            Active
-                          </>
-                        ) : (
-                          <>
-                            <ArrowDownRight className="h-3 w-3 text-red-500" />
-                            {site.status}
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+
+            {/* Divider */}
+            <div className="border-t" />
+
+            {/* VPP Metrics */}
+            <div className="space-y-4">
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm text-muted-foreground">Avg. Site Output</span>
+                  <span className="text-sm font-medium">{(totalProduction / onlineSites / 1000).toFixed(1)} kW</span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        )}
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm text-muted-foreground">Grid Response Time</span>
+                  <span className="text-sm font-medium">&lt; 200ms</span>
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm text-muted-foreground">Coordination Mode</span>
+                  <Badge variant="default" className="text-xs">Active</Badge>
+                </div>
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t" />
+
+            {/* Location */}
+            <div className="text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 mb-2">
+                <MapPin className="h-4 w-4" />
+                <span className="font-medium text-foreground">Kalmar Region</span>
+              </div>
+              <p className="text-xs">Virtual Power Plant coordinating distributed energy resources across the Kalmar area.</p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

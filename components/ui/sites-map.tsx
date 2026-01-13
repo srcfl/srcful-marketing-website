@@ -21,6 +21,7 @@ interface SitesMapProps {
   hoveredSiteId?: string | null;
   mapboxToken: string;
   className?: string;
+  hideLabels?: boolean;
 }
 
 export function SitesMap({
@@ -28,8 +29,11 @@ export function SitesMap({
   onSiteSelect,
   hoveredSiteId,
   mapboxToken,
-  className
+  className,
+  hideLabels = false
 }: SitesMapProps) {
+  // Auto-hide labels when there are many sites
+  const shouldHideLabels = hideLabels || sites.length > 20;
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof document !== 'undefined') {
       return document.documentElement.classList.contains("dark");
@@ -253,31 +257,33 @@ export function SitesMap({
                     style={{ backgroundColor: color }}
                   />
 
-                  {/* Label - always visible */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-3 pointer-events-none">
-                    <div className="relative">
-                      {/* Arrow pointing down */}
-                      <div
-                        className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white dark:border-t-[#1a1a1a]"
-                        style={{
-                          filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))",
-                        }}
-                      />
+                  {/* Label - hidden when many sites */}
+                  {!shouldHideLabels && (
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full mb-3 pointer-events-none">
+                      <div className="relative">
+                        {/* Arrow pointing down */}
+                        <div
+                          className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white dark:border-t-[#1a1a1a]"
+                          style={{
+                            filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.1))",
+                          }}
+                        />
 
-                      {/* Label box */}
-                      <div className="bg-white dark:bg-[#1a1a1a] px-2.5 py-1.5 rounded-md shadow-lg border border-sourceful-gray-200 dark:border-[#2a2a2a] whitespace-nowrap">
-                        <div className="text-xs font-medium text-sourceful-gray-900 dark:text-white">
-                          {site.name}
-                        </div>
-                        <div className="text-xs text-sourceful-gray-500 dark:text-sourceful-gray-400 flex items-center gap-1">
-                          <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
-                          {site.currentProduction !== undefined
-                            ? `${(site.currentProduction / 1000).toFixed(1)} kW`
-                            : site.status}
+                        {/* Label box */}
+                        <div className="bg-white dark:bg-[#1a1a1a] px-2.5 py-1.5 rounded-md shadow-lg border border-sourceful-gray-200 dark:border-[#2a2a2a] whitespace-nowrap">
+                          <div className="text-xs font-medium text-sourceful-gray-900 dark:text-white">
+                            {site.name}
+                          </div>
+                          <div className="text-xs text-sourceful-gray-500 dark:text-sourceful-gray-400 flex items-center gap-1">
+                            <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ backgroundColor: color }} />
+                            {site.currentProduction !== undefined
+                              ? `${(site.currentProduction / 1000).toFixed(1)} kW`
+                              : site.status}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </Marker>
             );
