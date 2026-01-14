@@ -18,6 +18,7 @@
       "oems": "OEM-tillverkare",
       "overview": "Översikt",
       "devPortal": "Utvecklarportalen",
+      "devPortalDescription": "API-åtkomst, dokumentation och integrationsverktyg",
       "apiReference": "API-referens",
       "designSystem": "Designsystem",
       "hardwareDocs": "Hårdvarudokumentation",
@@ -78,7 +79,8 @@
       "viewDocs": "Se dokumentation",
       "openDevPortal": "Öppna utvecklarportalen",
       "joinDiscord": "Gå med i Discord",
-      "scheduledDemo": "Boka demo"
+      "scheduledDemo": "Boka demo",
+      "howItWorks": "Så funkar det"
     },
     "currency": {
       "symbol": "kr",
@@ -264,9 +266,9 @@
   "platform": {
     "hero": {
       "badge": "Plattform",
-      "title": "Lokal energikoordinerings-",
-      "titleHighlight": "infrastruktur",
-      "description": "Mjukvarulagret som får distribuerad energi att faktiskt fungera. Lokal exekvering för hastighet. Molnintelligens för optimering. Det bästa av två världar."
+      "title": "Det lokala API:et",
+      "titleHighlight": "för energi",
+      "description": "Nätfrekvensen måste balanseras varje sekund. Moln-API:er svarar på 2-5 sekunder. Vi byggde infrastrukturlagret som överbryggar detta gap: lokal exekvering på 200ms, kompatibelt med 180 miljoner EU-smartmätare idag."
     },
     "preview": {
       "badge": "Plattformsförhandsvisning",

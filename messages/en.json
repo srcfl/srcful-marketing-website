@@ -18,6 +18,7 @@
       "oems": "OEMs",
       "overview": "Overview",
       "devPortal": "Developer Portal",
+      "devPortalDescription": "API access, documentation, and integration tools",
       "apiReference": "API Reference",
       "designSystem": "Design System",
       "hardwareDocs": "Hardware Docs",
@@ -78,7 +79,8 @@
       "viewDocs": "View Docs",
       "openDevPortal": "Open Dev Portal",
       "joinDiscord": "Join Discord",
-      "scheduledDemo": "Schedule Demo"
+      "scheduledDemo": "Schedule Demo",
+      "howItWorks": "How it works"
     },
     "currency": {
       "symbol": "€",
@@ -264,9 +266,9 @@
   "platform": {
     "hero": {
       "badge": "Platform",
-      "title": "Local energy coordination",
-      "titleHighlight": "infrastructure",
-      "description": "The software layer that makes distributed energy actually work. Local execution for speed. Cloud intelligence for optimization. The best of both worlds."
+      "title": "The Local API",
+      "titleHighlight": "for Energy",
+      "description": "Grid frequency must balance every second. Cloud APIs respond in 2-5 seconds. We built the infrastructure layer that bridges this gap: local execution at 200ms, compatible with 180M EU smart meters today."
     },
     "preview": {
       "badge": "Platform Preview",
