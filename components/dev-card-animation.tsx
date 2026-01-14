@@ -220,7 +220,7 @@ function WebSocketMessage({ delay, data }: { delay: number; data: { type: string
   );
 }
 
-function CodeLine({ children, delay }: { children: React.ReactNode; delay: number }) {
+function CodeLine({ children, delay }: { children?: React.ReactNode; delay: number }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -228,7 +228,7 @@ function CodeLine({ children, delay }: { children: React.ReactNode; delay: numbe
       transition={{ delay, duration: 0.2 }}
       className="text-gray-300"
     >
-      {children}
+      {children || "\u00A0"}
     </motion.div>
   );
 }

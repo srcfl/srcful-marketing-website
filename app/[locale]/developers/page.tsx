@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,8 +9,8 @@ import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn } from "@/components/animations";
 import { DevCardAnimation } from "@/components/dev-card-animation";
 import { PixelGrid } from "@/components/ui/pixel-grid";
+import { PricingSection } from "@/components/pricing-section";
 import {
-  ArrowRight,
   ExternalLink,
   Code,
   Zap,
@@ -21,7 +20,12 @@ import {
   Palette,
   Cpu,
   Users,
-  Github
+  Github,
+  Activity,
+  Layers,
+  Shield,
+  TestTube,
+  Coins
 } from "lucide-react";
 
 export default function DevelopersPage() {
@@ -59,13 +63,49 @@ export default function DevelopersPage() {
     },
   ];
 
-  const featureKeys = [
-    "localResponse",
-    "protocolAgnostic",
-    "websockets",
-    "webhooks",
-    "auth",
-    "sandbox",
+  const features = [
+    {
+      key: "localResponse",
+      icon: Zap,
+      color: "text-yellow-500",
+      bgColor: "bg-yellow-500/10",
+      borderColor: "border-yellow-500/20",
+    },
+    {
+      key: "protocolAgnostic",
+      icon: Layers,
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10",
+      borderColor: "border-blue-500/20",
+    },
+    {
+      key: "realtime",
+      icon: Activity,
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-500/10",
+      borderColor: "border-emerald-500/20",
+    },
+    {
+      key: "auth",
+      icon: Shield,
+      color: "text-violet-500",
+      bgColor: "bg-violet-500/10",
+      borderColor: "border-violet-500/20",
+    },
+    {
+      key: "sandbox",
+      icon: TestTube,
+      color: "text-orange-500",
+      bgColor: "bg-orange-500/10",
+      borderColor: "border-orange-500/20",
+    },
+    {
+      key: "solana",
+      icon: Coins,
+      color: "text-purple-500",
+      bgColor: "bg-gradient-to-br from-purple-500/10 to-pink-500/10",
+      borderColor: "border-purple-500/20",
+    },
   ];
 
   return (
@@ -179,16 +219,24 @@ export default function DevelopersPage() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featureKeys.map((key) => (
-                <Card key={key}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{t(`features.${key}.title`)}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>{t(`features.${key}.description`)}</CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
+              {features.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <Card key={feature.key} className={`${feature.borderColor} border`}>
+                    <CardHeader>
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className={`w-10 h-10 ${feature.bgColor} rounded-lg flex items-center justify-center`}>
+                          <Icon className={`h-5 w-5 ${feature.color}`} />
+                        </div>
+                        <CardTitle className="text-lg">{t(`features.${feature.key}.title`)}</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base">{t(`features.${feature.key}.description`)}</CardDescription>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -225,8 +273,8 @@ export default function DevelopersPage() {
                   </li>
                 </ul>
                 <Button asChild>
-                  <a href="https://developer.sourceful.energy/api" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.viewDocs")}
+                  <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
+                    {tCommon("buttons.openDevPortal")}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
@@ -259,82 +307,43 @@ export default function DevelopersPage() {
           </div>
         </section>
 
-        {/* Community */}
-        <section className="border-t bg-muted/30">
+        {/* Pricing */}
+        <PricingSection />
+
+        {/* Community CTA */}
+        <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
               <CardContent className="p-8 md:p-12">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                       <Users className="h-8 w-8 text-primary" />
-                      <h3 className="text-2xl font-bold">{t("community.title")}</h3>
                     </div>
-                    <p className="text-muted-foreground mb-6">
-                      {t("community.description")}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button asChild>
-                        <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
-                          {tCommon("buttons.joinDiscord")}
-                          <ExternalLink className="ml-2 h-4 w-4" />
-                        </a>
-                      </Button>
-                      <Button variant="outline" asChild>
-                        <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
-                          <Github className="mr-2 h-4 w-4" />
-                          GitHub
-                        </a>
-                      </Button>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {t("community.description")}
+                      </p>
                     </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-background rounded-lg">
-                      <div className="text-3xl font-bold text-primary">500+</div>
-                      <div className="text-sm text-muted-foreground">{t("community.developers")}</div>
-                    </div>
-                    <div className="text-center p-4 bg-background rounded-lg">
-                      <div className="text-3xl font-bold text-primary">24/7</div>
-                      <div className="text-sm text-muted-foreground">{t("community.support")}</div>
-                    </div>
-                    <div className="text-center p-4 bg-background rounded-lg">
-                      <div className="text-3xl font-bold text-primary">50+</div>
-                      <div className="text-sm text-muted-foreground">{t("community.components")}</div>
-                    </div>
-                    <div className="text-center p-4 bg-background rounded-lg">
-                      <div className="text-3xl font-bold text-primary">OSS</div>
-                      <div className="text-sm text-muted-foreground">{t("community.openSource")}</div>
-                    </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button asChild>
+                      <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
+                        {tCommon("buttons.joinDiscord")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        GitHub
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </CardContent>
             </Card>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="border-t">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              {t("cta.title")}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              {t("cta.description")}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" asChild>
-                <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                  {tCommon("buttons.getStarted")}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                  {tCommon("buttons.getTheZap")}
-                  <Zap className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-            </div>
           </div>
         </section>
       </main>

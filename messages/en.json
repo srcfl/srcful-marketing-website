@@ -1713,13 +1713,9 @@
         "title": "Protocol Agnostic",
         "description": "P1, Modbus, MQTT, OCPP - we handle the translation layer so you don't have to."
       },
-      "websockets": {
-        "title": "Real-time WebSockets",
-        "description": "Subscribe to device events, energy data, and grid signals in real-time."
-      },
-      "webhooks": {
-        "title": "Comprehensive Webhooks",
-        "description": "Get notified of device state changes, alerts, and energy events."
+      "realtime": {
+        "title": "Real-time Events",
+        "description": "WebSockets for live data streams, webhooks for state changes and alerts. Subscribe to exactly what you need."
       },
       "auth": {
         "title": "OAuth 2.0 & API Keys",
@@ -1728,6 +1724,10 @@
       "sandbox": {
         "title": "Sandbox Environment",
         "description": "Test your integration with simulated devices before going live."
+      },
+      "solana": {
+        "title": "Built on Solana",
+        "description": "Digital rails for transparent value distribution. Builders earn token rewards for network contribution."
       }
     },
     "api": {

@@ -1713,13 +1713,9 @@
         "title": "Protokollagnostisk",
         "description": "P1, Modbus, MQTT, OCPP - vi hanterar översättningslagret så du slipper."
       },
-      "websockets": {
-        "title": "Realtids-WebSockets",
-        "description": "Prenumerera på enhetshändelser, energidata och nätsignaler i realtid."
-      },
-      "webhooks": {
-        "title": "Omfattande webhooks",
-        "description": "Få notifieringar om enhetstillståndsändringar, larm och energihändelser."
+      "realtime": {
+        "title": "Realtidshändelser",
+        "description": "WebSockets för live-dataströmmar, webhooks för tillståndsändringar och larm. Prenumerera på exakt det du behöver."
       },
       "auth": {
         "title": "OAuth 2.0 & API-nycklar",
@@ -1728,6 +1724,10 @@
       "sandbox": {
         "title": "Sandlådemiljö",
         "description": "Testa din integration med simulerade enheter innan du går live."
+      },
+      "solana": {
+        "title": "Byggt på Solana",
+        "description": "Digitala skenor för transparent värdefördelning. Byggare tjänar tokenbelöningar för nätverksbidrag."
       }
     },
     "api": {
