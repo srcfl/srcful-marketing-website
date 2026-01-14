@@ -37,6 +37,39 @@ export default function InstallersPage() {
   const tCommon = useTranslations("common");
   const tHome = useTranslations("home");
 
+  // Translated dashboard card wrappers
+  const TranslatedGridProductionCard = () => (
+    <ConnectedDevicesCard
+      translations={{
+        title: t("dashboardCards.gridProduction.title"),
+        solarProduction: t("dashboardCards.gridProduction.solarProduction"),
+        producedToday: t("dashboardCards.gridProduction.producedToday"),
+        exportedToGrid: t("dashboardCards.gridProduction.exportedToGrid"),
+      }}
+    />
+  );
+
+  const TranslatedCustomerSatisfactionCard = () => (
+    <CustomerSatisfactionCard
+      translations={{
+        title: t("dashboardCards.customerSatisfaction.title"),
+        basedOnReviews: t("dashboardCards.customerSatisfaction.basedOnReviews", { count: "1,247" }),
+      }}
+    />
+  );
+
+  const TranslatedCustomerSavingsCard = () => (
+    <CustomerSavingsCard
+      translations={{
+        title: t("dashboardCards.customerSavings.title"),
+        avgSavings: t("dashboardCards.customerSavings.avgSavings"),
+        customers: t("dashboardCards.customerSavings.customers"),
+        totalSaved: t("dashboardCards.customerSavings.totalSaved"),
+        avgRating: t("dashboardCards.customerSavings.avgRating"),
+      }}
+    />
+  );
+
   const painPoints = [
     { key: "softwareSpaghetti", icon: Puzzle },
     { key: "supportCallbacks", icon: PhoneCall },
@@ -44,9 +77,9 @@ export default function InstallersPage() {
   ];
 
   const whatCustomersGetItems = [
-    { key: "0", icon: Activity, DemoCard: ConnectedDevicesCard },
-    { key: "1", icon: Headphones, DemoCard: CustomerSatisfactionCard },
-    { key: "2", icon: Smartphone, DemoCard: CustomerSavingsCard },
+    { key: "0", icon: Activity, DemoCard: TranslatedGridProductionCard },
+    { key: "1", icon: Headphones, DemoCard: TranslatedCustomerSatisfactionCard },
+    { key: "2", icon: Smartphone, DemoCard: TranslatedCustomerSavingsCard },
   ];
 
   const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -86,7 +119,7 @@ export default function InstallersPage() {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button size="lg" variant="outline" className="hover:bg-indigo-500/10 hover:text-indigo-400" asChild>
                     <Link href="/contact">
                       {tCommon("buttons.contactSales")}
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -104,9 +137,9 @@ export default function InstallersPage() {
                 <div className="flex items-center justify-center lg:justify-end">
                   <DashboardShowcase
                     cards={[
-                      CustomerSavingsCard,
-                      CustomerSatisfactionCard,
-                      ConnectedDevicesCard,
+                      TranslatedCustomerSavingsCard,
+                      TranslatedCustomerSatisfactionCard,
+                      TranslatedGridProductionCard,
                     ]}
                     interval={4000}
                     pauseOnHover
@@ -262,7 +295,7 @@ export default function InstallersPage() {
             </FadeIn>
             <PartnerLogoCarousel />
             <div className="text-center mt-8">
-              <Button variant="outline" asChild>
+              <Button variant="outline" className="hover:bg-indigo-500/10 hover:text-indigo-400" asChild>
                 <Link href="/integrations">
                   {t("compatibility.seeAll")}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -389,7 +422,7 @@ export default function InstallersPage() {
                         <ExternalLink className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
-                    <Button variant="outline" asChild>
+                    <Button variant="outline" className="hover:bg-indigo-500/10 hover:text-indigo-400" asChild>
                       <Link href="/contact">
                         {tCommon("nav.contact")}
                       </Link>

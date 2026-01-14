@@ -228,13 +228,17 @@
         "noLicenseAdmin": "Ingen prenumerationsadministration för dig"
       },
       "stats": {
-        "supportReduction": "70%",
+        "supportReductionNum": "70",
+        "supportReductionUnit": "%",
         "supportReductionLabel": "färre supportsamtal",
-        "installTime": "5 min",
+        "installTimeNum": "5",
+        "installTimeUnit": "min",
         "installTimeLabel": "genomsnittlig installationstid",
-        "brands": "50+",
+        "brandsNum": "50",
+        "brandsUnit": "+",
         "brandsLabel": "kompatibla varumärken",
-        "subscription": "59 kr/mån",
+        "subscriptionNum": "59",
+        "subscriptionUnit": "kr/mån",
         "subscriptionLabel": "kunden betalar oss direkt"
       }
     },
