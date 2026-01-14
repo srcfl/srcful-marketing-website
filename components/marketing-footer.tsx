@@ -15,51 +15,52 @@ export function MarketingFooter() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
           <div>
             <h4 className="font-semibold mb-4">{t("product")}</h4>
-            <ul className="space-y-2 text-sm text-primary">
-              <li><Link href="/platform" className="hover:text-primary/80">{t("platform")}</Link></li>
-              <li><Link href="/zap" className="hover:text-primary/80">{t("zap")}</Link></li>
-              <li><Link href="/app" className="hover:text-primary/80">{t("app")}</Link></li>
-              <li><Link href="/integrations" className="hover:text-primary/80">{t("integrations")}</Link></li>
-              <li><Link href="/v2x" className="hover:text-primary/80">{t("v2x")}</Link></li>
-              <li><Link href="/get-started" className="hover:text-primary/80">{tNav("getStarted")}</Link></li>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/platform" className="hover:text-foreground">{t("platform")}</Link></li>
+              <li><Link href="/zap" className="hover:text-foreground">{t("zap")}</Link></li>
+              <li><Link href="/app" className="hover:text-foreground">{t("app")}</Link></li>
+              <li><Link href="/integrations" className="hover:text-foreground">{t("integrations")}</Link></li>
+              <li><Link href="/v2x" className="hover:text-foreground">{t("v2x")}</Link></li>
+              <li><Link href="/get-started" className="hover:text-foreground">{tNav("getStarted")}</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">{t("tools")}</h4>
-            <ul className="space-y-2 text-sm text-primary">
-              <li><Link href="/tools/savings-calculator" className="hover:text-primary/80">{t("savingsCalculator")}</Link></li>
-              <li><Link href="/tools/negative-prices" className="hover:text-primary/80">{t("negativePrices")}</Link></li>
-              <li><Link href="/tools/solar-roi" className="hover:text-primary/80">{t("solarRoi")}</Link></li>
-              <li><Link href="/tools/battery-sizing" className="hover:text-primary/80">{t("batterySizing")}</Link></li>
-              <li><Link href="/tools/ev-charging" className="hover:text-primary/80">{t("evCharging")}</Link></li>
-              <li><Link href="/tools/v2x-savings" className="hover:text-primary/80">{t("v2xSavings")}</Link></li>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/tools/savings-calculator" className="hover:text-foreground">{t("savingsCalculator")}</Link></li>
+              <li><Link href="/tools/negative-prices" className="hover:text-foreground">{t("negativePrices")}</Link></li>
+              <li><Link href="/tools/solar-roi" className="hover:text-foreground">{t("solarRoi")}</Link></li>
+              <li><Link href="/tools/battery-sizing" className="hover:text-foreground">{t("batterySizing")}</Link></li>
+              <li><Link href="/tools/ev-charging" className="hover:text-foreground">{t("evCharging")}</Link></li>
+              <li><Link href="/tools/v2x-savings" className="hover:text-foreground">{t("v2xSavings")}</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">{tNav("developers")}</h4>
-            <ul className="space-y-2 text-sm text-primary">
-              <li><a href="https://developer.sourceful.energy" className="hover:text-primary/80">{t("docs")}</a></li>
-              <li><a href="https://design.sourceful.energy" className="hover:text-primary/80">{t("designSystem")}</a></li>
-              <li><a href="https://discord.gg/srcful" className="hover:text-primary/80">{t("discord")}</a></li>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><a href="https://developer.sourceful.energy" className="hover:text-foreground">{tNav("devPortal")}</a></li>
+              <li><a href="https://developer.sourceful.energy" className="hover:text-foreground">{t("docs")}</a></li>
+              <li><a href="https://design.sourceful.energy" className="hover:text-foreground">{t("designSystem")}</a></li>
+              <li><a href="https://discord.gg/srcful" className="hover:text-foreground">{t("discord")}</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">{tNav("useCases")}</h4>
-            <ul className="space-y-2 text-sm text-primary">
-              <li><Link href="/use-cases/homeowners" className="hover:text-primary/80">{tNav("homeowners")}</Link></li>
-              <li><Link href="/use-cases/utilities" className="hover:text-primary/80">{tNav("utilities")}</Link></li>
-              <li><Link href="/use-cases/oems" className="hover:text-primary/80">{tNav("oems")}</Link></li>
-              <li><Link href="/use-cases/installers" className="hover:text-primary/80">{tNav("installers")}</Link></li>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/use-cases/homeowners" className="hover:text-foreground">{tNav("homeowners")}</Link></li>
+              <li><Link href="/use-cases/utilities" className="hover:text-foreground">{tNav("utilities")}</Link></li>
+              <li><Link href="/use-cases/oems" className="hover:text-foreground">{tNav("oems")}</Link></li>
+              <li><Link href="/use-cases/installers" className="hover:text-foreground">{tNav("installers")}</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">{t("company")}</h4>
-            <ul className="space-y-2 text-sm text-primary">
-              <li><Link href="/about" className="hover:text-primary/80">{t("about")}</Link></li>
-              <li><Link href="/company" className="hover:text-primary/80">{t("companyPage")}</Link></li>
-              <li><Link href="/blog" className="hover:text-primary/80">{t("blog")}</Link></li>
-              <li><Link href="/community" className="hover:text-primary/80">{t("community")}</Link></li>
-              <li><Link href="/contact" className="hover:text-primary/80">{t("contact")}</Link></li>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/about" className="hover:text-foreground">{t("about")}</Link></li>
+              <li><Link href="/company" className="hover:text-foreground">{t("companyPage")}</Link></li>
+              <li><Link href="/blog" className="hover:text-foreground">{t("blog")}</Link></li>
+              <li><Link href="/community" className="hover:text-foreground">{t("community")}</Link></li>
+              <li><Link href="/contact" className="hover:text-foreground">{t("contact")}</Link></li>
             </ul>
           </div>
         </div>

@@ -541,17 +541,16 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button variant="outline" asChild>
+                    <Button asChild>
                       <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
                         {tCommon("buttons.joinDiscord")}
                         <ExternalLink className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
-                    <Button asChild>
-                      <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                        {tCommon("buttons.openDevPortal")}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
+                    <Button variant="outline" asChild>
+                      <Link href="/contact">
+                        {tCommon("nav.contact")}
+                      </Link>
                     </Button>
                   </div>
                 </div>
