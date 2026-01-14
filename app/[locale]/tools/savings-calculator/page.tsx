@@ -110,7 +110,7 @@ export default function SavingsCalculatorPage() {
     // Payback period (rough estimate)
     const solarCost = solarSize * 15000; // ~15,000 SEK per kWp installed
     const batteryCost = hasBattery ? batterySize * 8000 : 0; // ~8,000 SEK per kWh
-    const zapCost = 390; // €39 = ~390 SEK
+    const zapCost = 690; // €69 = ~690 SEK
     const totalCost = solarCost + batteryCost + zapCost;
     const paybackYears = totalCost / totalSavings;
 

@@ -16,10 +16,12 @@ import {
   SelfSufficiencyCard,
   EnergyFlowCard,
   ScheduleCard,
+  ConnectedDevicesCard,
 } from "@/components/dashboard-showcase";
 import { SavingsCalculatorMini } from "@/components/savings-calculator-mini";
 import { V2xSavingsCard } from "@/components/v2x-savings-card";
 import { RewardsSection } from "@/components/rewards-section";
+import { VideoPlaceholder } from "@/components/video-placeholder";
 import { ZapImage } from "@/components/zap-image";
 import { PixelGrid, type PixelGridColor, type PatternType } from "@/components/ui/pixel-grid";
 import {
@@ -35,7 +37,12 @@ import {
   Battery,
   BarChart3,
   Shield,
-  ExternalLink
+  ExternalLink,
+  Users,
+  Github,
+  Activity,
+  Settings,
+  PiggyBank
 } from "lucide-react";
 
 export default function HomeownersPage() {
@@ -47,21 +54,29 @@ export default function HomeownersPage() {
       icon: TrendingDown,
       title: t("benefits.cutPeakDemand.title"),
       description: t("benefits.cutPeakDemand.description"),
+      color: "text-yellow-500",
+      bgColor: "bg-yellow-500/10",
     },
     {
       icon: BarChart3,
       title: t("benefits.seeEveryKwh.title"),
       description: t("benefits.seeEveryKwh.description"),
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10",
     },
     {
       icon: Coins,
       title: t("benefits.earnRewards.title"),
       description: t("benefits.earnRewards.description"),
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-500/10",
     },
     {
       icon: Shield,
       title: t("benefits.multiBrand.title"),
       description: t("benefits.multiBrand.description"),
+      color: "text-violet-500",
+      bgColor: "bg-violet-500/10",
     },
   ];
 
@@ -151,16 +166,16 @@ export default function HomeownersPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button size="lg" asChild>
-                      <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                      <Link href="/zap">
                         {tCommon("buttons.getTheZap")}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
                     </Button>
                     <Button size="lg" variant="outline" asChild>
-                      <a href="https://sourceful.energy/app-downloads" target="_blank" rel="noopener noreferrer">
+                      <Link href="/app">
                         <Smartphone className="mr-2 h-4 w-4" />
                         {t("cta.downloadApp")}
-                      </a>
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -191,7 +206,7 @@ export default function HomeownersPage() {
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">€39</div>
+                  <div className="text-3xl md:text-4xl font-bold text-primary">€69</div>
                   <div className="text-sm text-muted-foreground">{t("stats.oneTimeCost")}</div>
                 </div>
               </StaggerItem>
@@ -257,6 +272,9 @@ export default function HomeownersPage() {
         <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-8">
+              <div className="flex justify-center mb-6">
+                <PixelGrid pattern="line-v-mid" color="green" size="md" speed="fast" />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 Calculate your savings
               </h2>
@@ -289,8 +307,8 @@ export default function HomeownersPage() {
                     <Card>
                       <CardHeader>
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <Icon className="h-5 w-5 text-primary" />
+                          <div className={`w-10 h-10 ${benefit.bgColor} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                            <Icon className={`h-5 w-5 ${benefit.color}`} />
                           </div>
                           <div>
                             <CardTitle className="text-lg mb-2">{benefit.title}</CardTitle>
@@ -349,19 +367,88 @@ export default function HomeownersPage() {
                       <span>{t("zapSection.feature3")}</span>
                     </li>
                   </ul>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Button size="lg" asChild>
-                      <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                        {tCommon("buttons.getTheZap")}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                    <Button size="lg" variant="outline" asChild>
-                      <Link href="/zap">
-                        {tCommon("buttons.learnMore")}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                  <Button size="lg" asChild>
+                    <Link href="/zap">
+                      {tCommon("buttons.getTheZap")}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+
+        {/* What You Get - Alternating Layout */}
+        <section className="border-t">
+          <div className="max-w-5xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("whatYouGet.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("whatYouGet.description")}
+              </p>
+            </FadeIn>
+
+            <div className="space-y-24">
+              {/* Full visibility */}
+              <FadeIn>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Activity className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t("whatYouGet.items.0.title")}</h3>
+                    <p className="text-lg text-muted-foreground">
+                      {t("whatYouGet.items.0.description")}
+                    </p>
+                  </div>
+                  <div className="flex justify-center lg:justify-end">
+                    <ConnectedDevicesCard
+                      translations={{
+                        title: t("whatYouGet.dashboardCards.gridProduction.title"),
+                        solarProduction: t("whatYouGet.dashboardCards.gridProduction.solarProduction"),
+                        producedToday: t("whatYouGet.dashboardCards.gridProduction.producedToday"),
+                        exportedToGrid: t("whatYouGet.dashboardCards.gridProduction.exportedToGrid"),
+                      }}
+                    />
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Smart automation */}
+              <FadeIn delay={0.1}>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="lg:order-2">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Settings className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t("whatYouGet.items.1.title")}</h3>
+                    <p className="text-lg text-muted-foreground">
+                      {t("whatYouGet.items.1.description")}
+                    </p>
+                  </div>
+                  <div className="flex justify-center lg:order-1 lg:justify-start">
+                    <ScheduleCard />
+                  </div>
+                </div>
+              </FadeIn>
+
+              {/* Total savings */}
+              <FadeIn delay={0.2}>
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <PiggyBank className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">{t("whatYouGet.items.2.title")}</h3>
+                    <p className="text-lg text-muted-foreground">
+                      {t("whatYouGet.items.2.description")}
+                    </p>
+                  </div>
+                  <div className="flex justify-center lg:justify-end">
+                    <SavingsCard />
                   </div>
                 </div>
               </FadeIn>
@@ -423,6 +510,21 @@ export default function HomeownersPage() {
         {/* Rewards */}
         <RewardsSection audience="homeowners" />
 
+        {/* Video */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-4xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("video.title")}
+              </h2>
+            </FadeIn>
+            <VideoPlaceholder
+              title={t("video.title")}
+              comingSoonText={t("video.comingSoon")}
+            />
+          </div>
+        </section>
+
         {/* How it works */}
         <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
@@ -432,15 +534,15 @@ export default function HomeownersPage() {
               </h2>
             </FadeIn>
 
-            <StaggerContainer className="grid md:grid-cols-4 gap-6" staggerDelay={0.1}>
+            <StaggerContainer className="grid md:grid-cols-4 gap-8" staggerDelay={0.1}>
               {howItWorks.map((step) => (
                 <StaggerItem key={step.step}>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                       {step.step}
                     </div>
                     <h3 className="font-semibold mb-2">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
+                    <p className="text-sm text-muted-foreground max-w-[180px]">{step.description}</p>
                   </div>
                 </StaggerItem>
               ))}
@@ -448,43 +550,37 @@ export default function HomeownersPage() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* Community CTA */}
         <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
               <CardContent className="p-8 md:p-12">
-                <div className="grid md:grid-cols-2 gap-8 items-center">
-                  <FadeIn>
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-primary" />
+                    </div>
                     <div>
-                      <h2 className="text-3xl font-bold mb-4">{t("cta.title")}</h2>
-                      <p className="text-muted-foreground mb-6">
-                        {t("cta.description")}
+                      <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {t("community.description")}
                       </p>
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <Button size="lg" asChild>
-                          <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                            {tCommon("buttons.getTheZap")}
-                            <ExternalLink className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
-                        <Button size="lg" variant="outline" asChild>
-                          <a href="https://sourceful.energy/app-downloads" target="_blank" rel="noopener noreferrer">
-                            <Smartphone className="mr-2 h-4 w-4" />
-                            {t("cta.getTheApp")}
-                          </a>
-                        </Button>
-                      </div>
                     </div>
-                  </FadeIn>
-                  <FadeIn delay={0.2}>
-                    <div className="flex justify-center">
-                      <div className="text-center">
-                        <div className="text-6xl font-bold text-primary mb-2">€39</div>
-                        <div className="text-muted-foreground">{t("cta.oneTimePurchase")}</div>
-                        <div className="text-sm text-muted-foreground mt-1">{t("cta.freeShipping")}</div>
-                      </div>
-                    </div>
-                  </FadeIn>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button asChild>
+                      <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
+                        {tCommon("buttons.joinDiscord")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        GitHub
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>

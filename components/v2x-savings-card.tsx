@@ -4,12 +4,18 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Car, TrendingUp, Zap, Battery, Sun } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
+
+// Currency conversion: SEK to EUR (approximate rate)
+const SEK_TO_EUR = 0.085;
 
 interface SavingsRowProps {
   icon: React.ReactNode;
   label: string;
   value: number;
   delay: number;
+  isEUR: boolean;
+  currencySymbol: string;
 }
 
 function AnimatedValue({ value, delay }: { value: number; delay: number }) {
@@ -43,10 +49,12 @@ function AnimatedValue({ value, delay }: { value: number; delay: number }) {
     return () => clearTimeout(timeout);
   }, [value, delay, hasAnimated]);
 
-  return <span className="tabular-nums">+{displayed.toLocaleString()}</span>;
+  return <span className="tabular-nums">{displayed.toLocaleString()}</span>;
 }
 
-function SavingsRow({ icon, label, value, delay }: SavingsRowProps) {
+function SavingsRow({ icon, label, value, delay, isEUR, currencySymbol }: SavingsRowProps) {
+  const displayValue = isEUR ? Math.round(value * SEK_TO_EUR) : value;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -61,15 +69,22 @@ function SavingsRow({ icon, label, value, delay }: SavingsRowProps) {
         <span className="text-sm text-muted-foreground">{label}</span>
       </div>
       <span className="font-semibold text-primary">
-        <AnimatedValue value={value} delay={delay} /> SEK
+        {isEUR && currencySymbol}
+        <AnimatedValue value={displayValue} delay={delay} />
+        {!isEUR && ` ${currencySymbol}`}
       </span>
     </motion.div>
   );
 }
 
 export function V2xSavingsCard() {
+  const locale = useLocale();
+  const isEUR = locale === "en";
+  const currencySymbol = isEUR ? "€" : "kr";
+
   const [totalDisplayed, setTotalDisplayed] = useState(0);
-  const totalValue = 12200;
+  const totalValueSEK = 12200;
+  const totalValue = isEUR ? Math.round(totalValueSEK * SEK_TO_EUR) : totalValueSEK;
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -93,7 +108,7 @@ export function V2xSavingsCard() {
     }, 1200); // Start after row animations
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [totalValue]);
 
   return (
     <Card className="w-full shadow-lg border-border/50 overflow-hidden">
@@ -121,18 +136,24 @@ export function V2xSavingsCard() {
             label="Energy trading profit"
             value={5200}
             delay={200}
+            isEUR={isEUR}
+            currencySymbol={currencySymbol}
           />
           <SavingsRow
             icon={<Battery className="h-4 w-4 text-green-500" />}
             label="Peak demand reduction"
             value={4800}
             delay={400}
+            isEUR={isEUR}
+            currencySymbol={currencySymbol}
           />
           <SavingsRow
             icon={<Sun className="h-4 w-4 text-orange-500" />}
             label="Grid services rewards"
             value={2200}
             delay={600}
+            isEUR={isEUR}
+            currencySymbol={currencySymbol}
           />
         </div>
 
@@ -146,7 +167,7 @@ export function V2xSavingsCard() {
               transition={{ duration: 0.5, delay: 1 }}
               className="text-3xl font-bold text-primary tabular-nums"
             >
-              {totalDisplayed.toLocaleString()} SEK
+              {isEUR && currencySymbol}{totalDisplayed.toLocaleString()}{!isEUR && ` ${currencySymbol}`}
             </motion.span>
           </div>
         </div>

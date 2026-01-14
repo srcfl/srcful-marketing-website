@@ -4,7 +4,7 @@
       "platform": "Plattform",
       "platformDescription": "Lokal energikoordineringsinfrastruktur",
       "zap": "Zap",
-      "zapDescription": "399 kr gateway med 200ms svarstid",
+      "zapDescription": "699 kr gateway med 200ms svarstid",
       "products": "Produkter",
       "useCases": "Användningsfall",
       "developers": "Utvecklare",
@@ -534,11 +534,15 @@
         "annualSavings": "Årliga besparingar",
         "moneyBackGuarantee": "Pengarna tillbaka-garanti"
       },
+      "video": {
+        "title": "Se Zap i action",
+        "comingSoon": "Video kommer snart"
+      },
       "howItWorks": {
         "title": "Kom igång på några minuter",
         "step1": {
           "title": "Skaffa Zap",
-          "description": "399 kr, engångsköp. Ansluts till din P1-smartmätare på 5 minuter."
+          "description": "699 kr, engångsköp. Ansluts till din P1-smartmätare på 5 minuter."
         },
         "step2": {
           "title": "Ladda ner appen",
@@ -569,11 +573,47 @@
       },
       "cta": {
         "title": "Redo att börja spara?",
-        "description": "399 kr engångsköp. 5 minuters installation. 30 dagars pengarna tillbaka-garanti. Din hemenergi blir aldrig densamma.",
+        "description": "699 kr engångsköp. 5 minuters installation. 30 dagars pengarna tillbaka-garanti. Din hemenergi blir aldrig densamma.",
         "oneTimePurchase": "Engångsköp",
         "freeShipping": "Fri frakt • 30 dagars garanti",
         "downloadApp": "Ladda ner appen",
         "getTheApp": "Hämta appen"
+      },
+      "whatYouGet": {
+        "title": "Vad du får",
+        "description": "En komplett energiplattform i fickan.",
+        "items": {
+          "0": {
+            "title": "Full synlighet",
+            "description": "Se din solproduktion, nätanvändning och batteristatus i realtid. Vet exakt vart varje kWh tar vägen."
+          },
+          "1": {
+            "title": "Smart automation",
+            "description": "Automatisk optimering baserad på elpriser, solproduktion och dina användningsmönster."
+          },
+          "2": {
+            "title": "Totala besparingar",
+            "description": "Följ dina besparingar över tid. Se hur mycket du tjänar på nättjänster och prisoptimering."
+          }
+        },
+        "dashboardCards": {
+          "gridProduction": {
+            "title": "Nät & Produktion",
+            "solarProduction": "Solproduktion",
+            "producedToday": "Producerat idag",
+            "exportedToGrid": "Exporterat till nätet"
+          },
+          "savings": {
+            "title": "Dina besparingar",
+            "avgSavings": "Genomsnitt per månad",
+            "totalSaved": "Totalt sparat",
+            "thisMonth": "Denna månad"
+          }
+        }
+      },
+      "community": {
+        "title": "Få svar på dina frågor",
+        "description": "Kontakta teamet och andra energientusiaster för support."
       }
     },
     "utilities": {
@@ -840,7 +880,7 @@
         "paragraph1": "Energihårdvarutillverkare står inför ett val: bygg ditt eget koordineringslager (dyrt, långsamt) eller förlita dig på molnplattformar som inte kan leverera realtidsstyrning (2-5 sekunders fördröjning).",
         "paragraph2": "Vi erbjuder ett tredje alternativ: integrera Zap-gatewayen och få lokal exekvering på 200ms, nättjänstkapacitet och en utvecklarplattform som dina kunder kommer att älska.",
         "zapGateway": "Zap Gateway",
-        "zapGatewaySpecs": "399 kr • 200ms svarstid • Offline-kapabel"
+        "zapGatewaySpecs": "699 kr • 200ms svarstid • Offline-kapabel"
       },
       "comparison": {
         "withoutTitle": "Utan Sourceful",
@@ -984,7 +1024,7 @@
     },
     "requirements": {
       "title": "Krav",
-      "zap": "Zap gateway (399 kr)",
+      "zap": "Zap gateway (699 kr)",
       "charger": "Dubbelriktad elbilsladdare",
       "vehicle": "V2X-kapabel elbil",
       "subscription": "Sourceful-plattformsprenumeration"
@@ -1131,7 +1171,7 @@
         "title": "Så fungerar det",
         "step1": {
           "title": "Skaffa Zap",
-          "description": "Beställ Zap gateway för 399 kr och anslut den till ditt hemnätverk."
+          "description": "Beställ Zap gateway för 699 kr och anslut den till ditt hemnätverk."
         },
         "step2": {
           "title": "Anslut {brand}",
@@ -1512,7 +1552,7 @@
     },
     "valueProps": {
       "coordinator": {
-        "value": "399 kr",
+        "value": "699 kr",
         "title": "Universal koordinator",
         "description": "Zap gateway stödjer P1, Modbus, MQTT, OCPP - alla protokoll som spelar roll."
       },
@@ -2750,7 +2790,7 @@
     },
     "homeowners": {
       "title": "Tjäna belöningar medan du sparar",
-      "description": "Anslut dina energienheter och börja tjäna poäng. Ju mer du optimerar, desto mer tjänar du. Lös in för framtida förmåner när vårt belöningsprogram växer."
+      "description": "Anslut dina energienheter och börja tjäna poäng. Lös in för framtida förmåner när vårt belöningsprogram växer."
     },
     "utilities": {
       "title": "Inbyggd kundlojalitet",
@@ -2847,5 +2887,18 @@
         "answer": "Fri leverans inom EU. 30 dagars pengarna-tillbaka-garanti på hårdvara. Avsluta din Zap Pro-prenumeration när som helst, inga frågor ställda."
       }
     }
+  },
+  "savingsCalculatorMini": {
+    "estimatedAnnualSavings": "Beräknade årliga besparingar",
+    "basedOnPrices": "Baserat på Stockholm (SE3) elpriser",
+    "disclaimer": "Endast illustration. Faktiska besparingar beror på din installation och användning.",
+    "solarSystemSize": "Solcellssystemets storlek",
+    "produces": "Producerar ~{amount} kWh/år",
+    "homeBattery": "Hembatteri",
+    "batteryCapacity": "Batterikapacitet",
+    "electricVehicle": "Elbil",
+    "annualDriving": "Årlig körning",
+    "getDetailedBreakdown": "Få detaljerad uppdelning",
+    "adjustInFullCalculator": "Justera region, förbrukning och mer i vår fullständiga kalkylator"
   }
 }

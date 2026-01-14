@@ -2,8 +2,14 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Zap } from "lucide-react";
+import { useLocale } from "next-intl";
 
 export function SavingsCard() {
+  const locale = useLocale();
+  const isEUR = locale === "en";
+  // €12.40 ≈ 146 kr (at ~11.7 SEK per EUR)
+  const savingsDisplay = isEUR ? "€12.40" : "146 kr";
+
   return (
     <Card className="w-[420px] h-[220px] shadow-lg border-border/50">
       <CardContent className="p-5 h-full flex flex-col">
@@ -14,7 +20,7 @@ export function SavingsCard() {
           </div>
         </div>
         <div className="mb-1">
-          <p className="text-3xl font-bold text-primary">€12.40</p>
+          <p className="text-3xl font-bold text-primary">{savingsDisplay}</p>
         </div>
         <p className="text-xs text-muted-foreground mb-2">vs grid-only</p>
 

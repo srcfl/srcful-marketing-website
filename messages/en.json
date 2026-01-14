@@ -4,7 +4,7 @@
       "platform": "Platform",
       "platformDescription": "Local energy coordination infrastructure",
       "zap": "Zap",
-      "zapDescription": "€39 gateway with 200ms response",
+      "zapDescription": "€69 gateway with 200ms response",
       "products": "Products",
       "useCases": "Use Cases",
       "developers": "Developers",
@@ -534,11 +534,15 @@
         "annualSavings": "Annual savings",
         "moneyBackGuarantee": "Money-back guarantee"
       },
+      "video": {
+        "title": "See the Zap in action",
+        "comingSoon": "Video coming soon"
+      },
       "howItWorks": {
         "title": "Get started in minutes",
         "step1": {
           "title": "Get the Zap",
-          "description": "€39, one-time purchase. Plugs into your P1 smart meter in 5 minutes."
+          "description": "€69, one-time purchase. Plugs into your P1 smart meter in 5 minutes."
         },
         "step2": {
           "title": "Download the App",
@@ -569,11 +573,47 @@
       },
       "cta": {
         "title": "Ready to start saving?",
-        "description": "€39 one-time. 5-minute setup. 30-day money-back guarantee. Your home's energy will never be the same.",
+        "description": "€69 one-time. 5-minute setup. 30-day money-back guarantee. Your home's energy will never be the same.",
         "oneTimePurchase": "One-time purchase",
         "freeShipping": "Free shipping • 30-day guarantee",
         "downloadApp": "Download App",
         "getTheApp": "Get the App"
+      },
+      "whatYouGet": {
+        "title": "What you get",
+        "description": "A complete energy platform in your pocket.",
+        "items": {
+          "0": {
+            "title": "Full visibility",
+            "description": "See your solar production, grid usage, and battery status in real-time. Know exactly where every kWh goes."
+          },
+          "1": {
+            "title": "Smart automation",
+            "description": "Automatic optimization based on electricity prices, solar production, and your usage patterns."
+          },
+          "2": {
+            "title": "Total savings",
+            "description": "Track your savings over time. See how much you're earning from grid services and price optimization."
+          }
+        },
+        "dashboardCards": {
+          "gridProduction": {
+            "title": "Grid & Production",
+            "solarProduction": "Solar production",
+            "producedToday": "Produced today",
+            "exportedToGrid": "Exported to grid"
+          },
+          "savings": {
+            "title": "Your Savings",
+            "avgSavings": "Average monthly",
+            "totalSaved": "Total saved",
+            "thisMonth": "This month"
+          }
+        }
+      },
+      "community": {
+        "title": "Get answers to your questions",
+        "description": "Connect with the team and other energy enthusiasts for support."
       }
     },
     "utilities": {
@@ -840,7 +880,7 @@
         "paragraph1": "Energy hardware manufacturers face a choice: build your own coordination layer (expensive, slow) or rely on cloud platforms that can't deliver real-time control (2-5 second latency).",
         "paragraph2": "We offer a third option: integrate the Zap gateway and get local execution at 200ms, grid service capabilities, and a developer platform your customers will love.",
         "zapGateway": "The Zap Gateway",
-        "zapGatewaySpecs": "€39 • 200ms response • Offline-capable"
+        "zapGatewaySpecs": "€69 • 200ms response • Offline-capable"
       },
       "comparison": {
         "withoutTitle": "Without Sourceful",
@@ -984,7 +1024,7 @@
     },
     "requirements": {
       "title": "Requirements",
-      "zap": "Zap gateway (€39)",
+      "zap": "Zap gateway (€69)",
       "charger": "Bidirectional EV charger",
       "vehicle": "V2X-capable electric vehicle",
       "subscription": "Sourceful platform subscription"
@@ -1131,7 +1171,7 @@
         "title": "How it works",
         "step1": {
           "title": "Get the Zap",
-          "description": "Order the €39 Zap gateway and connect it to your home network."
+          "description": "Order the €69 Zap gateway and connect it to your home network."
         },
         "step2": {
           "title": "Connect {brand}",
@@ -1512,7 +1552,7 @@
     },
     "valueProps": {
       "coordinator": {
-        "value": "€39",
+        "value": "€69",
         "title": "Universal coordinator",
         "description": "The Zap gateway supports P1, Modbus, MQTT, OCPP - every protocol that matters."
       },
@@ -2750,7 +2790,7 @@
     },
     "homeowners": {
       "title": "Earn rewards while you save",
-      "description": "Connect your energy devices and start earning points. The more you optimize, the more you earn. Redeem for future benefits as our rewards program grows."
+      "description": "Connect your energy devices and start earning points. Redeem for future benefits as our rewards program grows."
     },
     "utilities": {
       "title": "Built-in customer loyalty",
@@ -2847,5 +2887,18 @@
         "answer": "Free delivery in the EU. 30-day money back guarantee on hardware. Cancel your Zap Pro subscription anytime, no questions asked."
       }
     }
+  },
+  "savingsCalculatorMini": {
+    "estimatedAnnualSavings": "Estimated annual savings",
+    "basedOnPrices": "Based on average European electricity prices",
+    "disclaimer": "Illustration only. Actual savings depend on your setup and usage.",
+    "solarSystemSize": "Solar system size",
+    "produces": "Produces ~{amount} kWh/year",
+    "homeBattery": "Home battery",
+    "batteryCapacity": "Battery capacity",
+    "electricVehicle": "Electric vehicle",
+    "annualDriving": "Annual driving",
+    "getDetailedBreakdown": "Get detailed breakdown",
+    "adjustInFullCalculator": "Adjust region, consumption & more in our full calculator"
   }
 }

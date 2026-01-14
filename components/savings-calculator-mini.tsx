@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/src/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
@@ -59,6 +60,8 @@ const calculateSavings = (
 };
 
 export function SavingsCalculatorMini() {
+  const locale = useLocale();
+  const t = useTranslations("savingsCalculatorMini");
   const [solarSize, setSolarSize] = useState(10);
   const [hasBattery, setHasBattery] = useState(true);
   const [batterySize, setBatterySize] = useState(10);
@@ -66,7 +69,13 @@ export function SavingsCalculatorMini() {
   const [evKmPerYear, setEvKmPerYear] = useState(15000);
   const [displayedSavings, setDisplayedSavings] = useState(0);
 
-  const actualSavings = calculateSavings(solarSize, hasBattery, batterySize, hasEV, evKmPerYear);
+  // Currency conversion: SEK to EUR (approximate rate)
+  const SEK_TO_EUR = 0.085; // ~11.7 SEK per EUR
+  const isEUR = locale === "en";
+  const currencySymbol = isEUR ? "€" : "kr";
+
+  const actualSavingsSEK = calculateSavings(solarSize, hasBattery, batterySize, hasEV, evKmPerYear);
+  const actualSavings = isEUR ? Math.round(actualSavingsSEK * SEK_TO_EUR) : actualSavingsSEK;
 
   // Animate the number counting up
   useEffect(() => {
@@ -94,17 +103,19 @@ export function SavingsCalculatorMini() {
     <div className="w-full">
       {/* Big savings number */}
       <div className="text-center mb-8">
-        <p className="text-sm text-muted-foreground mb-2">Estimated annual savings</p>
+        <p className="text-sm text-muted-foreground mb-2">{t("estimatedAnnualSavings")}</p>
         <div className="flex items-baseline justify-center gap-2">
+          {isEUR && <span className="text-5xl md:text-6xl font-bold text-primary">{currencySymbol}</span>}
           <motion.span
             key={displayedSavings}
             className="text-6xl md:text-7xl font-bold text-primary tabular-nums"
           >
             {displayedSavings.toLocaleString()}
           </motion.span>
-          <span className="text-3xl md:text-4xl font-bold text-primary">SEK</span>
+          {!isEUR && <span className="text-3xl md:text-4xl font-bold text-primary">{currencySymbol}</span>}
         </div>
-        <p className="text-xs text-muted-foreground mt-2">Based on Stockholm (SE3) electricity prices</p>
+        <p className="text-xs text-muted-foreground mt-2">{t("basedOnPrices")}</p>
+        <p className="text-xs text-muted-foreground/70 mt-1">{t("disclaimer")}</p>
       </div>
 
       {/* Simple inputs */}
@@ -114,7 +125,7 @@ export function SavingsCalculatorMini() {
           <div className="flex items-center justify-between">
             <Label className="flex items-center gap-2">
               <Sun className="h-4 w-4 text-yellow-500" />
-              Solar system size
+              {t("solarSystemSize")}
             </Label>
             <span className="text-sm font-medium tabular-nums">{solarSize} kWp</span>
           </div>
@@ -126,7 +137,7 @@ export function SavingsCalculatorMini() {
             step={1}
           />
           <p className="text-xs text-muted-foreground">
-            Produces ~{(solarSize * 900).toLocaleString()} kWh/year
+            {t("produces", { amount: (solarSize * 900).toLocaleString() })}
           </p>
         </div>
 
@@ -135,7 +146,7 @@ export function SavingsCalculatorMini() {
           <div className="flex items-center justify-between">
             <Label className="flex items-center gap-2">
               <Battery className="h-4 w-4 text-green-500" />
-              Home battery
+              {t("homeBattery")}
             </Label>
             <Switch checked={hasBattery} onCheckedChange={setHasBattery} />
           </div>
@@ -150,7 +161,7 @@ export function SavingsCalculatorMini() {
               >
                 <div className="pt-2 pb-1 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Battery capacity</span>
+                    <span className="text-sm text-muted-foreground">{t("batteryCapacity")}</span>
                     <span className="text-sm font-medium tabular-nums">{batterySize} kWh</span>
                   </div>
                   <Slider
@@ -171,7 +182,7 @@ export function SavingsCalculatorMini() {
           <div className="flex items-center justify-between">
             <Label className="flex items-center gap-2">
               <Car className="h-4 w-4 text-blue-500" />
-              Electric vehicle
+              {t("electricVehicle")}
             </Label>
             <Switch checked={hasEV} onCheckedChange={setHasEV} />
           </div>
@@ -186,7 +197,7 @@ export function SavingsCalculatorMini() {
               >
                 <div className="pt-2 pb-1 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Annual driving</span>
+                    <span className="text-sm text-muted-foreground">{t("annualDriving")}</span>
                     <span className="text-sm font-medium tabular-nums">{evKmPerYear.toLocaleString()} km</span>
                   </div>
                   <Slider
@@ -207,12 +218,12 @@ export function SavingsCalculatorMini() {
       <div className="mt-8 text-center space-y-3">
         <Button asChild size="lg">
           <Link href="/tools/savings-calculator">
-            Get detailed breakdown
+            {t("getDetailedBreakdown")}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
         <p className="text-xs text-muted-foreground">
-          Adjust region, consumption & more in our full calculator
+          {t("adjustInFullCalculator")}
         </p>
       </div>
     </div>

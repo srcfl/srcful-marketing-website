@@ -670,7 +670,7 @@ export default function V2XSavingsCalculatorPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            {tCommon("buttons.getTheZap")} - €39
+                            {tCommon("buttons.getTheZap")} - €69
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
