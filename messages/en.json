@@ -359,6 +359,10 @@
     "cta": {
       "title": "Ready to see it in action?",
       "description": "Schedule a demo or explore the developer documentation."
+    },
+    "community": {
+      "title": "Get answers to your questions",
+      "description": "Connect with the team, other developers, and get support."
     }
   },
   "zap": {

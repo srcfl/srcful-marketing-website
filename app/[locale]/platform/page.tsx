@@ -542,6 +542,42 @@ export default function PlatformPage() {
 
         {/* Pricing Section - Replaces old pricing and CTA */}
         <PricingSection />
+
+        {/* Community CTA */}
+        <section className="border-t">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {t("community.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button asChild>
+                      <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
+                        {tCommon("buttons.joinDiscord")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <Link href="/contact">
+                        {tCommon("nav.contact")}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
       </main>
 
       <MarketingFooter />

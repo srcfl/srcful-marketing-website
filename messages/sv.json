@@ -359,6 +359,10 @@
     "cta": {
       "title": "Redo att se det i aktion?",
       "description": "Boka en demo eller utforska utvecklardokumentationen."
+    },
+    "community": {
+      "title": "Få svar på dina frågor",
+      "description": "Anslut med teamet, andra utvecklare och få support."
     }
   },
   "zap": {
