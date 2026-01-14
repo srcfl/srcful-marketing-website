@@ -77,6 +77,7 @@
       "orderNow": "Order Now",
       "joinWaitlist": "Join Waitlist",
       "viewDocs": "View Docs",
+      "devPortal": "Dev Portal",
       "openDevPortal": "Open Dev Portal",
       "joinDiscord": "Join Discord",
       "scheduledDemo": "Schedule Demo",
@@ -739,13 +740,13 @@
         "description": "No hidden fees. Customer pays subscription, you get the install.",
         "singleUnit": {
           "title": "Single Unit",
-          "price": "699 kr",
+          "price": "€69",
           "period": "one-time",
           "description": "Try it out on your next install",
           "features": [
             "One Zap gateway",
             "Full platform access",
-            "Customer pays 59 kr/mo",
+            "Customer pays €5/mo",
             "Standard support"
           ],
           "cta": "Order sample"
@@ -805,7 +806,7 @@
         "items": [
           {
             "question": "Who handles the customer subscription?",
-            "answer": "We do. The customer pays 59 kr/month directly to Sourceful. You focus on installation work, not subscription administration."
+            "answer": "We do. The customer pays €5/month directly to Sourceful. You focus on installation work, not subscription administration."
           },
           {
             "question": "What if a customer has a problem?",

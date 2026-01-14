@@ -77,6 +77,7 @@
       "orderNow": "Beställ nu",
       "joinWaitlist": "Anmäl intresse",
       "viewDocs": "Se dokumentation",
+      "devPortal": "Utvecklarportal",
       "openDevPortal": "Öppna utvecklarportalen",
       "joinDiscord": "Gå med i Discord",
       "scheduledDemo": "Boka demo",
@@ -514,7 +515,7 @@
         "v2x": {
           "title": "V2X & elbilsladdning",
           "description": "Förvandla din elbil till en intäktsgenererande tillgång. Ladda billigt, sälj dyrt. V2H och V2G redo.",
-          "savings": "€250-700",
+          "savings": "2 500-7 000 kr",
           "savingsLabel": "Årlig V2X-potential"
         }
       },
@@ -1511,14 +1512,14 @@
     },
     "valueProps": {
       "coordinator": {
-        "value": "€39",
+        "value": "399 kr",
         "title": "Universal koordinator",
         "description": "Zap gateway stödjer P1, Modbus, MQTT, OCPP - alla protokoll som spelar roll."
       },
       "subscription": {
-        "value": "€3/mån",
+        "value": "29 kr/mån",
         "title": "Plattformsabonnemang",
-        "description": "Fångar €1 000-2 500 i årligt värde genom optimering och nättjänster."
+        "description": "Fångar 10 000-25 000 kr i årligt värde genom optimering och nättjänster."
       },
       "architecture": {
         "value": "Öppen",
@@ -2777,7 +2778,7 @@
     "tiers": {
       "zap": {
         "name": "Zap Core",
-        "price": "€69",
+        "price": "699 kr",
         "period": "engångsavgift",
         "description": "Inkluderar Zap-enhet och gratis iOS/Android-app",
         "features": [
@@ -2791,10 +2792,10 @@
       },
       "ems": {
         "name": "Zap Pro",
-        "price": "€60",
+        "price": "590 kr",
         "period": "/ år",
         "description": "Prenumerera för att låsa upp AI-styrning",
-        "priceNote": "Inkluderar gratis Zap.\nEndast €2,50/mån om du redan har en.",
+        "priceNote": "Inkluderar gratis Zap.\nEndast 25 kr/mån om du redan har en.",
         "features": [
           "Allt i Zap Core",
           "Lastbalansering",
@@ -2823,11 +2824,11 @@
       "title": "Vanliga frågor",
       "zapCore": {
         "question": "Vad ingår i Zap Core?",
-        "answer": "Varje Zap (€69) ger dig energidata i realtid, obegränsad API-åtkomst för dina enheter och både lokal och molnstyrning. Bygg vad du vill med den."
+        "answer": "Varje Zap (699 kr) ger dig energidata i realtid, obegränsad API-åtkomst för dina enheter och både lokal och molnstyrning. Bygg vad du vill med den."
       },
       "zapPro": {
         "question": "Vad tillför Zap Pro?",
-        "answer": "Zap Pro (€60/år) lägger till smart energihantering: lastbalansering, optimeringsalgoritmer och enhetsvarningar. Nya prenumeranter får en gratis Zap inkluderad. Har du redan en Zap? Uppgradera till Pro för bara €2,50/månad."
+        "answer": "Zap Pro (590 kr/år) lägger till smart energihantering: lastbalansering, optimeringsalgoritmer och enhetsvarningar. Nya prenumeranter får en gratis Zap inkluderad. Har du redan en Zap? Uppgradera till Pro för bara 25 kr/månad."
       },
       "multipleZaps": {
         "question": "Kan jag använda flera Zaps?",
