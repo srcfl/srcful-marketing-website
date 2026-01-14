@@ -82,7 +82,7 @@ export function Logo({
 
   // Full logo with wordmark
   const logoSrc = isDark
-    ? "/assets/sourceful-logo-dark-mode.svg"
+    ? "/assets/sourceful-dark-mode-v2.svg"
     : "/assets/sourceful-logo-light-mode.svg";
 
   return (
