@@ -217,6 +217,31 @@
         "community": "Active Discord community for support"
       }
     },
+    "installers": {
+      "badge": "For Installers",
+      "title": "Install once. Stay compatible forever.",
+      "description": "Mixed-brand systems are a support nightmare. Zap unifies any inverter, battery, and EV charger under one interface. You install. We handle the software.",
+      "features": {
+        "brandAgnostic": "Works with any brand combination",
+        "oneInterface": "Free iOS & Android app for your customers",
+        "weHandleSupport": "Free installation and technical support",
+        "noLicenseAdmin": "No subscription administration for you"
+      },
+      "stats": {
+        "supportReductionNum": "70",
+        "supportReductionUnit": "%",
+        "supportReductionLabel": "fewer support callbacks",
+        "installTimeNum": "5",
+        "installTimeUnit": "min",
+        "installTimeLabel": "average install time",
+        "brandsNum": "50",
+        "brandsUnit": "+",
+        "brandsLabel": "compatible brands",
+        "subscriptionNum": "59",
+        "subscriptionUnit": "kr/mo",
+        "subscriptionLabel": "customer pays us directly"
+      }
+    },
     "zap": {
       "badge": "Hardware",
       "title": "Meet Zap",
@@ -616,65 +641,158 @@
     "installers": {
       "hero": {
         "badge": "For Installers",
-        "title": "Smart energy for your",
-        "titleHighlight": "customers",
-        "description": "Differentiate with smart energy solutions. Simple integration, recurring revenue, happy customers."
+        "title": "Focus on installs.",
+        "titleHighlight": "Not software support.",
+        "description": "Mixed-brand systems create endless support calls. Zap makes any inverter, battery, and EV charger work together — so you can install and move on."
       },
       "partner": {
-        "elkedjanDescription": "Sweden's largest installer network"
+        "trustedBy": "Trusted by",
+        "elkedjanDescription": "Sweden's largest installer network with 100+ partner companies"
       },
-      "problem": {
-        "title": "Your customers want more than hardware",
-        "paragraph1": "Every homeowner with solar panels, batteries, or EV chargers wants them to work. But they also want them to work together intelligently. That's where you come in.",
-        "paragraph2": "With Sourceful, you can offer a complete smart energy solution. Install the Zap gateway alongside your hardware and give customers a platform they'll use every day - with your branding.",
-        "revenueValue": "€5-10",
-        "revenueLabel": "Per device per year recurring revenue"
+      "painPoints": {
+        "title": "The real problem with mixed-brand systems",
+        "description": "Every installation is unique. Every combination creates new headaches.",
+        "softwareSpaghetti": {
+          "title": "Software spaghetti",
+          "description": "Huawei app for the inverter. Tesla app for the Powerwall. Zaptec app for the charger. Your customers juggle 3-4 apps that don't talk to each other."
+        },
+        "supportCallbacks": {
+          "title": "Support callbacks",
+          "description": "\"It stopped working after an update.\" \"The apps aren't syncing.\" \"My EV isn't charging at the right times.\" You become unpaid software support."
+        },
+        "ecosystemConflicts": {
+          "title": "Ecosystem conflicts",
+          "description": "Vendor lock-in, firmware updates that break integrations, APIs that disappear. You're caught between manufacturers who don't cooperate."
+        }
       },
-      "whatYouInstall": {
-        "title": "What you install",
-        "items": ["Zap gateway (€39 cost)", "5-minute installation", "Works with existing hardware", "No configuration needed"]
+      "responsibility": {
+        "title": "Clear division of labor",
+        "description": "You do what you do best. We handle the rest.",
+        "installer": {
+          "title": "You handle",
+          "items": ["Hardware selection", "Physical installation", "Electrical connections", "Customer handover"]
+        },
+        "sourceful": {
+          "title": "We handle",
+          "items": ["Software integration", "App & dashboard", "Firmware updates", "Customer support (SE/EN)"]
+        }
       },
       "whatCustomersGet": {
-        "title": "What customers get",
-        "items": ["Real-time energy monitoring", "Automatic optimization", "Mobile app access", "Grid services participation"]
+        "title": "What your customers get",
+        "description": "A complete energy platform that just works.",
+        "items": [
+          {
+            "title": "Full telemetry",
+            "description": "Real-time data from all devices in one dashboard"
+          },
+          {
+            "title": "Smart automation",
+            "description": "Automatic optimization based on prices, solar, and usage"
+          },
+          {
+            "title": "Native support",
+            "description": "Swedish and English technical support included"
+          },
+          {
+            "title": "Mobile app",
+            "description": "iOS and Android apps for monitoring and control"
+          }
+        ]
       },
-      "benefits": {
-        "title": "Why installers partner with us",
-        "recurringRevenue": {
-          "title": "Recurring Revenue",
-          "description": "Move beyond one-time installations. Offer ongoing energy optimization services with monthly fees."
+      "compatibility": {
+        "title": "Works with the brands you install",
+        "description": "50+ supported brands and growing. If we don't support it yet, tell us."
+      },
+      "installerPricing": {
+        "title": "Simple, transparent pricing",
+        "description": "No hidden fees. Customer pays subscription, you get the install.",
+        "singleUnit": {
+          "title": "Single Unit",
+          "price": "699 kr",
+          "period": "one-time",
+          "description": "Try it out on your next install",
+          "features": [
+            "One Zap gateway",
+            "Full platform access",
+            "Customer pays 59 kr/mo",
+            "Standard support"
+          ],
+          "cta": "Order sample"
         },
-        "simpleInstallation": {
-          "title": "Simple Installation",
-          "description": "The Zap gateway installs in minutes. No complex configuration. Plug and play."
+        "installerPack": {
+          "title": "Installer Pack",
+          "price": "Contact us",
+          "period": "volume pricing",
+          "description": "For active installers (10+ units)",
+          "features": [
+            "Volume discount on hardware",
+            "Partner portal access",
+            "Marketing materials",
+            "Priority support line"
+          ],
+          "cta": "Become a partner",
+          "popular": true
         },
-        "customerRetention": {
-          "title": "Customer Retention",
-          "description": "Keep customers engaged with an app they use daily. Lower churn, higher lifetime value."
-        },
-        "technicalSupport": {
-          "title": "Technical Support",
-          "description": "We handle the platform. You handle the customer relationship. Full training included."
+        "networkPartner": {
+          "title": "Network Partner",
+          "price": "Custom",
+          "period": "enterprise",
+          "description": "For installer networks and chains",
+          "features": [
+            "Bulk pricing",
+            "3-12 months free license offers",
+            "Co-marketing opportunities",
+            "Dedicated account manager"
+          ],
+          "cta": "Contact sales"
         }
+      },
+      "video": {
+        "title": "See how it works",
+        "comingSoon": "Video coming soon"
       },
       "howItWorks": {
-        "title": "Getting started is easy",
+        "title": "Three steps to simpler installations",
         "step1": {
-          "title": "Join the program",
-          "description": "Quick onboarding, training, and access to marketing materials."
+          "number": "1",
+          "title": "Order a sample",
+          "description": "Get a Zap gateway and try it on your next installation. See how easy it is."
         },
         "step2": {
-          "title": "Install with confidence",
-          "description": "Add the Zap to your installations. We provide full support."
+          "number": "2",
+          "title": "5-minute install",
+          "description": "Connect power. Connect ethernet or WiFi. Scan QR code. Done."
         },
         "step3": {
-          "title": "Earn recurring revenue",
-          "description": "Monthly fees for every active device. Passive income."
+          "number": "3",
+          "title": "Hand off to customer",
+          "description": "Customer downloads the app, we handle onboarding and support. You're done."
         }
       },
+      "faq": {
+        "title": "Common questions",
+        "items": [
+          {
+            "question": "Who handles the customer subscription?",
+            "answer": "We do. The customer pays 59 kr/month directly to Sourceful. You focus on installation work, not subscription administration."
+          },
+          {
+            "question": "What if a customer has a problem?",
+            "answer": "They contact us, not you. We provide Swedish and English technical support for all platform-related issues. Hardware issues still go through normal warranty channels."
+          },
+          {
+            "question": "What if a brand isn't supported?",
+            "answer": "Tell us. We add new integrations based on installer demand. Most common brands are already supported, and we're adding more every month."
+          },
+          {
+            "question": "Do I need training?",
+            "answer": "The Zap installs in 5 minutes — most installers figure it out immediately. We provide optional training materials and partner portal access for larger teams."
+          }
+        ]
+      },
       "cta": {
-        "title": "Ready to grow your business?",
-        "description": "Join our installer network and start offering smart energy solutions."
+        "title": "Ready to simplify your installations?",
+        "description": "Order a sample unit and see how Zap eliminates software support headaches."
       }
     },
     "oems": {

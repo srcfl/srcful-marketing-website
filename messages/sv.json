@@ -217,6 +217,27 @@
         "community": "Aktiv Discord-community för support"
       }
     },
+    "installers": {
+      "badge": "För installatörer",
+      "title": "Installera en gång. Förbli kompatibel för alltid.",
+      "description": "Blandade varumärken är en supportmardröm. Zap förenar alla växelriktare, batterier och elbilsladdare under ett gränssnitt. Du installerar. Vi sköter mjukvaran.",
+      "features": {
+        "brandAgnostic": "Fungerar med alla varumärkeskombinationer",
+        "oneInterface": "Ett kundgränssnitt, färre supportsamtal",
+        "weHandleSupport": "Svensk/engelsk teknisk support ingår",
+        "noLicenseAdmin": "Ingen prenumerationsadministration för dig"
+      },
+      "stats": {
+        "supportReduction": "70%",
+        "supportReductionLabel": "färre supportsamtal",
+        "installTime": "5 min",
+        "installTimeLabel": "genomsnittlig installationstid",
+        "brands": "50+",
+        "brandsLabel": "kompatibla varumärken",
+        "subscription": "59 kr/mån",
+        "subscriptionLabel": "kunden betalar oss direkt"
+      }
+    },
     "zap": {
       "badge": "Hårdvara",
       "title": "Möt Zap",
@@ -616,65 +637,158 @@
     "installers": {
       "hero": {
         "badge": "För installatörer",
-        "title": "Smart energi för dina",
-        "titleHighlight": "kunder",
-        "description": "Differentiera med smarta energilösningar. Enkel integration, återkommande intäkter, nöjda kunder."
+        "title": "Fokusera på installationer.",
+        "titleHighlight": "Inte mjukvarusupport.",
+        "description": "Blandade varumärken skapar oändliga supportsamtal. Zap får alla växelriktare, batterier och elbilsladdare att fungera tillsammans — så att du kan installera och gå vidare."
       },
       "partner": {
-        "elkedjanDescription": "Sveriges största installatörsnätverk"
+        "trustedBy": "Litar på oss",
+        "elkedjanDescription": "Sveriges största installatörsnätverk med 100+ partnerföretag"
       },
-      "problem": {
-        "title": "Dina kunder vill ha mer än hårdvara",
-        "paragraph1": "Varje villaägare med solceller, batterier eller elbilsladdare vill att de ska fungera. Men de vill också att de ska fungera smart tillsammans. Det är där du kommer in.",
-        "paragraph2": "Med Sourceful kan du erbjuda en komplett smart energilösning. Installera Zap-gatewayen tillsammans med din hårdvara och ge kunderna en plattform de använder dagligen - med ditt varumärke.",
-        "revenueValue": "50-100 kr",
-        "revenueLabel": "Per enhet per år i återkommande intäkt"
+      "painPoints": {
+        "title": "Det verkliga problemet med blandade varumärken",
+        "description": "Varje installation är unik. Varje kombination skapar nya huvudvärk.",
+        "softwareSpaghetti": {
+          "title": "Mjukvaruspaghetti",
+          "description": "Huawei-app för växelriktaren. Tesla-app för Powerwall. Zaptec-app för laddaren. Dina kunder jonglerar 3-4 appar som inte pratar med varandra."
+        },
+        "supportCallbacks": {
+          "title": "Supportsamtal",
+          "description": "\"Det slutade fungera efter en uppdatering.\" \"Apparna synkar inte.\" \"Min elbil laddar inte på rätt tider.\" Du blir obetald mjukvarusupport."
+        },
+        "ecosystemConflicts": {
+          "title": "Ekosystemkonflikter",
+          "description": "Leverantörslåsning, firmware-uppdateringar som bryter integrationer, API:er som försvinner. Du hamnar mellan tillverkare som inte samarbetar."
+        }
       },
-      "whatYouInstall": {
-        "title": "Vad du installerar",
-        "items": ["Zap gateway (399 kr kostnad)", "5 minuters installation", "Fungerar med befintlig hårdvara", "Ingen konfiguration behövs"]
+      "responsibility": {
+        "title": "Tydlig arbetsfördelning",
+        "description": "Du gör det du gör bäst. Vi sköter resten.",
+        "installer": {
+          "title": "Du hanterar",
+          "items": ["Hårdvaruval", "Fysisk installation", "Elektriska anslutningar", "Kundöverlämning"]
+        },
+        "sourceful": {
+          "title": "Vi hanterar",
+          "items": ["Mjukvaruintegration", "App & dashboard", "Firmware-uppdateringar", "Kundsupport (SE/EN)"]
+        }
       },
       "whatCustomersGet": {
-        "title": "Vad kunderna får",
-        "items": ["Energiövervakning i realtid", "Automatisk optimering", "Mobilappåtkomst", "Deltagande i nättjänster"]
+        "title": "Vad dina kunder får",
+        "description": "En komplett energiplattform som bara fungerar.",
+        "items": [
+          {
+            "title": "Full telemetri",
+            "description": "Realtidsdata från alla enheter i en dashboard"
+          },
+          {
+            "title": "Smart automation",
+            "description": "Automatisk optimering baserat på priser, sol och användning"
+          },
+          {
+            "title": "Svensk support",
+            "description": "Svensk och engelsk teknisk support ingår"
+          },
+          {
+            "title": "Mobilapp",
+            "description": "iOS och Android-appar för övervakning och styrning"
+          }
+        ]
       },
-      "benefits": {
-        "title": "Varför installatörer samarbetar med oss",
-        "recurringRevenue": {
-          "title": "Återkommande intäkter",
-          "description": "Gå bortom engångsinstallationer. Erbjud löpande energioptimeringstjänster med månadsavgifter."
+      "compatibility": {
+        "title": "Fungerar med varumärkena du installerar",
+        "description": "50+ stödda varumärken och växer. Om vi inte stödjer det ännu, berätta för oss."
+      },
+      "installerPricing": {
+        "title": "Enkel, transparent prissättning",
+        "description": "Inga dolda avgifter. Kunden betalar prenumeration, du får installationen.",
+        "singleUnit": {
+          "title": "Enskild enhet",
+          "price": "699 kr",
+          "period": "engångs",
+          "description": "Prova på din nästa installation",
+          "features": [
+            "En Zap gateway",
+            "Full plattformsåtkomst",
+            "Kunden betalar 59 kr/mån",
+            "Standardsupport"
+          ],
+          "cta": "Beställ prov"
         },
-        "simpleInstallation": {
-          "title": "Enkel installation",
-          "description": "Zap-gatewayen installeras på några minuter. Ingen komplex konfiguration. Plug and play."
+        "installerPack": {
+          "title": "Installatörspaket",
+          "price": "Kontakta oss",
+          "period": "volympriser",
+          "description": "För aktiva installatörer (10+ enheter)",
+          "features": [
+            "Volymrabatt på hårdvara",
+            "Partnerportalåtkomst",
+            "Marknadsföringsmaterial",
+            "Prioriterad supportlinje"
+          ],
+          "cta": "Bli partner",
+          "popular": true
         },
-        "customerRetention": {
-          "title": "Kundlojalitet",
-          "description": "Håll kunderna engagerade med en app de använder dagligen. Lägre churn, högre livstidsvärde."
-        },
-        "technicalSupport": {
-          "title": "Teknisk support",
-          "description": "Vi hanterar plattformen. Du hanterar kundrelationen. Full utbildning ingår."
+        "networkPartner": {
+          "title": "Nätverkspartner",
+          "price": "Anpassat",
+          "period": "enterprise",
+          "description": "För installatörsnätverk och kedjor",
+          "features": [
+            "Bulkpriser",
+            "3-12 månader gratis licenserbjudanden",
+            "Co-marketing möjligheter",
+            "Dedikerad kontaktperson"
+          ],
+          "cta": "Kontakta sälj"
         }
+      },
+      "video": {
+        "title": "Se hur det fungerar",
+        "comingSoon": "Video kommer snart"
       },
       "howItWorks": {
-        "title": "Att komma igång är enkelt",
+        "title": "Tre steg till enklare installationer",
         "step1": {
-          "title": "Gå med i programmet",
-          "description": "Snabb onboarding, utbildning och tillgång till marknadsföringsmaterial."
+          "number": "1",
+          "title": "Beställ ett prov",
+          "description": "Skaffa en Zap gateway och prova på din nästa installation. Se hur enkelt det är."
         },
         "step2": {
-          "title": "Installera med trygghet",
-          "description": "Lägg till Zap i dina installationer. Vi ger full support."
+          "number": "2",
+          "title": "5-minuters installation",
+          "description": "Anslut ström. Anslut ethernet eller WiFi. Scanna QR-kod. Klart."
         },
         "step3": {
-          "title": "Tjäna återkommande intäkter",
-          "description": "Månadsavgifter för varje aktiv enhet. Passiv inkomst."
+          "number": "3",
+          "title": "Lämna över till kund",
+          "description": "Kunden laddar ner appen, vi sköter onboarding och support. Du är klar."
         }
       },
+      "faq": {
+        "title": "Vanliga frågor",
+        "items": [
+          {
+            "question": "Vem hanterar kundprenumerationen?",
+            "answer": "Det gör vi. Kunden betalar 59 kr/månad direkt till Sourceful. Du fokuserar på installationsarbete, inte prenumerationsadministration."
+          },
+          {
+            "question": "Vad händer om en kund har problem?",
+            "answer": "De kontaktar oss, inte dig. Vi erbjuder svensk och engelsk teknisk support för alla plattformsrelaterade problem. Hårdvaruproblem går fortfarande via normala garantikanaler."
+          },
+          {
+            "question": "Vad händer om ett varumärke inte stöds?",
+            "answer": "Berätta för oss. Vi lägger till nya integrationer baserat på installatörernas efterfrågan. De flesta vanliga varumärken stöds redan, och vi lägger till fler varje månad."
+          },
+          {
+            "question": "Behöver jag utbildning?",
+            "answer": "Zap installeras på 5 minuter — de flesta installatörer förstår det direkt. Vi erbjuder valfritt utbildningsmaterial och partnerportalåtkomst för större team."
+          }
+        ]
+      },
       "cta": {
-        "title": "Redo att växa din verksamhet?",
-        "description": "Gå med i vårt installatörsnätverk och börja erbjuda smarta energilösningar."
+        "title": "Redo att förenkla dina installationer?",
+        "description": "Beställ en provenhet och se hur Zap eliminerar mjukvarusupportproblem."
       }
     },
     "oems": {

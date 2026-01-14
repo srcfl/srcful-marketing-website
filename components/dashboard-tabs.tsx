@@ -134,8 +134,11 @@ export function DashboardTabs() {
         </div>
       </div>
 
-      {/* Content area */}
-      <div className="relative overflow-hidden h-[600px] md:h-[700px]">
+      {/* Content area - clip only bottom, allow side overflow for shadows */}
+      <div
+        className="relative h-[600px] md:h-[700px]"
+        style={{ clipPath: "inset(0 -100px 0 -100px)" }}
+      >
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={activeIndex}

@@ -14,6 +14,137 @@ import { Hero } from "@/components/hero";
 import { PricingSection } from "@/components/pricing-section";
 import { PixelGridBackground } from "@/components/pixel-grid-background";
 import { PixelGrid } from "@/components/ui/pixel-grid";
+import { TypewriterCode } from "@/components/typewriter-code";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { LucideIcon } from "lucide-react";
+
+interface Audience {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  href: string;
+  iconColor: string;
+  bgColor: string;
+  offsetY: number;
+}
+
+function AudienceCards({ audiences }: { audiences: Audience[] }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+
+  return (
+    <>
+      {/* Desktop: Animated cards with stagger and bounce */}
+      <div ref={containerRef} className="hidden xl:grid xl:grid-cols-5 gap-6">
+        {audiences.map((audience, index) => {
+          const Icon = audience.icon;
+          return (
+            <motion.div
+              key={audience.title}
+              initial={{ opacity: 0, y: 60 }}
+              animate={isInView ? {
+                opacity: 1,
+                y: audience.offsetY
+              } : { opacity: 0, y: 60 }}
+              transition={{
+                delay: index * 0.1,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 100,
+                damping: 12,
+              }}
+              className="h-full"
+            >
+              <Link href={audience.href} className="no-underline hover:no-underline block h-full">
+                <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
+                  <CardHeader>
+                    <div className={`w-12 h-12 ${audience.bgColor} rounded-lg flex items-center justify-center mb-4`}>
+                      <Icon className={`h-6 w-6 ${audience.iconColor}`} />
+                    </div>
+                    <CardTitle>{audience.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">
+                      {audience.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Mobile/Tablet: Standard stagger animation */}
+      <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:hidden" staggerDelay={0.1}>
+        {audiences.map((audience) => {
+          const Icon = audience.icon;
+          return (
+            <StaggerItem key={audience.title}>
+              <Link href={audience.href} className="no-underline hover:no-underline block h-full">
+                <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
+                  <CardHeader>
+                    <div className={`w-12 h-12 ${audience.bgColor} rounded-lg flex items-center justify-center mb-4`}>
+                      <Icon className={`h-6 w-6 ${audience.iconColor}`} />
+                    </div>
+                    <CardTitle>{audience.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base">
+                      {audience.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
+            </StaggerItem>
+          );
+        })}
+      </StaggerContainer>
+    </>
+  );
+}
+
+function InstallerStats({ t }: { t: ReturnType<typeof useTranslations<"home">> }) {
+  const statsRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(statsRef, { once: true, margin: "-50px" });
+
+  const stats = [
+    { num: "supportReductionNum", unit: "supportReductionUnit", label: "supportReductionLabel" },
+    { num: "installTimeNum", unit: "installTimeUnit", label: "installTimeLabel", unitSpace: true },
+    { num: "brandsNum", unit: "brandsUnit", label: "brandsLabel" },
+    { num: "subscriptionNum", unit: "subscriptionUnit", label: "subscriptionLabel", unitSpace: true },
+  ];
+
+  return (
+    <div ref={statsRef} className="grid grid-cols-2 gap-3 w-fit ml-auto">
+      {stats.map((stat, index) => (
+        <motion.div
+          key={stat.num}
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 20 }}
+          transition={{
+            delay: index * 0.1,
+            duration: 0.5,
+            type: "spring",
+            stiffness: 100,
+            damping: 12,
+          }}
+        >
+          <Card className="w-[180px] h-[180px] flex flex-col items-center justify-center text-center p-3">
+            <div className="font-bold text-indigo-500 mb-1">
+              <span className="text-5xl">{t(`installers.stats.${stat.num}`)}</span>
+              <span className={`text-lg ${stat.unitSpace ? "ml-1" : ""}`}>{t(`installers.stats.${stat.unit}`)}</span>
+            </div>
+            <div className="text-xs text-muted-foreground">
+              {t(`installers.stats.${stat.label}`)}
+            </div>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   const t = useTranslations("home");
@@ -52,20 +183,13 @@ export default function Home() {
 
   const audiences = [
     {
-      icon: Users,
-      title: t("audiences.homeowners.title"),
-      description: t("audiences.homeowners.description"),
-      href: "/use-cases/homeowners",
-      iconColor: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-    },
-    {
       icon: Building2,
       title: t("audiences.utilities.title"),
       description: t("audiences.utilities.description"),
       href: "/use-cases/utilities",
       iconColor: "text-violet-500",
       bgColor: "bg-violet-500/10",
+      offsetY: 48,
     },
     {
       icon: CircuitBoard,
@@ -74,14 +198,25 @@ export default function Home() {
       href: "/use-cases/oems",
       iconColor: "text-amber-500",
       bgColor: "bg-amber-500/10",
+      offsetY: 24,
+    },
+    {
+      icon: Users,
+      title: t("audiences.homeowners.title"),
+      description: t("audiences.homeowners.description"),
+      href: "/use-cases/homeowners",
+      iconColor: "text-blue-500",
+      bgColor: "bg-blue-500/10",
+      offsetY: 0,
     },
     {
       icon: Wrench,
       title: t("audiences.installers.title"),
       description: t("audiences.installers.description"),
       href: "/use-cases/installers",
-      iconColor: "text-rose-500",
-      bgColor: "bg-rose-500/10",
+      iconColor: "text-indigo-500",
+      bgColor: "bg-indigo-500/10",
+      offsetY: 24,
     },
     {
       icon: Code,
@@ -90,6 +225,7 @@ export default function Home() {
       href: "/developers",
       iconColor: "text-primary",
       bgColor: "bg-primary/10",
+      offsetY: 48,
     },
   ];
 
@@ -199,10 +335,10 @@ export default function Home() {
                 </ul>
 
                 <Button asChild>
-                  <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                  <Link href="/pricing">
                     {tCommon("buttons.orderNow")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
 
@@ -232,30 +368,7 @@ export default function Home() {
               </p>
             </FadeIn>
 
-            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6" staggerDelay={0.1}>
-              {audiences.map((audience) => {
-                const Icon = audience.icon;
-                return (
-                  <StaggerItem key={audience.title}>
-                    <Link href={audience.href} className="no-underline hover:no-underline block h-full">
-                      <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
-                        <CardHeader>
-                          <div className={`w-12 h-12 ${audience.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                            <Icon className={`h-6 w-6 ${audience.iconColor}`} />
-                          </div>
-                          <CardTitle>{audience.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <CardDescription className="text-base">
-                            {audience.description}
-                          </CardDescription>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </StaggerItem>
-                );
-              })}
-            </StaggerContainer>
+            <AudienceCards audiences={audiences} />
           </div>
         </section>
 
@@ -318,10 +431,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-muted rounded-lg p-6 font-mono text-sm">
-                <div className="text-muted-foreground mb-4"># Control a device in milliseconds</div>
-                <pre className="text-foreground overflow-hidden">
-{`curl -X POST https://api.sourceful.energy/v1/devices/dev_123/control \\
+              <TypewriterCode
+                comment="# Control a device in milliseconds"
+                speed={8}
+                code={`curl -X POST https://api.sourceful.energy/v1/devices/dev_123/control \\
   -H "Authorization: Bearer src_live_..." \\
   -d '{
     "action": "start_charging",
@@ -338,8 +451,71 @@ export default function Home() {
   "device": "dev_123",
   "action": "start_charging"
 }`}
-                </pre>
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* For Installers Section */}
+        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <Badge variant="secondary" className="mb-4">
+                  <Wrench className="h-3 w-3 mr-1" />
+                  {t("installers.badge")}
+                </Badge>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                  {t("installers.title")}
+                </h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  {t("installers.description")}
+                </p>
+
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                    </div>
+                    <span>{t("installers.features.brandAgnostic")}</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                    </div>
+                    <span>{t("installers.features.oneInterface")}</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                    </div>
+                    <span>{t("installers.features.weHandleSupport")}</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-indigo-500/10 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                    </div>
+                    <span>{t("installers.features.noLicenseAdmin")}</span>
+                  </li>
+                </ul>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button className="bg-indigo-500 hover:bg-indigo-600" asChild>
+                    <Link href="/use-cases/installers">
+                      {tCommon("buttons.learnMore")}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                      {tCommon("buttons.orderNow")}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
+
+              <InstallerStats t={t} />
             </div>
           </div>
         </section>

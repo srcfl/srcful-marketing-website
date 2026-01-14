@@ -154,7 +154,7 @@ export default function GetStartedPage() {
               {t("noZap.description")}
             </p>
             <Button size="lg" asChild>
-              <Link href="/zap">
+              <Link href="/pricing">
                 {t("buttons.getTheZap")}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

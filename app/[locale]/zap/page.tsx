@@ -9,7 +9,7 @@ import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { V2XWaitlistSection } from "@/components/v2x-waitlist-section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
-import { ArrowRight, Zap, Clock, Wifi, WifiOff, Shield, Cpu, ExternalLink } from "lucide-react";
+import { ArrowRight, Zap, Clock, Wifi, WifiOff, Shield, Cpu } from "lucide-react";
 
 export default function ZapPage() {
   const t = useTranslations("zap");
@@ -71,10 +71,10 @@ export default function ZapPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button size="lg" asChild>
-                      <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                      <Link href="/pricing">
                         {tCommon("buttons.orderNow")}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
                     </Button>
                     <Button size="lg" variant="outline" asChild>
                       <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
@@ -248,10 +248,10 @@ export default function ZapPage() {
                   <div className="text-5xl font-bold text-primary mb-2">{t("hero.price")}</div>
                   <div className="text-muted-foreground mb-6">{t("pricing.bomCost")}</div>
                   <Button size="lg" asChild>
-                    <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                    <Link href="/pricing">
                       {tCommon("buttons.orderNow")}
-                      <ExternalLink className="ml-2 h-4 w-4" />
-                    </a>
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -271,10 +271,10 @@ export default function ZapPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" asChild>
-                  <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
+                  <Link href="/pricing">
                     {tCommon("buttons.orderNow")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
