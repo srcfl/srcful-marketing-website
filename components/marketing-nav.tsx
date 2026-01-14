@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { DisplaySettings } from "@/components/display-settings";
+import { CartIcon } from "@/components/shop";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -186,9 +187,19 @@ export function MarketingNav() {
             </Button>
           </div>
 
+          {/* Cart Icon */}
+          <div className="hidden md:flex">
+            <CartIcon />
+          </div>
+
           {/* Display Settings (theme + accessibility + language) */}
           <div className="hidden md:flex">
             <DisplaySettings variant="outline" />
+          </div>
+
+          {/* Cart Icon (mobile) */}
+          <div className="md:hidden">
+            <CartIcon />
           </div>
 
           {/* Mobile Menu */}

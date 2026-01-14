@@ -11,6 +11,7 @@ import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Hero } from "@/components/hero";
+import { PricingSection } from "@/components/pricing-section";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -318,6 +319,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Pricing */}
+        <PricingSection />
 
         {/* Community CTA */}
         <section className="border-t">

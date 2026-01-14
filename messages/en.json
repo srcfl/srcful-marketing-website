@@ -2606,5 +2606,69 @@
       "title": "Get rewarded for every install",
       "description": "Earn points for each device you connect. Build a recurring income stream as your customers benefit from smart energy optimization."
     }
+  },
+  "shop": {
+    "addToCart": "Add to Cart",
+    "cart": "Cart",
+    "checkout": "Checkout",
+    "empty": "Your cart is empty",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "taxIncluded": "Tax included",
+    "continueShopping": "Continue Shopping",
+    "itemAdded": "Added to cart",
+    "viewCart": "View Cart",
+    "processing": "Processing...",
+    "soldOut": "Sold Out"
+  },
+  "pricing": {
+    "title": "Simple Pricing",
+    "subtitle": "Hardware you own. Software when you need it.",
+    "comingSoon": "Coming Soon",
+    "tiers": {
+      "zap": {
+        "name": "Zap Core",
+        "price": "€69",
+        "period": "one-time",
+        "description": "Includes Zap device and free iOS/Android app",
+        "features": [
+          "Real-time energy data",
+          "Unlimited API access (your devices)",
+          "Local + cloud control of 3 DERs",
+          "Community support",
+          "Free dev tools"
+        ],
+        "cta": "Buy a Zap"
+      },
+      "ems": {
+        "name": "Zap Pro",
+        "price": "€60",
+        "period": "/ year",
+        "description": "Subscribe to unlock AI control",
+        "priceNote": "Includes free Zap.\nOnly €2.50/mo if you already own one.",
+        "features": [
+          "Everything in Zap Core",
+          "Load balancing",
+          "Price Optimiser",
+          "Device health alerts",
+          "Free updates"
+        ],
+        "cta": "Get Started"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Custom",
+        "description": "For fleets and custom needs",
+        "features": [
+          "Unlimited devices",
+          "SLA guarantee",
+          "Dedicated support",
+          "Custom integrations",
+          "Custom development",
+          "Tailored compliance and security"
+        ],
+        "cta": "Contact Sales"
+      }
+    }
   }
 }

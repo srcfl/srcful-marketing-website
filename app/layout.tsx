@@ -12,6 +12,7 @@ import { AuthProvider } from "@/components/auth-provider";
 import { IntercomProvider } from "@/components/intercom-provider";
 import { CookieConsent } from "@/components/cookie-consent";
 import { AnalyticsProvider } from "@/components/analytics-provider";
+import { CartProvider } from "@/components/shop";
 
 const satoshi = localFont({
   src: [
@@ -85,24 +86,26 @@ export default function RootLayout({
         )}
       >
         <AuthProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange={false}
-          >
-            <DesignSystemProvider defaultTheme="elevated">
-              <LenisProvider>
-                <IntercomProvider>
-                  {children}
-                </IntercomProvider>
-              </LenisProvider>
-              <CookieConsent />
-              <AnalyticsProvider>
-                <Toaster />
-              </AnalyticsProvider>
-            </DesignSystemProvider>
-          </ThemeProvider>
+          <CartProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange={false}
+            >
+              <DesignSystemProvider defaultTheme="elevated">
+                <LenisProvider>
+                  <IntercomProvider>
+                    {children}
+                  </IntercomProvider>
+                </LenisProvider>
+                <CookieConsent />
+                <AnalyticsProvider>
+                  <Toaster />
+                </AnalyticsProvider>
+              </DesignSystemProvider>
+            </ThemeProvider>
+          </CartProvider>
         </AuthProvider>
       </body>
     </html>

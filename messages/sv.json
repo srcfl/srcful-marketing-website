@@ -2606,5 +2606,69 @@
       "title": "Bli belönad för varje installation",
       "description": "Tjäna poäng för varje enhet du ansluter. Bygg en återkommande inkomstström när dina kunder drar nytta av smart energioptimering."
     }
+  },
+  "shop": {
+    "addToCart": "Lägg i varukorg",
+    "cart": "Varukorg",
+    "checkout": "Till kassan",
+    "empty": "Din varukorg är tom",
+    "remove": "Ta bort",
+    "subtotal": "Delsumma",
+    "taxIncluded": "Moms inkluderad",
+    "continueShopping": "Fortsätt handla",
+    "itemAdded": "Tillagd i varukorgen",
+    "viewCart": "Visa varukorg",
+    "processing": "Behandlar...",
+    "soldOut": "Slutsåld"
+  },
+  "pricing": {
+    "title": "Enkel prissättning",
+    "subtitle": "Hårdvara du äger. Programvara när du behöver den.",
+    "comingSoon": "Kommer snart",
+    "tiers": {
+      "zap": {
+        "name": "Zap Core",
+        "price": "€69",
+        "period": "engångsavgift",
+        "description": "Inkluderar Zap-enhet och gratis iOS/Android-app",
+        "features": [
+          "Energidata i realtid",
+          "Obegränsad API-åtkomst (dina enheter)",
+          "Lokal + molnstyrning av 3 DER:ar",
+          "Community-support",
+          "Gratis utvecklarverktyg"
+        ],
+        "cta": "Köp en Zap"
+      },
+      "ems": {
+        "name": "Zap Pro",
+        "price": "€60",
+        "period": "/ år",
+        "description": "Prenumerera för att låsa upp AI-styrning",
+        "priceNote": "Inkluderar gratis Zap.\nEndast €2,50/mån om du redan har en.",
+        "features": [
+          "Allt i Zap Core",
+          "Lastbalansering",
+          "Prisoptimerare",
+          "Enhetsvarningar",
+          "Gratis uppdateringar"
+        ],
+        "cta": "Kom igång"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Anpassat",
+        "description": "För flottor och anpassade behov",
+        "features": [
+          "Obegränsade enheter",
+          "SLA-garanti",
+          "Dedikerad support",
+          "Anpassade integrationer",
+          "Anpassad utveckling",
+          "Skräddarsydd efterlevnad och säkerhet"
+        ],
+        "cta": "Kontakta försäljning"
+      }
+    }
   }
 }
