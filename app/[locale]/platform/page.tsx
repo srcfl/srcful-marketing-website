@@ -153,10 +153,10 @@ export default function PlatformPage() {
                       </Link>
                     </Button>
                     <Button size="lg" variant="outline" asChild>
-                      <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                        {tCommon("buttons.viewDocs")}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
+                      <Link href="/developers">
+                        {tCommon("buttons.devPortal")}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
                     </Button>
                   </div>
                 </div>

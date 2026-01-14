@@ -1680,14 +1680,14 @@
     "tools": {
       "title": "Everything you need to build",
       "description": "Comprehensive tools, documentation, and resources for integrating with the Sourceful platform.",
-      "primary": "Primary",
+      "primary": "Free Tools",
       "devPortal": {
         "title": "Developer Portal",
         "description": "Full API access, authentication, device management, and real-time data streams."
       },
       "apiRef": {
-        "title": "API Reference",
-        "description": "Complete endpoint documentation with examples in multiple languages."
+        "title": "GraphQL API",
+        "description": "Query devices, energy data, and grid signals. Full schema with interactive explorer."
       },
       "designSystem": {
         "title": "Design System",
@@ -1696,6 +1696,10 @@
       "hardwareDocs": {
         "title": "Hardware Docs",
         "description": "Zap gateway integration, protocol specs, and firmware documentation."
+      },
+      "hardware": {
+        "title": "Hardware",
+        "description": "The Zap gateway: 200ms local execution, protocol-agnostic, offline-capable."
       }
     },
     "features": {

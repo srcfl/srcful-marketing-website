@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn } from "@/components/animations";
+import { DevCardAnimation } from "@/components/dev-card-animation";
+import { PixelGrid } from "@/components/ui/pixel-grid";
 import {
   ArrowRight,
   ExternalLink,
@@ -49,10 +51,10 @@ export default function DevelopersPage() {
       isPrimary: false,
     },
     {
-      key: "hardwareDocs",
+      key: "hardware",
       icon: Cpu,
-      href: "https://developer.sourceful.energy/hardware",
-      external: true,
+      href: "/zap",
+      external: false,
       isPrimary: false,
     },
   ];
@@ -75,43 +77,51 @@ export default function DevelopersPage() {
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <FadeIn className="max-w-3xl">
-              <Badge variant="secondary" className="mb-6">
-                <Code className="h-3 w-3 mr-1" />
-                {t("hero.badge")}
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                {t("hero.title")}{" "}
-                <span className="text-primary">{t("hero.titleHighlight")}</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                {t("hero.description")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild>
-                  <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.openDevPortal")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.joinDiscord")}
-                    <MessageSquare className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <FadeIn className="max-w-xl">
+                <Badge variant="secondary" className="mb-6">
+                  <Code className="h-3 w-3 mr-1" />
+                  {t("hero.badge")}
+                </Badge>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                  {t("hero.title")}{" "}
+                  <span className="text-primary">{t("hero.titleHighlight")}</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8">
+                  {t("hero.description")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" asChild>
+                    <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
+                      {tCommon("buttons.openDevPortal")}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
+                      {tCommon("buttons.joinDiscord")}
+                      <MessageSquare className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
+              </FadeIn>
+              <div className="hidden lg:flex items-center justify-center">
+                <DevCardAnimation />
               </div>
-            </FadeIn>
+            </div>
           </div>
         </section>
 
         {/* Developer Tools */}
         <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
           <div className="text-center mb-12">
+            <div className="flex justify-center mb-6">
+              <PixelGrid pattern="line-v-mid" color="green" size="md" speed="fast" />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
               {t("tools.title")}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
               {t("tools.description")}
             </p>
           </div>
@@ -125,12 +135,16 @@ export default function DevelopersPage() {
                   href={tool.href}
                   target={tool.external ? "_blank" : undefined}
                   rel={tool.external ? "noopener noreferrer" : undefined}
+                  className="no-underline hover:no-underline"
                 >
                   <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
                     <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                          <Icon className="h-6 w-6 text-primary" />
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                            <Icon className="h-5 w-5 text-primary" />
+                          </div>
+                          <CardTitle>{t(`tools.${tool.key}.title`)}</CardTitle>
                         </div>
                         {tool.isPrimary && (
                           <Badge variant="default">{t("tools.primary")}</Badge>
@@ -139,7 +153,6 @@ export default function DevelopersPage() {
                           <ExternalLink className="h-4 w-4 text-muted-foreground" />
                         )}
                       </div>
-                      <CardTitle className="mt-4">{t(`tools.${tool.key}.title`)}</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <CardDescription className="text-base">

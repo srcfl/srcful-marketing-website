@@ -1680,14 +1680,14 @@
     "tools": {
       "title": "Allt du behöver för att bygga",
       "description": "Omfattande verktyg, dokumentation och resurser för integration med Sourceful-plattformen.",
-      "primary": "Primär",
+      "primary": "Gratisverktyg",
       "devPortal": {
         "title": "Utvecklarportal",
         "description": "Full API-åtkomst, autentisering, enhetshantering och dataströmmar i realtid."
       },
       "apiRef": {
-        "title": "API-referens",
-        "description": "Komplett dokumentation av endpoints med exempel i flera programmeringsspråk."
+        "title": "GraphQL API",
+        "description": "Fråga enheter, energidata och nätsignaler. Komplett schema med interaktiv utforskare."
       },
       "designSystem": {
         "title": "Designsystem",
@@ -1696,6 +1696,10 @@
       "hardwareDocs": {
         "title": "Hårdvarudokumentation",
         "description": "Zap gateway-integration, protokollspecifikationer och firmware-dokumentation."
+      },
+      "hardware": {
+        "title": "Hårdvara",
+        "description": "Zap-gatewayen: 200ms lokal exekvering, protokolloberoende, fungerar offline."
       }
     },
     "features": {
