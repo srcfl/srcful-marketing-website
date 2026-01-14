@@ -131,54 +131,6 @@ export function EMSDashboardExample() {
 
   return (
     <div className="space-y-4">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <h2 className="text-lg sm:text-xl font-semibold">Energy Management System</h2>
-          <p className="text-sm text-muted-foreground">Stockholm HQ - Optimizing for cost savings</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <Badge variant="success" className="gap-1">
-            <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-            Running
-          </Badge>
-          <Button variant="outline" size="sm">
-            <Settings className="h-4 w-4 sm:mr-2" />
-            <span className="hidden sm:inline">Configure</span>
-          </Button>
-        </div>
-      </div>
-
-      {/* Stats Row */}
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-        <StatCard
-          icon={<Zap className="h-5 w-5 text-primary" />}
-          label="Today's Savings"
-          value="€12.40"
-          subtext="vs grid-only"
-          trend="up"
-        />
-        <StatCard
-          icon={<Battery className="h-5 w-5 text-yellow-500" />}
-          label="Battery SoC"
-          value="78%"
-          subtext="7.8 kWh stored"
-        />
-        <StatCard
-          icon={<TrendingUp className="h-5 w-5 text-green-500" />}
-          label="Self-Sufficiency"
-          value="84%"
-          subtext="Last 24 hours"
-          trend="up"
-        />
-        <StatCard
-          icon={<Clock className="h-5 w-5 text-muted-foreground" />}
-          label="Next Action"
-          value="14:00"
-          subtext="Start charging"
-        />
-      </div>
-
       {/* Main Grid */}
       <div className="grid gap-4 lg:grid-cols-3 overflow-hidden">
         {/* Left Column - Schedule & Forecast */}
