@@ -32,20 +32,23 @@ export function ZapPartnerAnimation() {
     <div className="relative flex items-center justify-center gap-4 md:gap-6">
       {/* Zap Box */}
       <motion.div
-        className="relative w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-card border border-border shadow-xl flex items-center justify-center overflow-hidden"
+        className="relative w-32 h-32 md:w-40 md:h-40 rounded-2xl border border-border shadow-xl flex items-center justify-center overflow-hidden"
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <Image
-          src="/images/zap.png"
+          src="/assets/images/zap/Zap-Light-Mode.jpg"
           alt="Zap Gateway"
-          width={140}
-          height={140}
-          className="w-24 h-24 md:w-32 md:h-32 object-contain"
+          fill
+          className="object-cover dark:hidden"
         />
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
+        <Image
+          src="/assets/images/zap/Zap-Dark-Mode.jpg"
+          alt="Zap Gateway"
+          fill
+          className="object-cover hidden dark:block"
+        />
       </motion.div>
 
       {/* Connection line with flowing dots */}
