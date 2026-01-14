@@ -697,7 +697,27 @@
       },
       "compatibility": {
         "title": "Fungerar med varumärkena du installerar",
-        "description": "50+ stödda varumärken och växer. Om vi inte stödjer det ännu, berätta för oss."
+        "description": "50+ stödda varumärken och växer. Om vi inte stödjer det ännu, berätta för oss.",
+        "seeAll": "Se alla integrationer"
+      },
+      "dashboardCards": {
+        "gridProduction": {
+          "title": "Nät & Produktion",
+          "solarProduction": "Solproduktion",
+          "producedToday": "Producerat idag",
+          "exportedToGrid": "Exporterat till nät"
+        },
+        "customerSatisfaction": {
+          "title": "Kundnöjdhet",
+          "basedOnReviews": "Baserat på {count} omdömen"
+        },
+        "customerSavings": {
+          "title": "Kundbesparingar",
+          "avgSavings": "Genomsnittlig årlig besparing per kund",
+          "customers": "Kunder",
+          "totalSaved": "Totalt sparat",
+          "avgRating": "Snittbetyg"
+        }
       },
       "installerPricing": {
         "title": "Enkel, transparent prissättning",

@@ -4,7 +4,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Zap, Sun, ArrowDownUp } from "lucide-react";
 import { motion } from "framer-motion";
 
-export function ConnectedDevicesCard() {
+interface ConnectedDevicesCardProps {
+  translations?: {
+    title: string;
+    solarProduction: string;
+    producedToday: string;
+    exportedToGrid: string;
+  };
+}
+
+export function ConnectedDevicesCard({ translations }: ConnectedDevicesCardProps) {
+  const t = translations ?? {
+    title: "Grid & Production",
+    solarProduction: "Solar production",
+    producedToday: "Produced today",
+    exportedToGrid: "Exported to grid",
+  };
   // Hourly data for the chart (6am to 9pm)
   const hourlyData = [
     { hour: "06", price: 0.8, production: 5, exchange: -10 },
@@ -24,14 +39,14 @@ export function ConnectedDevicesCard() {
       <CardContent className="p-5 h-full flex flex-col justify-center">
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-2">
-            <p className="text-sm text-muted-foreground">Grid & Production</p>
+            <p className="text-sm text-muted-foreground">{t.title}</p>
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10">
               <ArrowDownUp className="h-3 w-3 text-primary" />
             </div>
           </div>
           <div className="flex items-center gap-1 text-[10px]">
             <div className="w-2 h-2 rounded-full bg-yellow-400" />
-            <span className="text-muted-foreground">Solar production</span>
+            <span className="text-muted-foreground">{t.solarProduction}</span>
           </div>
         </div>
 
@@ -64,14 +79,14 @@ export function ConnectedDevicesCard() {
             <Sun className="h-4 w-4 text-yellow-500" />
             <div>
               <p className="text-sm font-semibold">24.5 kWh</p>
-              <p className="text-[10px] text-muted-foreground">Produced today</p>
+              <p className="text-[10px] text-muted-foreground">{t.producedToday}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <Zap className="h-4 w-4 text-emerald-500" />
             <div>
               <p className="text-sm font-semibold">18.2 kWh</p>
-              <p className="text-[10px] text-muted-foreground">Exported to grid</p>
+              <p className="text-[10px] text-muted-foreground">{t.exportedToGrid}</p>
             </div>
           </div>
         </div>

@@ -3,13 +3,24 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, TrendingUp } from "lucide-react";
 
-export function CustomerSatisfactionCard() {
+interface CustomerSatisfactionCardProps {
+  translations?: {
+    title: string;
+    basedOnReviews: string;
+  };
+}
+
+export function CustomerSatisfactionCard({ translations }: CustomerSatisfactionCardProps) {
+  const t = translations ?? {
+    title: "Customer Satisfaction",
+    basedOnReviews: "Based on {count} reviews",
+  };
   return (
     <Card className="w-[420px] h-[280px] shadow-lg border-border/50">
       <CardContent className="p-5 h-full flex flex-col justify-center">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-2">
-            <p className="text-sm text-muted-foreground">Customer Satisfaction</p>
+            <p className="text-sm text-muted-foreground">{t.title}</p>
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10">
               <Star className="h-3 w-3 text-primary" />
             </div>
@@ -35,7 +46,7 @@ export function CustomerSatisfactionCard() {
             ))}
           </div>
         </div>
-        <p className="text-xs text-muted-foreground mb-4">Based on 1,247 reviews</p>
+        <p className="text-xs text-muted-foreground mb-4">{t.basedOnReviews.replace("{count}", "1,247")}</p>
 
         {/* Rating breakdown */}
         <div className="mt-auto space-y-1.5">

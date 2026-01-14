@@ -701,7 +701,27 @@
       },
       "compatibility": {
         "title": "Works with the brands you install",
-        "description": "50+ supported brands and growing. If we don't support it yet, tell us."
+        "description": "50+ supported brands and growing. If we don't support it yet, tell us.",
+        "seeAll": "See all integrations"
+      },
+      "dashboardCards": {
+        "gridProduction": {
+          "title": "Grid & Production",
+          "solarProduction": "Solar production",
+          "producedToday": "Produced today",
+          "exportedToGrid": "Exported to grid"
+        },
+        "customerSatisfaction": {
+          "title": "Customer Satisfaction",
+          "basedOnReviews": "Based on {count} reviews"
+        },
+        "customerSavings": {
+          "title": "Customer Savings",
+          "avgSavings": "Avg. annual savings per customer",
+          "customers": "Customers",
+          "totalSaved": "Total saved",
+          "avgRating": "Avg. rating"
+        }
       },
       "installerPricing": {
         "title": "Simple, transparent pricing",

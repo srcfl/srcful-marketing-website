@@ -95,7 +95,7 @@ export default function InstallersPage() {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-4">
-                    Integrated with leading brands
+                    {tHome("hero.partnersLabel")}
                   </div>
                   <PartnerLogoCarousel />
                 </div>
@@ -264,7 +264,7 @@ export default function InstallersPage() {
             <div className="text-center mt-8">
               <Button variant="outline" asChild>
                 <Link href="/integrations">
-                  See all integrations
+                  {t("compatibility.seeAll")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
