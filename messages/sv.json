@@ -370,14 +370,14 @@
       "badge": "Hårdvara",
       "title": "Zap Gateway",
       "description": "Lokal exekvering vid kanten. 200ms svarstid, fungerar offline, protokolloberoende. Den saknade pusselbiten som får distribuerad energi att faktiskt fungera.",
-      "price": "399 kr",
+      "price": "699 kr",
       "priceNote": "Fri frakt inom EU"
     },
     "features": {
       "title": "Varför Zap?",
-      "description": "Molnplattformar svarar på 2-5 sekunder. Nätfrekvensen måste balanseras varje sekund. Zap överbryggar detta gap med lokal exekvering.",
+      "description": "Molnlatens dödar realtidsstyrning. Zap svarar på 200ms eftersom den exekverar lokalt. Ingen rundresa till molnet.",
       "speed": {
-        "title": "200ms svar",
+        "title": "Blixtsnabb",
         "description": "Lokal exekvering innebär realtidsstyrning. Ingen molnlatens, inga nätverksberoenden."
       },
       "offline": {
@@ -401,14 +401,14 @@
       "connectivity": "Anslutning",
       "power": "Strömförsörjning",
       "dimensions": "Dimensioner",
-      "protocols": "Protokoll",
+      "protocols": "Programmerbar",
       "responseTime": "Svarstid",
       "responseValue": "<200ms lokalt",
       "firmware": "Firmware",
       "firmwareValue": "OTA-uppdateringar",
       "localExecution": "Lokal exekvering",
-      "price": "Pris",
-      "compatibility": "Kompatibilitet",
+      "price": "Låg kostnad",
+      "compatibility": "Skalbar",
       "euSmartMeters": "EU smartmätare"
     },
     "devices": {
@@ -457,12 +457,17 @@
     },
     "compatibility": {
       "title": "Fungerar med din befintliga hårdvara",
-      "description": "Zap integreras med ledande växelriktare, elbilsladdare, batterier och smartmätare.",
-      "viewAll": "Visa alla integrationer"
+      "badge": "Universell",
+      "description": "Integreras med ledande växelriktare, elbilsladdare, batterier och smartmätare.",
+      "viewAll": "Visa alla integrationer →"
     },
     "cta": {
       "title": "Redo att ta kontroll över din energi?",
       "description": "Skaffa Zap och börja optimera idag. Fri frakt till alla EU-länder."
+    },
+    "community": {
+      "title": "Få svar på dina frågor",
+      "description": "Kontakta teamet, andra utvecklare och få support."
     }
   },
   "useCases": {

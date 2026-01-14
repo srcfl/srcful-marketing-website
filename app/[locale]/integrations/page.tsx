@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { ArrowRight, Plug, Zap, Battery, Car, Sun, Gauge, Thermometer } from "lucide-react";
+import { ZapPartnerAnimation } from "@/components/zap-partner-animation";
 
 export const metadata: Metadata = {
   title: "Integrations",
@@ -63,30 +64,35 @@ export default async function IntegrationsPage() {
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <div className="max-w-3xl">
-              <Badge variant="secondary" className="mb-6">
-                <Plug className="h-3 w-3 mr-1" />
-                {t("hero.badge")}
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                {t("hero.title")}{" "}
-                <span className="text-primary">{t("hero.titleHighlight")}</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                {t("hero.description")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild>
-                  <Link href="/zap">
-                    {t("hero.getTheZap")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
-                    {t("hero.hardwareDocs")}
-                  </a>
-                </Button>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="max-w-xl">
+                <Badge variant="secondary" className="mb-6">
+                  <Plug className="h-3 w-3 mr-1" />
+                  {t("hero.badge")}
+                </Badge>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance">
+                  {t("hero.title")}{" "}
+                  <span className="text-primary">{t("hero.titleHighlight")}</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8">
+                  {t("hero.description")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" asChild>
+                    <Link href="/zap">
+                      {t("hero.getTheZap")}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <a href="https://developer.sourceful.energy/hardware" target="_blank" rel="noopener noreferrer">
+                      {t("hero.hardwareDocs")}
+                    </a>
+                  </Button>
+                </div>
+              </div>
+              <div className="hidden lg:flex items-center justify-center">
+                <ZapPartnerAnimation />
               </div>
             </div>
           </div>

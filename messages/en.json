@@ -370,14 +370,14 @@
       "badge": "Hardware",
       "title": "The Zap Gateway",
       "description": "Local execution at the edge. 200ms response time, offline-capable, protocol-agnostic. The missing piece that makes distributed energy actually work.",
-      "price": "€39",
+      "price": "€69",
       "priceNote": "Free shipping to EU"
     },
     "features": {
       "title": "Why the Zap?",
-      "description": "Cloud platforms respond in 2-5 seconds. Grid frequency must balance every second. The Zap bridges this gap with local execution.",
+      "description": "Cloud latency kills real-time control. The Zap responds in 200ms because it executes locally. No round-trip to the cloud.",
       "speed": {
-        "title": "200ms Response",
+        "title": "Lightning Fast",
         "description": "Local execution means real-time control. No cloud latency, no network dependencies."
       },
       "offline": {
@@ -401,14 +401,14 @@
       "connectivity": "Connectivity",
       "power": "Power",
       "dimensions": "Dimensions",
-      "protocols": "Protocols",
+      "protocols": "Programmable",
       "responseTime": "Response Time",
       "responseValue": "<200ms local",
       "firmware": "Firmware",
       "firmwareValue": "OTA updates",
       "localExecution": "Local execution",
-      "price": "Price",
-      "compatibility": "Compatibility",
+      "price": "Low Cost",
+      "compatibility": "Scalable",
       "euSmartMeters": "EU smart meters"
     },
     "devices": {
@@ -457,12 +457,17 @@
     },
     "compatibility": {
       "title": "Works with your existing hardware",
-      "description": "The Zap integrates with leading inverters, EV chargers, batteries, and smart meters.",
-      "viewAll": "View all integrations"
+      "badge": "Universal",
+      "description": "Integrates with leading inverters, EV chargers, batteries, and smart meters.",
+      "viewAll": "View all integrations →"
     },
     "cta": {
       "title": "Ready to take control of your energy?",
       "description": "Get the Zap and start optimizing today. Free shipping to all EU countries."
+    },
+    "community": {
+      "title": "Get answers to your questions",
+      "description": "Connect with the team, other developers, and get support."
     }
   },
   "useCases": {

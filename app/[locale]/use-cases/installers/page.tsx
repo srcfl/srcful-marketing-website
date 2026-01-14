@@ -90,6 +90,14 @@ export default function InstallersPage() {
     }
   };
 
+  const scrollToHowItWorks = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const section = document.getElementById("how-it-works");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       <MarketingNav />
@@ -120,10 +128,10 @@ export default function InstallersPage() {
                     </a>
                   </Button>
                   <Button size="lg" variant="outline" className="hover:bg-indigo-500/10 hover:text-indigo-400" asChild>
-                    <Link href="/contact">
-                      {tCommon("buttons.contactSales")}
+                    <a href="#how-it-works" onClick={scrollToHowItWorks}>
+                      {tCommon("buttons.howItWorks")}
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    </a>
                   </Button>
                 </div>
                 <div>
@@ -151,7 +159,7 @@ export default function InstallersPage() {
         </section>
 
         {/* Pain Points */}
-        <section className="min-h-screen flex items-center">
+        <section id="how-it-works" className="min-h-screen flex items-center">
           <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <div className="flex justify-center mb-8">

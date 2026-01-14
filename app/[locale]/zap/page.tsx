@@ -10,7 +10,10 @@ import { MarketingFooter } from "@/components/marketing-footer";
 import { V2XWaitlistSection } from "@/components/v2x-waitlist-section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ZapImage } from "@/components/zap-image";
-import { ArrowRight, Zap, Clock, Wifi, WifiOff, Shield, Cpu } from "lucide-react";
+import { PixelGrid } from "@/components/ui/pixel-grid";
+import { PricingSection } from "@/components/pricing-section";
+import { GridFrequencyAnimation } from "@/components/grid-frequency-animation";
+import { ArrowRight, Zap, Clock, WifiOff, Shield, Cpu, Gauge, Plug, Battery, Sun, Thermometer, Car, Users, ExternalLink } from "lucide-react";
 
 export default function ZapPage() {
   const t = useTranslations("zap");
@@ -21,31 +24,35 @@ export default function ZapPage() {
       icon: Clock,
       title: t("features.speed.title"),
       description: t("features.speed.description"),
+      color: "bg-yellow-500/10 text-yellow-500",
     },
     {
       icon: WifiOff,
       title: t("features.offline.title"),
       description: t("features.offline.description"),
+      color: "bg-blue-500/10 text-blue-500",
     },
     {
       icon: Shield,
       title: t("features.sovereignty.title"),
       description: t("features.sovereignty.description"),
+      color: "bg-purple-500/10 text-purple-500",
     },
     {
       icon: Cpu,
       title: t("features.protocols.title"),
       description: t("features.protocols.description"),
+      color: "bg-green-500/10 text-green-500",
     },
   ];
 
   const devices = [
-    t("devices.smartMeters"),
-    t("devices.evChargers"),
-    t("devices.batterySystems"),
-    t("devices.inverters"),
-    t("devices.heatPumps"),
-    t("devices.v2xSystems"),
+    { key: "smartMeters", icon: Gauge, color: "bg-blue-500/10 text-blue-500" },
+    { key: "evChargers", icon: Plug, color: "bg-green-500/10 text-green-500" },
+    { key: "batterySystems", icon: Battery, color: "bg-purple-500/10 text-purple-500" },
+    { key: "inverters", icon: Sun, color: "bg-yellow-500/10 text-yellow-500" },
+    { key: "heatPumps", icon: Thermometer, color: "bg-red-500/10 text-red-500" },
+    { key: "v2xSystems", icon: Car, color: "bg-indigo-500/10 text-indigo-500" },
   ];
 
   return (
@@ -131,14 +138,18 @@ export default function ZapPage() {
         </section>
 
         {/* Problem */}
-        <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
           <FadeIn className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <PixelGrid pattern="sparse-1" color="green" size="md" speed="slow" />
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
               {t("features.title")}
             </h2>
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-lg text-muted-foreground mb-8 text-balance">
               {t("features.description")}
             </p>
+            <GridFrequencyAnimation />
           </FadeIn>
         </section>
 
@@ -152,8 +163,8 @@ export default function ZapPage() {
                   <StaggerItem key={feature.title}>
                     <Card className="h-full">
                       <CardHeader>
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                          <Icon className="h-6 w-6 text-primary" />
+                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${feature.color.split(' ')[0]}`}>
+                          <Icon className={`h-6 w-6 ${feature.color.split(' ')[1]}`} />
                         </div>
                         <CardTitle>{feature.title}</CardTitle>
                       </CardHeader>
@@ -176,6 +187,7 @@ export default function ZapPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
                 <div>
+                  <PixelGrid pattern="plus-hollow" color="green" size="md" speed="slow" className="mb-6" />
                   <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                     {t("specs.title")}
                   </h2>
@@ -208,20 +220,39 @@ export default function ZapPage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <div className="bg-muted rounded-lg p-8">
-                  <h3 className="font-semibold mb-4">{t("compatibility.title")}</h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {devices.map((device) => (
-                      <div key={device} className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
-                        <span className="text-sm">{device}</span>
+                <Card className="shadow-lg border-border/50 max-w-md mx-auto">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Plug className="h-5 w-5 text-primary" />
                       </div>
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-6">
-                    {t("compatibility.description")}
-                  </p>
-                </div>
+                      <CardTitle className="text-lg">{t("compatibility.title")}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <StaggerContainer staggerDelay={0.05}>
+                      {devices.map((device) => {
+                        const Icon = device.icon;
+                        return (
+                          <StaggerItem key={device.key}>
+                            <div className="flex items-center gap-3 py-2 border-b border-border/50 last:border-0">
+                              <div className={`w-8 h-8 rounded-md flex items-center justify-center ${device.color}`}>
+                                <Icon className="h-4 w-4" />
+                              </div>
+                              <span className="text-sm font-medium">{t(`devices.${device.key}`)}</span>
+                            </div>
+                          </StaggerItem>
+                        );
+                      })}
+                    </StaggerContainer>
+                    <p className="text-sm text-muted-foreground pt-2">
+                      {t("compatibility.description")}{" "}
+                      <Link href="/integrations" className="text-primary hover:underline">
+                        {t("compatibility.viewAll")}
+                      </Link>
+                    </p>
+                  </CardContent>
+                </Card>
               </FadeIn>
             </div>
           </div>
@@ -231,55 +262,41 @@ export default function ZapPage() {
         <V2XWaitlistSection />
 
         {/* Pricing */}
-        <section className="border-t bg-muted/30">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <FadeIn className="max-w-xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                {t("pricing.title")}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                {t("pricing.description")}
-              </p>
-              <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
-                <CardContent className="p-8">
-                  <div className="text-5xl font-bold text-primary mb-2">{t("hero.price")}</div>
-                  <div className="text-muted-foreground mb-6">{t("pricing.bomCost")}</div>
-                  <Button size="lg" asChild>
-                    <Link href="/pricing">
-                      {tCommon("buttons.orderNow")}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          </div>
-        </section>
+        <PricingSection />
 
-        {/* CTA */}
+        {/* Community CTA */}
         <section className="border-t">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
-            <FadeIn>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                {t("cta.title")}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                {t("cta.description")}
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" asChild>
-                  <Link href="/pricing">
-                    {tCommon("buttons.orderNow")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.viewDocs")}
-                  </a>
-                </Button>
-              </div>
-            </FadeIn>
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {t("community.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button asChild>
+                      <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
+                        {tCommon("buttons.joinDiscord")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <Link href="/contact">
+                        {tCommon("nav.contact")}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </main>

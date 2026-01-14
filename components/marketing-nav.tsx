@@ -170,13 +170,8 @@ export function MarketingNav() {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div className="hidden md:flex items-center gap-2">
-            <Button variant="ghost" asChild>
-              <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                {t("devPortal")}
-              </a>
-            </Button>
             <Button asChild>
               <Link href="/pricing">
                 {tButtons("getTheZap")}
@@ -263,14 +258,8 @@ export function MarketingNav() {
                     <DisplaySettings variant="mobile" label={t("displaySettings")} />
                   </div>
 
-                  {/* CTA Buttons */}
-                  <div className="px-6 py-6 border-t bg-background space-y-3">
-                    <Button variant="outline" size="lg" className="w-full h-14 text-base shadow-md hover:shadow-lg transition-shadow" asChild>
-                      <a href="https://developer.sourceful.energy" target="_blank" rel="noopener noreferrer">
-                        {t("devPortal")}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
+                  {/* CTA Button */}
+                  <div className="px-6 py-6 border-t bg-background">
                     <Button size="lg" className="w-full h-14 text-base shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-r from-primary to-primary/90" asChild>
                       <Link href="/pricing">
                         {tButtons("getTheZap")}
