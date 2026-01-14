@@ -9,6 +9,8 @@ import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
+import { PixelGrid } from "@/components/ui/pixel-grid";
+import { VideoPlaceholder } from "@/components/video-placeholder";
 import {
   Car,
   Zap,
@@ -20,6 +22,8 @@ import {
   ArrowRight,
   ExternalLink,
   CheckCircle,
+  Users,
+  Github,
 } from "lucide-react";
 
 export default function V2XPage() {
@@ -31,50 +35,37 @@ export default function V2XPage() {
       icon: Battery,
       title: t("benefits.earn.title"),
       description: t("benefits.earn.description"),
+      color: "text-amber-500",
+      bgColor: "bg-amber-500/10",
     },
     {
       icon: Home,
       title: t("benefits.backup.title"),
       description: t("benefits.backup.description"),
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10",
     },
     {
       icon: TrendingUp,
       title: t("benefits.optimize.title"),
       description: t("benefits.optimize.description"),
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-500/10",
     },
     {
       icon: Grid3X3,
       title: t("benefits.grid.title"),
       description: t("benefits.grid.description"),
-    },
-  ];
-
-  const useCases = [
-    {
-      key: "v2h",
-      title: t("useCases.v2h.title"),
-      description: t("useCases.v2h.description"),
-      savings: t("useCases.v2h.savings"),
-    },
-    {
-      key: "v2g",
-      title: t("useCases.v2g.title"),
-      description: t("useCases.v2g.description"),
-      savings: t("useCases.v2g.savings"),
-    },
-    {
-      key: "v2l",
-      title: t("useCases.v2l.title"),
-      description: t("useCases.v2l.description"),
-      savings: t("useCases.v2l.savings"),
+      color: "text-violet-500",
+      bgColor: "bg-violet-500/10",
     },
   ];
 
   const compatibleChargers = [
-    { name: "Easee Home", status: t("chargers.testing") },
-    { name: "Zaptec Go", status: t("chargers.testing") },
-    { name: "ChargeAmps Halo", status: t("chargers.planned") },
-    { name: "Wallbox Quasar 2", status: t("chargers.planned") },
+    { name: "Easee Home", status: t("chargers.testing"), statusColor: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
+    { name: "Zaptec Go", status: t("chargers.testing"), statusColor: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
+    { name: "ChargeAmps Halo", status: t("chargers.planned"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
+    { name: "Wallbox Quasar 2", status: t("chargers.planned"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
   ];
 
   const compatibleEVs = [
@@ -101,30 +92,33 @@ export default function V2XPage() {
         {/* Hero */}
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-transparent" />
+          <div className="absolute top-20 right-10 opacity-30">
+            <PixelGrid pattern="corners-only" color="orange" size="md" speed="slow" />
+          </div>
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
                 <div>
-                  <Badge variant="outline" className="mb-6 border-yellow-500/50 text-yellow-600 dark:text-yellow-400">
+                  <Badge variant="secondary" className="mb-6 bg-amber-500/10 text-amber-600 border-amber-500/20">
                     <Car className="h-3 w-3 mr-1" />
                     {t("hero.badge")}
                   </Badge>
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
                     {t("hero.title")}{" "}
-                    <span className="text-yellow-600 dark:text-yellow-400">{t("hero.titleHighlight")}</span>
+                    <span className="text-amber-500">{t("hero.titleHighlight")}</span>
                   </h1>
                   <p className="text-xl text-muted-foreground mb-8">
                     {t("hero.description")}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-white" asChild>
+                    <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white" asChild>
                       <a href="#waitlist">
                         {tCommon("buttons.joinWaitlist")}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
-                    <Button size="lg" variant="outline" asChild>
+                    <Button size="lg" variant="outline" className="hover:bg-amber-500/10 hover:text-amber-600" asChild>
                       <Link href="/zap">
                         {tCommon("buttons.learnMore")}
                       </Link>
@@ -135,14 +129,14 @@ export default function V2XPage() {
               <FadeIn delay={0.2}>
                 <div className="flex items-center justify-center">
                   <div className="relative">
-                    <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-yellow-500/20 to-yellow-500/5 rounded-full flex items-center justify-center">
-                      <div className="w-48 h-48 md:w-60 md:h-60 bg-gradient-to-br from-yellow-500/30 to-yellow-500/10 rounded-full flex items-center justify-center">
-                        <Car className="h-24 w-24 md:h-32 md:w-32 text-yellow-600 dark:text-yellow-400" />
+                    <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-amber-500/20 to-amber-500/5 rounded-full flex items-center justify-center">
+                      <div className="w-48 h-48 md:w-60 md:h-60 bg-gradient-to-br from-amber-500/30 to-amber-500/10 rounded-full flex items-center justify-center">
+                        <Car className="h-24 w-24 md:h-32 md:w-32 text-amber-500" />
                       </div>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 bg-background rounded-lg p-3 shadow-lg border">
+                    <div className="absolute -bottom-2 -right-2 bg-background rounded-lg p-3 shadow-lg border border-amber-500/20">
                       <div className="flex items-center gap-2">
-                        <Zap className="h-5 w-5 text-primary" />
+                        <Zap className="h-5 w-5 text-amber-500" />
                         <span className="font-semibold">50-100 kWh</span>
                       </div>
                       <span className="text-xs text-muted-foreground">{t("stats.capacity")}</span>
@@ -160,25 +154,25 @@ export default function V2XPage() {
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-yellow-600 dark:text-yellow-400">€500-1,500</div>
+                  <div className="text-3xl md:text-4xl font-bold text-amber-500">€500-1,500</div>
                   <div className="text-sm text-muted-foreground">{t("stats.savings")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-yellow-600 dark:text-yellow-400">2-4</div>
+                  <div className="text-3xl md:text-4xl font-bold text-blue-500">2-4</div>
                   <div className="text-sm text-muted-foreground">{t("stats.backup")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-yellow-600 dark:text-yellow-400">50-100 kWh</div>
+                  <div className="text-3xl md:text-4xl font-bold text-emerald-500">50-100 kWh</div>
                   <div className="text-sm text-muted-foreground">{t("stats.capacity")}</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-yellow-600 dark:text-yellow-400">2026</div>
+                  <div className="text-3xl md:text-4xl font-bold text-violet-500">2026</div>
                   <div className="text-sm text-muted-foreground">{t("launchTarget")}</div>
                 </div>
               </StaggerItem>
@@ -187,44 +181,63 @@ export default function V2XPage() {
         </section>
 
         {/* Benefits */}
-        <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-          <FadeIn className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              {t("benefits.title")}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t("benefits.description")}
-            </p>
-          </FadeIn>
+        <section className="relative">
+          <div className="relative max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">{t("benefits.badge")}</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("benefits.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("benefits.description")}
+              </p>
+            </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.1}>
-            {benefits.map((benefit) => {
-              const Icon = benefit.icon;
-              return (
-                <StaggerItem key={benefit.title}>
-                  <Card className="h-full">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-4">
-                        <Icon className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
-                      </div>
-                      <CardTitle>{benefit.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-base">
-                        {benefit.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
-              );
-            })}
-          </StaggerContainer>
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
+              {benefits.map((benefit) => {
+                const Icon = benefit.icon;
+                return (
+                  <StaggerItem key={benefit.title}>
+                    <Card className="h-full hover:shadow-lg hover:border-amber-500/30 transition-all duration-300">
+                      <CardHeader>
+                        <div className={`w-12 h-12 ${benefit.bgColor} rounded-lg flex items-center justify-center mb-4`}>
+                          <Icon className={`h-6 w-6 ${benefit.color}`} />
+                        </div>
+                        <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription className="text-base">
+                          {benefit.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* Video */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-4xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("video.title")}
+              </h2>
+            </FadeIn>
+            <VideoPlaceholder
+              title={t("video.title")}
+              comingSoonText={t("video.comingSoon")}
+            />
+          </div>
         </section>
 
         {/* How It Works */}
-        <section className="border-t bg-muted/30">
+        <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">{t("howItWorks.badge")}</Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("howItWorks.title")}
               </h2>
@@ -233,113 +246,114 @@ export default function V2XPage() {
               </p>
             </FadeIn>
 
-            <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
+            <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.1}>
               <StaggerItem>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                      1
-                    </div>
-                    <CardTitle className="text-lg">{t("howItWorks.steps.connect.title")}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      {t("howItWorks.steps.connect.description")}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                    1
+                  </div>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.steps.connect.title")}</h3>
+                  <p className="text-muted-foreground max-w-[200px]">
+                    {t("howItWorks.steps.connect.description")}
+                  </p>
+                </div>
               </StaggerItem>
               <StaggerItem>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                      2
-                    </div>
-                    <CardTitle className="text-lg">{t("howItWorks.steps.optimize.title")}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      {t("howItWorks.steps.optimize.description")}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                    2
+                  </div>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.steps.optimize.title")}</h3>
+                  <p className="text-muted-foreground max-w-[200px]">
+                    {t("howItWorks.steps.optimize.description")}
+                  </p>
+                </div>
               </StaggerItem>
               <StaggerItem>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                      3
-                    </div>
-                    <CardTitle className="text-lg">{t("howItWorks.steps.earn.title")}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription>
-                      {t("howItWorks.steps.earn.description")}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                    3
+                  </div>
+                  <h3 className="font-semibold mb-2">{t("howItWorks.steps.earn.title")}</h3>
+                  <p className="text-muted-foreground max-w-[200px]">
+                    {t("howItWorks.steps.earn.description")}
+                  </p>
+                </div>
               </StaggerItem>
             </StaggerContainer>
           </div>
         </section>
 
         {/* Compatibility */}
-        <section className="border-t">
+        <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">{t("compatibility.badge")}</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("compatibility.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("compatibility.description")}
+              </p>
+            </FadeIn>
+
             <div className="grid lg:grid-cols-2 gap-12">
               <FadeIn>
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                    {t("compatibility.title")}
-                  </h2>
-                  <p className="text-lg text-muted-foreground mb-8">
-                    {t("compatibility.description")}
-                  </p>
-
-                  <div className="mb-8">
-                    <h3 className="font-semibold mb-4">{t("chargers.title")}</h3>
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle>{t("chargers.title")}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
                     <div className="space-y-3">
                       {compatibleChargers.map((charger) => (
                         <div key={charger.name} className="flex items-center justify-between p-3 bg-muted rounded-lg">
                           <span className="font-medium">{charger.name}</span>
-                          <Badge variant={charger.status === t("chargers.testing") ? "secondary" : "outline"}>
+                          <Badge variant="outline" className={charger.statusColor}>
                             {charger.status}
                           </Badge>
                         </div>
                       ))}
                     </div>
-                  </div>
-                </div>
+                  </CardContent>
+                </Card>
               </FadeIn>
 
               <FadeIn delay={0.2}>
-                <div>
-                  <div className="bg-muted rounded-lg p-6 mb-6">
-                    <h3 className="font-semibold mb-4">{t("evs.title")}</h3>
-                    <div className="grid grid-cols-2 gap-2">
-                      {compatibleEVs.map((ev) => (
-                        <div key={ev} className="flex items-center gap-2 text-sm">
-                          <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                          <span>{ev}</span>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-4">
-                      {t("compatibility.note")}
-                    </p>
-                  </div>
+                <div className="space-y-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>{t("evs.title")}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-2 gap-2">
+                        {compatibleEVs.map((ev) => (
+                          <div key={ev} className="flex items-center gap-2 text-sm">
+                            <CheckCircle className="h-4 w-4 text-amber-500 flex-shrink-0" />
+                            <span>{ev}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-4">
+                        {t("compatibility.note")}
+                      </p>
+                    </CardContent>
+                  </Card>
 
-                  <div className="bg-background border rounded-lg p-6">
-                    <h3 className="font-semibold mb-4">{t("requirements.title")}</h3>
-                    <ul className="space-y-2">
-                      {requirements.map((req, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm">
-                          <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-                          <span>{req}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <Card className="border-amber-500/20 bg-amber-500/5">
+                    <CardHeader>
+                      <CardTitle className="text-amber-500">{t("requirements.title")}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {requirements.map((req, index) => (
+                          <li key={index} className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                            <span>{req}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
                 </div>
               </FadeIn>
             </div>
@@ -347,10 +361,10 @@ export default function V2XPage() {
         </section>
 
         {/* Waitlist Section */}
-        <section id="waitlist" className="border-t bg-gradient-to-br from-yellow-500/10 via-yellow-500/5 to-background">
+        <section id="waitlist" className="border-t bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-background">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="max-w-xl mx-auto text-center">
-              <Badge variant="outline" className="mb-4 border-yellow-500/50 text-yellow-600 dark:text-yellow-400">
+              <Badge variant="secondary" className="mb-4 bg-amber-500/10 text-amber-600 border-amber-500/20">
                 {t("earlyAccess")}
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -360,7 +374,7 @@ export default function V2XPage() {
                 {t("waitlist.description")}
               </p>
 
-              <Card className="bg-background/80 backdrop-blur">
+              <Card className="bg-background/80 backdrop-blur border-amber-500/20">
                 <CardContent className="p-6">
                   <WaitlistForm
                     feature="v2x"
@@ -381,8 +395,44 @@ export default function V2XPage() {
           </div>
         </section>
 
-        {/* CTA */}
+        {/* Community CTA */}
         <section className="border-t">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <Card className="bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-background border-amber-500/20">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-amber-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {t("community.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button className="bg-amber-500 hover:bg-amber-600" asChild>
+                      <a href="https://discord.gg/hEvKcxNH8C" target="_blank" rel="noopener noreferrer">
+                        {t("community.discord")}
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="hover:bg-amber-500/10 hover:text-amber-600" asChild>
+                      <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        {t("community.github")}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="border-t bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-background">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -392,13 +442,13 @@ export default function V2XPage() {
                 {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" asChild>
+                <Button size="lg" className="bg-amber-500 hover:bg-amber-600" asChild>
                   <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
                     {tCommon("buttons.orderNow")}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" className="hover:bg-amber-500/10 hover:text-amber-600" asChild>
                   <Link href="/use-cases/homeowners">
                     {tCommon("buttons.learnMore")}
                     <ArrowRight className="ml-2 h-4 w-4" />

@@ -630,6 +630,7 @@
         "cloudResponse": "Moln-API svarstid"
       },
       "problem": {
+        "badge": "Utmaningen",
         "title": "Koordineringsgapet kostar er miljarder",
         "paragraph1": "40-70 miljoner elbilar i Europa till 2030. 2 800 GWh distribuerad lagring som behöver koordinering. Moln-API:er svarar på 2-5 sekunder - men nätfrekvensen måste balanseras varje sekund.",
         "paragraph2": "Resultatet? €2,5 miljarder förstörs årligen i koordineringsfel. 700+ timmar med negativt elpris. Tillgångar som står stilla när nätet behöver dem som mest.",
@@ -651,6 +652,7 @@
         }
       },
       "benefits": {
+        "badge": "Fördelar",
         "title": "Varför energibolag samarbetar med oss",
         "description": "Vi möjliggör för energibolag att leverera riktiga nättjänster - inte bara dashboards.",
         "gridServices": {
@@ -671,6 +673,7 @@
         }
       },
       "howItWorks": {
+        "badge": "Partnerskapsmodell",
         "title": "Så fungerar samarbetet",
         "step1": {
           "title": "Vi tillhandahåller infrastrukturen",
@@ -684,6 +687,14 @@
           "title": "Dela värdet",
           "description": "Plattformslicensiering + nättjänstmarginal. Samordnade incitament."
         }
+      },
+      "video": {
+        "title": "Se plattformen i aktion",
+        "comingSoon": "Video kommer snart"
+      },
+      "community": {
+        "title": "Redo att samarbeta?",
+        "description": "Låt oss diskutera hur Sourceful kan hjälpa er låsa upp distribuerad flexibilitet."
       },
       "cta": {
         "title": "Redo att låsa upp distribuerad flexibilitet?",
@@ -874,8 +885,17 @@
         "titleHighlight": "intelligens",
         "description": "Integrera 200ms lokal styrning i dina elbilsladdare, batterier och växelriktare. Protokolloberoende, white-label-redo."
       },
-      "integrations": ["Elbilsladdare", "Batterilagring", "Växelriktare", "Värmepumpar", "Smarta mätare", "V2X-system"],
+      "integrations": {
+        "label": "Kompatibel med ledande hårdvara",
+        "0": "Elbilsladdare",
+        "1": "Batterilagring",
+        "2": "Växelriktare",
+        "3": "Värmepumpar",
+        "4": "Smarta mätare",
+        "5": "V2X-system"
+      },
       "problem": {
+        "badge": "Utmaningen",
         "title": "Din hårdvara är smart. Gör den nät-smart.",
         "paragraph1": "Energihårdvarutillverkare står inför ett val: bygg ditt eget koordineringslager (dyrt, långsamt) eller förlita dig på molnplattformar som inte kan leverera realtidsstyrning (2-5 sekunders fördröjning).",
         "paragraph2": "Vi erbjuder ett tredje alternativ: integrera Zap-gatewayen och få lokal exekvering på 200ms, nättjänstkapacitet och en utvecklarplattform som dina kunder kommer att älska.",
@@ -889,7 +909,9 @@
         "withItems": ["200ms lokal exekvering", "Protokolloberoende integration", "Nättjänster redo", "TSO-certifieringar ingår"]
       },
       "benefits": {
+        "badge": "Fördelar",
         "title": "Varför OEM-tillverkare integrerar med oss",
+        "description": "Leverera nätintelligenta produkter snabbare med vår beprövade integrationsväg.",
         "localExecution": {
           "title": "Inbyggd lokal exekvering",
           "description": "Leverera produkter med 200ms svarstid. Inget molnberoende för tidskritiska operationer."
@@ -908,6 +930,7 @@
         }
       },
       "integrationPath": {
+        "badge": "Process",
         "title": "Integrationsväg",
         "step1": {
           "title": "Teknisk granskning",
@@ -925,6 +948,16 @@
           "title": "Lansering",
           "description": "Leverera nätintelligenta produkter till marknaden"
         }
+      },
+      "video": {
+        "title": "Se integrationen i aktion",
+        "comingSoon": "Video kommer snart"
+      },
+      "community": {
+        "title": "Gå med i utvecklarcommunityn",
+        "description": "Anslut med andra OEM-tillverkare, dela integrationserfarenheter och få teknisk support.",
+        "discord": "Gå med på Discord",
+        "github": "GitHub"
       },
       "cta": {
         "title": "Redo att göra din hårdvara nätintelligent?",
@@ -945,6 +978,7 @@
       "backup": "Dagars hembackup"
     },
     "benefits": {
+      "badge": "Fördelar",
       "title": "Varför V2X?",
       "description": "Ditt elbilsbatteri är 5-10 gånger större än ett typiskt hembatteri. V2X låser upp dess fulla potential.",
       "earn": {
@@ -965,6 +999,7 @@
       }
     },
     "howItWorks": {
+      "badge": "Hur det fungerar",
       "title": "Hur V2X fungerar",
       "description": "Zap gateway möjliggör dubbelriktat energiflöde mellan din elbil och ditt hem.",
       "steps": {
@@ -983,9 +1018,20 @@
       }
     },
     "compatibility": {
+      "badge": "Kompatibilitet",
       "title": "Kompatibla laddare",
       "description": "V2X kräver en dubbelriktad laddare. Vi samarbetar med ledande varumärken.",
       "note": "Fler laddare kommer snart. V2X-kapacitet beror på din elbilsmodell."
+    },
+    "video": {
+      "title": "Se V2X i aktion",
+      "comingSoon": "Video kommer snart"
+    },
+    "community": {
+      "title": "Gå med i V2X-communityn",
+      "description": "Anslut med early adopters, dela erfarenheter och håll dig uppdaterad om V2X-utvecklingen.",
+      "discord": "Gå med på Discord",
+      "github": "GitHub"
     },
     "waitlist": {
       "title": "Var först i kön",
@@ -1655,6 +1701,7 @@
       "supportResponse": "Supportrespons"
     },
     "channels": {
+      "badge": "Engagera dig",
       "title": "Kontakta oss",
       "description": "Flera sätt att engagera dig, få hjälp och bidra.",
       "discord": {
@@ -1677,6 +1724,10 @@
         "description": "Behöver du hjälp? Vårt supportteam finns tillgängligt via Intercom för tekniska frågor och felsökning.",
         "cta": "Kontakta support"
       }
+    },
+    "video": {
+      "title": "Möt communityn",
+      "comingSoon": "Video kommer snart"
     },
     "tenPercent": {
       "label": "De 10%",
@@ -2305,6 +2356,7 @@
       "realtime": "Realtidsdata"
     },
     "features": {
+      "badge": "Appfunktioner",
       "title": "Allt du behöver för att hantera din energi",
       "description": "Sourceful-appen ger dig fullständig insyn och kontroll över din energiförbrukning, produktion och kostnader.",
       "realtime": {
@@ -2333,6 +2385,7 @@
       }
     },
     "howItWorks": {
+      "badge": "Kom igång",
       "title": "Kom igång på några minuter",
       "step1": {
         "title": "Ladda ner appen",
@@ -2346,6 +2399,16 @@
         "title": "Börja övervaka",
         "description": "Se din energidata flöda i realtid. Ställ in varningar och automatiseringar."
       }
+    },
+    "video": {
+      "title": "Se appen i aktion",
+      "comingSoon": "Video kommer snart"
+    },
+    "community": {
+      "title": "Gå med i communityn",
+      "description": "Anslut med andra Sourceful-användare, dela tips och få hjälp från communityn.",
+      "discord": "Gå med på Discord",
+      "github": "GitHub"
     },
     "cta": {
       "title": "Redo att ta kontroll?",

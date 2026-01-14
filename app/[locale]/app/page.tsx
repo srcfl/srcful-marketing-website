@@ -8,7 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
-import { ArrowRight, Smartphone, Zap, BarChart3, Bell, Shield, Wallet } from "lucide-react";
+import { PixelGrid } from "@/components/ui/pixel-grid";
+import { VideoPlaceholder } from "@/components/video-placeholder";
+import { ArrowRight, Smartphone, Zap, BarChart3, Bell, Shield, Wallet, Users, Github, Star } from "lucide-react";
 
 export default function AppPage() {
   const t = useTranslations("app");
@@ -19,32 +21,51 @@ export default function AppPage() {
       icon: BarChart3,
       title: t("features.realtime.title"),
       description: t("features.realtime.description"),
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10",
     },
     {
       icon: Zap,
       title: t("features.spotPrices.title"),
       description: t("features.spotPrices.description"),
+      color: "text-amber-500",
+      bgColor: "bg-amber-500/10",
     },
     {
       icon: Bell,
       title: t("features.alerts.title"),
       description: t("features.alerts.description"),
+      color: "text-rose-500",
+      bgColor: "bg-rose-500/10",
     },
     {
       icon: Shield,
       title: t("features.security.title"),
       description: t("features.security.description"),
+      color: "text-emerald-500",
+      bgColor: "bg-emerald-500/10",
     },
     {
       icon: Wallet,
       title: t("features.rewards.title"),
       description: t("features.rewards.description"),
+      color: "text-violet-500",
+      bgColor: "bg-violet-500/10",
     },
     {
       icon: Smartphone,
       title: t("features.control.title"),
       description: t("features.control.description"),
+      color: "text-cyan-500",
+      bgColor: "bg-cyan-500/10",
     },
+  ];
+
+  const stats = [
+    { value: "4.8", label: t("stats.rating"), sublabel: t("stats.ratingSource"), icon: Star, color: "text-amber-500" },
+    { value: t("stats.priceValue"), label: t("stats.price"), sublabel: t("stats.priceSource"), color: "text-primary" },
+    { value: "10k+", label: t("stats.users"), sublabel: t("stats.active"), color: "text-blue-500" },
+    { value: "24/7", label: t("stats.monitoring"), sublabel: t("stats.realtime"), color: "text-emerald-500" },
   ];
 
   return (
@@ -55,11 +76,14 @@ export default function AppPage() {
         {/* Hero */}
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
+          <div className="absolute top-20 right-10 opacity-30">
+            <PixelGrid pattern="corners-only" color="blue" size="md" speed="slow" />
+          </div>
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
                 <div className="text-left">
-                  <Badge variant="secondary" className="mb-6">
+                  <Badge variant="secondary" className="mb-6 bg-blue-500/10 text-blue-600 border-blue-500/20">
                     <Smartphone className="h-3 w-3 mr-1" />
                     {t("hero.badge")}
                   </Badge>
@@ -70,7 +94,7 @@ export default function AppPage() {
                     {t("hero.description")}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" asChild>
+                    <Button size="lg" className="bg-blue-500 hover:bg-blue-600" asChild>
                       <a
                         href="https://apps.apple.com/se/app/sourceful-energy/id6736659172"
                         target="_blank"
@@ -82,7 +106,7 @@ export default function AppPage() {
                         {t("hero.downloadIOS")}
                       </a>
                     </Button>
-                    <Button size="lg" variant="outline" asChild>
+                    <Button size="lg" variant="outline" className="hover:bg-blue-500/10 hover:text-blue-600" asChild>
                       <a
                         href="https://play.google.com/store/apps/details?id=com.sourceful_labs.energy"
                         target="_blank"
@@ -99,11 +123,14 @@ export default function AppPage() {
               </FadeIn>
               <FadeIn delay={0.2}>
                 <div className="flex items-center justify-center">
-                  <img
-                    src="https://framerusercontent.com/images/cY7kh8i5pPQj2LJ0KKy2vIiSNhg.png"
-                    alt="Sourceful Energy App"
-                    className="w-full max-w-sm rounded-3xl shadow-2xl"
-                  />
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 via-primary/10 to-violet-500/20 rounded-[2rem] blur-2xl" />
+                    <img
+                      src="https://framerusercontent.com/images/cY7kh8i5pPQj2LJ0KKy2vIiSNhg.png"
+                      alt="Sourceful Energy App"
+                      className="relative w-full max-w-sm rounded-3xl shadow-2xl"
+                    />
+                  </div>
                 </div>
               </FadeIn>
             </div>
@@ -114,77 +141,77 @@ export default function AppPage() {
         <section className="bg-muted/30 border-b">
           <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">4.8</div>
-                  <div className="font-medium">{t("stats.rating")}</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.ratingSource")}</div>
-                </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">{t("stats.priceValue")}</div>
-                  <div className="font-medium">{t("stats.price")}</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.priceSource")}</div>
-                </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">10k+</div>
-                  <div className="font-medium">{t("stats.users")}</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.active")}</div>
-                </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">24/7</div>
-                  <div className="font-medium">{t("stats.monitoring")}</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.realtime")}</div>
-                </div>
-              </StaggerItem>
+              {stats.map((stat, index) => (
+                <StaggerItem key={index}>
+                  <div className="text-center">
+                    <div className={`text-3xl md:text-4xl font-bold ${stat.color}`}>{stat.value}</div>
+                    <div className="font-medium">{stat.label}</div>
+                    <div className="text-sm text-muted-foreground">{stat.sublabel}</div>
+                  </div>
+                </StaggerItem>
+              ))}
             </StaggerContainer>
           </div>
         </section>
 
         {/* Features */}
-        <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-          <FadeIn className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              {t("features.title")}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t("features.description")}
-            </p>
-          </FadeIn>
+        <section className="relative">
+          <div className="relative max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">{t("features.badge")}</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("features.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("features.description")}
+              </p>
+            </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {features.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <StaggerItem key={feature.title}>
-                  <Card className="h-full">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <CardTitle className="text-lg">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-base">
-                        {feature.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
-              );
-            })}
-          </StaggerContainer>
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
+              {features.map((feature) => {
+                const Icon = feature.icon;
+                return (
+                  <StaggerItem key={feature.title}>
+                    <Card className="h-full hover:shadow-lg hover:border-blue-500/30 transition-all duration-300">
+                      <CardHeader>
+                        <div className={`w-12 h-12 ${feature.bgColor} rounded-lg flex items-center justify-center mb-4`}>
+                          <Icon className={`h-6 w-6 ${feature.color}`} />
+                        </div>
+                        <CardTitle className="text-lg">{feature.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription className="text-base">
+                          {feature.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* Video */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-4xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("video.title")}
+              </h2>
+            </FadeIn>
+            <VideoPlaceholder
+              title={t("video.title")}
+              comingSoonText={t("video.comingSoon")}
+            />
+          </div>
         </section>
 
         {/* How it works */}
-        <section className="border-t bg-muted/30">
+        <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">{t("howItWorks.badge")}</Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("howItWorks.title")}
               </h2>
@@ -192,38 +219,74 @@ export default function AppPage() {
 
             <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
               <StaggerItem>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     1
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step1.title")}</h3>
-                  <p className="text-muted-foreground">{t("howItWorks.step1.description")}</p>
+                  <p className="text-muted-foreground max-w-[200px]">{t("howItWorks.step1.description")}</p>
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     2
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step2.title")}</h3>
-                  <p className="text-muted-foreground">{t("howItWorks.step2.description")}</p>
+                  <p className="text-muted-foreground max-w-[200px]">{t("howItWorks.step2.description")}</p>
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     3
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step3.title")}</h3>
-                  <p className="text-muted-foreground">{t("howItWorks.step3.description")}</p>
+                  <p className="text-muted-foreground max-w-[200px]">{t("howItWorks.step3.description")}</p>
                 </div>
               </StaggerItem>
             </StaggerContainer>
           </div>
         </section>
 
+        {/* Community CTA */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <Card className="bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-background border-blue-500/20">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-blue-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {t("community.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button className="bg-blue-500 hover:bg-blue-600" asChild>
+                      <a href="https://discord.gg/hEvKcxNH8C" target="_blank" rel="noopener noreferrer">
+                        {t("community.discord")}
+                      </a>
+                    </Button>
+                    <Button variant="outline" className="hover:bg-blue-500/10 hover:text-blue-600" asChild>
+                      <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        {t("community.github")}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* CTA */}
-        <section className="border-t">
+        <section className="border-t bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-background">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -233,7 +296,7 @@ export default function AppPage() {
                 {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" asChild>
+                <Button size="lg" className="bg-blue-500 hover:bg-blue-600" asChild>
                   <a
                     href="https://apps.apple.com/se/app/sourceful-energy/id6736659172"
                     target="_blank"
@@ -245,7 +308,7 @@ export default function AppPage() {
                     {t("hero.downloadIOS")}
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" className="hover:bg-blue-500/10 hover:text-blue-600" asChild>
                   <a
                     href="https://play.google.com/store/apps/details?id=com.sourceful_labs.energy"
                     target="_blank"
@@ -260,7 +323,7 @@ export default function AppPage() {
               </div>
               <p className="text-sm text-muted-foreground mt-6">
                 {t("cta.zapNote")}{" "}
-                <Link href="/zap" className="text-primary hover:underline">
+                <Link href="/zap" className="text-blue-500 hover:underline">
                   {t("cta.getZap")}
                 </Link>
               </p>

@@ -630,6 +630,7 @@
         "cloudResponse": "Cloud API response time"
       },
       "problem": {
+        "badge": "The Challenge",
         "title": "The coordination gap is costing you billions",
         "paragraph1": "40-70 million EVs in Europe by 2030. 2,800 GWh of distributed storage that needs coordination. Cloud APIs respond in 2-5 seconds - but grid frequency must balance every second.",
         "paragraph2": "The result? €2.5B destroyed annually in coordination failures. 700+ hours of negative electricity pricing. Assets sitting idle when the grid needs them most.",
@@ -651,6 +652,7 @@
         }
       },
       "benefits": {
+        "badge": "Benefits",
         "title": "Why utilities partner with us",
         "description": "We enable utilities to deliver real grid services - not just dashboards.",
         "gridServices": {
@@ -671,6 +673,7 @@
         }
       },
       "howItWorks": {
+        "badge": "Partnership Model",
         "title": "How the partnership works",
         "step1": {
           "title": "We provide the infrastructure",
@@ -684,6 +687,14 @@
           "title": "Share the value",
           "description": "Platform licensing + grid services margin. Aligned incentives."
         }
+      },
+      "video": {
+        "title": "See the Platform in Action",
+        "comingSoon": "Video coming soon"
+      },
+      "community": {
+        "title": "Ready to Partner?",
+        "description": "Let's discuss how Sourceful can help you unlock distributed flexibility."
       },
       "cta": {
         "title": "Ready to unlock distributed flexibility?",
@@ -874,8 +885,17 @@
         "titleHighlight": "intelligence",
         "description": "Integrate 200ms local control into your EV chargers, batteries, and inverters. Protocol-agnostic, white-label ready."
       },
-      "integrations": ["EV Chargers", "Battery Storage", "Inverters", "Heat Pumps", "Smart Meters", "V2X Systems"],
+      "integrations": {
+        "label": "Compatible with leading hardware",
+        "0": "EV Chargers",
+        "1": "Battery Storage",
+        "2": "Inverters",
+        "3": "Heat Pumps",
+        "4": "Smart Meters",
+        "5": "V2X Systems"
+      },
       "problem": {
+        "badge": "The Challenge",
         "title": "Your hardware is smart. Make it grid-smart.",
         "paragraph1": "Energy hardware manufacturers face a choice: build your own coordination layer (expensive, slow) or rely on cloud platforms that can't deliver real-time control (2-5 second latency).",
         "paragraph2": "We offer a third option: integrate the Zap gateway and get local execution at 200ms, grid service capabilities, and a developer platform your customers will love.",
@@ -889,7 +909,9 @@
         "withItems": ["200ms local execution", "Protocol-agnostic integration", "Grid services ready", "TSO certifications included"]
       },
       "benefits": {
+        "badge": "Benefits",
         "title": "Why OEMs integrate with us",
+        "description": "Ship grid-intelligent products faster with our proven integration path.",
         "localExecution": {
           "title": "Local Execution Built-in",
           "description": "Ship products with 200ms response time. No cloud dependency for time-critical operations."
@@ -908,6 +930,7 @@
         }
       },
       "integrationPath": {
+        "badge": "Process",
         "title": "Integration path",
         "step1": {
           "title": "Technical Review",
@@ -925,6 +948,16 @@
           "title": "Launch",
           "description": "Ship grid-intelligent products to market"
         }
+      },
+      "video": {
+        "title": "See the Integration in Action",
+        "comingSoon": "Video coming soon"
+      },
+      "community": {
+        "title": "Join the Developer Community",
+        "description": "Connect with other OEMs, share integration experiences, and get technical support.",
+        "discord": "Join Discord",
+        "github": "GitHub"
       },
       "cta": {
         "title": "Ready to make your hardware grid-intelligent?",
@@ -945,6 +978,7 @@
       "backup": "Days of home backup"
     },
     "benefits": {
+      "badge": "Benefits",
       "title": "Why V2X?",
       "description": "Your EV battery is 5-10x larger than a typical home battery. V2X unlocks its full potential.",
       "earn": {
@@ -965,6 +999,7 @@
       }
     },
     "howItWorks": {
+      "badge": "How It Works",
       "title": "How V2X Works",
       "description": "The Zap gateway enables bidirectional power flow between your EV and home.",
       "steps": {
@@ -983,9 +1018,20 @@
       }
     },
     "compatibility": {
+      "badge": "Compatibility",
       "title": "Compatible Chargers",
       "description": "V2X requires a bidirectional charger. We're working with leading brands.",
       "note": "More chargers coming soon. V2X capability depends on your EV model."
+    },
+    "video": {
+      "title": "See V2X in Action",
+      "comingSoon": "Video coming soon"
+    },
+    "community": {
+      "title": "Join the V2X Community",
+      "description": "Connect with early adopters, share experiences, and stay updated on V2X development.",
+      "discord": "Join Discord",
+      "github": "GitHub"
     },
     "waitlist": {
       "title": "Be First in Line",
@@ -1655,6 +1701,7 @@
       "supportResponse": "Support Response"
     },
     "channels": {
+      "badge": "Get Involved",
       "title": "Connect with us",
       "description": "Multiple ways to get involved, get help, and contribute.",
       "discord": {
@@ -1677,6 +1724,10 @@
         "description": "Need help? Our support team is available through Intercom for technical questions and troubleshooting.",
         "cta": "Contact Support"
       }
+    },
+    "video": {
+      "title": "Meet the Community",
+      "comingSoon": "Video coming soon"
     },
     "tenPercent": {
       "label": "The 10%",
@@ -2305,6 +2356,7 @@
       "realtime": "Real-time data"
     },
     "features": {
+      "badge": "App Features",
       "title": "Everything you need to manage your energy",
       "description": "The Sourceful app gives you complete visibility and control over your energy consumption, production, and costs.",
       "realtime": {
@@ -2333,6 +2385,7 @@
       }
     },
     "howItWorks": {
+      "badge": "Get Started",
       "title": "Get started in minutes",
       "step1": {
         "title": "Download the App",
@@ -2346,6 +2399,16 @@
         "title": "Start Monitoring",
         "description": "See your energy data flow in real-time. Set up alerts and automations."
       }
+    },
+    "video": {
+      "title": "See the App in Action",
+      "comingSoon": "Video coming soon"
+    },
+    "community": {
+      "title": "Join the Community",
+      "description": "Connect with other Sourceful users, share tips, and get help from the community.",
+      "discord": "Join Discord",
+      "github": "GitHub"
     },
     "cta": {
       "title": "Ready to take control?",
