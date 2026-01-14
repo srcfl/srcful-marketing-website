@@ -127,6 +127,53 @@ export function PricingSection() {
             );
           })}
         </StaggerContainer>
+
+        {/* FAQ Section */}
+        <div className="mt-24 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-8">
+            {t("faq.title")}
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold mb-2">{t("faq.zapCore.question")}</h3>
+              <p className="text-muted-foreground">
+                {t("faq.zapCore.answer")}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">
+                {t("faq.zapPro.question")}
+              </h3>
+              <p className="text-muted-foreground">
+                {t("faq.zapPro.answer")}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">
+                {t("faq.multipleZaps.question")}
+              </h3>
+              <p className="text-muted-foreground">
+                {t("faq.multipleZaps.answer")}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">
+                {t("faq.support.question")}
+              </h3>
+              <p className="text-muted-foreground">
+                {t("faq.support.answer")}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">
+                {t("faq.refunds.question")}
+              </h3>
+              <p className="text-muted-foreground">
+                {t("faq.refunds.answer")}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

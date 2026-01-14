@@ -129,7 +129,7 @@
       "badge": "Local Energy Coordination",
       "title": "Local energy control",
       "titleHighlight": "you can build on.",
-      "description": "Sourceful provides stable edge control for home energy devices, with AI-enabled intelligence on top.",
+      "description": "Sourceful provides lightning-fast stable edge control for home energy devices, with AI-enabled intelligence on top.",
       "partnersLabel": "Integrated with leading energy brands"
     },
     "stats": {
@@ -208,7 +208,7 @@
     },
     "developers": {
       "badge": "For Developers",
-      "title": "API-first platform for energy applications",
+      "title": "AI-first platform for energy applications",
       "description": "Build energy apps that respond in milliseconds, not seconds. Our local execution layer handles the physics while you focus on the experience.",
       "features": {
         "rest": "RESTful API with WebSocket support",
@@ -219,7 +219,7 @@
     },
     "zap": {
       "badge": "Hardware",
-      "title": "The Zap Gateway",
+      "title": "Meet Zap",
       "description": "Local execution at the edge. 200ms response time, offline-capable, compatible with 180M EU smart meters. The missing link between cloud platforms and physical energy infrastructure.",
       "features": {
         "response": "200ms local response time",
@@ -2668,6 +2668,29 @@
           "Tailored compliance and security"
         ],
         "cta": "Contact Sales"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "zapCore": {
+        "question": "What's included with Zap Core?",
+        "answer": "Every Zap (€69) gives you real-time energy data, unlimited API access for your devices, and both local and cloud control. Build whatever you want with it."
+      },
+      "zapPro": {
+        "question": "What does Zap Pro add?",
+        "answer": "Zap Pro (€60/year) adds smart energy management: load balancing, optimization algorithms, and device health alerts. New subscribers get a free Zap included. Already have a Zap? Upgrade to Pro for just €2.50/month."
+      },
+      "multipleZaps": {
+        "question": "Can I use multiple Zaps?",
+        "answer": "Yes! Each Zap you own gives you API access for that device. No extra fees, no per-device limits. Buy more Zaps, control more devices."
+      },
+      "support": {
+        "question": "What kind of support do I get?",
+        "answer": "All users get community support via Discord. Enterprise customers get dedicated support with SLA guarantees."
+      },
+      "refunds": {
+        "question": "What about refunds and delivery?",
+        "answer": "Free delivery in the EU. 30-day money back guarantee on hardware. Cancel your Zap Pro subscription anytime, no questions asked."
       }
     }
   }

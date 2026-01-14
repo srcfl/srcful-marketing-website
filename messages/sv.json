@@ -208,7 +208,7 @@
     },
     "developers": {
       "badge": "För utvecklare",
-      "title": "API-först plattform för energiapplikationer",
+      "title": "AI-först plattform för energiapplikationer",
       "description": "Bygg energiappar som svarar på millisekunder, inte sekunder. Vårt lokala exekveringslager hanterar fysiken medan du fokuserar på upplevelsen.",
       "features": {
         "rest": "RESTful API med WebSocket-stöd",
@@ -219,7 +219,7 @@
     },
     "zap": {
       "badge": "Hårdvara",
-      "title": "Zap Gateway",
+      "title": "Möt Zap",
       "description": "Lokal exekvering vid kanten. 200ms svarstid, fungerar offline, kompatibel med 180 miljoner EU-smartmätare. Den saknade länken mellan molnplattformar och fysisk energiinfrastruktur.",
       "features": {
         "response": "200ms lokal svarstid",
@@ -2668,6 +2668,29 @@
           "Skräddarsydd efterlevnad och säkerhet"
         ],
         "cta": "Kontakta försäljning"
+      }
+    },
+    "faq": {
+      "title": "Vanliga frågor",
+      "zapCore": {
+        "question": "Vad ingår i Zap Core?",
+        "answer": "Varje Zap (€69) ger dig energidata i realtid, obegränsad API-åtkomst för dina enheter och både lokal och molnstyrning. Bygg vad du vill med den."
+      },
+      "zapPro": {
+        "question": "Vad tillför Zap Pro?",
+        "answer": "Zap Pro (€60/år) lägger till smart energihantering: lastbalansering, optimeringsalgoritmer och enhetsvarningar. Nya prenumeranter får en gratis Zap inkluderad. Har du redan en Zap? Uppgradera till Pro för bara €2,50/månad."
+      },
+      "multipleZaps": {
+        "question": "Kan jag använda flera Zaps?",
+        "answer": "Ja! Varje Zap du äger ger dig API-åtkomst för den enheten. Inga extra avgifter, inga begränsningar per enhet. Köp fler Zaps, kontrollera fler enheter."
+      },
+      "support": {
+        "question": "Vilken typ av support får jag?",
+        "answer": "Alla användare får community-support via Discord. Enterprise-kunder får dedikerad support med SLA-garantier."
+      },
+      "refunds": {
+        "question": "Hur är det med återbetalningar och leverans?",
+        "answer": "Fri leverans inom EU. 30 dagars pengarna-tillbaka-garanti på hårdvara. Avsluta din Zap Pro-prenumeration när som helst, inga frågor ställda."
       }
     }
   }

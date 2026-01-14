@@ -27,7 +27,6 @@ export function MarketingFooter() {
           <div>
             <h4 className="font-semibold mb-4">{t("tools")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/tools" className="hover:text-foreground">{t("allTools")}</Link></li>
               <li><Link href="/tools/savings-calculator" className="hover:text-foreground">{t("savingsCalculator")}</Link></li>
               <li><Link href="/tools/negative-prices" className="hover:text-foreground">{t("negativePrices")}</Link></li>
               <li><Link href="/tools/solar-roi" className="hover:text-foreground">{t("solarRoi")}</Link></li>

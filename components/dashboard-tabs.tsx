@@ -134,8 +134,31 @@ export function DashboardTabs() {
         </div>
       </div>
 
+      {/* Content area */}
+      <div className="relative overflow-hidden h-[600px] md:h-[700px]">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={activeIndex}
+            custom={direction}
+            variants={contentVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.25 },
+              scale: { duration: 0.25 },
+            }}
+          >
+            <ActiveComponent />
+          </motion.div>
+        </AnimatePresence>
+        {/* Bottom fade gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+      </div>
+
       {/* Progress bar with play/pause */}
-      <div className="flex justify-center items-center gap-3 mb-6">
+      <div className="flex justify-center items-center gap-3 mt-6">
         <div className="flex gap-1.5">
           {tabs.slice(0, 3).map((_, index) => (
             <div
@@ -202,27 +225,6 @@ export function DashboardTabs() {
             );
           })}
         </div>
-      </div>
-
-      {/* Content area */}
-      <div className="relative overflow-hidden">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={activeIndex}
-            custom={direction}
-            variants={contentVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.25 },
-              scale: { duration: 0.25 },
-            }}
-          >
-            <ActiveComponent />
-          </motion.div>
-        </AnimatePresence>
       </div>
     </div>
   );
