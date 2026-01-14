@@ -9,6 +9,7 @@ import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { V2XWaitlistSection } from "@/components/v2x-waitlist-section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
+import { ZapImage } from "@/components/zap-image";
 import { ArrowRight, Zap, Clock, Wifi, WifiOff, Shield, Cpu } from "lucide-react";
 
 export default function ZapPage() {
@@ -86,11 +87,7 @@ export default function ZapPage() {
               </FadeIn>
               <FadeIn delay={0.2}>
                 <div className="flex items-center justify-center">
-                  <img
-                    src="https://framerusercontent.com/images/52u6CS3UoJqPVCIoGLR1YrUww.png?scale-down-to=1024"
-                    alt="Sourceful Energy Zap Gateway"
-                    className="w-full max-w-md rounded-2xl"
-                  />
+                  <ZapImage className="w-full max-w-md" alt="Sourceful Energy Zap Gateway" />
                 </div>
               </FadeIn>
             </div>

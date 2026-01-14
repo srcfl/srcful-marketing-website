@@ -5,7 +5,7 @@ import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check } from "lucide-react";
+import { Check, Plus } from "lucide-react";
 import { AddToCartButton } from "@/components/shop";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 
@@ -82,12 +82,15 @@ export function PricingSection() {
                   </CardHeader>
                   <CardContent className="flex-1">
                     <ul className="space-y-3">
-                      {features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <Check className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                          <span className="text-sm">{feature}</span>
-                        </li>
-                      ))}
+                      {features.map((feature, index) => {
+                        const Icon = tier.key === "ems" ? Plus : Check;
+                        return (
+                          <li key={index} className="flex items-start gap-2">
+                            <Icon className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                            <span className="text-sm">{feature}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </CardContent>
                   <CardFooter className="flex-col gap-3">

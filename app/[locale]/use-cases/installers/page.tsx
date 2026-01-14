@@ -12,6 +12,13 @@ import { InstallerPricingSection } from "@/components/installer-pricing-section"
 import { VideoPlaceholder } from "@/components/video-placeholder";
 import { PartnerLogoCarousel } from "@/components/partner-logo-carousel";
 import {
+  DashboardShowcase,
+  CustomerSavingsCard,
+  CustomerSatisfactionCard,
+  ConnectedDevicesCard,
+  ScheduleCard,
+} from "@/components/dashboard-showcase";
+import {
   ArrowRight,
   Wrench,
   ExternalLink,
@@ -23,18 +30,13 @@ import {
   Cpu,
   Headphones,
   Smartphone,
-  ChevronDown,
+  Users,
 } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 export default function InstallersPage() {
   const t = useTranslations("useCases.installers");
   const tCommon = useTranslations("common");
+  const tHome = useTranslations("home");
 
   const painPoints = [
     { key: "softwareSpaghetti", icon: Puzzle },
@@ -43,11 +45,19 @@ export default function InstallersPage() {
   ];
 
   const whatCustomersGetItems = [
-    { key: "0", icon: Activity },
-    { key: "1", icon: Cpu },
-    { key: "2", icon: Headphones },
-    { key: "3", icon: Smartphone },
+    { key: "0", icon: Activity, DemoCard: ConnectedDevicesCard },
+    { key: "1", icon: Cpu, DemoCard: ScheduleCard },
+    { key: "2", icon: Headphones, DemoCard: CustomerSatisfactionCard },
+    { key: "3", icon: Smartphone, DemoCard: CustomerSavingsCard },
   ];
+
+  const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const pricingSection = document.getElementById("installer-pricing");
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -55,90 +65,101 @@ export default function InstallersPage() {
 
       <main className="flex-1 pt-16">
         {/* Hero */}
-        <section className="relative overflow-hidden border-b">
+        <section className="relative overflow-hidden border-b min-h-screen flex items-center">
           <div className="absolute inset-0 bg-dot-pattern" />
-          <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
-            <FadeIn className="max-w-3xl">
-              <Badge variant="secondary" className="mb-6 bg-indigo-500/10 text-indigo-600 border-indigo-500/20">
-                <Wrench className="h-3 w-3 mr-1" />
-                {t("hero.badge")}
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-left">
-                {t("hero.title")}{" "}
-                <span className="text-indigo-500">{t("hero.titleHighlight")}</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 text-left max-w-2xl">
-                {t("hero.description")}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-indigo-500 hover:bg-indigo-600" asChild>
-                  <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.orderNow")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">
-                    {tCommon("buttons.contactSales")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* Partner highlight */}
-        <section className="bg-muted/30 border-b">
-          <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <div className="flex flex-col items-center justify-center gap-2">
-              <div className="text-sm text-muted-foreground uppercase tracking-wider">{t("partner.trustedBy")}</div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-indigo-500">Elkedjan</div>
-                <div className="text-sm text-muted-foreground">{t("partner.elkedjanDescription")}</div>
-              </div>
+          <div className="relative max-w-7xl mx-auto w-full py-24 md:py-32 px-4 md:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <FadeIn>
+                <Badge variant="secondary" className="mb-6 bg-indigo-500/10 text-indigo-600 border-indigo-500/20">
+                  <Wrench className="h-3 w-3 mr-1" />
+                  {t("hero.badge")}
+                </Badge>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-left">
+                  {t("hero.title")}<br />
+                  <span className="text-indigo-500">{t("hero.titleHighlight")}</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 text-left max-w-2xl">
+                  {t("hero.description")}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <Button size="lg" className="bg-indigo-500 hover:bg-indigo-600" asChild>
+                    <a href="#installer-pricing" onClick={scrollToPricing}>
+                      {tCommon("buttons.orderNow")}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link href="/contact">
+                      {tCommon("buttons.contactSales")}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+                <div>
+                  <div className="text-sm text-muted-foreground mb-4">
+                    Integrated with leading brands
+                  </div>
+                  <PartnerLogoCarousel />
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <div className="flex items-center justify-center lg:justify-end">
+                  <DashboardShowcase
+                    cards={[
+                      CustomerSavingsCard,
+                      CustomerSatisfactionCard,
+                      ConnectedDevicesCard,
+                      ScheduleCard,
+                    ]}
+                    interval={4000}
+                    pauseOnHover
+                  />
+                </div>
+              </FadeIn>
             </div>
           </div>
         </section>
 
         {/* Pain Points */}
-        <section className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-          <FadeIn className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              {t("painPoints.title")}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t("painPoints.description")}
-            </p>
-          </FadeIn>
+        <section className="min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("painPoints.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("painPoints.description")}
+              </p>
+            </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {painPoints.map((point) => {
-              const Icon = point.icon;
-              return (
-                <StaggerItem key={point.key}>
-                  <Card className="h-full border-destructive/20 bg-destructive/5">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-destructive/10 rounded-lg flex items-center justify-center mb-4">
-                        <Icon className="h-6 w-6 text-destructive" />
-                      </div>
-                      <CardTitle>{t(`painPoints.${point.key}.title`)}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-base">
-                        {t(`painPoints.${point.key}.description`)}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </StaggerItem>
-              );
-            })}
-          </StaggerContainer>
+            <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
+              {painPoints.map((point) => {
+                const Icon = point.icon;
+                return (
+                  <StaggerItem key={point.key}>
+                    <Card className="h-full border-violet-500/20 bg-violet-500/5">
+                      <CardHeader>
+                        <div className="w-12 h-12 bg-violet-500/10 rounded-lg flex items-center justify-center mb-4">
+                          <Icon className="h-6 w-6 text-violet-500" />
+                        </div>
+                        <CardTitle>{t(`painPoints.${point.key}.title`)}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription className="text-base">
+                          {t(`painPoints.${point.key}.description`)}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
+          </div>
         </section>
 
         {/* Responsibility Split */}
-        <section className="border-t bg-muted/30">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("responsibility.title")}
@@ -187,10 +208,10 @@ export default function InstallersPage() {
           </div>
         </section>
 
-        {/* What Customers Get */}
+        {/* What Customers Get - Alternating Layout */}
         <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <FadeIn className="text-center mb-12">
+            <FadeIn className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("whatCustomersGet.title")}
               </h2>
@@ -199,34 +220,38 @@ export default function InstallersPage() {
               </p>
             </FadeIn>
 
-            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
-              {whatCustomersGetItems.map((item) => {
+            <div className="space-y-24">
+              {whatCustomersGetItems.map((item, index) => {
                 const Icon = item.icon;
+                const DemoCard = item.DemoCard;
+                const isReversed = index % 2 === 1;
+
                 return (
-                  <StaggerItem key={item.key}>
-                    <Card className="h-full text-center">
-                      <CardHeader>
-                        <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <FadeIn key={item.key} delay={0.1 * index}>
+                    <div className={`grid lg:grid-cols-2 gap-12 items-center ${isReversed ? "lg:flex-row-reverse" : ""}`}>
+                      <div className={`${isReversed ? "lg:order-2" : ""}`}>
+                        <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
                           <Icon className="h-6 w-6 text-indigo-500" />
                         </div>
-                        <CardTitle className="text-lg">{t(`whatCustomersGet.items.${item.key}.title`)}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>
+                        <h3 className="text-2xl font-bold mb-4">{t(`whatCustomersGet.items.${item.key}.title`)}</h3>
+                        <p className="text-lg text-muted-foreground">
                           {t(`whatCustomersGet.items.${item.key}.description`)}
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </StaggerItem>
+                        </p>
+                      </div>
+                      <div className={`flex justify-center ${isReversed ? "lg:order-1 lg:justify-start" : "lg:justify-end"}`}>
+                        <DemoCard />
+                      </div>
+                    </div>
+                  </FadeIn>
                 );
               })}
-            </StaggerContainer>
+            </div>
           </div>
         </section>
 
         {/* Brand Compatibility */}
-        <section className="border-t bg-muted/30">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("compatibility.title")}
@@ -248,8 +273,10 @@ export default function InstallersPage() {
         </section>
 
         {/* Installer Pricing */}
-        <section className="border-t">
-          <InstallerPricingSection />
+        <section id="installer-pricing" className="border-t min-h-screen flex items-center">
+          <div className="w-full">
+            <InstallerPricingSection />
+          </div>
         </section>
 
         {/* Video Placeholder */}
@@ -268,8 +295,8 @@ export default function InstallersPage() {
         </section>
 
         {/* How it works */}
-        <section className="border-t">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("howItWorks.title")}
@@ -283,7 +310,7 @@ export default function InstallersPage() {
                     1
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step1.title")}</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground max-w-[200px] mx-auto">
                     {t("howItWorks.step1.description")}
                   </p>
                 </div>
@@ -294,7 +321,7 @@ export default function InstallersPage() {
                     2
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step2.title")}</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground max-w-[200px] mx-auto">
                     {t("howItWorks.step2.description")}
                   </p>
                 </div>
@@ -305,7 +332,7 @@ export default function InstallersPage() {
                     3
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step3.title")}</h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground max-w-[200px] mx-auto">
                     {t("howItWorks.step3.description")}
                   </p>
                 </div>
@@ -315,54 +342,62 @@ export default function InstallersPage() {
         </section>
 
         {/* FAQ */}
-        <section className="border-t bg-muted/30">
-          <div className="max-w-3xl mx-auto py-16 md:py-24 px-4 md:px-8">
+        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+          <div className="max-w-3xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("faq.title")}
               </h2>
             </FadeIn>
 
-            <Accordion type="single" collapsible className="w-full">
+            <div className="space-y-6">
               {[0, 1, 2, 3].map((i) => (
-                <AccordionItem key={i} value={`item-${i}`}>
-                  <AccordionTrigger className="text-left">
-                    {t(`faq.items.${i}.question`)}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">
-                    {t(`faq.items.${i}.answer`)}
-                  </AccordionContent>
-                </AccordionItem>
+                <FadeIn key={i} delay={0.1 * i}>
+                  <div>
+                    <h3 className="font-semibold mb-2">{t(`faq.items.${i}.question`)}</h3>
+                    <p className="text-muted-foreground">
+                      {t(`faq.items.${i}.answer`)}
+                    </p>
+                  </div>
+                </FadeIn>
               ))}
-            </Accordion>
+            </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="border-t bg-gradient-to-br from-indigo-500/10 via-indigo-500/5 to-background">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
-            <FadeIn>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                {t("cta.title")}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                {t("cta.description")}
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" className="bg-indigo-500 hover:bg-indigo-600" asChild>
-                  <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.orderNow")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">
-                    {tCommon("buttons.contactSales")}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </FadeIn>
+        {/* CTA - Community style like home page */}
+        <section className="border-t">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <Card className="bg-gradient-to-br from-indigo-500/10 via-indigo-500/5 to-background border-indigo-500/20">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="flex items-center gap-6">
+                    <div className="w-16 h-16 bg-indigo-500/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-indigo-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{tHome("community.title")}</h3>
+                      <p className="text-muted-foreground">
+                        {tHome("community.description")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button className="bg-indigo-500 hover:bg-indigo-600" asChild>
+                      <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
+                        {tCommon("buttons.joinDiscord")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <Link href="/contact">
+                        {tCommon("nav.contact")}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
       </main>

@@ -15,6 +15,7 @@ import { PricingSection } from "@/components/pricing-section";
 import { PixelGridBackground } from "@/components/pixel-grid-background";
 import { PixelGrid } from "@/components/ui/pixel-grid";
 import { TypewriterCode } from "@/components/typewriter-code";
+import { ZapImage } from "@/components/zap-image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { LucideIcon } from "lucide-react";
@@ -343,11 +344,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center justify-center">
-                <img
-                  src="https://framerusercontent.com/images/52u6CS3UoJqPVCIoGLR1YrUww.png?scale-down-to=1024"
-                  alt="Sourceful Energy Zap Gateway"
-                  className="w-full max-w-md rounded-2xl"
-                />
+                <ZapImage className="w-full max-w-md" alt="Sourceful Energy Zap Gateway" />
               </div>
             </div>
           </div>

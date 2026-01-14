@@ -20,6 +20,7 @@ import {
 import { SavingsCalculatorMini } from "@/components/savings-calculator-mini";
 import { V2xSavingsCard } from "@/components/v2x-savings-card";
 import { RewardsSection } from "@/components/rewards-section";
+import { ZapImage } from "@/components/zap-image";
 import { PixelGrid, type PixelGridColor, type PatternType } from "@/components/ui/pixel-grid";
 import {
   ArrowRight,
@@ -313,11 +314,7 @@ export default function HomeownersPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
                 <div className="flex items-center justify-center">
-                  <img
-                    src="https://framerusercontent.com/images/52u6CS3UoJqPVCIoGLR1YrUww.png?scale-down-to=1024"
-                    alt="Sourceful Energy Zap"
-                    className="w-full max-w-sm rounded-2xl"
-                  />
+                  <ZapImage className="w-full max-w-sm" />
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
