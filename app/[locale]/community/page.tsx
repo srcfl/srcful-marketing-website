@@ -167,18 +167,18 @@ export default function CommunityPage() {
                 const Icon = channel.icon;
                 return (
                   <StaggerItem key={channel.key}>
-                    <Card className={`h-full hover:shadow-lg transition-all duration-300 ${channel.borderColor}`}>
+                    <Card className={`h-full hover:shadow-lg transition-all duration-300 ${channel.borderColor} flex flex-col`}>
                       <CardHeader>
                         <div className={`w-12 h-12 ${channel.bgColor} rounded-lg flex items-center justify-center mb-4`}>
                           <Icon className={`h-6 w-6 ${channel.color}`} />
                         </div>
                         <CardTitle>{t(`channels.${channel.key}.title`)}</CardTitle>
                       </CardHeader>
-                      <CardContent className="flex flex-col h-full">
+                      <CardContent className="flex flex-col flex-grow">
                         <CardDescription className="text-base flex-grow mb-4">
                           {t(`channels.${channel.key}.description`)}
                         </CardDescription>
-                        <Button variant="outline" asChild className="w-fit">
+                        <Button variant="outline" asChild className="w-fit mt-auto">
                           {channel.external ? (
                             <a href={channel.href} target="_blank" rel="noopener noreferrer">
                               {t(`channels.${channel.key}.cta`)}
