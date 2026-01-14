@@ -5,8 +5,9 @@ import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, ExternalLink } from "lucide-react";
+import { Check } from "lucide-react";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
+import { AddToCartButton } from "@/components/shop";
 
 export function InstallerPricingSection() {
   const t = useTranslations("useCases.installers.installerPricing");
@@ -15,7 +16,7 @@ export function InstallerPricingSection() {
     {
       key: "singleUnit",
       highlighted: false,
-      storeLink: "https://store.sourceful.energy/products/sourceful-energy-zap",
+      useCart: true,
     },
     {
       key: "installerPack",
@@ -91,17 +92,12 @@ export function InstallerPricingSection() {
                     </ul>
                   </CardContent>
                   <CardFooter>
-                    {tier.storeLink ? (
-                      <Button
+                    {tier.useCart ? (
+                      <AddToCartButton
+                        handle="sourceful-energy-zap"
+                        variant="outline"
                         className="w-full"
-                        variant={tier.highlighted ? "default" : "outline"}
-                        asChild
-                      >
-                        <a href={tier.storeLink} target="_blank" rel="noopener noreferrer">
-                          {t(`${tier.key}.cta`)}
-                          <ExternalLink className="ml-2 h-4 w-4" />
-                        </a>
-                      </Button>
+                      />
                     ) : (
                       <Button
                         className={`w-full ${tier.highlighted ? "bg-indigo-500 hover:bg-indigo-600" : ""}`}

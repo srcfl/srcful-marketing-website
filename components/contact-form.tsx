@@ -13,12 +13,14 @@ interface ContactFormProps {
   title?: string;
   description?: string;
   subject?: string;
+  hideHeader?: boolean;
 }
 
 export function ContactForm({
   title,
   description,
-  subject
+  subject,
+  hideHeader = false
 }: ContactFormProps) {
   const t = useTranslations("common.contactForm");
   const [submitted, setSubmitted] = useState(false);
@@ -74,11 +76,13 @@ export function ContactForm({
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>{formTitle}</CardTitle>
-        <CardDescription>{formDescription}</CardDescription>
-      </CardHeader>
-      <CardContent>
+      {!hideHeader && (
+        <CardHeader>
+          <CardTitle>{formTitle}</CardTitle>
+          <CardDescription>{formDescription}</CardDescription>
+        </CardHeader>
+      )}
+      <CardContent className={hideHeader ? "pt-6" : ""}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">

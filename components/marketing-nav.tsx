@@ -71,9 +71,6 @@ export function MarketingNav() {
   const developers = [
     { name: t("overview"), href: "/developers", external: false },
     { name: t("devPortal"), href: "https://developer.sourceful.energy", external: true },
-    { name: t("apiReference"), href: "https://developer.sourceful.energy/api", external: true },
-    { name: t("designSystem"), href: "https://design.sourceful.energy", external: true },
-    { name: t("hardwareDocs"), href: "https://developer.sourceful.energy/hardware", external: true },
     { name: t("community"), href: "/community", external: false },
   ];
 
