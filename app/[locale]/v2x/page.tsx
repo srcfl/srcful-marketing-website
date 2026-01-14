@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,7 +9,6 @@ import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
-import { PixelGrid } from "@/components/ui/pixel-grid";
 import { VideoPlaceholder } from "@/components/video-placeholder";
 import {
   Car,
@@ -21,7 +20,6 @@ import {
   Grid3X3,
   ArrowRight,
   ExternalLink,
-  CheckCircle,
   Users,
   Github,
 } from "lucide-react";
@@ -29,14 +27,19 @@ import {
 export default function V2XPage() {
   const t = useTranslations("v2x");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
+
+  const evSupportUrl = locale === "sv"
+    ? "https://support.sourceful.energy/sv/articles/12927601-vilka-elbilar-ar-kompatibla-med-sourceful-energy"
+    : "https://support.sourceful.energy/en/articles/12927601-which-electric-vehicles-evs-are-compatible-with-sourceful-energy";
 
   const benefits = [
     {
       icon: Battery,
       title: t("benefits.earn.title"),
       description: t("benefits.earn.description"),
-      color: "text-amber-500",
-      bgColor: "bg-amber-500/10",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
     },
     {
       icon: Home,
@@ -62,19 +65,11 @@ export default function V2XPage() {
   ];
 
   const compatibleChargers = [
-    { name: "Easee Home", status: t("chargers.testing"), statusColor: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
-    { name: "Zaptec Go", status: t("chargers.testing"), statusColor: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
-    { name: "ChargeAmps Halo", status: t("chargers.planned"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
-    { name: "Wallbox Quasar 2", status: t("chargers.planned"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
-  ];
-
-  const compatibleEVs = [
-    "Hyundai Ioniq 5/6",
-    "Kia EV6/EV9",
-    "Genesis GV60/70",
-    "Ford F-150 Lightning",
-    "Nissan Leaf (CHAdeMO)",
-    "BYD models (selected)",
+    { name: "Ambibox", status: t("chargers.supported"), statusColor: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" },
+    { name: "Easee Home", status: t("chargers.testing"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
+    { name: "Zaptec Go", status: t("chargers.testing"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
+    { name: "ChargeAmps Halo", status: t("chargers.planned"), statusColor: "bg-orange-500/10 text-orange-600 border-orange-500/20" },
+    { name: "Wallbox Quasar 2", status: t("chargers.planned"), statusColor: "bg-orange-500/10 text-orange-600 border-orange-500/20" },
   ];
 
   const requirements = [
@@ -92,33 +87,30 @@ export default function V2XPage() {
         {/* Hero */}
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-transparent" />
-          <div className="absolute top-20 right-10 opacity-30">
-            <PixelGrid pattern="corners-only" color="orange" size="md" speed="slow" />
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent" />
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
                 <div>
-                  <Badge variant="secondary" className="mb-6 bg-amber-500/10 text-amber-600 border-amber-500/20">
+                  <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary border-primary/20">
                     <Car className="h-3 w-3 mr-1" />
                     {t("hero.badge")}
                   </Badge>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-balance">
                     {t("hero.title")}{" "}
-                    <span className="text-amber-500">{t("hero.titleHighlight")}</span>
+                    <span className="text-primary">{t("hero.titleHighlight")}</span>
                   </h1>
                   <p className="text-xl text-muted-foreground mb-8">
                     {t("hero.description")}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white" asChild>
+                    <Button size="lg" className="bg-primary hover:bg-primary text-primary-foreground" asChild>
                       <a href="#waitlist">
                         {tCommon("buttons.joinWaitlist")}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
-                    <Button size="lg" variant="outline" className="hover:bg-amber-500/10 hover:text-amber-600" asChild>
+                    <Button size="lg" variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                       <Link href="/zap">
                         {tCommon("buttons.learnMore")}
                       </Link>
@@ -129,14 +121,14 @@ export default function V2XPage() {
               <FadeIn delay={0.2}>
                 <div className="flex items-center justify-center">
                   <div className="relative">
-                    <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-amber-500/20 to-amber-500/5 rounded-full flex items-center justify-center">
-                      <div className="w-48 h-48 md:w-60 md:h-60 bg-gradient-to-br from-amber-500/30 to-amber-500/10 rounded-full flex items-center justify-center">
-                        <Car className="h-24 w-24 md:h-32 md:w-32 text-amber-500" />
+                    <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
+                      <div className="w-48 h-48 md:w-60 md:h-60 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full flex items-center justify-center">
+                        <Car className="h-24 w-24 md:h-32 md:w-32 text-primary" />
                       </div>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 bg-background rounded-lg p-3 shadow-lg border border-amber-500/20">
+                    <div className="absolute -bottom-2 -right-2 bg-background rounded-lg p-3 shadow-lg border border-primary/20">
                       <div className="flex items-center gap-2">
-                        <Zap className="h-5 w-5 text-amber-500" />
+                        <Zap className="h-5 w-5 text-primary" />
                         <span className="font-semibold">50-100 kWh</span>
                       </div>
                       <span className="text-xs text-muted-foreground">{t("stats.capacity")}</span>
@@ -154,7 +146,7 @@ export default function V2XPage() {
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-amber-500">€500-1,500</div>
+                  <div className="text-3xl md:text-4xl font-bold text-primary">€500-1,500</div>
                   <div className="text-sm text-muted-foreground">{t("stats.savings")}</div>
                 </div>
               </StaggerItem>
@@ -198,7 +190,7 @@ export default function V2XPage() {
                 const Icon = benefit.icon;
                 return (
                   <StaggerItem key={benefit.title}>
-                    <Card className="h-full hover:shadow-lg hover:border-amber-500/30 transition-all duration-300">
+                    <Card className="h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300">
                       <CardHeader>
                         <div className={`w-12 h-12 ${benefit.bgColor} rounded-lg flex items-center justify-center mb-4`}>
                           <Icon className={`h-6 w-6 ${benefit.color}`} />
@@ -249,7 +241,7 @@ export default function V2XPage() {
             <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.1}>
               <StaggerItem>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     1
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.steps.connect.title")}</h3>
@@ -260,7 +252,7 @@ export default function V2XPage() {
               </StaggerItem>
               <StaggerItem>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     2
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.steps.optimize.title")}</h3>
@@ -271,7 +263,7 @@ export default function V2XPage() {
               </StaggerItem>
               <StaggerItem>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     3
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.steps.earn.title")}</h3>
@@ -325,29 +317,27 @@ export default function V2XPage() {
                       <CardTitle>{t("evs.title")}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="grid grid-cols-2 gap-2">
-                        {compatibleEVs.map((ev) => (
-                          <div key={ev} className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="h-4 w-4 text-amber-500 flex-shrink-0" />
-                            <span>{ev}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-4">
-                        {t("compatibility.note")}
+                      <p className="text-muted-foreground mb-4">
+                        {t("evs.description")}
                       </p>
+                      <Button variant="outline" className="w-full hover:bg-primary/10 hover:text-primary" asChild>
+                        <a href={evSupportUrl} target="_blank" rel="noopener noreferrer">
+                          {t("evs.viewList")}
+                          <ExternalLink className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
                     </CardContent>
                   </Card>
 
-                  <Card className="border-amber-500/20 bg-amber-500/5">
+                  <Card className="border-primary/20 bg-primary/5">
                     <CardHeader>
-                      <CardTitle className="text-amber-500">{t("requirements.title")}</CardTitle>
+                      <CardTitle className="text-primary">{t("requirements.title")}</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <ul className="space-y-2">
                         {requirements.map((req, index) => (
                           <li key={index} className="flex items-center gap-2 text-sm">
-                            <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                             <span>{req}</span>
                           </li>
                         ))}
@@ -361,10 +351,10 @@ export default function V2XPage() {
         </section>
 
         {/* Waitlist Section */}
-        <section id="waitlist" className="border-t bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-background">
+        <section id="waitlist" className="border-t bg-gradient-to-br from-primary/10 via-primary/5 to-background">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="max-w-xl mx-auto text-center">
-              <Badge variant="secondary" className="mb-4 bg-amber-500/10 text-amber-600 border-amber-500/20">
+              <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
                 {t("earlyAccess")}
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -374,7 +364,7 @@ export default function V2XPage() {
                 {t("waitlist.description")}
               </p>
 
-              <Card className="bg-background/80 backdrop-blur border-amber-500/20">
+              <Card className="bg-background/80 backdrop-blur border-primary/20">
                 <CardContent className="p-6">
                   <WaitlistForm
                     feature="v2x"
@@ -398,12 +388,12 @@ export default function V2XPage() {
         {/* Community CTA */}
         <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <Card className="bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-background border-amber-500/20">
+            <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
               <CardContent className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                   <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center">
-                      <Users className="h-8 w-8 text-amber-500" />
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
@@ -413,12 +403,12 @@ export default function V2XPage() {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button className="bg-amber-500 hover:bg-amber-600" asChild>
+                    <Button className="bg-primary hover:bg-primary" asChild>
                       <a href="https://discord.gg/hEvKcxNH8C" target="_blank" rel="noopener noreferrer">
                         {t("community.discord")}
                       </a>
                     </Button>
-                    <Button variant="outline" className="hover:bg-amber-500/10 hover:text-amber-600" asChild>
+                    <Button variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                       <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
                         <Github className="mr-2 h-4 w-4" />
                         {t("community.github")}
@@ -432,7 +422,7 @@ export default function V2XPage() {
         </section>
 
         {/* CTA */}
-        <section className="border-t bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-background">
+        <section className="border-t bg-gradient-to-br from-primary/10 via-primary/5 to-background">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -442,13 +432,13 @@ export default function V2XPage() {
                 {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" className="bg-amber-500 hover:bg-amber-600" asChild>
+                <Button size="lg" className="bg-primary hover:bg-primary" asChild>
                   <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
                     {tCommon("buttons.orderNow")}
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="hover:bg-amber-500/10 hover:text-amber-600" asChild>
+                <Button size="lg" variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                   <Link href="/use-cases/homeowners">
                     {tCommon("buttons.learnMore")}
                     <ArrowRight className="ml-2 h-4 w-4" />

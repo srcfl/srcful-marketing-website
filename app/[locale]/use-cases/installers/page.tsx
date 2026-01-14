@@ -109,25 +109,25 @@ export default function InstallersPage() {
           <div className="relative max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
-                <Badge variant="secondary" className="mb-6 bg-indigo-500/10 text-indigo-600 border-indigo-500/20">
+                <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary border-primary/20">
                   <Wrench className="h-3 w-3 mr-1" />
                   {t("hero.badge")}
                 </Badge>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-left">
                   {t("hero.title")}<br />
-                  <span className="text-indigo-500">{t("hero.titleHighlight")}</span>
+                  <span className="text-primary">{t("hero.titleHighlight")}</span>
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 text-left max-w-2xl">
                   {t("hero.description")}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Button size="lg" className="bg-indigo-500 hover:bg-indigo-600" asChild>
+                  <Button size="lg" className="bg-primary hover:bg-primary" asChild>
                     <a href="#installer-pricing" onClick={scrollToPricing}>
                       {tCommon("buttons.orderNow")}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
-                  <Button size="lg" variant="outline" className="hover:bg-indigo-500/10 hover:text-indigo-400" asChild>
+                  <Button size="lg" variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                     <a href="#how-it-works" onClick={scrollToHowItWorks}>
                       {tCommon("buttons.howItWorks")}
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -178,10 +178,10 @@ export default function InstallersPage() {
                 const Icon = point.icon;
                 return (
                   <StaggerItem key={point.key}>
-                    <Card className="h-full border-indigo-500/20 bg-indigo-500/5">
+                    <Card className="h-full border-primary/20 bg-primary/5">
                       <CardHeader>
-                        <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
-                          <Icon className="h-6 w-6 text-indigo-500" />
+                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                          <Icon className="h-6 w-6 text-primary" />
                         </div>
                         <CardTitle>{t(`painPoints.${point.key}.title`)}</CardTitle>
                       </CardHeader>
@@ -214,13 +214,13 @@ export default function InstallersPage() {
               <FadeIn>
                 <Card className="h-full">
                   <CardHeader>
-                    <CardTitle className="text-xl text-indigo-500">{t("responsibility.installer.title")}</CardTitle>
+                    <CardTitle className="text-xl text-primary">{t("responsibility.installer.title")}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       {[0, 1, 2, 3].map((i) => (
                         <li key={i} className="flex items-center gap-3">
-                          <Check className="h-5 w-5 text-indigo-500 shrink-0" />
+                          <Check className="h-5 w-5 text-primary shrink-0" />
                           <span>{t(`responsibility.installer.items.${i}`)}</span>
                         </li>
                       ))}
@@ -229,15 +229,15 @@ export default function InstallersPage() {
                 </Card>
               </FadeIn>
               <FadeIn delay={0.1}>
-                <Card className="h-full border-indigo-500/20 bg-indigo-500/5">
+                <Card className="h-full border-primary/20 bg-primary/5">
                   <CardHeader>
-                    <CardTitle className="text-xl text-indigo-500">{t("responsibility.sourceful.title")}</CardTitle>
+                    <CardTitle className="text-xl text-primary">{t("responsibility.sourceful.title")}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       {[0, 1, 2, 3].map((i) => (
                         <li key={i} className="flex items-center gap-3">
-                          <Check className="h-5 w-5 text-indigo-500 shrink-0" />
+                          <Check className="h-5 w-5 text-primary shrink-0" />
                           <span>{t(`responsibility.sourceful.items.${i}`)}</span>
                         </li>
                       ))}
@@ -271,8 +271,8 @@ export default function InstallersPage() {
                   <FadeIn key={item.key} delay={0.1 * index}>
                     <div className={`grid lg:grid-cols-2 gap-8 items-center ${isReversed ? "lg:flex-row-reverse" : ""}`}>
                       <div className={`${isReversed ? "lg:order-2" : ""}`}>
-                        <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
-                          <Icon className="h-6 w-6 text-indigo-500" />
+                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                          <Icon className="h-6 w-6 text-primary" />
                         </div>
                         <h3 className="text-2xl font-bold mb-4">{t(`whatCustomersGet.items.${item.key}.title`)}</h3>
                         <p className="text-lg text-muted-foreground">
@@ -303,7 +303,7 @@ export default function InstallersPage() {
             </FadeIn>
             <PartnerLogoCarousel />
             <div className="text-center mt-8">
-              <Button variant="outline" className="hover:bg-indigo-500/10 hover:text-indigo-400" asChild>
+              <Button variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                 <Link href="/integrations">
                   {t("compatibility.seeAll")}
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -340,7 +340,7 @@ export default function InstallersPage() {
             <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.1}>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     1
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step1.title")}</h3>
@@ -351,7 +351,7 @@ export default function InstallersPage() {
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     2
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step2.title")}</h3>
@@ -362,7 +362,7 @@ export default function InstallersPage() {
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="w-12 h-12 bg-indigo-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                     3
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step3.title")}</h3>
@@ -409,12 +409,12 @@ export default function InstallersPage() {
         {/* CTA - Community style like home page */}
         <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <Card className="bg-gradient-to-br from-indigo-500/10 via-indigo-500/5 to-background border-indigo-500/20">
+            <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
               <CardContent className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                   <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-indigo-500/10 rounded-full flex items-center justify-center">
-                      <Users className="h-8 w-8 text-indigo-500" />
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold mb-2">{tHome("community.title")}</h3>
@@ -424,13 +424,13 @@ export default function InstallersPage() {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button className="bg-indigo-500 hover:bg-indigo-600" asChild>
+                    <Button className="bg-primary hover:bg-primary" asChild>
                       <a href="https://discord.gg/srcful" target="_blank" rel="noopener noreferrer">
                         {tCommon("buttons.joinDiscord")}
                         <ExternalLink className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
-                    <Button variant="outline" className="hover:bg-indigo-500/10 hover:text-indigo-400" asChild>
+                    <Button variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                       <Link href="/contact">
                         {tCommon("nav.contact")}
                       </Link>

@@ -1062,11 +1062,14 @@
     },
     "chargers": {
       "title": "Laddare",
+      "supported": "Stöds",
       "testing": "Testas",
       "planned": "Planerad"
     },
     "evs": {
-      "title": "Kompatibla elbilar"
+      "title": "Kompatibla elbilar",
+      "description": "V2X-kapacitet beror på din elbilsmodell. Vi upprätthåller en uppdaterad lista över alla kompatibla fordon.",
+      "viewList": "Visa kompatibla fordon"
     },
     "requirements": {
       "title": "Krav",

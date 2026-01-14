@@ -1062,11 +1062,14 @@
     },
     "chargers": {
       "title": "Chargers",
+      "supported": "Supported",
       "testing": "Testing",
       "planned": "Planned"
     },
     "evs": {
-      "title": "Compatible EVs"
+      "title": "Compatible EVs",
+      "description": "V2X capability depends on your EV model. We maintain an up-to-date list of all compatible vehicles.",
+      "viewList": "View compatible vehicles"
     },
     "requirements": {
       "title": "Requirements",
