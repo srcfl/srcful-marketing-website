@@ -5,8 +5,8 @@ import { Users, TrendingUp } from "lucide-react";
 
 export function CustomerSavingsCard() {
   return (
-    <Card className="w-[420px] h-[220px] shadow-lg border-border/50">
-      <CardContent className="p-5 h-full flex flex-col">
+    <Card className="w-[420px] h-[280px] shadow-lg border-border/50">
+      <CardContent className="p-5 h-full flex flex-col justify-center">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-2">
             <p className="text-sm text-muted-foreground">Customer Savings</p>

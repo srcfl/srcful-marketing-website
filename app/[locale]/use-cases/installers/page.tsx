@@ -16,8 +16,8 @@ import {
   CustomerSavingsCard,
   CustomerSatisfactionCard,
   ConnectedDevicesCard,
-  ScheduleCard,
 } from "@/components/dashboard-showcase";
+import { PixelGrid } from "@/components/ui/pixel-grid";
 import {
   ArrowRight,
   Wrench,
@@ -27,7 +27,6 @@ import {
   AlertTriangle,
   Check,
   Activity,
-  Cpu,
   Headphones,
   Smartphone,
   Users,
@@ -46,9 +45,8 @@ export default function InstallersPage() {
 
   const whatCustomersGetItems = [
     { key: "0", icon: Activity, DemoCard: ConnectedDevicesCard },
-    { key: "1", icon: Cpu, DemoCard: ScheduleCard },
-    { key: "2", icon: Headphones, DemoCard: CustomerSatisfactionCard },
-    { key: "3", icon: Smartphone, DemoCard: CustomerSavingsCard },
+    { key: "1", icon: Headphones, DemoCard: CustomerSatisfactionCard },
+    { key: "2", icon: Smartphone, DemoCard: CustomerSavingsCard },
   ];
 
   const scrollToPricing = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -65,9 +63,9 @@ export default function InstallersPage() {
 
       <main className="flex-1 pt-16">
         {/* Hero */}
-        <section className="relative overflow-hidden border-b min-h-screen flex items-center">
+        <section className="relative overflow-hidden border-b min-h-screen flex items-center pb-24">
           <div className="absolute inset-0 bg-dot-pattern" />
-          <div className="relative max-w-7xl mx-auto w-full py-24 md:py-32 px-4 md:px-8">
+          <div className="relative max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
                 <Badge variant="secondary" className="mb-6 bg-indigo-500/10 text-indigo-600 border-indigo-500/20">
@@ -109,7 +107,6 @@ export default function InstallersPage() {
                       CustomerSavingsCard,
                       CustomerSatisfactionCard,
                       ConnectedDevicesCard,
-                      ScheduleCard,
                     ]}
                     interval={4000}
                     pauseOnHover
@@ -124,6 +121,9 @@ export default function InstallersPage() {
         <section className="min-h-screen flex items-center">
           <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
+              <div className="flex justify-center mb-8">
+                <PixelGrid pattern="corners-only" color="indigo" size="lg" speed="slow" />
+              </div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("painPoints.title")}
               </h2>
@@ -137,10 +137,10 @@ export default function InstallersPage() {
                 const Icon = point.icon;
                 return (
                   <StaggerItem key={point.key}>
-                    <Card className="h-full border-violet-500/20 bg-violet-500/5">
+                    <Card className="h-full border-indigo-500/20 bg-indigo-500/5">
                       <CardHeader>
-                        <div className="w-12 h-12 bg-violet-500/10 rounded-lg flex items-center justify-center mb-4">
-                          <Icon className="h-6 w-6 text-violet-500" />
+                        <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                          <Icon className="h-6 w-6 text-indigo-500" />
                         </div>
                         <CardTitle>{t(`painPoints.${point.key}.title`)}</CardTitle>
                       </CardHeader>
@@ -158,7 +158,7 @@ export default function InstallersPage() {
         </section>
 
         {/* Responsibility Split */}
-        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+        <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -210,7 +210,7 @@ export default function InstallersPage() {
 
         {/* What Customers Get - Alternating Layout */}
         <section className="border-t">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+          <div className="max-w-5xl mx-auto py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("whatCustomersGet.title")}
@@ -228,7 +228,7 @@ export default function InstallersPage() {
 
                 return (
                   <FadeIn key={item.key} delay={0.1 * index}>
-                    <div className={`grid lg:grid-cols-2 gap-12 items-center ${isReversed ? "lg:flex-row-reverse" : ""}`}>
+                    <div className={`grid lg:grid-cols-2 gap-8 items-center ${isReversed ? "lg:flex-row-reverse" : ""}`}>
                       <div className={`${isReversed ? "lg:order-2" : ""}`}>
                         <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
                           <Icon className="h-6 w-6 text-indigo-500" />
@@ -250,7 +250,7 @@ export default function InstallersPage() {
         </section>
 
         {/* Brand Compatibility */}
-        <section className="border-t bg-muted/30 min-h-screen flex items-center">
+        <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -272,13 +272,6 @@ export default function InstallersPage() {
           </div>
         </section>
 
-        {/* Installer Pricing */}
-        <section id="installer-pricing" className="border-t min-h-screen flex items-center">
-          <div className="w-full">
-            <InstallerPricingSection />
-          </div>
-        </section>
-
         {/* Video Placeholder */}
         <section className="border-t bg-muted/30">
           <div className="max-w-4xl mx-auto py-16 md:py-24 px-4 md:px-8">
@@ -295,7 +288,7 @@ export default function InstallersPage() {
         </section>
 
         {/* How it works */}
-        <section className="border-t min-h-screen flex items-center">
+        <section className="border-t">
           <div className="max-w-7xl mx-auto w-full py-16 md:py-24 px-4 md:px-8">
             <FadeIn className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -338,6 +331,13 @@ export default function InstallersPage() {
                 </div>
               </StaggerItem>
             </StaggerContainer>
+          </div>
+        </section>
+
+        {/* Installer Pricing */}
+        <section id="installer-pricing" className="border-t bg-muted/30">
+          <div className="w-full">
+            <InstallerPricingSection />
           </div>
         </section>
 

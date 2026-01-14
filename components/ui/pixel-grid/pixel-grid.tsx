@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { patterns, type PatternType } from "./patterns";
 import "./pixel-grid.css";
 
-export type PixelGridColor = "blue" | "pink" | "green" | "orange";
+export type PixelGridColor = "blue" | "pink" | "green" | "orange" | "indigo";
 export type PixelGridSpeed = "slow" | "normal" | "fast";
 export type PixelGridSize = "sm" | "md" | "lg";
 
