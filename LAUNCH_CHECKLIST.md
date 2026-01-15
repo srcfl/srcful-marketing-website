@@ -100,15 +100,14 @@ Consider converting these "use client" pages to server components with client ch
 - [ ] `/contact` - only form needs client
 - [ ] `/pricing` - mostly static
 
-#### 10. Consider Removing/Consolidating Analytics
-Current load: 5 analytics scripts
+#### 10. Analytics Scripts ✅ DONE
+Current load: 4 analytics scripts
 - Google Analytics 4
 - Meta Pixel
 - TikTok Pixel
 - Reddit Pixel
-- Microsoft Clarity
 
-Consider if all are necessary for launch.
+Removed Microsoft Clarity (was causing 422 errors).
 
 ---
 
@@ -157,7 +156,6 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=
 NEXT_PUBLIC_META_PIXEL_ID=
 NEXT_PUBLIC_TIKTOK_PIXEL_ID=
 NEXT_PUBLIC_REDDIT_PIXEL_ID=
-NEXT_PUBLIC_CLARITY_PROJECT_ID=
 
 # Support
 NEXT_PUBLIC_INTERCOM_APP_ID=
