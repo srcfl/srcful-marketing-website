@@ -2380,7 +2380,7 @@
       "badge": "Mobile App",
       "title": "Your energy,",
       "titleHighlight": "in your pocket",
-      "description": "Monitor real-time energy usage, track spot prices, and manage your Sourceful devices - all from the palm of your hand.",
+      "description": "Connect, sync, and optimise all your devices. Monitor real-time energy usage, track spot prices, and manage everything from the palm of your hand.",
       "downloadIOS": "Download for iOS",
       "downloadAndroid": "Download for Android"
     },
@@ -2499,6 +2499,7 @@
     "buttons": {
       "startSetup": "Start Setup",
       "getTheZap": "Get the Zap",
+      "getTheApp": "Get the App",
       "helpCentre": "Help Centre",
       "viewIntegrations": "View All Integrations",
       "backToSelection": "Back to Device Selection",

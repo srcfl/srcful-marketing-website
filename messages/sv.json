@@ -2380,7 +2380,7 @@
       "badge": "Mobilapp",
       "title": "Din energi,",
       "titleHighlight": "i fickan",
-      "description": "Övervaka energiförbrukning i realtid, följ spotpriser och hantera dina Sourceful-enheter - allt i din hand.",
+      "description": "Anslut, synka och optimera alla dina enheter. Övervaka energiförbrukning i realtid, följ spotpriser och hantera allt från din hand.",
       "downloadIOS": "Ladda ner för iOS",
       "downloadAndroid": "Ladda ner för Android"
     },
@@ -2499,6 +2499,7 @@
     "buttons": {
       "startSetup": "Starta installation",
       "getTheZap": "Skaffa Zap",
+      "getTheApp": "Hämta appen",
       "helpCentre": "Hjälpcenter",
       "viewIntegrations": "Visa alla integrationer",
       "backToSelection": "Tillbaka till enhetsval",

@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
-import { ArrowRight, Zap, Plug, Cpu, HelpCircle, ExternalLink } from "lucide-react";
+import { ArrowRight, Zap, Plug, Cpu, HelpCircle, ExternalLink, Smartphone, ShoppingBag } from "lucide-react";
 
 export default function GetStartedPage() {
   const t = useTranslations("getStarted");
@@ -63,9 +63,25 @@ export default function GetStartedPage() {
                 {t("hero.title")}{" "}
                 <span className="text-primary">{t("hero.titleHighlight")}</span>
               </h1>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-muted-foreground mb-8">
                 {t("hero.description")}
               </p>
+
+              {/* Prerequisites buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild>
+                  <Link href="/pricing">
+                    <ShoppingBag className="mr-2 h-5 w-5" />
+                    {t("buttons.getTheZap")}
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="/app">
+                    <Smartphone className="mr-2 h-5 w-5" />
+                    {t("buttons.getTheApp")}
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
