@@ -91,7 +91,8 @@ export function Logo({
       alt="Sourceful Energy"
       width={sizeConfig.width}
       height={sizeConfig.height}
-      className={cn("flex-shrink-0 h-auto w-auto", className)}
+      className={cn("flex-shrink-0", className)}
+      style={{ height: sizeConfig.height, width: "auto" }}
       priority
     />
   );

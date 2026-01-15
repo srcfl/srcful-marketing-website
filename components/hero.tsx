@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,9 @@ import {
 } from "@/components/dashboard-showcase";
 import { PartnerLogoCarousel } from "@/components/partner-logo-carousel";
 import { ArrowRight, ExternalLink } from "lucide-react";
-import { UnicornScene } from "unicornstudio-react";
+
+// Lazy load heavy WebGL animation
+const UnicornScene = lazy(() => import("unicornstudio-react").then(mod => ({ default: mod.UnicornScene })));
 
 export function Hero() {
   const t = useTranslations("home");
@@ -38,17 +40,19 @@ export function Hero() {
       {/* Light mode: dot pattern (also shown during SSR to avoid hydration mismatch) */}
       <div className={`absolute inset-0 bg-dot-pattern transition-opacity duration-300 ${isDark ? 'opacity-0' : 'opacity-100'}`} />
 
-      {/* Dark mode: Unicorn animation (only rendered after mount) */}
+      {/* Dark mode: Unicorn animation (lazy loaded, only rendered after mount) */}
       {mounted && isDark && (
         <div className="absolute inset-0 opacity-25">
-          <UnicornScene
-            jsonFilePath="/unicorn-hero.json"
-            scale={1}
-            dpi={1.5}
-            fps={60}
-            altText="Animated background"
-            ariaLabel="Decorative animated background"
-          />
+          <Suspense fallback={null}>
+            <UnicornScene
+              jsonFilePath="/unicorn-hero.json"
+              scale={1}
+              dpi={1}
+              fps={30}
+              altText="Animated background"
+              ariaLabel="Decorative animated background"
+            />
+          </Suspense>
         </div>
       )}
 
