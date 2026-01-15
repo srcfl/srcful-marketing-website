@@ -19,6 +19,12 @@
 - [x] Added SEO metadata for careers, about, community, pricing, contact, get-started pages
 - [x] Enabled AVIF/WebP image formats
 
+### Cleanup
+- [x] Removed legacy design system documentation pages (`/app/components/`, `/app/docs/`, `/app/brand/`, `/app/changelog/`, `/app/roadmap/`)
+- [x] Removed unused components (`feedback-dialog.tsx`, `feedback-button.tsx`, `component-nav.tsx`, etc.)
+- [x] Removed "Video coming soon" placeholder sections from all pages
+- [x] Deleted `components/video-placeholder.tsx`
+
 ---
 
 ## Pre-Launch To-Do List

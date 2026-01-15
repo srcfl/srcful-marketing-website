@@ -17,7 +17,6 @@ import {
   CustomerSatisfactionCard,
   ScheduleCard,
 } from "@/components/dashboard-showcase";
-import { VideoPlaceholder } from "@/components/video-placeholder";
 import { RewardsSection } from "@/components/rewards-section";
 import { ArrowRight, Building2, Zap, Clock, Shield, TrendingUp, Users, Github, CheckCircle2 } from "lucide-react";
 
@@ -213,21 +212,6 @@ export default function UtilitiesPage() {
                 );
               })}
             </StaggerContainer>
-          </div>
-        </section>
-
-        {/* Video */}
-        <section className="border-t">
-          <div className="max-w-4xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <FadeIn className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                {t("video.title")}
-              </h2>
-            </FadeIn>
-            <VideoPlaceholder
-              title={t("video.title")}
-              comingSoonText={t("video.comingSoon")}
-            />
           </div>
         </section>
 

@@ -17,7 +17,6 @@ import {
   ResponseTimeCard,
   FlexibilityCard,
 } from "@/components/dashboard-showcase";
-import { VideoPlaceholder } from "@/components/video-placeholder";
 import { ArrowRight, Zap, Cpu, Plug, Shield, Clock, Code, ExternalLink, Users, Github } from "lucide-react";
 
 export default function OEMsPage() {
@@ -219,21 +218,6 @@ export default function OEMsPage() {
                 );
               })}
             </StaggerContainer>
-          </div>
-        </section>
-
-        {/* Video */}
-        <section className="border-t">
-          <div className="max-w-4xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <FadeIn className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                {t("video.title")}
-              </h2>
-            </FadeIn>
-            <VideoPlaceholder
-              title={t("video.title")}
-              comingSoonText={t("video.comingSoon")}
-            />
           </div>
         </section>
 

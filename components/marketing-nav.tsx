@@ -194,15 +194,6 @@ export function MarketingNav() {
             <Search className="h-4 w-4" />
           </button>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-2">
-            <Button asChild>
-              <Link href="/pricing">
-                {tButtons("getTheZap")}
-              </Link>
-            </Button>
-          </div>
-
           {/* Cart Icon */}
           <div className="hidden md:flex">
             <CartIcon />
@@ -211,6 +202,15 @@ export function MarketingNav() {
           {/* Display Settings (theme + accessibility + language) */}
           <div className="hidden md:flex">
             <DisplaySettings variant="outline" />
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center gap-2">
+            <Button asChild>
+              <Link href="/pricing">
+                {tButtons("getTheZap")}
+              </Link>
+            </Button>
           </div>
 
           {/* Cart Icon (mobile) */}
