@@ -5,10 +5,20 @@ import { Link } from "@/src/i18n/routing";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { StaggerContainer, StaggerItem } from "@/components/animations";
 import { motion, useInView } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import { Building2, CircuitBoard, Users, Wrench, Code } from "lucide-react";
+
+const iconMap = {
+  Building2,
+  CircuitBoard,
+  Users,
+  Wrench,
+  Code,
+} as const;
+
+export type IconName = keyof typeof iconMap;
 
 export interface Audience {
-  icon: LucideIcon;
+  icon: IconName;
   title: string;
   description: string;
   href: string;
@@ -30,7 +40,7 @@ export function AudienceCards({ audiences }: AudienceCardsProps) {
       {/* Desktop: Animated cards with stagger and bounce */}
       <div ref={containerRef} className="hidden xl:grid xl:grid-cols-5 gap-6">
         {audiences.map((audience, index) => {
-          const Icon = audience.icon;
+          const Icon = iconMap[audience.icon];
           return (
             <motion.div
               key={audience.title}
@@ -71,7 +81,7 @@ export function AudienceCards({ audiences }: AudienceCardsProps) {
       {/* Mobile/Tablet: Standard stagger animation */}
       <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:hidden" staggerDelay={0.1}>
         {audiences.map((audience) => {
-          const Icon = audience.icon;
+          const Icon = iconMap[audience.icon];
           return (
             <StaggerItem key={audience.title}>
               <Link href={audience.href} className="no-underline hover:no-underline block h-full">

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { DashboardTabs } from "@/components/dashboard-tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Zap, Building2, Wrench, Code, Users, ExternalLink, CircuitBoard, Wifi, WifiOff, Database, Layers } from "lucide-react";
+import { ArrowRight, Zap, Wrench, Code, Users, ExternalLink, Wifi, WifiOff, Database, Layers } from "lucide-react";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
@@ -54,7 +54,7 @@ export default async function Home() {
 
   const audiences: Audience[] = [
     {
-      icon: Building2,
+      icon: "Building2",
       title: t("audiences.utilities.title"),
       description: t("audiences.utilities.description"),
       href: "/use-cases/utilities",
@@ -63,7 +63,7 @@ export default async function Home() {
       offsetY: 48,
     },
     {
-      icon: CircuitBoard,
+      icon: "CircuitBoard",
       title: t("audiences.oems.title"),
       description: t("audiences.oems.description"),
       href: "/use-cases/oems",
@@ -72,7 +72,7 @@ export default async function Home() {
       offsetY: 24,
     },
     {
-      icon: Users,
+      icon: "Users",
       title: t("audiences.homeowners.title"),
       description: t("audiences.homeowners.description"),
       href: "/use-cases/homeowners",
@@ -81,7 +81,7 @@ export default async function Home() {
       offsetY: 0,
     },
     {
-      icon: Wrench,
+      icon: "Wrench",
       title: t("audiences.installers.title"),
       description: t("audiences.installers.description"),
       href: "/use-cases/installers",
@@ -90,7 +90,7 @@ export default async function Home() {
       offsetY: 24,
     },
     {
-      icon: Code,
+      icon: "Code",
       title: t("audiences.developers.title"),
       description: t("audiences.developers.description"),
       href: "/developers",
