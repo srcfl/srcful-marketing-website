@@ -1573,20 +1573,81 @@
       "paragraph1": "We're based in Kalmar, Sweden - on the southeastern coast, close to our first utility partners. From here, we're building the infrastructure for the global energy transition.",
       "paragraph2": "Our first markets are the Nordics and Northern Europe, where grid infrastructure is ready for distributed energy. But our technology works anywhere there's a grid."
     },
-    "traction": {
-      "title": "Current traction",
-      "kalmarEnergi": {
-        "name": "Kalmar Energi (Sweden)",
-        "status": "Go-live imminent"
+    "team": {
+      "title": "Meet the team",
+      "description": "Engineers, builders, and energy enthusiasts working to coordinate the world's distributed energy.",
+      "fredrik": {
+        "name": "Fredrik Ahlgren",
+        "role": "CEO & Co-founder",
+        "credentials": "PhD in Energy Efficiency"
       },
-      "nrgi": {
-        "name": "NRGi (Denmark)",
-        "status": "250K customer pipeline"
+      "viktor": {
+        "name": "Viktor Olofsson",
+        "role": "COO & Co-founder",
+        "credentials": "Energy Sector Business Development"
       },
-      "elkedjan": {
-        "name": "Elkedjan (Sweden)",
-        "status": "Largest installer network"
+      "tobias": {
+        "name": "Tobias Olsson",
+        "role": "CTO & Co-founder",
+        "credentials": "PhD in Computer Science"
+      },
+      "johan": {
+        "name": "Johan Leitet",
+        "role": "Co-founder",
+        "credentials": "Software Developer"
+      },
+      "niklas": {
+        "name": "Niklas Emevi",
+        "role": "Co-founder",
+        "credentials": "Full Stack Developer"
+      },
+      "david": {
+        "name": "David Mozart",
+        "role": "Co-founder",
+        "credentials": "IoT and Hardware Systems"
+      },
+      "paul": {
+        "name": "Paul Cooper",
+        "role": "Creative Director",
+        "credentials": ""
+      },
+      "hampus": {
+        "name": "Hampus Nilsson",
+        "role": "Software Developer",
+        "credentials": ""
+      },
+      "thyra": {
+        "name": "Thyra Schillberger-Lindberg",
+        "role": "Junior Designer",
+        "credentials": ""
+      },
+      "frida": {
+        "name": "Frida Berg",
+        "role": "Marketing Intern",
+        "credentials": ""
+      },
+      "melinda": {
+        "name": "Melinda Storm",
+        "role": "Marketing Intern",
+        "credentials": ""
       }
+    },
+    "advisors": {
+      "title": "Advisors",
+      "mark": {
+        "name": "Mark Phillips",
+        "role": "VP of Business Development",
+        "company": "Helium Systems"
+      },
+      "patrik": {
+        "name": "Patrik Stolt",
+        "role": "Entrepreneur",
+        "company": "Ph.D."
+      }
+    },
+    "backedBy": {
+      "title": "Backed by",
+      "description": "Supported by investors who understand energy infrastructure."
     },
     "cta": {
       "title": "Want to join us?",

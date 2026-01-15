@@ -1573,20 +1573,81 @@
       "paragraph1": "Vi har vårt huvudkontor i Kalmar, Sverige - på sydostkusten, nära våra första energibolagspartners. Härifrån bygger vi infrastrukturen för den globala energiomställningen.",
       "paragraph2": "Våra första marknader är Norden och Nordeuropa, där nätinfrastrukturen är redo för distribuerad energi. Men vår teknologi fungerar överallt där det finns ett elnät."
     },
-    "traction": {
-      "title": "Nuvarande utveckling",
-      "kalmarEnergi": {
-        "name": "Kalmar Energi (Sverige)",
-        "status": "Lansering nära förestående"
+    "team": {
+      "title": "Möt teamet",
+      "description": "Ingenjörer, byggare och energientusiaster som arbetar för att koordinera världens distribuerade energi.",
+      "fredrik": {
+        "name": "Fredrik Ahlgren",
+        "role": "VD & Medgrundare",
+        "credentials": "Doktorand i Energieffektivitet"
       },
-      "nrgi": {
-        "name": "NRGi (Danmark)",
-        "status": "250K kundpipeline"
+      "viktor": {
+        "name": "Viktor Olofsson",
+        "role": "COO & Medgrundare",
+        "credentials": "Affärsutveckling inom energisektorn"
       },
-      "elkedjan": {
-        "name": "Elkedjan (Sverige)",
-        "status": "Största installatörsnätverket"
+      "tobias": {
+        "name": "Tobias Olsson",
+        "role": "CTO & Medgrundare",
+        "credentials": "Doktorand i Datavetenskap"
+      },
+      "johan": {
+        "name": "Johan Leitet",
+        "role": "Medgrundare",
+        "credentials": "Mjukvaruutvecklare"
+      },
+      "niklas": {
+        "name": "Niklas Emevi",
+        "role": "Medgrundare",
+        "credentials": "Full Stack-utvecklare"
+      },
+      "david": {
+        "name": "David Mozart",
+        "role": "Medgrundare",
+        "credentials": "IoT och hårdvarusystem"
+      },
+      "paul": {
+        "name": "Paul Cooper",
+        "role": "Kreativ direktör",
+        "credentials": ""
+      },
+      "hampus": {
+        "name": "Hampus Nilsson",
+        "role": "Mjukvaruutvecklare",
+        "credentials": ""
+      },
+      "thyra": {
+        "name": "Thyra Schillberger-Lindberg",
+        "role": "Junior Designer",
+        "credentials": ""
+      },
+      "frida": {
+        "name": "Frida Berg",
+        "role": "Marknadsföringspraktikant",
+        "credentials": ""
+      },
+      "melinda": {
+        "name": "Melinda Storm",
+        "role": "Marknadsföringspraktikant",
+        "credentials": ""
       }
+    },
+    "advisors": {
+      "title": "Rådgivare",
+      "mark": {
+        "name": "Mark Phillips",
+        "role": "VP of Business Development",
+        "company": "Helium Systems"
+      },
+      "patrik": {
+        "name": "Patrik Stolt",
+        "role": "Entreprenör",
+        "company": "Ph.D."
+      }
+    },
+    "backedBy": {
+      "title": "Backade av",
+      "description": "Stöttade av investerare som förstår energiinfrastruktur."
     },
     "cta": {
       "title": "Vill du vara med?",

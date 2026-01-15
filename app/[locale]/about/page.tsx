@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
@@ -8,11 +9,12 @@ import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
-import { ArrowRight, Zap, Users, Globe, Target } from "lucide-react";
+import { ArrowRight, Users, Globe, Rocket, DollarSign, Handshake, TrendingUp } from "lucide-react";
 
 export default function AboutPage() {
   const t = useTranslations("about");
   const tCommon = useTranslations("common");
+
   const values = [
     {
       key: "physicsBeforeCode",
@@ -42,10 +44,29 @@ export default function AboutPage() {
   ];
 
   const milestones = [
-    { year: "2023", event: t("journey.founded") },
-    { year: "2024", event: t("journey.seed") },
-    { year: "2025", event: t("journey.partnerships") },
-    { year: "2026", event: t("journey.seedPlus") },
+    { year: "2023", event: t("journey.founded"), icon: Rocket, color: "from-violet-500 to-violet-600" },
+    { year: "2024", event: t("journey.seed"), icon: DollarSign, color: "from-emerald-500 to-emerald-600" },
+    { year: "2025", event: t("journey.partnerships"), icon: Handshake, color: "from-blue-500 to-blue-600" },
+    { year: "2026", event: t("journey.seedPlus"), icon: TrendingUp, color: "from-primary to-primary", isCurrent: true },
+  ];
+
+  const teamMembers = [
+    { key: "fredrik", image: "/images/team/fredrik.png", isFounder: true },
+    { key: "viktor", image: "/images/team/viktor.png", isFounder: true },
+    { key: "tobias", image: "/images/team/tobias.png", isFounder: true },
+    { key: "johan", image: "/images/team/johan.png", isFounder: true },
+    { key: "niklas", image: "/images/team/niklas.png", isFounder: true },
+    { key: "david", image: "/images/team/david.png", isFounder: true },
+    { key: "paul", image: "/images/team/paul.png", isFounder: false },
+    { key: "hampus", image: "/images/team/hampus.png", isFounder: false },
+    { key: "thyra", image: "/images/team/thyra.jpeg", isFounder: false },
+    { key: "frida", image: "/images/team/frida.png", isFounder: false },
+    { key: "melinda", image: "/images/team/melinda.png", isFounder: false },
+  ];
+
+  const advisors = [
+    { key: "patrik", image: "/images/team/patrik-stolt.png" },
+    { key: "mark", image: "/images/team/mark-phillips.png" },
   ];
 
   return (
@@ -141,85 +162,209 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline */}
-        <section className="border-t">
+        <section className="border-t overflow-hidden">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center">
+            <FadeIn className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                 {t("journey.title")}
               </h2>
-              <div className="space-y-8">
-                {milestones.map((milestone, index) => (
-                  <div key={milestone.year} className="flex items-start gap-6">
-                    <div className="flex-shrink-0 w-20 text-right">
-                      <div className="text-xl font-bold text-primary">{milestone.year}</div>
+            </FadeIn>
+
+            {/* Horizontal timeline for desktop */}
+            <div className="hidden md:block relative">
+              {/* Background line */}
+              <div className="absolute top-12 left-[12.5%] right-[12.5%] h-1 bg-muted rounded-full" />
+              {/* Progress line */}
+              <div className="absolute top-12 left-[12.5%] w-[75%] h-1 bg-gradient-to-r from-violet-500 via-emerald-500 via-blue-500 to-primary rounded-full" />
+
+              <StaggerContainer className="grid grid-cols-4 gap-6" staggerDelay={0.15}>
+                {milestones.map((milestone, index) => {
+                  const Icon = milestone.icon;
+                  return (
+                    <StaggerItem key={milestone.year}>
+                      <div className="relative pt-24 group">
+                        {/* Icon circle */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10">
+                          <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${milestone.color} p-0.5 group-hover:scale-105 transition-all duration-300 ${milestone.isCurrent ? 'shadow-lg shadow-primary/30' : ''}`}>
+                            <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center">
+                              <Icon className={`w-10 h-10 bg-gradient-to-br ${milestone.color} bg-clip-text`} style={{ color: milestone.isCurrent ? 'hsl(var(--primary))' : undefined }} />
+                            </div>
+                          </div>
+                          {milestone.isCurrent && (
+                            <div className="absolute -inset-1 rounded-2xl bg-primary/20 animate-pulse -z-10" />
+                          )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="text-center pt-4">
+                          <div className={`text-4xl font-bold mb-2 ${milestone.isCurrent ? 'text-primary' : 'text-foreground'}`}>
+                            {milestone.year}
+                          </div>
+                          <div className="text-muted-foreground text-sm leading-relaxed">
+                            {milestone.event}
+                          </div>
+                        </div>
+                      </div>
+                    </StaggerItem>
+                  );
+                })}
+              </StaggerContainer>
+            </div>
+
+            {/* Vertical timeline for mobile */}
+            <div className="md:hidden relative">
+              <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-violet-500 via-emerald-500 via-blue-500 to-primary rounded-full" />
+
+              <StaggerContainer className="space-y-8" staggerDelay={0.1}>
+                {milestones.map((milestone, index) => {
+                  const Icon = milestone.icon;
+                  return (
+                    <StaggerItem key={milestone.year}>
+                      <div className="relative pl-20">
+                        {/* Icon */}
+                        <div className="absolute left-0 top-0 z-10">
+                          <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${milestone.color} p-0.5`}>
+                            <div className="w-full h-full rounded-xl bg-background flex items-center justify-center">
+                              <Icon className="w-7 h-7 text-foreground" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="pt-2">
+                          <div className={`text-2xl font-bold mb-1 ${milestone.isCurrent ? 'text-primary' : 'text-foreground'}`}>
+                            {milestone.year}
+                          </div>
+                          <div className="text-muted-foreground">{milestone.event}</div>
+                        </div>
+                      </div>
+                    </StaggerItem>
+                  );
+                })}
+              </StaggerContainer>
+            </div>
+          </div>
+        </section>
+
+        {/* Team */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("team.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("team.description")}
+              </p>
+            </FadeIn>
+
+            <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" staggerDelay={0.05}>
+              {teamMembers.map((member) => (
+                <StaggerItem key={member.key}>
+                  <div className="text-center">
+                    <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden bg-muted">
+                      <Image
+                        src={member.image}
+                        alt={t(`team.${member.key}.name`)}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <div className="flex-shrink-0 flex flex-col items-center">
-                      <div className="w-4 h-4 rounded-full bg-primary" />
-                      {index < milestones.length - 1 && (
-                        <div className="w-0.5 h-16 bg-border" />
-                      )}
-                    </div>
-                    <div className="pt-0.5">
-                      <div className="text-lg">{milestone.event}</div>
-                    </div>
+                    <h3 className="font-semibold">
+                      {t(`team.${member.key}.name`).split(" ")[0]}{" "}
+                      <span className="text-primary">{t(`team.${member.key}.name`).split(" ").slice(1).join(" ")}</span>
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{t(`team.${member.key}.role`)}</p>
+                    {t(`team.${member.key}.credentials`) && (
+                      <p className="text-xs text-muted-foreground mt-1">{t(`team.${member.key}.credentials`)}</p>
+                    )}
                   </div>
-                ))}
-              </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+
+        {/* Advisors */}
+        <section className="border-t">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("advisors.title")}
+              </h2>
+            </FadeIn>
+
+            <div className="flex justify-center gap-8">
+              {advisors.map((advisor) => (
+                <div key={advisor.key} className="text-center max-w-[200px]">
+                  <div className="relative w-40 h-40 mx-auto mb-4 rounded-xl overflow-hidden bg-muted border">
+                    {advisor.image ? (
+                      <Image
+                        src={advisor.image}
+                        alt={t(`advisors.${advisor.key}.name`)}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                        <Users className="w-12 h-12" />
+                      </div>
+                    )}
+                  </div>
+                  <h3 className="font-semibold">
+                    {t(`advisors.${advisor.key}.name`).split(" ")[0]}{" "}
+                    <span className="text-primary">{t(`advisors.${advisor.key}.name`).split(" ").slice(1).join(" ")}</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{t(`advisors.${advisor.key}.role`)}</p>
+                  <p className="text-xs text-muted-foreground">{t(`advisors.${advisor.key}.company`)}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Backed By */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                {t("backedBy.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {t("backedBy.description")}
+              </p>
+            </FadeIn>
+
+            {/* Investor logos placeholder - will add when logos provided */}
+            <div className="flex flex-wrap justify-center items-center gap-12 opacity-80">
+              <div className="text-muted-foreground text-sm">Investor logos coming soon</div>
             </div>
           </div>
         </section>
 
         {/* Location */}
-        <section className="border-t bg-muted/30">
+        <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Globe className="h-5 w-5 text-primary" />
-                  <span className="font-medium">{t("location.city")}</span>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                  {t("location.title")}
-                </h2>
-                <p className="text-lg text-muted-foreground mb-6">
-                  {t("location.paragraph1")}
-                </p>
-                <p className="text-lg text-muted-foreground">
-                  {t("location.paragraph2")}
-                </p>
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Globe className="h-5 w-5 text-primary" />
+                <span className="font-medium">{t("location.city")}</span>
               </div>
-              <div className="bg-background rounded-lg p-8 border">
-                <h3 className="font-semibold mb-4">{t("traction.title")}</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-                    <div>
-                      <div className="font-medium">{t("traction.kalmarEnergi.name")}</div>
-                      <div className="text-sm text-muted-foreground">{t("traction.kalmarEnergi.status")}</div>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-                    <div>
-                      <div className="font-medium">{t("traction.nrgi.name")}</div>
-                      <div className="text-sm text-muted-foreground">{t("traction.nrgi.status")}</div>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-2 h-2 rounded-full bg-primary mt-2" />
-                    <div>
-                      <div className="font-medium">{t("traction.elkedjan.name")}</div>
-                      <div className="text-sm text-muted-foreground">{t("traction.elkedjan.status")}</div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                {t("location.title")}
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                {t("location.paragraph1")}
+              </p>
+              <p className="text-lg text-muted-foreground">
+                {t("location.paragraph2")}
+              </p>
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="border-t">
+        <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
               {t("cta.title")}
