@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Loader2, Github } from "lucide-react";
 import {
@@ -40,6 +41,7 @@ interface FeedbackDialogProps {
 export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
   const { data: session, status } = useSession();
   const pathname = usePathname();
+  const t = useTranslations("feedbackDialog");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [category, setCategory] = useState<FeedbackCategory>("component");
   const [priority, setPriority] = useState<FeedbackPriority>("would-help");
@@ -57,7 +59,7 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
     e.preventDefault();
 
     if (!title.trim() || !description.trim()) {
-      toast.error("Please fill in all required fields");
+      toast.error(t("errorFillFields"));
       return;
     }
 
@@ -83,10 +85,10 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
 
       const data = await response.json();
 
-      toast.success("Feedback submitted!", {
-        description: "Thank you for helping improve the design system.",
+      toast.success(t("successTitle"), {
+        description: t("successDescription"),
         action: {
-          label: "View Issue",
+          label: t("viewIssue"),
           onClick: () => window.open(data.url, "_blank"),
         },
       });
@@ -94,8 +96,8 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
       resetForm();
       onOpenChange(false);
     } catch (error) {
-      toast.error("Failed to submit feedback", {
-        description: error instanceof Error ? error.message : "Please try again",
+      toast.error(t("errorTitle"), {
+        description: error instanceof Error ? error.message : undefined,
       });
     } finally {
       setIsSubmitting(false);
@@ -119,10 +121,9 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Sign in to give feedback</DialogTitle>
+            <DialogTitle>{t("signInTitle")}</DialogTitle>
             <DialogDescription>
-              Connect your GitHub account to submit feedback and feature requests.
-              Your feedback will be created as a GitHub issue.
+              {t("signInDescription")}
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-4 py-4">
@@ -132,10 +133,10 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
               size="lg"
             >
               <Github className="mr-2 h-5 w-5" />
-              Sign in with GitHub
+              {t("signInButton")}
             </Button>
             <p className="text-xs text-center text-muted-foreground">
-              We only request permission to create issues on your behalf.
+              {t("signInNote")}
             </p>
           </div>
         </DialogContent>
@@ -148,22 +149,21 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
       <DialogContent className="sm:max-w-lg">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>Submit Feedback</DialogTitle>
+            <DialogTitle>{t("submitTitle")}</DialogTitle>
             <DialogDescription>
-              Help us improve the design system. Your feedback will be created as a
-              GitHub issue for tracking.
+              {t("submitDescription")}
             </DialogDescription>
           </DialogHeader>
 
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
-              <Label htmlFor="category">Category</Label>
+              <Label htmlFor="category">{t("category")}</Label>
               <Select
                 value={category}
                 onValueChange={(value) => setCategory(value as FeedbackCategory)}
               >
                 <SelectTrigger id="category">
-                  <SelectValue placeholder="Select a category" />
+                  <SelectValue placeholder={t("categoryPlaceholder")} />
                 </SelectTrigger>
                 <SelectContent>
                   {Object.entries(CATEGORY_LABELS).map(([value, label]) => (
@@ -176,7 +176,7 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
             </div>
 
             <div className="grid gap-2">
-              <Label>Priority</Label>
+              <Label>{t("priority")}</Label>
               <RadioGroup
                 value={priority}
                 onValueChange={(value) => setPriority(value as FeedbackPriority)}
@@ -194,10 +194,10 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="title">Title</Label>
+              <Label htmlFor="title">{t("title")}</Label>
               <Input
                 id="title"
-                placeholder="Brief summary of your feedback"
+                placeholder={t("titlePlaceholder")}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
@@ -205,10 +205,10 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
             </div>
 
             <div className="grid gap-2">
-              <Label htmlFor="description">Description</Label>
+              <Label htmlFor="description">{t("description")}</Label>
               <Textarea
                 id="description"
-                placeholder="Describe your feedback, feature request, or issue in detail..."
+                placeholder={t("descriptionPlaceholder")}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={4}
@@ -224,16 +224,16 @@ export function FeedbackDialog({ open, onOpenChange }: FeedbackDialogProps) {
               onClick={() => onOpenChange(false)}
               disabled={isSubmitting}
             >
-              Cancel
+              {t("cancel")}
             </Button>
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
+                  {t("submitting")}
                 </>
               ) : (
-                "Submit Feedback"
+                t("submit")
               )}
             </Button>
           </DialogFooter>

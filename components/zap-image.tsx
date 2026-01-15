@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 interface ZapImageProps {
   className?: string;
@@ -27,9 +28,11 @@ export function ZapImage({ className = "", alt = "Sourceful Energy Zap" }: ZapIm
   const isLightMode = resolvedTheme === "light";
 
   return (
-    <img
+    <Image
       src={imageSrc}
       alt={alt}
+      width={800}
+      height={600}
       className={className}
       style={isLightMode ? { borderRadius: "40px", overflow: "hidden" } : undefined}
     />

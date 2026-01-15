@@ -63,13 +63,11 @@ Removed `xlsx` package entirely. The negative prices calculator now only accepts
 
 ### High Priority (Week 1)
 
-#### 5. Performance Optimizations
-- [ ] Remove `unoptimized` flag from blog images in:
-  - `app/[locale]/blog/blog-content.tsx`
-  - `app/[locale]/blog/[slug]/page.tsx`
-- [ ] Add width/height to `ZapImage` component
+#### 5. Performance Optimizations ✅ MOSTLY DONE
+- [x] Remove `unoptimized` flag from blog images (added `sizes` attribute instead)
+- [x] Add width/height to `ZapImage` component (converted to Next.js Image)
+- [x] Add `loading.tsx` files for route transitions (added for `/`, `/blog`, `/tools`)
 - [ ] Lazy-load Intercom (defer to user interaction)
-- [ ] Add `loading.tsx` files for route transitions
 
 #### 6. Move Token Storage to Production
 - [ ] Replace in-memory token storage in `lib/admin-auth.ts` with Redis/database
@@ -86,9 +84,9 @@ Removed `xlsx` package entirely. The negative prices calculator now only accepts
 
 ### Medium Priority (Week 2-4)
 
-#### 8. Add Missing Translations
-- [ ] `components/feedback-dialog.tsx` - placeholder strings
-- [ ] `components/search-command.tsx` - search placeholder
+#### 8. Add Missing Translations ✅ DONE
+- [x] `components/feedback-dialog.tsx` - added i18n with `useTranslations`
+- [x] `components/search-command.tsx` - added i18n with `useTranslations`
 
 #### 9. Optimize Client Components
 Consider converting these "use client" pages to server components with client children:

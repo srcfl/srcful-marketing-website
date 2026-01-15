@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   CommandDialog,
   CommandEmpty,
@@ -23,6 +24,7 @@ interface SearchCommandProps {
 export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
   const router = useRouter();
   const pathname = usePathname();
+  const t = useTranslations("searchCommand");
 
   // Detect current locale from pathname
   const locale = React.useMemo(() => {
@@ -65,24 +67,24 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
 
   return (
     <CommandDialog open={open} onOpenChange={onOpenChange}>
-      <CommandInput placeholder="Search pages, tools, and more..." />
+      <CommandInput placeholder={t("placeholder")} />
       <CommandList>
         <CommandEmpty>
           <div className="flex flex-col items-center gap-2 py-4">
             <Search className="h-8 w-8 text-muted-foreground/50" />
-            <p className="text-muted-foreground">No results found</p>
+            <p className="text-muted-foreground">{t("noResults")}</p>
           </div>
         </CommandEmpty>
 
         {/* Quick Links */}
-        <CommandGroup heading="Quick Links">
+        <CommandGroup heading={t("quickLinks")}>
           <CommandItem onSelect={() => runCommand(() => router.push(buildPath("/")))}>
             <Search className="mr-2 h-4 w-4 text-primary" />
-            <span>Home</span>
+            <span>{t("home")}</span>
           </CommandItem>
           <CommandItem onSelect={() => runCommand(() => router.push(buildPath("/pricing")))}>
             <Search className="mr-2 h-4 w-4 text-primary" />
-            <span>Get the Zap</span>
+            <span>{t("getTheZap")}</span>
           </CommandItem>
           <CommandItem
             onSelect={() =>
@@ -90,7 +92,7 @@ export function SearchCommand({ open, onOpenChange }: SearchCommandProps) {
             }
           >
             <ExternalLink className="mr-2 h-4 w-4 text-muted-foreground" />
-            <span>Developer Portal</span>
+            <span>{t("devPortal")}</span>
           </CommandItem>
         </CommandGroup>
 
