@@ -14,8 +14,6 @@ import {
   Wrench,
   Code,
   Mail,
-  Map,
-  BookOpen,
   Layers,
   type LucideIcon,
 } from "lucide-react";
@@ -193,20 +191,6 @@ export const sitePages: SitePage[] = [
     description: "Compatible devices and brands",
     category: "Resources",
     icon: Layers,
-  },
-  {
-    name: "Roadmap",
-    href: "/roadmap",
-    description: "What we're building",
-    category: "Resources",
-    icon: Map,
-  },
-  {
-    name: "Changelog",
-    href: "/changelog",
-    description: "Recent updates",
-    category: "Resources",
-    icon: BookOpen,
   },
 
   // Getting Started
