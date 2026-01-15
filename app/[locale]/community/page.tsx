@@ -8,9 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
-import { PixelGrid } from "@/components/ui/pixel-grid";
 import { VideoPlaceholder } from "@/components/video-placeholder";
-import { ArrowRight, Users, MessageSquare, Github, ExternalLink, Book, Headphones, Heart, Globe, Clock } from "lucide-react";
+import { CommunityChatAnimation } from "@/components/community-chat-animation";
+import { ArrowRight, Users, MessageSquare, Github, ExternalLink, Book, Headphones, Heart, Check } from "lucide-react";
 
 export default function CommunityPage() {
   const t = useTranslations("community");
@@ -55,13 +55,6 @@ export default function CommunityPage() {
     },
   ];
 
-  const stats = [
-    { value: "500+", label: t("stats.developers"), color: "text-violet-500", icon: Users },
-    { value: "20+", label: t("stats.countries"), color: "text-emerald-500", icon: Globe },
-    { value: t("stats.discordValue"), label: t("stats.discord"), color: "text-indigo-500", icon: MessageSquare },
-    { value: "< 24h", label: t("stats.supportResponse"), color: "text-blue-500", icon: Clock },
-  ];
-
   const benefits = [
     { key: "earlyAccess", color: "text-violet-500", bgColor: "bg-violet-500/10" },
     { key: "feedback", color: "text-blue-500", bgColor: "bg-blue-500/10" },
@@ -77,9 +70,6 @@ export default function CommunityPage() {
         {/* Hero */}
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
-          <div className="absolute top-20 right-10 opacity-30">
-            <PixelGrid pattern="corners-only" color="green" size="md" speed="slow" />
-          </div>
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
@@ -95,57 +85,20 @@ export default function CommunityPage() {
                   <p className="text-xl text-muted-foreground mb-8">
                     {t("hero.description")}
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-violet-500 hover:bg-violet-600" asChild>
-                      <a href="https://discord.gg/hEvKcxNH8C" target="_blank" rel="noopener noreferrer">
-                        {t("hero.joinDiscord")}
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                    <Button size="lg" variant="outline" className="hover:bg-violet-500/10 hover:text-violet-600" asChild>
-                      <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        {t("hero.github")}
-                      </a>
-                    </Button>
-                  </div>
+                  <Button size="lg" className="bg-violet-500 hover:bg-violet-600" asChild>
+                    <a href="https://discord.gg/hEvKcxNH8C" target="_blank" rel="noopener noreferrer">
+                      {t("hero.joinDiscord")}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <div className="flex items-center justify-center">
-                  <div className="relative">
-                    <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-violet-500/20 to-indigo-500/10 rounded-full flex items-center justify-center">
-                      <div className="w-48 h-48 md:w-60 md:h-60 bg-gradient-to-br from-violet-500/30 to-indigo-500/20 rounded-full flex items-center justify-center">
-                        <Users className="h-24 w-24 md:h-32 md:w-32 text-violet-500" />
-                      </div>
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 bg-background rounded-lg p-3 shadow-lg border border-violet-500/20">
-                      <div className="flex items-center gap-2">
-                        <Heart className="h-5 w-5 text-violet-500" />
-                        <span className="font-semibold">10%</span>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{t("tenPercent.label")}</span>
-                    </div>
-                  </div>
+                  <CommunityChatAnimation />
                 </div>
               </FadeIn>
             </div>
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="bg-muted/30 border-b">
-          <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
-              {stats.map((stat, index) => (
-                <StaggerItem key={index}>
-                  <div className="text-center">
-                    <div className={`text-3xl md:text-4xl font-bold ${stat.color}`}>{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
           </div>
         </section>
 
@@ -243,7 +196,7 @@ export default function CommunityPage() {
                       {benefits.map((benefit) => (
                         <li key={benefit.key} className="flex items-start gap-3">
                           <div className={`w-8 h-8 ${benefit.bgColor} rounded-full flex items-center justify-center shrink-0`}>
-                            <div className={`w-2 h-2 rounded-full ${benefit.color.replace('text-', 'bg-')}`} />
+                            <Check className={`w-4 h-4 ${benefit.color}`} />
                           </div>
                           <div>
                             <div className="font-medium">{t(`tenPercent.benefits.${benefit.key}.title`)}</div>
