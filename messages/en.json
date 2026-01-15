@@ -2342,7 +2342,8 @@
   "app": {
     "hero": {
       "badge": "Mobile App",
-      "title": "Your energy, in your pocket",
+      "title": "Your energy,",
+      "titleHighlight": "in your pocket",
       "description": "Monitor real-time energy usage, track spot prices, and manage your Sourceful devices - all from the palm of your hand.",
       "downloadIOS": "Download for iOS",
       "downloadAndroid": "Download for Android"

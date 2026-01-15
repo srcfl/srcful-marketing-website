@@ -8,21 +8,19 @@ import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
-import { PixelGrid } from "@/components/ui/pixel-grid";
 import { VideoPlaceholder } from "@/components/video-placeholder";
-import { ArrowRight, Smartphone, Zap, BarChart3, Bell, Shield, Wallet, Users, Github, Star } from "lucide-react";
+import { Smartphone, Zap, BarChart3, Bell, Shield, Wallet, Users, Github } from "lucide-react";
 
 export default function AppPage() {
   const t = useTranslations("app");
-  const tCommon = useTranslations("common");
 
   const features = [
     {
       icon: BarChart3,
       title: t("features.realtime.title"),
       description: t("features.realtime.description"),
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
     },
     {
       icon: Zap,
@@ -61,13 +59,6 @@ export default function AppPage() {
     },
   ];
 
-  const stats = [
-    { value: "4.8", label: t("stats.rating"), sublabel: t("stats.ratingSource"), icon: Star, color: "text-amber-500" },
-    { value: t("stats.priceValue"), label: t("stats.price"), sublabel: t("stats.priceSource"), color: "text-primary" },
-    { value: "10k+", label: t("stats.users"), sublabel: t("stats.active"), color: "text-blue-500" },
-    { value: "24/7", label: t("stats.monitoring"), sublabel: t("stats.realtime"), color: "text-emerald-500" },
-  ];
-
   return (
     <div className="flex min-h-screen flex-col">
       <MarketingNav />
@@ -76,25 +67,24 @@ export default function AppPage() {
         {/* Hero */}
         <section className="relative overflow-hidden border-b">
           <div className="absolute inset-0 bg-dot-pattern" />
-          <div className="absolute top-20 right-10 opacity-30">
-            <PixelGrid pattern="corners-only" color="blue" size="md" speed="slow" />
-          </div>
           <div className="relative max-w-7xl mx-auto py-24 md:py-32 px-4 md:px-8">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <FadeIn>
-                <div className="text-left">
-                  <Badge variant="secondary" className="mb-6 bg-blue-500/10 text-blue-600 border-blue-500/20">
+                <div className="text-left -mt-32">
+                  <Badge variant="secondary" className="mb-6 bg-primary/10 text-primary border-primary/20">
                     <Smartphone className="h-3 w-3 mr-1" />
                     {t("hero.badge")}
                   </Badge>
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-left">
                     {t("hero.title")}
+                    <br />
+                    <span className="text-primary">{t("hero.titleHighlight")}</span>
                   </h1>
                   <p className="text-xl text-muted-foreground mb-8 text-left">
                     {t("hero.description")}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Button size="lg" className="bg-blue-500 hover:bg-blue-600" asChild>
+                    <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
                       <a
                         href="https://apps.apple.com/se/app/sourceful-energy/id6736659172"
                         target="_blank"
@@ -106,7 +96,7 @@ export default function AppPage() {
                         {t("hero.downloadIOS")}
                       </a>
                     </Button>
-                    <Button size="lg" variant="outline" className="hover:bg-blue-500/10 hover:text-blue-600" asChild>
+                    <Button size="lg" variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                       <a
                         href="https://play.google.com/store/apps/details?id=com.sourceful_labs.energy"
                         target="_blank"
@@ -122,35 +112,15 @@ export default function AppPage() {
                 </div>
               </FadeIn>
               <FadeIn delay={0.2}>
-                <div className="flex items-center justify-center">
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/20 via-primary/10 to-violet-500/20 rounded-[2rem] blur-2xl" />
-                    <img
-                      src="https://framerusercontent.com/images/cY7kh8i5pPQj2LJ0KKy2vIiSNhg.png"
-                      alt="Sourceful Energy App"
-                      className="relative w-full max-w-sm rounded-3xl shadow-2xl"
-                    />
-                  </div>
+                <div className="flex items-center justify-center lg:justify-end lg:pr-4">
+                  <img
+                    src="/assets/app-flow.png"
+                    alt="Sourceful Energy App"
+                    className="w-full max-w-md drop-shadow-2xl"
+                  />
                 </div>
               </FadeIn>
             </div>
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="bg-muted/30 border-b">
-          <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
-              {stats.map((stat, index) => (
-                <StaggerItem key={index}>
-                  <div className="text-center">
-                    <div className={`text-3xl md:text-4xl font-bold ${stat.color}`}>{stat.value}</div>
-                    <div className="font-medium">{stat.label}</div>
-                    <div className="text-sm text-muted-foreground">{stat.sublabel}</div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
           </div>
         </section>
 
@@ -172,7 +142,7 @@ export default function AppPage() {
                 const Icon = feature.icon;
                 return (
                   <StaggerItem key={feature.title}>
-                    <Card className="h-full hover:shadow-lg hover:border-blue-500/30 transition-all duration-300">
+                    <Card className="h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300">
                       <CardHeader>
                         <div className={`w-12 h-12 ${feature.bgColor} rounded-lg flex items-center justify-center mb-4`}>
                           <Icon className={`h-6 w-6 ${feature.color}`} />
@@ -220,7 +190,7 @@ export default function AppPage() {
             <StaggerContainer className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
               <StaggerItem>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     1
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step1.title")}</h3>
@@ -229,7 +199,7 @@ export default function AppPage() {
               </StaggerItem>
               <StaggerItem>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     2
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step2.title")}</h3>
@@ -238,7 +208,7 @@ export default function AppPage() {
               </StaggerItem>
               <StaggerItem>
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                     3
                   </div>
                   <h3 className="font-semibold mb-2">{t("howItWorks.step3.title")}</h3>
@@ -252,12 +222,12 @@ export default function AppPage() {
         {/* Community CTA */}
         <section className="border-t bg-muted/30">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <Card className="bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-background border-blue-500/20">
+            <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
               <CardContent className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                   <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center">
-                      <Users className="h-8 w-8 text-blue-500" />
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="h-8 w-8 text-primary" />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold mb-2">{t("community.title")}</h3>
@@ -267,12 +237,12 @@ export default function AppPage() {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button className="bg-blue-500 hover:bg-blue-600" asChild>
+                    <Button className="bg-primary hover:bg-primary/90" asChild>
                       <a href="https://discord.gg/hEvKcxNH8C" target="_blank" rel="noopener noreferrer">
                         {t("community.discord")}
                       </a>
                     </Button>
-                    <Button variant="outline" className="hover:bg-blue-500/10 hover:text-blue-600" asChild>
+                    <Button variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                       <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
                         <Github className="mr-2 h-4 w-4" />
                         {t("community.github")}
@@ -286,7 +256,7 @@ export default function AppPage() {
         </section>
 
         {/* CTA */}
-        <section className="border-t bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-background">
+        <section className="border-t bg-gradient-to-br from-primary/10 via-primary/5 to-background">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8 text-center">
             <FadeIn>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -296,7 +266,7 @@ export default function AppPage() {
                 {t("cta.description")}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button size="lg" className="bg-blue-500 hover:bg-blue-600" asChild>
+                <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
                   <a
                     href="https://apps.apple.com/se/app/sourceful-energy/id6736659172"
                     target="_blank"
@@ -308,7 +278,7 @@ export default function AppPage() {
                     {t("hero.downloadIOS")}
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="hover:bg-blue-500/10 hover:text-blue-600" asChild>
+                <Button size="lg" variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                   <a
                     href="https://play.google.com/store/apps/details?id=com.sourceful_labs.energy"
                     target="_blank"
@@ -323,7 +293,7 @@ export default function AppPage() {
               </div>
               <p className="text-sm text-muted-foreground mt-6">
                 {t("cta.zapNote")}{" "}
-                <Link href="/zap" className="text-blue-500 hover:underline">
+                <Link href="/zap" className="text-primary hover:underline">
                   {t("cta.getZap")}
                 </Link>
               </p>

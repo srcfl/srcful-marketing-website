@@ -2342,7 +2342,8 @@
   "app": {
     "hero": {
       "badge": "Mobilapp",
-      "title": "Din energi i fickan",
+      "title": "Din energi,",
+      "titleHighlight": "i fickan",
       "description": "Övervaka energiförbrukning i realtid, följ spotpriser och hantera dina Sourceful-enheter - allt i din hand.",
       "downloadIOS": "Ladda ner för iOS",
       "downloadAndroid": "Ladda ner för Android"
