@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
-import { V2XWaitlistSection } from "@/components/v2x-waitlist-section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ZapImage } from "@/components/zap-image";
 import { PixelGrid } from "@/components/ui/pixel-grid";
@@ -258,8 +257,70 @@ export default function ZapPage() {
           </div>
         </section>
 
-        {/* V2X Waitlist */}
-        <V2XWaitlistSection />
+        {/* V2X Section */}
+        <section className="border-t bg-gradient-to-br from-primary/5 via-primary/3 to-background">
+          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <FadeIn>
+                <div>
+                  <Badge variant="outline" className="mb-4 border-primary/50 text-primary">
+                    <Car className="h-3 w-3 mr-1" />
+                    {t("v2x.badge")}
+                  </Badge>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                    {t("v2x.title")}
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    {t("v2x.description")}
+                  </p>
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Battery className="h-4 w-4 text-primary" />
+                      </div>
+                      <span className="text-sm">{t("v2x.benefits.earn.title")}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Zap className="h-4 w-4 text-primary" />
+                      </div>
+                      <span className="text-sm">{t("v2x.benefits.backup.title")}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Sun className="h-4 w-4 text-primary" />
+                      </div>
+                      <span className="text-sm">{t("v2x.benefits.optimize.title")}</span>
+                    </div>
+                  </div>
+                  <Button asChild>
+                    <Link href="/v2x">
+                      {tCommon("buttons.learnMore")}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <Card className="bg-background/80 backdrop-blur border-primary/20">
+                  <CardHeader>
+                    <CardTitle>{t("v2x.requiresProTitle")}</CardTitle>
+                    <CardDescription>{t("v2x.requiresProDescription")}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-3xl font-bold text-primary mb-2">€60<span className="text-lg font-normal text-muted-foreground">/year</span></div>
+                    <p className="text-sm text-muted-foreground mb-4">{t("v2x.proIncludes")}</p>
+                    <Button className="w-full" asChild>
+                      <Link href="/pricing">
+                        {t("v2x.getZapPro")}
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
 
         {/* Pricing */}
         <PricingSection />

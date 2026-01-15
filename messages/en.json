@@ -426,9 +426,9 @@
       "bomCost": "BOM cost per unit"
     },
     "v2x": {
-      "badge": "Coming Soon",
+      "badge": "Now Available",
       "title": "V2X: Your car as a power plant",
-      "description": "Turn your EV into a home battery. Export power during peak prices, charge when it's cheap or free. Early access available in 2026.",
+      "description": "Turn your EV into a home battery. Export power during peak prices, charge when it's cheap or free. Available now with Zap Pro.",
       "benefits": {
         "earn": {
           "title": "Earn While Parked",
@@ -447,14 +447,10 @@
         "title": "Compatible V2X Chargers",
         "note": "V2X requires a compatible bidirectional charger. We're working with these partners:"
       },
-      "waitlist": {
-        "title": "Get Early Access",
-        "description": "Be among the first to turn your EV into a power plant. Early access rolling out in 2026.",
-        "placeholder": "Enter your email",
-        "button": "Join Waitlist",
-        "success": "You're on the list! We'll notify you when V2X launches.",
-        "privacy": "We respect your privacy. No spam, ever."
-      }
+      "requiresProTitle": "V2X requires Zap Pro",
+      "requiresProDescription": "Unlock V2X capabilities with a Zap Pro subscription.",
+      "proIncludes": "Includes V2X control, load balancing, and price optimization.",
+      "getZapPro": "Get Zap Pro"
     },
     "compatibility": {
       "title": "Works with your existing hardware",
@@ -967,15 +963,18 @@
   },
   "v2x": {
     "hero": {
-      "badge": "V2X Technology",
+      "badge": "Now Available",
       "title": "Your EV is a",
       "titleHighlight": "power plant",
-      "description": "Vehicle-to-Everything (V2X) turns your electric car into a mobile energy asset. Export power to your home, sell to the grid, and earn while parked."
+      "description": "Vehicle-to-Everything (V2X) turns your electric car into a mobile energy asset. Export power to your home, sell to the grid, and earn while parked.",
+      "getStarted": "Get Zap Pro"
     },
     "stats": {
       "capacity": "Avg. EV battery capacity",
       "savings": "Annual savings potential",
-      "backup": "Days of home backup"
+      "backup": "Days of home backup",
+      "proPrice": "€60/yr",
+      "subscription": "Zap Pro subscription"
     },
     "benefits": {
       "badge": "Benefits",
@@ -1064,7 +1063,9 @@
       "title": "Chargers",
       "supported": "Supported",
       "testing": "Testing",
-      "planned": "Planned"
+      "planned": "Planned",
+      "comingSoon": "Coming Soon",
+      "viewList": "View compatible chargers"
     },
     "evs": {
       "title": "Compatible EVs",
@@ -1073,16 +1074,35 @@
     },
     "requirements": {
       "title": "Requirements",
-      "zap": "Zap gateway (€69)",
       "charger": "Bidirectional EV charger",
       "vehicle": "V2X-capable electric vehicle",
-      "subscription": "Sourceful platform subscription"
+      "subscription": "Zap Pro subscription (€60/year, includes free Zap)",
+      "waitlist": "On the V2X waitlist",
+      "join": "Join"
     },
-    "launchTarget": "Launch target",
-    "earlyAccess": "Early Access",
+    "waitlistSuccess": "You're on the V2X waitlist! We'll notify you when it's your turn.",
+    "faq": {
+      "title": "V2X FAQ",
+      "whatIsV2X": {
+        "question": "What is V2X?",
+        "answer": "V2X (Vehicle-to-Everything) allows your electric vehicle to not just charge, but also discharge power back to your home (V2H) or the grid (V2G). Your EV becomes a mobile battery that can power your home, earn money from grid services, or provide backup during outages."
+      },
+      "requirements": {
+        "question": "What do I need for V2X?",
+        "answer": "You need three things: a Zap gateway (€69), a bidirectional EV charger (Ambibox is supported now, with Ferroamp, Charge Amps, Easee, and Zaptec coming soon), and a Zap Pro subscription (€60/year). Your EV must also support V2X - check our compatibility list for supported models."
+      },
+      "savings": {
+        "question": "How much can I save with V2X?",
+        "answer": "Typical V2X users save €500-1,500 per year through a combination of energy arbitrage (charging when cheap, discharging when expensive), peak shaving, and grid services participation. Actual savings depend on your electricity prices and usage patterns."
+      },
+      "batteryHealth": {
+        "question": "Does V2X damage my EV battery?",
+        "answer": "Modern EV batteries are designed for thousands of charge cycles. Our smart algorithms optimize charging patterns to minimize battery wear. Studies show V2X usage typically adds less than 1% additional degradation per year when managed properly."
+      }
+    },
     "cta": {
-      "title": "Start with the Zap today",
-      "description": "Get the Zap gateway now and be ready for V2X when it launches. Start optimizing your energy today."
+      "title": "Turn your EV into a power plant",
+      "description": "Get started with V2X today. Subscribe to Zap Pro and start earning from your electric vehicle."
     }
   },
   "contact": {

@@ -426,9 +426,9 @@
       "bomCost": "BOM-kostnad per enhet"
     },
     "v2x": {
-      "badge": "Kommer snart",
+      "badge": "Tillgänglig nu",
       "title": "V2X: Din bil som kraftverk",
-      "description": "Förvandla din elbil till ett hembatteri. Exportera ström vid höga priser, ladda när det är billigt eller gratis. Tidig åtkomst tillgänglig 2026.",
+      "description": "Förvandla din elbil till ett hembatteri. Exportera ström vid höga priser, ladda när det är billigt eller gratis. Tillgänglig nu med Zap Pro.",
       "benefits": {
         "earn": {
           "title": "Tjäna medan du parkerar",
@@ -447,14 +447,10 @@
         "title": "Kompatibla V2X-laddare",
         "note": "V2X kräver en kompatibel dubbelriktad laddare. Vi samarbetar med dessa partners:"
       },
-      "waitlist": {
-        "title": "Få tidig åtkomst",
-        "description": "Var bland de första att förvandla din elbil till ett kraftverk. Tidig åtkomst rullas ut 2026.",
-        "placeholder": "Ange din e-post",
-        "button": "Anmäl intresse",
-        "success": "Du är på listan! Vi meddelar dig när V2X lanseras.",
-        "privacy": "Vi respekterar din integritet. Ingen spam, någonsin."
-      }
+      "requiresProTitle": "V2X kräver Zap Pro",
+      "requiresProDescription": "Lås upp V2X-funktioner med en Zap Pro-prenumeration.",
+      "proIncludes": "Inkluderar V2X-styrning, lastbalansering och prisoptimering.",
+      "getZapPro": "Skaffa Zap Pro"
     },
     "compatibility": {
       "title": "Fungerar med din befintliga hårdvara",
@@ -967,15 +963,18 @@
   },
   "v2x": {
     "hero": {
-      "badge": "V2X-teknologi",
+      "badge": "Tillgänglig nu",
       "title": "Din elbil är ett",
       "titleHighlight": "kraftverk",
-      "description": "Vehicle-to-Everything (V2X) förvandlar din elbil till en mobil energitillgång. Exportera ström till ditt hem, sälj till nätet och tjäna medan du parkerar."
+      "description": "Vehicle-to-Everything (V2X) förvandlar din elbil till en mobil energitillgång. Exportera ström till ditt hem, sälj till nätet och tjäna medan du parkerar.",
+      "getStarted": "Skaffa Zap Pro"
     },
     "stats": {
       "capacity": "Genomsnittlig elbilsbatterikapacitet",
       "savings": "Årlig besparingspotential",
-      "backup": "Dagars hembackup"
+      "backup": "Dagars hembackup",
+      "proPrice": "600 kr/år",
+      "subscription": "Zap Pro-prenumeration"
     },
     "benefits": {
       "badge": "Fördelar",
@@ -1064,7 +1063,9 @@
       "title": "Laddare",
       "supported": "Stöds",
       "testing": "Testas",
-      "planned": "Planerad"
+      "planned": "Planerad",
+      "comingSoon": "Kommer snart",
+      "viewList": "Visa kompatibla laddare"
     },
     "evs": {
       "title": "Kompatibla elbilar",
@@ -1073,16 +1074,35 @@
     },
     "requirements": {
       "title": "Krav",
-      "zap": "Zap gateway (699 kr)",
       "charger": "Dubbelriktad elbilsladdare",
       "vehicle": "V2X-kapabel elbil",
-      "subscription": "Sourceful-plattformsprenumeration"
+      "subscription": "Zap Pro-prenumeration (600 kr/år, inkluderar gratis Zap)",
+      "waitlist": "På V2X-väntelistan",
+      "join": "Anmäl"
     },
-    "launchTarget": "Lanseringsmål",
-    "earlyAccess": "Tidig åtkomst",
+    "waitlistSuccess": "Du är på V2X-väntelistan! Vi meddelar dig när det är din tur.",
+    "faq": {
+      "title": "V2X FAQ",
+      "whatIsV2X": {
+        "question": "Vad är V2X?",
+        "answer": "V2X (Vehicle-to-Everything) gör det möjligt för din elbil att inte bara ladda, utan också mata ut ström tillbaka till ditt hem (V2H) eller nätet (V2G). Din elbil blir ett mobilt batteri som kan driva ditt hem, tjäna pengar på nättjänster eller ge backup vid strömavbrott."
+      },
+      "requirements": {
+        "question": "Vad behöver jag för V2X?",
+        "answer": "Du behöver tre saker: en Zap gateway (699 kr), en dubbelriktad elbilsladdare (Ambibox stöds nu, Ferroamp, Charge Amps, Easee och Zaptec kommer snart) och en Zap Pro-prenumeration (600 kr/år). Din elbil måste också stödja V2X - kolla vår kompatibilitetslista för modeller som stöds."
+      },
+      "savings": {
+        "question": "Hur mycket kan jag spara med V2X?",
+        "answer": "Typiska V2X-användare sparar 5 000-15 000 kr per år genom en kombination av energiarbitrage (ladda när det är billigt, mata ut när det är dyrt), toppkapning och deltagande i nättjänster. Faktiska besparingar beror på dina elpriser och användningsmönster."
+      },
+      "batteryHealth": {
+        "question": "Skadar V2X mitt elbilsbatteri?",
+        "answer": "Moderna elbilsbatterier är designade för tusentals laddcykler. Våra smarta algoritmer optimerar laddningsmönster för att minimera batterislitage. Studier visar att V2X-användning typiskt lägger till mindre än 1% extra nedbrytning per år när det hanteras korrekt."
+      }
+    },
     "cta": {
-      "title": "Börja med Zap idag",
-      "description": "Skaffa Zap gateway nu och var redo för V2X när det lanseras. Börja optimera din energi idag."
+      "title": "Förvandla din elbil till ett kraftverk",
+      "description": "Kom igång med V2X idag. Prenumerera på Zap Pro och börja tjäna på din elbil."
     }
   },
   "contact": {

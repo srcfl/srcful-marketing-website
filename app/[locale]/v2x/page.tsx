@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
-import { WaitlistForm } from "@/components/waitlist-form";
+import { PricingSection } from "@/components/pricing-section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { VideoPlaceholder } from "@/components/video-placeholder";
 import {
@@ -30,6 +30,10 @@ export default function V2XPage() {
   const locale = useLocale();
 
   const evSupportUrl = locale === "sv"
+    ? "https://support.sourceful.energy/sv/articles/12927601-vilka-elbilar-ar-kompatibla-med-sourceful-energy"
+    : "https://support.sourceful.energy/en/articles/12927601-which-electric-vehicles-evs-are-compatible-with-sourceful-energy";
+
+  const chargerSupportUrl = locale === "sv"
     ? "https://support.sourceful.energy/sv/articles/12927601-vilka-elbilar-ar-kompatibla-med-sourceful-energy"
     : "https://support.sourceful.energy/en/articles/12927601-which-electric-vehicles-evs-are-compatible-with-sourceful-energy";
 
@@ -66,14 +70,13 @@ export default function V2XPage() {
 
   const compatibleChargers = [
     { name: "Ambibox", status: t("chargers.supported"), statusColor: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" },
-    { name: "Easee Home", status: t("chargers.testing"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
-    { name: "Zaptec Go", status: t("chargers.testing"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
-    { name: "ChargeAmps Halo", status: t("chargers.planned"), statusColor: "bg-orange-500/10 text-orange-600 border-orange-500/20" },
-    { name: "Wallbox Quasar 2", status: t("chargers.planned"), statusColor: "bg-orange-500/10 text-orange-600 border-orange-500/20" },
+    { name: "Ferroamp", status: t("chargers.comingSoon"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
+    { name: "Charge Amps", status: t("chargers.comingSoon"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
+    { name: "Easee", status: t("chargers.comingSoon"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
+    { name: "Zaptec", status: t("chargers.comingSoon"), statusColor: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
   ];
 
   const requirements = [
-    t("requirements.zap"),
     t("requirements.charger"),
     t("requirements.vehicle"),
     t("requirements.subscription"),
@@ -105,10 +108,10 @@ export default function V2XPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button size="lg" className="bg-primary hover:bg-primary text-primary-foreground" asChild>
-                      <a href="#waitlist">
-                        {tCommon("buttons.joinWaitlist")}
+                      <Link href="/pricing">
+                        {t("hero.getStarted")}
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
+                      </Link>
                     </Button>
                     <Button size="lg" variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
                       <Link href="/zap">
@@ -118,24 +121,88 @@ export default function V2XPage() {
                   </div>
                 </div>
               </FadeIn>
-              <FadeIn delay={0.2}>
-                <div className="flex items-center justify-center">
-                  <div className="relative">
-                    <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
-                      <div className="w-48 h-48 md:w-60 md:h-60 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full flex items-center justify-center">
-                        <Car className="h-24 w-24 md:h-32 md:w-32 text-primary" />
-                      </div>
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 bg-background rounded-lg p-3 shadow-lg border border-primary/20">
-                      <div className="flex items-center gap-2">
-                        <Zap className="h-5 w-5 text-primary" />
-                        <span className="font-semibold">50-100 kWh</span>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{t("stats.capacity")}</span>
+              <div className="flex items-center justify-center">
+                <div className="relative w-72 h-72 md:w-80 md:h-80">
+                  {/* Circle background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
+                    <div className="w-52 h-52 md:w-60 md:h-60 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full flex items-center justify-center">
+                      <Car className="h-24 w-24 md:h-28 md:w-28 text-primary" />
                     </div>
                   </div>
+
+                  {/* Schedule Card - 11 o'clock */}
+                  <div className="absolute" style={{ top: '5%', left: '-45%' }}>
+                    <FadeIn delay={0.3}>
+                      <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
+                        <p className="text-xs font-medium mb-2 text-muted-foreground">Schedule</p>
+                        <div className="flex gap-[2px] mb-1.5">
+                          {["idle", "idle", "charging", "charging", "self", "self", "export", "export", "discharge", "idle"].map((mode, i) => (
+                            <div
+                              key={i}
+                              className={`h-4 flex-1 first:rounded-l last:rounded-r ${
+                                mode === "idle" ? "bg-gray-300 dark:bg-gray-600" :
+                                mode === "charging" ? "bg-pink-400" :
+                                mode === "self" ? "bg-emerald-400" :
+                                mode === "export" ? "bg-blue-400" :
+                                "bg-orange-400"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <div className="flex justify-between text-[10px] text-muted-foreground">
+                          <span>00</span>
+                          <span>12</span>
+                          <span>24</span>
+                        </div>
+                      </div>
+                    </FadeIn>
+                  </div>
+
+                  {/* Energy Flow Card - 3 o'clock */}
+                  <div className="absolute" style={{ top: '35%', right: '-55%' }}>
+                    <FadeIn delay={0.5}>
+                      <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
+                        <p className="text-xs font-medium mb-2 text-muted-foreground">Energy Flow</p>
+                        <svg viewBox="0 0 100 45" className="w-full h-12">
+                          <path
+                            d="M0,40 L20,35 L40,22 L60,12 L80,18 L100,28"
+                            fill="none"
+                            stroke="hsl(var(--primary))"
+                            strokeWidth="2.5"
+                          />
+                          <path
+                            d="M0,40 L20,35 L40,22 L60,12 L80,18 L100,28 L100,45 L0,45 Z"
+                            fill="hsl(var(--primary))"
+                            fillOpacity="0.2"
+                          />
+                        </svg>
+                      </div>
+                    </FadeIn>
+                  </div>
+
+                  {/* Spot Price Card - 7 o'clock */}
+                  <div className="absolute" style={{ bottom: '5%', left: '-40%' }}>
+                    <FadeIn delay={0.7}>
+                      <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
+                        <p className="text-xs font-medium mb-2 text-muted-foreground">Spot Price</p>
+                        <svg viewBox="0 0 100 40" className="w-full h-11">
+                          <path
+                            d="M0,22 L15,28 L30,16 L45,32 L60,12 L75,20 L100,14"
+                            fill="none"
+                            stroke="#f59e0b"
+                            strokeWidth="2.5"
+                          />
+                          <path
+                            d="M0,22 L15,28 L30,16 L45,32 L60,12 L75,20 L100,14 L100,40 L0,40 Z"
+                            fill="#f59e0b"
+                            fillOpacity="0.2"
+                          />
+                        </svg>
+                      </div>
+                    </FadeIn>
+                  </div>
                 </div>
-              </FadeIn>
+              </div>
             </div>
           </div>
         </section>
@@ -164,8 +231,8 @@ export default function V2XPage() {
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-violet-500">2026</div>
-                  <div className="text-sm text-muted-foreground">{t("launchTarget")}</div>
+                  <div className="text-3xl md:text-4xl font-bold text-violet-500">{t("stats.proPrice")}</div>
+                  <div className="text-sm text-muted-foreground">{t("stats.subscription")}</div>
                 </div>
               </StaggerItem>
             </StaggerContainer>
@@ -306,6 +373,12 @@ export default function V2XPage() {
                         </div>
                       ))}
                     </div>
+                    <Button variant="outline" className="w-full mt-4 hover:bg-primary/10 hover:text-primary" asChild>
+                      <a href={chargerSupportUrl} target="_blank" rel="noopener noreferrer">
+                        {t("chargers.viewList")}
+                        <ExternalLink className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
                   </CardContent>
                 </Card>
               </FadeIn>
@@ -350,36 +423,33 @@ export default function V2XPage() {
           </div>
         </section>
 
-        {/* Waitlist Section */}
-        <section id="waitlist" className="border-t bg-gradient-to-br from-primary/10 via-primary/5 to-background">
-          <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <FadeIn className="max-w-xl mx-auto text-center">
-              <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
-                {t("earlyAccess")}
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                {t("waitlist.title")}
+        {/* Pricing Section */}
+        <PricingSection />
+
+        {/* V2X FAQ */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-3xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn>
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+                {t("faq.title")}
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                {t("waitlist.description")}
-              </p>
-
-              <Card className="bg-background/80 backdrop-blur border-primary/20">
-                <CardContent className="p-6">
-                  <WaitlistForm
-                    feature="v2x"
-                    title={t("waitlist.title")}
-                    description={t("waitlist.description")}
-                    buttonText={tCommon("buttons.joinWaitlist")}
-                    successMessage={t("waitlist.successMessage")}
-                  />
-                </CardContent>
-              </Card>
-
-              <div className="mt-6 space-y-2 text-sm text-muted-foreground">
-                <p>✓ {t("waitlist.benefits.early")}</p>
-                <p>✓ {t("waitlist.benefits.priority")}</p>
-                <p>✓ {t("waitlist.benefits.updates")}</p>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.whatIsV2X.question")}</h3>
+                  <p className="text-muted-foreground">{t("faq.whatIsV2X.answer")}</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.requirements.question")}</h3>
+                  <p className="text-muted-foreground">{t("faq.requirements.answer")}</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.savings.question")}</h3>
+                  <p className="text-muted-foreground">{t("faq.savings.answer")}</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.batteryHealth.question")}</h3>
+                  <p className="text-muted-foreground">{t("faq.batteryHealth.answer")}</p>
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -433,13 +503,13 @@ export default function V2XPage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="lg" className="bg-primary hover:bg-primary" asChild>
-                  <a href="https://store.sourceful.energy/products/sourceful-energy-zap" target="_blank" rel="noopener noreferrer">
-                    {tCommon("buttons.orderNow")}
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </a>
+                  <Link href="/pricing">
+                    {t("hero.getStarted")}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
-                  <Link href="/use-cases/homeowners">
+                  <Link href="/zap">
                     {tCommon("buttons.learnMore")}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
