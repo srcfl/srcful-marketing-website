@@ -782,3 +782,18 @@
     opacity: 0;
   }
 }
+
+/* ============================================
+   PULSE RING ANIMATION (V2X Hero Circle)
+   ============================================ */
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}

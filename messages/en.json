@@ -1098,6 +1098,22 @@
       "batteryHealth": {
         "question": "Does V2X damage my EV battery?",
         "answer": "Modern EV batteries are designed for thousands of charge cycles. Our smart algorithms optimize charging patterns to minimize battery wear. Studies show V2X usage typically adds less than 1% additional degradation per year when managed properly."
+      },
+      "scheduling": {
+        "question": "Can I still schedule my car's charging normally?",
+        "answer": "Absolutely. You set your departure time and minimum charge level, and Sourceful handles the rest. Your car will always be ready when you need it - we just optimize when and how it charges (and discharges) to save you money."
+      },
+      "batteryDrained": {
+        "question": "Will my car's battery ever be completely drained?",
+        "answer": "Never. You set a minimum charge level (e.g., 20%) that we'll never go below. The system also learns your driving patterns and ensures you always have enough charge for your typical daily needs, plus a safety buffer."
+      },
+      "compatibleEVs": {
+        "question": "Which EVs are compatible with V2X?",
+        "answer": "V2X requires an EV with bidirectional charging capability. Currently supported models include most CHAdeMO vehicles (Nissan Leaf, Mitsubishi Outlander PHEV) and newer CCS vehicles with V2X support. Check our compatibility page for the full list of supported vehicles."
+      },
+      "technicalExpertise": {
+        "question": "Do I need technical expertise to use V2X?",
+        "answer": "Not at all. Once your bidirectional charger is installed by a certified electrician, you simply connect your Zap, download our app, and follow the setup wizard. The system handles all the complex optimization automatically."
       }
     },
     "cta": {
@@ -2929,6 +2945,7 @@
         "priceNote": "Includes free Zap.\nOnly €2.50/mo if you already own one.",
         "features": [
           "Everything in Zap Core",
+          "V2X capability",
           "Load balancing",
           "Price Optimiser",
           "Device health alerts",
@@ -2959,7 +2976,7 @@
       },
       "zapPro": {
         "question": "What does Zap Pro add?",
-        "answer": "Zap Pro (€60/year) adds smart energy management: load balancing, optimization algorithms, and device health alerts. New subscribers get a free Zap included. Already have a Zap? Upgrade to Pro for just €2.50/month."
+        "answer": "Zap Pro (€60/year) unlocks advanced features including V2X (vehicle-to-grid) capability, load balancing, optimization algorithms, and device health alerts. New subscribers get a free Zap included. Already have a Zap? Upgrade to Pro for just €2.50/month."
       },
       "multipleZaps": {
         "question": "Can I use multiple Zaps?",
@@ -2972,6 +2989,10 @@
       "refunds": {
         "question": "What about refunds and delivery?",
         "answer": "Free delivery in the EU. 30-day money back guarantee on hardware. Cancel your Zap Pro subscription anytime, no questions asked."
+      },
+      "whatsInBox": {
+        "question": "What's in the box?",
+        "answer": "You get the Zap device and power cable. The Sourceful app (iOS & Android) is free to download. EV chargers and other hardware are sold separately through our partners."
       }
     }
   },
@@ -2987,5 +3008,18 @@
     "annualDriving": "Annual driving",
     "getDetailedBreakdown": "Get detailed breakdown",
     "adjustInFullCalculator": "Adjust region, consumption & more in our full calculator"
+  },
+  "v2xCalculatorMini": {
+    "estimatedAnnualSavings": "Estimated V2X earnings",
+    "fromV2X": "From energy arbitrage with your EV",
+    "caseStudy": "Based on southern Sweden (SE4, 2024): a medium-sized house with a heat pump and annual consumption of 15,000 kWh.",
+    "evBattery": "EV battery capacity",
+    "usableForV2X": "~{amount} kWh available for V2X",
+    "annualDriving": "Annual driving",
+    "hasSolar": "I have solar panels",
+    "getDetailedBreakdown": "Get detailed breakdown",
+    "adjustInFullCalculator": "Select your EV model & region in our full calculator",
+    "disclaimer": "Illustration only. Actual savings depend on your setup and usage.",
+    "priceDisclaimer": "Calculation based on 2024 electricity prices. Future values may vary due to market volatility."
   }
 }

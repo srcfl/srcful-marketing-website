@@ -175,6 +175,14 @@ export function PricingSection() {
                 {t("faq.refunds.answer")}
               </p>
             </div>
+            <div>
+              <h3 className="font-semibold mb-2">
+                {t("faq.whatsInBox.question")}
+              </h3>
+              <p className="text-muted-foreground">
+                {t("faq.whatsInBox.answer")}
+              </p>
+            </div>
           </div>
         </div>
       </div>

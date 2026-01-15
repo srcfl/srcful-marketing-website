@@ -1098,6 +1098,22 @@
       "batteryHealth": {
         "question": "Skadar V2X mitt elbilsbatteri?",
         "answer": "Moderna elbilsbatterier är designade för tusentals laddcykler. Våra smarta algoritmer optimerar laddningsmönster för att minimera batterislitage. Studier visar att V2X-användning typiskt lägger till mindre än 1% extra nedbrytning per år när det hanteras korrekt."
+      },
+      "scheduling": {
+        "question": "Kan jag fortfarande schemalägga min bils laddning som vanligt?",
+        "answer": "Absolut. Du ställer in din avgångstid och minsta laddnivå, så sköter Sourceful resten. Din bil kommer alltid att vara redo när du behöver den - vi optimerar bara när och hur den laddar (och laddar ur) för att spara pengar åt dig."
+      },
+      "batteryDrained": {
+        "question": "Kommer min bils batteri någonsin att bli helt urladdat?",
+        "answer": "Aldrig. Du ställer in en minsta laddnivå (t.ex. 20%) som vi aldrig går under. Systemet lär sig också dina körmönster och säkerställer att du alltid har tillräckligt med laddning för dina typiska dagliga behov, plus en säkerhetsmarginal."
+      },
+      "compatibleEVs": {
+        "question": "Vilka elbilar är kompatibla med V2X?",
+        "answer": "V2X kräver en elbil med dubbelriktad laddningskapacitet. För närvarande stödda modeller inkluderar de flesta CHAdeMO-fordon (Nissan Leaf, Mitsubishi Outlander PHEV) och nyare CCS-fordon med V2X-stöd. Kolla vår kompatibilitetssida för den fullständiga listan över stödda fordon."
+      },
+      "technicalExpertise": {
+        "question": "Behöver jag teknisk expertis för att använda V2X?",
+        "answer": "Inte alls. När din dubbelriktade laddare är installerad av en certifierad elektriker ansluter du bara din Zap, laddar ner vår app och följer installationsguiden. Systemet hanterar all komplex optimering automatiskt."
       }
     },
     "cta": {
@@ -2929,6 +2945,7 @@
         "priceNote": "Inkluderar gratis Zap.\nEndast 25 kr/mån om du redan har en.",
         "features": [
           "Allt i Zap Core",
+          "V2X-funktion",
           "Lastbalansering",
           "Prisoptimerare",
           "Enhetsvarningar",
@@ -2959,7 +2976,7 @@
       },
       "zapPro": {
         "question": "Vad tillför Zap Pro?",
-        "answer": "Zap Pro (590 kr/år) lägger till smart energihantering: lastbalansering, optimeringsalgoritmer och enhetsvarningar. Nya prenumeranter får en gratis Zap inkluderad. Har du redan en Zap? Uppgradera till Pro för bara 25 kr/månad."
+        "answer": "Zap Pro (590 kr/år) låser upp avancerade funktioner som V2X (vehicle-to-grid), lastbalansering, optimeringsalgoritmer och enhetsvarningar. Nya prenumeranter får en gratis Zap inkluderad. Har du redan en Zap? Uppgradera till Pro för bara 25 kr/månad."
       },
       "multipleZaps": {
         "question": "Kan jag använda flera Zaps?",
@@ -2972,6 +2989,10 @@
       "refunds": {
         "question": "Hur är det med återbetalningar och leverans?",
         "answer": "Fri leverans inom EU. 30 dagars pengarna-tillbaka-garanti på hårdvara. Avsluta din Zap Pro-prenumeration när som helst, inga frågor ställda."
+      },
+      "whatsInBox": {
+        "question": "Vad ingår i paketet?",
+        "answer": "Du får Zap-enheten och strömkabel. Sourceful-appen (iOS & Android) är gratis att ladda ner. Elbilsladdare och annan hårdvara säljs separat via våra partners."
       }
     }
   },
@@ -2987,5 +3008,18 @@
     "annualDriving": "Årlig körning",
     "getDetailedBreakdown": "Få detaljerad uppdelning",
     "adjustInFullCalculator": "Justera region, förbrukning och mer i vår fullständiga kalkylator"
+  },
+  "v2xCalculatorMini": {
+    "estimatedAnnualSavings": "Beräknade V2X-intäkter",
+    "fromV2X": "Från energiarbitrage med din elbil",
+    "caseStudy": "Baserat på södra Sverige (SE4, 2024): ett medelstort hus med värmepump och årlig förbrukning på 15 000 kWh.",
+    "evBattery": "Elbilens batterikapacitet",
+    "usableForV2X": "~{amount} kWh tillgängligt för V2X",
+    "annualDriving": "Årlig körning",
+    "hasSolar": "Jag har solceller",
+    "getDetailedBreakdown": "Få detaljerad uppdelning",
+    "adjustInFullCalculator": "Välj din elbilsmodell och region i vår fullständiga kalkylator",
+    "disclaimer": "Endast illustration. Faktiska besparingar beror på din installation och användning.",
+    "priceDisclaimer": "Beräkning baserad på 2024 års elpriser. Framtida värden kan variera på grund av marknadsvolatilitet."
   }
 }

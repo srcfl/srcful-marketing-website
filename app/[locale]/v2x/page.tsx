@@ -11,6 +11,7 @@ import { MarketingFooter } from "@/components/marketing-footer";
 import { PricingSection } from "@/components/pricing-section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { VideoPlaceholder } from "@/components/video-placeholder";
+import { V2XSavingsCalculatorMini } from "@/components/v2x-savings-calculator-mini";
 import {
   Car,
   Zap,
@@ -22,7 +23,6 @@ import {
   ArrowRight,
   ExternalLink,
   Users,
-  Github,
 } from "lucide-react";
 
 // Schedule data and status labels
@@ -185,6 +185,38 @@ function AnimatedEnergyFlowCard() {
   );
 }
 
+function AnimatedEarningsCard() {
+  const [earnings, setEarnings] = useState(47.50);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setEarnings((prev) => {
+        const increment = Math.random() * 0.03 + 0.01;
+        return Math.round((prev + increment) * 100) / 100;
+      });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-xs font-medium text-muted-foreground">This Month</p>
+        <span className="flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          <span className="text-[10px] text-muted-foreground">Live</span>
+        </span>
+      </div>
+      <div className="flex items-baseline gap-1">
+        <span className="text-2xl font-bold text-primary tabular-nums transition-all duration-500">
+          €{earnings.toFixed(2)}
+        </span>
+      </div>
+      <p className="text-[10px] text-muted-foreground mt-1">V2X earnings</p>
+    </div>
+  );
+}
+
 export default function V2XPage() {
   const t = useTranslations("v2x");
   const tCommon = useTranslations("common");
@@ -284,6 +316,13 @@ export default function V2XPage() {
               </FadeIn>
               <div className="flex items-center justify-center">
                 <div className="relative w-72 h-72 md:w-80 md:h-80">
+                  {/* Pulse ring */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full"
+                    style={{
+                      animation: 'pulse-ring 3s ease-out infinite',
+                    }}
+                  />
                   {/* Circle background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center">
                     <div className="w-52 h-52 md:w-60 md:h-60 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full flex items-center justify-center">
@@ -305,62 +344,15 @@ export default function V2XPage() {
                     </FadeIn>
                   </div>
 
-                  {/* Spot Price Card - 7 o'clock */}
+                  {/* Earnings Card - 7 o'clock */}
                   <div className="absolute" style={{ bottom: '5%', left: '-32%' }}>
                     <FadeIn delay={0.7}>
-                      <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
-                        <p className="text-xs font-medium mb-2 text-muted-foreground">Spot Price</p>
-                        <svg viewBox="0 0 100 40" className="w-full h-11">
-                          <path
-                            d="M0,22 L15,28 L30,16 L45,32 L60,12 L75,20 L100,14"
-                            fill="none"
-                            stroke="#f59e0b"
-                            strokeWidth="2.5"
-                          />
-                          <path
-                            d="M0,22 L15,28 L30,16 L45,32 L60,12 L75,20 L100,14 L100,40 L0,40 Z"
-                            fill="#f59e0b"
-                            fillOpacity="0.2"
-                          />
-                        </svg>
-                      </div>
+                      <AnimatedEarningsCard />
                     </FadeIn>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Stats */}
-        <section className="bg-muted/30 border-b">
-          <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8" staggerDelay={0.1}>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary">€500-1,500</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.savings")}</div>
-                </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-blue-500">2-4</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.backup")}</div>
-                </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-emerald-500">50-100 kWh</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.capacity")}</div>
-                </div>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-violet-500">{t("stats.proPrice")}</div>
-                  <div className="text-sm text-muted-foreground">{t("stats.subscription")}</div>
-                </div>
-              </StaggerItem>
-            </StaggerContainer>
           </div>
         </section>
 
@@ -372,7 +364,7 @@ export default function V2XPage() {
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                 {t("benefits.title")}
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
                 {t("benefits.description")}
               </p>
             </FadeIn>
@@ -465,6 +457,15 @@ export default function V2XPage() {
                 </div>
               </StaggerItem>
             </StaggerContainer>
+          </div>
+        </section>
+
+        {/* V2X Savings Calculator */}
+        <section className="border-t bg-muted/30">
+          <div className="max-w-2xl mx-auto py-16 md:py-24 px-4 md:px-8">
+            <FadeIn>
+              <V2XSavingsCalculatorMini />
+            </FadeIn>
           </div>
         </section>
 
@@ -575,6 +576,27 @@ export default function V2XPage() {
                   <h3 className="font-semibold mb-2">{t("faq.batteryHealth.question")}</h3>
                   <p className="text-muted-foreground">{t("faq.batteryHealth.answer")}</p>
                 </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.scheduling.question")}</h3>
+                  <p className="text-muted-foreground">{t("faq.scheduling.answer")}</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.batteryDrained.question")}</h3>
+                  <p className="text-muted-foreground">{t("faq.batteryDrained.answer")}</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.compatibleEVs.question")}</h3>
+                  <p className="text-muted-foreground">
+                    {t("faq.compatibleEVs.answer")}{" "}
+                    <a href={evSupportUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      View compatible vehicles →
+                    </a>
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">{t("faq.technicalExpertise.question")}</h3>
+                  <p className="text-muted-foreground">{t("faq.technicalExpertise.answer")}</p>
+                </div>
               </div>
             </FadeIn>
           </div>
@@ -601,12 +623,6 @@ export default function V2XPage() {
                     <Button className="bg-primary hover:bg-primary" asChild>
                       <a href="https://discord.gg/hEvKcxNH8C" target="_blank" rel="noopener noreferrer">
                         {t("community.discord")}
-                      </a>
-                    </Button>
-                    <Button variant="outline" className="hover:bg-primary/10 hover:text-primary" asChild>
-                      <a href="https://github.com/srcfl" target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        {t("community.github")}
                       </a>
                     </Button>
                   </div>

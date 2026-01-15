@@ -16,8 +16,8 @@ export function MarketingFooter() {
       <div className="relative border-t border-b bg-gradient-to-b from-background to-muted/30">
         <div className="absolute inset-0 bg-dot-pattern opacity-50" />
         <div className="relative max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
-          <div className="max-w-xl">
-            <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+          <div className="max-w-xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-4 mb-6">
               <PixelGrid
                 pattern="plus-hollow"
                 color="green"
@@ -28,10 +28,10 @@ export function MarketingFooter() {
                 {t("newsletter")}
               </h3>
             </div>
-            <p className="text-muted-foreground mb-8 text-center lg:text-left">
+            <p className="text-muted-foreground mb-8">
               {t("newsletterDescription")}
             </p>
-            <div className="max-w-md mx-auto lg:mx-0">
+            <div className="max-w-md mx-auto">
               <NewsletterSignup />
             </div>
           </div>
