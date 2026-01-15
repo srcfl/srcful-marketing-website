@@ -1,8 +1,27 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
+
+// Check if user prefers reduced motion
+function usePrefersReducedMotion() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handler = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  return prefersReducedMotion;
+}
 
 interface FadeInProps {
   children: ReactNode;
@@ -29,6 +48,12 @@ export function FadeIn({
 }: FadeInProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  // Skip animation if user prefers reduced motion
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

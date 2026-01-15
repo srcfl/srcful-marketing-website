@@ -5,8 +5,16 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/animations";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy dashboard component
+const DashboardShowcase = dynamic(
+  () => import("@/components/dashboard-showcase").then(mod => mod.DashboardShowcase),
+  { ssr: false, loading: () => <div className="w-[320px] h-[240px] bg-muted/50 rounded-xl animate-pulse" /> }
+);
+
+// Import card components directly (they're just config, not heavy)
 import {
-  DashboardShowcase,
   ProductionCard,
   SavingsCard,
   BatteryCard,

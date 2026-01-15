@@ -482,6 +482,12 @@
     display: none;  /* Chrome, Safari, Opera */
   }
 
+  /* Content visibility optimization for below-the-fold content */
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+
   /* Fade animations */
   .animate-fade-in {
     animation: fadeIn 0.2s ease-out;
