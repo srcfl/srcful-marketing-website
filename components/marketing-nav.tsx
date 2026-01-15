@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
-import { Menu, ChevronDown, ExternalLink, ChevronRight, ChevronLeft } from "lucide-react";
+import { Menu, ChevronDown, ExternalLink, ChevronRight, ChevronLeft, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { DisplaySettings } from "@/components/display-settings";
 import { CartIcon } from "@/components/shop";
+import { SearchCommand } from "@/components/search-command";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,6 +33,7 @@ export function MarketingNav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileMenuView, setMobileMenuView] = useState<MobileMenuView>("main");
+  const [searchOpen, setSearchOpen] = useState(false);
 
   // Reset view when menu closes
   useEffect(() => {
@@ -46,6 +48,19 @@ export function MarketingNav() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Keyboard shortcut for search (Cmd+K or Ctrl+K)
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setSearchOpen((open) => !open);
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, []);
 
   const products = [
@@ -170,6 +185,15 @@ export function MarketingNav() {
 
         {/* Right side */}
         <div className="flex items-center gap-2">
+          {/* Search Button */}
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-input bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:bg-accent hover:text-accent-foreground"
+            aria-label="Search"
+          >
+            <Search className="h-4 w-4" />
+          </button>
+
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-2">
             <Button asChild>
@@ -385,6 +409,8 @@ export function MarketingNav() {
           </Sheet>
         </div>
       </div>
+
+      <SearchCommand open={searchOpen} onOpenChange={setSearchOpen} />
     </nav>
   );
 }
