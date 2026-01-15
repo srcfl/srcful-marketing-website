@@ -702,7 +702,7 @@
         "badge": "För installatörer",
         "title": "Fokusera på installationer.",
         "titleHighlight": "Inte mjukvarusupport.",
-        "description": "Blandade varumärken skapar oändliga supportsamtal. Zap får alla växelriktare, batterier och elbilsladdare att fungera tillsammans — så att du kan installera och gå vidare."
+        "description": "Blandade varumärken skapar oändliga supportsamtal. Zap får alla växelriktare, batterier och elbilsladdare att fungera tillsammans så att du kan installera och gå vidare."
       },
       "partner": {
         "trustedBy": "Litar på oss",
@@ -865,7 +865,7 @@
           },
           {
             "question": "Behöver jag utbildning?",
-            "answer": "Zap installeras på 5 minuter — de flesta installatörer förstår det direkt. Vi erbjuder valfritt utbildningsmaterial och partnerportalåtkomst för större team."
+            "answer": "Zap installeras på 5 minuter. De flesta installatörer förstår det direkt. Vi erbjuder valfritt utbildningsmaterial och partnerportalåtkomst för större team."
           }
         ]
       },
@@ -1652,8 +1652,46 @@
     "cta": {
       "title": "Vill du vara med?",
       "description": "Vi bygger något som spelar roll. Om du är entusiastisk över distribuerad energi och lokal-först-mjukvara, låt oss prata.",
-      "getInTouch": "Kontakta oss",
+      "joinTeam": "Bli en del av teamet",
       "joinCommunity": "Gå med i communityn"
+    }
+  },
+  "careers": {
+    "hero": {
+      "badge": "Karriär",
+      "title": "Bygg framtidens",
+      "titleHighlight": "energi",
+      "description": "Vi är ett litet team som löser stora problem. Inga öppna roller just nu, men vi letar alltid efter exceptionella människor."
+    },
+    "noJobs": {
+      "title": "Inga öppna tjänster",
+      "subtitle": "Men det betyder inte att vi inte anställer",
+      "description": "Vi har inga specifika roller listade, men de bästa personerna vi har anställt svarade inte på jobbannonser. Om du brinner för distribuerad energi, lokal-först-mjukvara eller att bygga riktig infrastruktur som spelar roll, vi vill höra från dig.",
+      "whatWeLookFor": "Vad vi letar efter",
+      "traits": {
+        "builder": {
+          "title": "Byggare",
+          "description": "Människor som levererar. Oavsett om det är kod, design eller strategi, du får saker att hända."
+        },
+        "curious": {
+          "title": "Nyfikna sinnen",
+          "description": "Du gräver djupare. Du frågar varför. Du nöjer dig inte med ytliga svar."
+        },
+        "ownership": {
+          "title": "Ägarmentalitet",
+          "description": "Du väntar inte på att bli tillsagd vad du ska göra. Du ser problem och löser dem."
+        }
+      }
+    },
+    "apply": {
+      "title": "Presentera dig själv",
+      "description": "Berätta vem du är och varför Sourceful intresserar dig. Inget CV krävs, var bara genuin.",
+      "button": "Säg hej",
+      "email": "careers@sourceful.energy"
+    },
+    "location": {
+      "title": "Baserade i Kalmar, Sverige",
+      "description": "Vi är ett remote-first-företag, men våra rötter är i Kalmar. Vi tror på asynkront arbete, djupt fokus och att ibland träffas personligen."
     }
   },
   "blog": {

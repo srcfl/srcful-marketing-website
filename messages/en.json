@@ -702,7 +702,7 @@
         "badge": "For Installers",
         "title": "Focus on installs.",
         "titleHighlight": "Not software support.",
-        "description": "Mixed-brand systems create endless support calls. Zap makes any inverter, battery, and EV charger work together — so you can install and move on."
+        "description": "Mixed-brand systems create endless support calls. Zap makes any inverter, battery, and EV charger work together so you can install and move on."
       },
       "partner": {
         "trustedBy": "Trusted by",
@@ -865,7 +865,7 @@
           },
           {
             "question": "Do I need training?",
-            "answer": "The Zap installs in 5 minutes — most installers figure it out immediately. We provide optional training materials and partner portal access for larger teams."
+            "answer": "The Zap installs in 5 minutes. Most installers figure it out immediately. We provide optional training materials and partner portal access for larger teams."
           }
         ]
       },
@@ -1652,8 +1652,46 @@
     "cta": {
       "title": "Want to join us?",
       "description": "We're building something that matters. If you're excited about distributed energy and local-first software, let's talk.",
-      "getInTouch": "Get in Touch",
+      "joinTeam": "Join the Team",
       "joinCommunity": "Join Community"
+    }
+  },
+  "careers": {
+    "hero": {
+      "badge": "Careers",
+      "title": "Build the future of",
+      "titleHighlight": "energy",
+      "description": "We're a small team solving big problems. No open roles right now, but we're always looking for exceptional people."
+    },
+    "noJobs": {
+      "title": "No open positions",
+      "subtitle": "But that doesn't mean we're not hiring",
+      "description": "We don't have specific roles listed, but the best people we've hired weren't responding to job posts. If you're passionate about distributed energy, local-first software, or building infrastructure that matters, we want to hear from you.",
+      "whatWeLookFor": "What we look for",
+      "traits": {
+        "builder": {
+          "title": "Builders",
+          "description": "People who ship. Whether it's code, design, or strategy, you make things happen."
+        },
+        "curious": {
+          "title": "Curious minds",
+          "description": "You dig deeper. You ask why. You're not satisfied with surface-level answers."
+        },
+        "ownership": {
+          "title": "Ownership mentality",
+          "description": "You don't wait to be told what to do. You see problems and solve them."
+        }
+      }
+    },
+    "apply": {
+      "title": "Introduce yourself",
+      "description": "Tell us who you are and why Sourceful interests you. No CV required, just be genuine.",
+      "button": "Say Hello",
+      "email": "careers@sourceful.energy"
+    },
+    "location": {
+      "title": "Based in Kalmar, Sweden",
+      "description": "We're a remote-first company, but our roots are in Kalmar. We believe in async work, deep focus, and occasionally getting together in person."
     }
   },
   "blog": {

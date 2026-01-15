@@ -10,6 +10,7 @@ import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ArrowRight, Users, Globe, Rocket, DollarSign, Handshake, TrendingUp } from "lucide-react";
+import { KalmarMap } from "@/components/kalmar-map";
 
 export default function AboutPage() {
   const t = useTranslations("about");
@@ -335,30 +336,49 @@ export default function AboutPage() {
               </p>
             </FadeIn>
 
-            {/* Investor logos placeholder - will add when logos provided */}
-            <div className="flex flex-wrap justify-center items-center gap-12 opacity-80">
-              <div className="text-muted-foreground text-sm">Investor logos coming soon</div>
-            </div>
+            <StaggerContainer className="flex flex-wrap justify-center items-center gap-x-20 gap-y-10" staggerDelay={0.1}>
+              {[
+                { src: "/images/investors/eviny.svg", alt: "Eviny Ventures" },
+                { src: "/images/investors/crucible.svg", alt: "Crucible" },
+                { src: "/images/investors/variant.svg", alt: "Variant Fund" },
+                { src: "/images/investors/paper-ventures.svg", alt: "Paper Ventures" },
+              ].map((investor) => (
+                <StaggerItem key={investor.alt}>
+                  <Image
+                    src={investor.src}
+                    alt={investor.alt}
+                    width={200}
+                    height={60}
+                    className="h-12 md:h-16 w-auto opacity-80 hover:opacity-100 transition-opacity brightness-0 dark:brightness-0 dark:invert"
+                  />
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
           </div>
         </section>
 
         {/* Location */}
         <section className="border-t">
           <div className="max-w-7xl mx-auto py-16 md:py-24 px-4 md:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <Globe className="h-5 w-5 text-primary" />
-                <span className="font-medium">{t("location.city")}</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                {t("location.title")}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                {t("location.paragraph1")}
-              </p>
-              <p className="text-lg text-muted-foreground">
-                {t("location.paragraph2")}
-              </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <FadeIn>
+                <div className="flex items-center gap-2 mb-4">
+                  <Globe className="h-5 w-5 text-primary" />
+                  <span className="font-medium">{t("location.city")}</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                  {t("location.title")}
+                </h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  {t("location.paragraph1")}
+                </p>
+                <p className="text-lg text-muted-foreground">
+                  {t("location.paragraph2")}
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.2}>
+                <KalmarMap className="h-[400px] w-full" />
+              </FadeIn>
             </div>
           </div>
         </section>
@@ -374,8 +394,8 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button size="lg" asChild>
-                <Link href="/contact">
-                  {t("cta.getInTouch")}
+                <Link href="/careers">
+                  {t("cta.joinTeam")}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
