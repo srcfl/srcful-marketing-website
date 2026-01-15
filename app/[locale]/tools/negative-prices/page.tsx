@@ -3,7 +3,6 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
-import * as XLSX from "xlsx";
 import { MarketingNav } from "@/components/marketing-nav";
 import { MarketingFooter } from "@/components/marketing-footer";
 import {
@@ -96,33 +95,19 @@ function findColumn(headers: string[], keywords: string[]): number {
   return lowerHeaders.findIndex(h => keywords.some(kw => h.includes(kw)));
 }
 
-// Parse production file (CSV or XLSX)
+// Parse production file (CSV only)
 function parseProductionFile(
-  data: ArrayBuffer | string,
-  fileType: "csv" | "xlsx"
+  data: string
 ): { timestamp: Date; production: number }[] {
-  let rows: unknown[][] = [];
-  let headers: string[] = [];
-
-  if (fileType === "xlsx") {
-    const workbook = XLSX.read(data, { type: "array" });
-    const sheetName = workbook.SheetNames[0];
-    const sheet = workbook.Sheets[sheetName];
-    const jsonData = XLSX.utils.sheet_to_json<unknown[]>(sheet, { header: 1 });
-    if (jsonData.length < 2) return [];
-    headers = (jsonData[0] as string[]).map(h => String(h || ""));
-    rows = jsonData.slice(1) as unknown[][];
-  } else {
-    const content = typeof data === "string" ? data : new TextDecoder().decode(data);
-    const lines = content.trim().split("\n");
-    if (lines.length < 2) return [];
-    const firstLine = lines[0];
-    const delimiter = firstLine.includes(";") ? ";" : firstLine.includes("\t") ? "\t" : ",";
-    headers = lines[0].split(delimiter).map(h => h.trim().replace(/"/g, ""));
-    rows = lines.slice(1)
-      .filter(line => line.trim())
-      .map(line => line.split(delimiter).map(c => c.trim().replace(/"/g, "")));
-  }
+  const content = data;
+  const lines = content.trim().split("\n");
+  if (lines.length < 2) return [];
+  const firstLine = lines[0];
+  const delimiter = firstLine.includes(";") ? ";" : firstLine.includes("\t") ? "\t" : ",";
+  const headers = lines[0].split(delimiter).map(h => h.trim().replace(/"/g, ""));
+  const rows = lines.slice(1)
+    .filter(line => line.trim())
+    .map(line => line.split(delimiter).map(c => c.trim().replace(/"/g, "")));
 
   let dateColIdx = findColumn(headers, DATE_KEYWORDS);
   let prodColIdx = findColumn(headers, PROD_KEYWORDS);
@@ -339,7 +324,7 @@ export default function NegativePricesCalculatorPage() {
   // Process uploaded file
   const processFile = useCallback((file: File) => {
     const ext = file.name.toLowerCase().substring(file.name.lastIndexOf("."));
-    const validTypes = [".csv", ".txt", ".xlsx", ".xls"];
+    const validTypes = [".csv", ".txt"];
     if (!validTypes.includes(ext)) {
       setParseError(t("negativePrices.invalidFileType"));
       return;
@@ -355,9 +340,8 @@ export default function NegativePricesCalculatorPage() {
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
-        const result = e.target?.result;
-        const isExcel = ext === ".xlsx" || ext === ".xls";
-        const data = parseProductionFile(result as ArrayBuffer | string, isExcel ? "xlsx" : "csv");
+        const result = e.target?.result as string;
+        const data = parseProductionFile(result);
 
         if (data.length === 0) {
           setParseError(t("negativePrices.parseErrorGeneric"));
@@ -374,11 +358,7 @@ export default function NegativePricesCalculatorPage() {
       }
     };
 
-    if (ext === ".xlsx" || ext === ".xls") {
-      reader.readAsArrayBuffer(file);
-    } else {
-      reader.readAsText(file);
-    }
+    reader.readAsText(file);
   }, []);
 
   // Clear uploaded file
@@ -747,7 +727,7 @@ export default function NegativePricesCalculatorPage() {
                         <label className="inline-block">
                           <input
                             type="file"
-                            accept=".csv,.txt,.xlsx,.xls"
+                            accept=".csv,.txt"
                             onChange={handleFileSelect}
                             className="hidden"
                           />

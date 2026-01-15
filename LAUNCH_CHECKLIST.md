@@ -44,13 +44,8 @@ Already added to `next.config.ts`:
 | `how-stockholm-homeowners-are-saving-2-925-kr-...` | (same slug) |
 | `stop-overpaying-for-electricity-how-to-save-...` | (same slug) |
 
-#### 2. Update Vulnerable Dependency
-```bash
-npm update xlsx
-# Or if not needed, remove it:
-npm uninstall xlsx
-```
-The `xlsx` package has high-severity CVEs. Check if it's actually used.
+#### 2. Update Vulnerable Dependency ✅ DONE
+Removed `xlsx` package entirely. The negative prices calculator now only accepts CSV files, which is sufficient for most inverter export formats.
 
 #### 3. Test All Forms
 - [ ] Contact form submits correctly
