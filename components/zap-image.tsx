@@ -35,6 +35,8 @@ export function ZapImage({ className = "", alt = "Sourceful Energy Zap" }: ZapIm
       height={600}
       className={className}
       style={isLightMode ? { borderRadius: "40px", overflow: "hidden" } : undefined}
+      priority
+      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
     />
   );
 }

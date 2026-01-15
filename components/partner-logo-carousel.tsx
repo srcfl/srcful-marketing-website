@@ -108,6 +108,8 @@ export function PartnerLogoCarousel({
                 <img
                   src={`/images/partner-logos/${themeFolder}/${partner.slug}.svg`}
                   alt={`${partner.name} logo`}
+                  width={128}
+                  height={48}
                   className="max-h-full max-w-full object-contain"
                 />
               ) : (
