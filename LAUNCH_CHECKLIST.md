@@ -69,11 +69,11 @@ Removed `xlsx` package entirely. The negative prices calculator now only accepts
 
 ### High Priority (Week 1)
 
-#### 5. Performance Optimizations ✅ MOSTLY DONE
+#### 5. Performance Optimizations ✅ DONE
 - [x] Remove `unoptimized` flag from blog images (added `sizes` attribute instead)
 - [x] Add width/height to `ZapImage` component (converted to Next.js Image)
 - [x] Add `loading.tsx` files for route transitions (added for `/`, `/blog`, `/tools`)
-- [ ] Lazy-load Intercom (defer to user interaction)
+- [x] Lazy-load Intercom (loads on first click, not page load)
 
 #### 6. Move Token Storage to Production
 - [ ] Replace in-memory token storage in `lib/admin-auth.ts` with Redis/database
