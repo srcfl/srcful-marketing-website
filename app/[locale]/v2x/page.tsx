@@ -91,6 +91,100 @@ function AnimatedScheduleCard() {
   );
 }
 
+// Energy flow states
+const energyFlowStates = [
+  { from: "car", to: "house", label: "Powering Home", particleColor: "bg-orange-500", badge: "bg-orange-500/10 text-orange-600" },
+  { from: "solar", to: "car", label: "Solar Charging", particleColor: "bg-yellow-500", badge: "bg-yellow-500/10 text-yellow-600" },
+  { from: "car", to: "grid", label: "Selling to Grid", particleColor: "bg-blue-500", badge: "bg-blue-500/10 text-blue-600" },
+];
+
+// Icon colors - each icon type has consistent color
+const iconStyles: Record<string, { icon: string; bg: string }> = {
+  car: { icon: "text-primary", bg: "bg-primary/20" },
+  house: { icon: "text-orange-500", bg: "bg-orange-500/20" },
+  solar: { icon: "text-yellow-500", bg: "bg-yellow-500/20" },
+  grid: { icon: "text-blue-500", bg: "bg-blue-500/20" },
+};
+
+function AnimatedEnergyFlowCard() {
+  const [flowIndex, setFlowIndex] = useState(0);
+  const [particleKey, setParticleKey] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlowIndex((prev) => (prev + 1) % energyFlowStates.length);
+      setParticleKey((prev) => prev + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentFlow = energyFlowStates[flowIndex];
+
+  const getIcon = (type: string) => {
+    const style = iconStyles[type];
+    const baseClass = `w-4 h-4 transition-all duration-500 ${style.icon}`;
+    switch (type) {
+      case "car":
+        return <Car className={baseClass} />;
+      case "house":
+        return <Home className={baseClass} />;
+      case "solar":
+        return (
+          <svg className={baseClass} viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
+          </svg>
+        );
+      case "grid":
+        return <Grid3X3 className={baseClass} />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs font-medium text-muted-foreground">Energy Flow</p>
+        <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium transition-all duration-500 ${currentFlow.badge}`}>
+          {currentFlow.label}
+        </span>
+      </div>
+
+      <div className="flex items-center justify-between px-2">
+        {/* Source */}
+        <div className={`w-10 h-10 rounded-full ${iconStyles[currentFlow.from].bg} flex items-center justify-center transition-all duration-500`}>
+          {getIcon(currentFlow.from)}
+        </div>
+
+        {/* Animated flow line with particles */}
+        <div className="flex-1 mx-2 h-6 relative overflow-hidden">
+          {/* Base line */}
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2" />
+
+          {/* Animated particles using CSS animation */}
+          {[0, 1, 2].map((i) => (
+            <div
+              key={`${particleKey}-${i}`}
+              className={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full ${currentFlow.particleColor}`}
+              style={{
+                left: '-8px',
+                animation: `flowParticle 1.5s ease-in-out infinite`,
+                animationDelay: `${i * 0.4}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Destination */}
+        <div className={`w-10 h-10 rounded-full ${iconStyles[currentFlow.to].bg} flex items-center justify-center transition-all duration-500`}>
+          {getIcon(currentFlow.to)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function V2XPage() {
   const t = useTranslations("v2x");
   const tCommon = useTranslations("common");
@@ -207,22 +301,7 @@ export default function V2XPage() {
                   {/* Energy Flow Card - 3 o'clock */}
                   <div className="absolute" style={{ top: '35%', right: '-45%' }}>
                     <FadeIn delay={0.5}>
-                      <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
-                        <p className="text-xs font-medium mb-2 text-muted-foreground">Energy Flow</p>
-                        <svg viewBox="0 0 100 45" className="w-full h-12">
-                          <path
-                            d="M0,40 L20,35 L40,22 L60,12 L80,18 L100,28"
-                            fill="none"
-                            stroke="hsl(var(--primary))"
-                            strokeWidth="2.5"
-                          />
-                          <path
-                            d="M0,40 L20,35 L40,22 L60,12 L80,18 L100,28 L100,45 L0,45 Z"
-                            fill="hsl(var(--primary))"
-                            fillOpacity="0.2"
-                          />
-                        </svg>
-                      </div>
+                      <AnimatedEnergyFlowCard />
                     </FadeIn>
                   </div>
 

@@ -761,3 +761,24 @@
 .animate-scroll-right:hover {
   animation-play-state: paused;
 }
+
+/* ============================================
+   ENERGY FLOW PARTICLE ANIMATION (V2X Hero)
+   ============================================ */
+
+@keyframes flowParticle {
+  0% {
+    transform: translateX(0) translateY(-50%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(80px) translateY(-50%);
+    opacity: 0;
+  }
+}
