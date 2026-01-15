@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,72 @@ import {
   Users,
   Github,
 } from "lucide-react";
+
+// Schedule data and status labels
+const scheduleData = [
+  { mode: "idle", label: "Idle" },
+  { mode: "idle", label: "Idle" },
+  { mode: "charging", label: "Charging" },
+  { mode: "charging", label: "Charging" },
+  { mode: "self", label: "Self-use" },
+  { mode: "self", label: "Self-use" },
+  { mode: "export", label: "Selling" },
+  { mode: "export", label: "Selling" },
+  { mode: "discharge", label: "Powering home" },
+  { mode: "idle", label: "Idle" },
+];
+
+const modeColors: Record<string, { bg: string; badge: string; ring: string }> = {
+  idle: { bg: "bg-gray-300 dark:bg-gray-600", badge: "bg-gray-500/10 text-gray-600 dark:text-gray-400", ring: "ring-gray-400" },
+  charging: { bg: "bg-pink-400", badge: "bg-pink-500/10 text-pink-600", ring: "ring-pink-400" },
+  self: { bg: "bg-emerald-400", badge: "bg-emerald-500/10 text-emerald-600", ring: "ring-emerald-400" },
+  export: { bg: "bg-blue-400", badge: "bg-blue-500/10 text-blue-600", ring: "ring-blue-400" },
+  discharge: { bg: "bg-orange-400", badge: "bg-orange-500/10 text-orange-600", ring: "ring-orange-400" },
+};
+
+function AnimatedScheduleCard() {
+  const [currentHour, setCurrentHour] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHour((prev) => (prev + 1) % scheduleData.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentMode = scheduleData[currentHour];
+  const colors = modeColors[currentMode.mode];
+
+  return (
+    <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-xs font-medium text-muted-foreground">Schedule</p>
+        <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium transition-all duration-300 ${colors.badge}`}>
+          {currentMode.label}
+        </span>
+      </div>
+      <div className="flex gap-[2px] mb-1.5">
+        {scheduleData.map((item, i) => {
+          const itemColors = modeColors[item.mode];
+          const isCurrent = i === currentHour;
+          return (
+            <div
+              key={i}
+              className={`h-4 flex-1 first:rounded-l last:rounded-r transition-all duration-300 ${itemColors.bg} ${
+                isCurrent ? `ring-2 ${itemColors.ring} ring-offset-1 ring-offset-background scale-y-125 z-10` : ""
+              }`}
+            />
+          );
+        })}
+      </div>
+      <div className="flex justify-between text-[10px] text-muted-foreground">
+        <span>00</span>
+        <span>12</span>
+        <span>24</span>
+      </div>
+    </div>
+  );
+}
 
 export default function V2XPage() {
   const t = useTranslations("v2x");
@@ -131,35 +198,14 @@ export default function V2XPage() {
                   </div>
 
                   {/* Schedule Card - 11 o'clock */}
-                  <div className="absolute" style={{ top: '5%', left: '-45%' }}>
+                  <div className="absolute" style={{ top: '5%', left: '-37%' }}>
                     <FadeIn delay={0.3}>
-                      <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
-                        <p className="text-xs font-medium mb-2 text-muted-foreground">Schedule</p>
-                        <div className="flex gap-[2px] mb-1.5">
-                          {["idle", "idle", "charging", "charging", "self", "self", "export", "export", "discharge", "idle"].map((mode, i) => (
-                            <div
-                              key={i}
-                              className={`h-4 flex-1 first:rounded-l last:rounded-r ${
-                                mode === "idle" ? "bg-gray-300 dark:bg-gray-600" :
-                                mode === "charging" ? "bg-pink-400" :
-                                mode === "self" ? "bg-emerald-400" :
-                                mode === "export" ? "bg-blue-400" :
-                                "bg-orange-400"
-                              }`}
-                            />
-                          ))}
-                        </div>
-                        <div className="flex justify-between text-[10px] text-muted-foreground">
-                          <span>00</span>
-                          <span>12</span>
-                          <span>24</span>
-                        </div>
-                      </div>
+                      <AnimatedScheduleCard />
                     </FadeIn>
                   </div>
 
                   {/* Energy Flow Card - 3 o'clock */}
-                  <div className="absolute" style={{ top: '35%', right: '-55%' }}>
+                  <div className="absolute" style={{ top: '35%', right: '-45%' }}>
                     <FadeIn delay={0.5}>
                       <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
                         <p className="text-xs font-medium mb-2 text-muted-foreground">Energy Flow</p>
@@ -181,7 +227,7 @@ export default function V2XPage() {
                   </div>
 
                   {/* Spot Price Card - 7 o'clock */}
-                  <div className="absolute" style={{ bottom: '5%', left: '-40%' }}>
+                  <div className="absolute" style={{ bottom: '5%', left: '-32%' }}>
                     <FadeIn delay={0.7}>
                       <div className="bg-background rounded-xl p-3 shadow-xl border border-border/50 w-44 md:w-52">
                         <p className="text-xs font-medium mb-2 text-muted-foreground">Spot Price</p>
