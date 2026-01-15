@@ -1,0 +1,10 @@
+# Sourceful Energy - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://sourceful.energy/sitemap.xml
+
+# Disallow admin and API routes
+Disallow: /admin/
+Disallow: /api/

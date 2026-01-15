@@ -294,6 +294,64 @@
         "media resources"
       ],
       "noIndex": true
+    },
+    "/careers": {
+      "title": "Careers at Sourceful",
+      "description": "Join Sourceful and build the future of distributed energy. We're a small team solving big problems in local energy coordination.",
+      "keywords": [
+        "Sourceful careers",
+        "energy jobs",
+        "startup jobs",
+        "Sweden tech jobs",
+        "energy tech careers"
+      ]
+    },
+    "/about": {
+      "title": "About Sourceful",
+      "description": "Learn about Sourceful Energy. Our mission to build local energy coordination infrastructure, our team, and our investors.",
+      "keywords": [
+        "about Sourceful",
+        "energy startup",
+        "Kalmar Sweden",
+        "distributed energy"
+      ]
+    },
+    "/community": {
+      "title": "Community",
+      "description": "Join the Sourceful community. Connect with developers, installers, and energy enthusiasts building the future of distributed energy.",
+      "keywords": [
+        "Sourceful community",
+        "energy community",
+        "Discord",
+        "developers"
+      ]
+    },
+    "/pricing": {
+      "title": "Pricing",
+      "description": "Simple, transparent pricing for Sourceful products. Zap gateway, Pro subscription, and enterprise solutions.",
+      "keywords": [
+        "Sourceful pricing",
+        "Zap price",
+        "energy management cost"
+      ]
+    },
+    "/contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with Sourceful Energy. Questions about products, partnerships, or just want to say hello.",
+      "keywords": [
+        "contact Sourceful",
+        "energy company contact",
+        "support"
+      ]
+    },
+    "/get-started": {
+      "title": "Get Started with Sourceful",
+      "description": "Set up your Sourceful system in minutes. Connect your solar, battery, or EV charger and start optimizing.",
+      "keywords": [
+        "get started",
+        "setup guide",
+        "installation"
+      ]
     }
   }
 }

@@ -44,7 +44,10 @@ export function BrandLogo({ brand, size = "md", className = "" }: BrandLogoProps
           target.style.display = "none";
           const parent = target.parentElement;
           if (parent) {
-            parent.innerHTML = `<span class="text-2xl font-bold text-muted-foreground capitalize">${brand}</span>`;
+            const span = document.createElement("span");
+            span.className = "text-2xl font-bold text-muted-foreground capitalize";
+            span.textContent = brand;
+            parent.appendChild(span);
           }
         }}
       />

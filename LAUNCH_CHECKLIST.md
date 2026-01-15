@@ -1,0 +1,195 @@
+# Sourceful Marketing Site - Launch Checklist
+
+## Completed Fixes ✅
+
+### Security
+- [x] Fixed XSS vulnerability in `brand-logo.tsx` (innerHTML → textContent)
+- [x] Added security headers to `next.config.ts`:
+  - Strict-Transport-Security (HSTS)
+  - X-Content-Type-Options
+  - X-Frame-Options
+  - X-XSS-Protection
+  - Referrer-Policy
+  - Permissions-Policy
+- [x] Enabled gzip compression
+
+### SEO
+- [x] Created `robots.txt`
+- [x] Created dynamic `sitemap.ts` for all pages
+- [x] Added SEO metadata for careers, about, community, pricing, contact, get-started pages
+- [x] Enabled AVIF/WebP image formats
+
+---
+
+## Pre-Launch To-Do List
+
+### Critical (Do Before Launch)
+
+#### 1. 301 Redirects ✅ DONE
+Already added to `next.config.ts`:
+
+**Page Redirects:**
+| Old Route | New Route |
+|-----------|-----------|
+| `/connect-your-home` | `/use-cases/homeowners` |
+| `/connect-your-solar-pv` | `/zap` |
+| `/connect-your-vehicle` | `/v2x` |
+| `/b2b` | `/use-cases/utilities` |
+| `/app-downloads` | `/app` |
+
+**Blog Post Redirects:**
+| Old Slug | New Slug |
+|----------|----------|
+| `i-built-a-full-ai-ready-design-system-in-1.4-days.-with-ai` | `i-built-a-full-ai-ready-design-system-in-1-4-days-with-ai` |
+| `how-stockholm-homeowners-are-saving-2-925-kr-...` | (same slug) |
+| `stop-overpaying-for-electricity-how-to-save-...` | (same slug) |
+
+#### 2. Update Vulnerable Dependency
+```bash
+npm update xlsx
+# Or if not needed, remove it:
+npm uninstall xlsx
+```
+The `xlsx` package has high-severity CVEs. Check if it's actually used.
+
+#### 3. Test All Forms
+- [ ] Contact form submits correctly
+- [ ] Waitlist form submits correctly
+- [ ] Newsletter subscription works
+
+#### 4. Verify External Integrations
+- [ ] Mapbox token is valid for production domain
+- [ ] Shopify storefront token works
+- [ ] GitHub OAuth callback URL updated for production
+- [ ] Intercom app ID is correct
+- [ ] All analytics pixels configured (GA4, Meta, TikTok, Reddit, Clarity)
+
+---
+
+### High Priority (Week 1)
+
+#### 5. Performance Optimizations
+- [ ] Remove `unoptimized` flag from blog images in:
+  - `app/[locale]/blog/blog-content.tsx`
+  - `app/[locale]/blog/[slug]/page.tsx`
+- [ ] Add width/height to `ZapImage` component
+- [ ] Lazy-load Intercom (defer to user interaction)
+- [ ] Add `loading.tsx` files for route transitions
+
+#### 6. Move Token Storage to Production
+- [ ] Replace in-memory token storage in `lib/admin-auth.ts` with Redis/database
+- [ ] Same for newsletter rate limiting
+
+#### 7. Create OG Images
+- [ ] `/images/og/platform.png`
+- [ ] `/images/og/zap.png`
+- [ ] `/images/og/v2x.png`
+- [ ] `/images/og/careers.png`
+- [ ] `/images/og/pricing.png`
+
+---
+
+### Medium Priority (Week 2-4)
+
+#### 8. Add Missing Translations
+- [ ] `components/feedback-dialog.tsx` - placeholder strings
+- [ ] `components/search-command.tsx` - search placeholder
+
+#### 9. Optimize Client Components
+Consider converting these "use client" pages to server components with client children:
+- [ ] `/about` - mostly static
+- [ ] `/contact` - only form needs client
+- [ ] `/pricing` - mostly static
+
+#### 10. Consider Removing/Consolidating Analytics
+Current load: 5 analytics scripts
+- Google Analytics 4
+- Meta Pixel
+- TikTok Pixel
+- Reddit Pixel
+- Microsoft Clarity
+
+Consider if all are necessary for launch.
+
+---
+
+## DNS & Domain Setup
+
+### Required DNS Records
+```
+Type    Name    Value                   TTL
+A       @       [Vercel IP]             300
+CNAME   www     cname.vercel-dns.com    300
+```
+
+### Subdomain Configuration
+Ensure these subdomains are configured:
+- `support.sourceful.energy` → Intercom/help center
+- `docs.sourceful.energy` → Documentation site
+- `developer.sourceful.energy` → Developer portal
+- `store.sourceful.energy` → Shopify store
+
+---
+
+## Environment Variables Checklist
+
+Verify all env vars are set in Vercel:
+
+```
+# Required
+NEXT_PUBLIC_MAPBOX_TOKEN=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+AUTH_SECRET=
+
+# E-commerce
+NEXT_PUBLIC_SHOPIFY_DOMAIN=
+NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN=
+
+# Newsletter
+MAILCHIMP_API_KEY=
+MAILCHIMP_AUDIENCE_ID=
+
+# Admin
+ADMIN_SEO_PASSWORD=
+
+# Analytics (client-side)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+NEXT_PUBLIC_META_PIXEL_ID=
+NEXT_PUBLIC_TIKTOK_PIXEL_ID=
+NEXT_PUBLIC_REDDIT_PIXEL_ID=
+NEXT_PUBLIC_CLARITY_PROJECT_ID=
+
+# Support
+NEXT_PUBLIC_INTERCOM_APP_ID=
+```
+
+---
+
+## Post-Launch Monitoring
+
+### Week 1
+- [ ] Monitor Vercel Analytics for errors
+- [ ] Check Google Search Console for crawl errors
+- [ ] Verify sitemap is being indexed
+- [ ] Test all redirects are working
+- [ ] Monitor Core Web Vitals in PageSpeed Insights
+
+### Ongoing
+- [ ] Set up Lighthouse CI for automated performance monitoring
+- [ ] Configure error alerting (Sentry or similar)
+- [ ] Monitor form submission success rates
+
+---
+
+## Quick Reference - File Locations
+
+| What | Where |
+|------|-------|
+| Security headers | `next.config.ts` |
+| SEO metadata | `content/seo/metadata.json` |
+| Sitemap | `app/sitemap.ts` |
+| Robots | `public/robots.txt` |
+| Translations | `messages/en.json`, `messages/sv.json` |
+| Admin auth | `lib/admin-auth.ts` |
+| Forms | `components/contact-form.tsx`, `components/waitlist-form.tsx` |
