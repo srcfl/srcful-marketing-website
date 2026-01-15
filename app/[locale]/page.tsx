@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/src/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { DashboardTabs } from "@/components/dashboard-tabs";
@@ -16,140 +14,12 @@ import { PixelGridBackground } from "@/components/pixel-grid-background";
 import { PixelGrid } from "@/components/ui/pixel-grid";
 import { TypewriterCode } from "@/components/typewriter-code";
 import { ZapImage } from "@/components/zap-image";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { LucideIcon } from "lucide-react";
+import { AudienceCards, type Audience } from "@/components/audience-cards";
+import { InstallerStats } from "@/components/installer-stats";
 
-interface Audience {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  href: string;
-  iconColor: string;
-  bgColor: string;
-  offsetY: number;
-}
-
-function AudienceCards({ audiences }: { audiences: Audience[] }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-
-  return (
-    <>
-      {/* Desktop: Animated cards with stagger and bounce */}
-      <div ref={containerRef} className="hidden xl:grid xl:grid-cols-5 gap-6">
-        {audiences.map((audience, index) => {
-          const Icon = audience.icon;
-          return (
-            <motion.div
-              key={audience.title}
-              initial={{ opacity: 0, y: 60 }}
-              animate={isInView ? {
-                opacity: 1,
-                y: audience.offsetY
-              } : { opacity: 0, y: 60 }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.6,
-                type: "spring",
-                stiffness: 100,
-                damping: 12,
-              }}
-              className="h-full"
-            >
-              <Link href={audience.href} className="no-underline hover:no-underline block h-full">
-                <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
-                  <CardHeader>
-                    <div className={`w-12 h-12 ${audience.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                      <Icon className={`h-6 w-6 ${audience.iconColor}`} />
-                    </div>
-                    <CardTitle>{audience.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      {audience.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Mobile/Tablet: Standard stagger animation */}
-      <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 xl:hidden" staggerDelay={0.1}>
-        {audiences.map((audience) => {
-          const Icon = audience.icon;
-          return (
-            <StaggerItem key={audience.title}>
-              <Link href={audience.href} className="no-underline hover:no-underline block h-full">
-                <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50 cursor-pointer">
-                  <CardHeader>
-                    <div className={`w-12 h-12 ${audience.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                      <Icon className={`h-6 w-6 ${audience.iconColor}`} />
-                    </div>
-                    <CardTitle>{audience.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      {audience.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-            </StaggerItem>
-          );
-        })}
-      </StaggerContainer>
-    </>
-  );
-}
-
-function InstallerStats({ t }: { t: ReturnType<typeof useTranslations<"home">> }) {
-  const statsRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(statsRef, { once: true, margin: "-50px" });
-
-  const stats = [
-    { num: "supportReductionNum", unit: "supportReductionUnit", label: "supportReductionLabel" },
-    { num: "installTimeNum", unit: "installTimeUnit", label: "installTimeLabel", unitSpace: true },
-    { num: "brandsNum", unit: "brandsUnit", label: "brandsLabel" },
-    { num: "subscriptionNum", unit: "subscriptionUnit", label: "subscriptionLabel", unitSpace: true },
-  ];
-
-  return (
-    <div ref={statsRef} className="grid grid-cols-2 gap-3 w-fit ml-auto">
-      {stats.map((stat, index) => (
-        <motion.div
-          key={stat.num}
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 20 }}
-          transition={{
-            delay: index * 0.1,
-            duration: 0.5,
-            type: "spring",
-            stiffness: 100,
-            damping: 12,
-          }}
-        >
-          <Card className="w-[180px] h-[180px] flex flex-col items-center justify-center text-center p-3">
-            <div className="font-bold text-indigo-500 mb-1">
-              <span className="text-5xl">{t(`installers.stats.${stat.num}`)}</span>
-              <span className={`text-lg ${stat.unitSpace ? "ml-1" : ""}`}>{t(`installers.stats.${stat.unit}`)}</span>
-            </div>
-            <div className="text-xs text-muted-foreground">
-              {t(`installers.stats.${stat.label}`)}
-            </div>
-          </Card>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-export default function Home() {
-  const t = useTranslations("home");
-  const tCommon = useTranslations("common");
+export default async function Home() {
+  const t = await getTranslations("home");
+  const tCommon = await getTranslations("common");
 
   const connectivityFeatures = [
     {
@@ -182,7 +52,7 @@ export default function Home() {
     },
   ];
 
-  const audiences = [
+  const audiences: Audience[] = [
     {
       icon: Building2,
       title: t("audiences.utilities.title"),
@@ -227,6 +97,31 @@ export default function Home() {
       iconColor: "text-primary",
       bgColor: "bg-primary/10",
       offsetY: 48,
+    },
+  ];
+
+  const installerStats = [
+    {
+      num: t("installers.stats.supportReductionNum"),
+      unit: t("installers.stats.supportReductionUnit"),
+      label: t("installers.stats.supportReductionLabel")
+    },
+    {
+      num: t("installers.stats.installTimeNum"),
+      unit: t("installers.stats.installTimeUnit"),
+      label: t("installers.stats.installTimeLabel"),
+      unitSpace: true
+    },
+    {
+      num: t("installers.stats.brandsNum"),
+      unit: t("installers.stats.brandsUnit"),
+      label: t("installers.stats.brandsLabel")
+    },
+    {
+      num: t("installers.stats.subscriptionNum"),
+      unit: t("installers.stats.subscriptionUnit"),
+      label: t("installers.stats.subscriptionLabel"),
+      unitSpace: true
     },
   ];
 
@@ -512,7 +407,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <InstallerStats t={t} />
+              <InstallerStats stats={installerStats} />
             </div>
           </div>
         </section>
