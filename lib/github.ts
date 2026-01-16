@@ -6,7 +6,7 @@ import {
 } from "@/types/feedback";
 
 const REPO_OWNER = "srcfl";
-const REPO_NAME = "sourceful-marketing-site";
+const REPO_NAME = "srcful-marketing-website";
 
 export function createOctokit(accessToken: string) {
   return new Octokit({ auth: accessToken });
