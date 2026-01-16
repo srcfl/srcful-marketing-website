@@ -61,15 +61,24 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Failed to create feedback issue:", error);
 
-    if (error instanceof Error && error.message.includes("Bad credentials")) {
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+
+    if (errorMessage.includes("Bad credentials")) {
       return NextResponse.json(
         { message: "GitHub authentication expired. Please sign in again." },
         { status: 401 }
       );
     }
 
+    if (errorMessage.includes("Not Found")) {
+      return NextResponse.json(
+        { message: "Repository not found or no access. Please sign out and sign in again." },
+        { status: 403 }
+      );
+    }
+
     return NextResponse.json(
-      { message: "Failed to submit feedback. Please try again." },
+      { message: `Failed to submit feedback: ${errorMessage}` },
       { status: 500 }
     );
   }
