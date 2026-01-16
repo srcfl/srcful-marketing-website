@@ -60,7 +60,7 @@ export default function AboutPage() {
     { key: "david", image: "/images/team/david.png", isFounder: true },
     { key: "paul", image: "/images/team/paul.png", isFounder: false },
     { key: "hampus", image: "/images/team/hampus.png", isFounder: false },
-    { key: "thyra", image: "/images/team/thyra.jpeg", isFounder: false },
+    { key: "thyra", image: "/images/team/thyra.png", isFounder: false },
     { key: "frida", image: "/images/team/frida.png", isFounder: false },
     { key: "melinda", image: "/images/team/melinda.png", isFounder: false },
   ];
@@ -295,32 +295,34 @@ export default function AboutPage() {
               </h2>
             </FadeIn>
 
-            <div className="flex justify-center gap-8">
+            <StaggerContainer className="flex flex-wrap justify-center gap-6" staggerDelay={0.05}>
               {advisors.map((advisor) => (
-                <div key={advisor.key} className="text-center max-w-[200px]">
-                  <div className="relative w-40 h-40 mx-auto mb-4 rounded-xl overflow-hidden bg-muted border">
-                    {advisor.image ? (
-                      <Image
-                        src={advisor.image}
-                        alt={t(`advisors.${advisor.key}.name`)}
-                        fill
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                        <Users className="w-12 h-12" />
-                      </div>
-                    )}
+                <StaggerItem key={advisor.key}>
+                  <div className="text-center w-[calc(50vw-2rem)] sm:w-[calc(33vw-2rem)] md:w-[calc(25vw-2rem)] lg:w-[280px]">
+                    <div className="relative w-full aspect-square mb-4 rounded-xl overflow-hidden bg-muted">
+                      {advisor.image ? (
+                        <Image
+                          src={advisor.image}
+                          alt={t(`advisors.${advisor.key}.name`)}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                          <Users className="w-12 h-12" />
+                        </div>
+                      )}
+                    </div>
+                    <h3 className="font-semibold">
+                      {t(`advisors.${advisor.key}.name`).split(" ")[0]}{" "}
+                      <span className="text-primary">{t(`advisors.${advisor.key}.name`).split(" ").slice(1).join(" ")}</span>
+                    </h3>
+                    <p className="text-sm text-muted-foreground">{t(`advisors.${advisor.key}.role`)}</p>
+                    <p className="text-xs text-muted-foreground">{t(`advisors.${advisor.key}.company`)}</p>
                   </div>
-                  <h3 className="font-semibold">
-                    {t(`advisors.${advisor.key}.name`).split(" ")[0]}{" "}
-                    <span className="text-primary">{t(`advisors.${advisor.key}.name`).split(" ").slice(1).join(" ")}</span>
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{t(`advisors.${advisor.key}.role`)}</p>
-                  <p className="text-xs text-muted-foreground">{t(`advisors.${advisor.key}.company`)}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </section>
 
