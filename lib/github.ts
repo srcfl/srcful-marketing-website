@@ -6,7 +6,7 @@ import {
 } from "@/types/feedback";
 
 const REPO_OWNER = "srcfl";
-const REPO_NAME = "srcful-design-system";
+const REPO_NAME = "sourceful-marketing-site";
 
 export function createOctokit(accessToken: string) {
   return new Octokit({ auth: accessToken });
@@ -54,17 +54,16 @@ ${feedback.description}
 
 ---
 
-*Submitted by @${username} via the design system feedback form*
+*Submitted by @${username} via the website feedback form*
 `;
 }
 
 function getCategoryLabel(category: string): string {
   const labels: Record<string, string> = {
-    component: "Component",
-    token: "Design Token",
-    brand: "Brand",
-    docs: "Documentation",
-    "new-feature": "New Feature",
+    bug: "Bug Report",
+    content: "Content Issue",
+    feature: "Feature Request",
+    general: "General Feedback",
   };
   return labels[category] || category;
 }

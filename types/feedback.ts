@@ -1,9 +1,8 @@
 export type FeedbackCategory =
-  | "component"
-  | "token"
-  | "brand"
-  | "docs"
-  | "new-feature";
+  | "bug"
+  | "content"
+  | "feature"
+  | "general";
 
 export type FeedbackPriority =
   | "nice-to-have"
@@ -24,11 +23,10 @@ export interface FeedbackSubmission extends FeedbackFormData {
 }
 
 export const CATEGORY_LABELS: Record<FeedbackCategory, string> = {
-  component: "Component",
-  token: "Design Token",
-  brand: "Brand",
-  docs: "Documentation",
-  "new-feature": "New Feature",
+  bug: "Bug Report",
+  content: "Content Issue",
+  feature: "Feature Request",
+  general: "General Feedback",
 };
 
 export const PRIORITY_LABELS: Record<FeedbackPriority, string> = {
@@ -38,11 +36,10 @@ export const PRIORITY_LABELS: Record<FeedbackPriority, string> = {
 };
 
 export const CATEGORY_COLORS: Record<FeedbackCategory, string> = {
-  component: "1d76db",
-  token: "0e8a16",
-  brand: "fbca04",
-  docs: "d93f0b",
-  "new-feature": "c5def5",
+  bug: "d73a4a",
+  content: "0075ca",
+  feature: "a2eeef",
+  general: "7057ff",
 };
 
 export const PRIORITY_COLORS: Record<FeedbackPriority, string> = {

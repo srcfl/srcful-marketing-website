@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/src/i18n/routing";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { PixelGrid } from "@/components/ui/pixel-grid";
+import { FeedbackButton } from "@/components/feedback-button";
 import Image from "next/image";
 
 export function MarketingFooter() {
@@ -163,6 +164,8 @@ export function MarketingFooter() {
           <div className="flex items-center gap-2">
             <PixelGrid pattern="solo-center" color="green" size="sm" speed="slow" />
             <span className="text-xs text-muted-foreground">Built for the energy transition</span>
+            <span className="text-muted-foreground/50">|</span>
+            <FeedbackButton variant="ghost" />
           </div>
         </div>
 

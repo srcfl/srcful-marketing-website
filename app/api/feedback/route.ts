@@ -26,11 +26,10 @@ export async function POST(request: NextRequest) {
     }
 
     const validCategories = [
-      "component",
-      "token",
-      "brand",
-      "docs",
-      "new-feature",
+      "bug",
+      "content",
+      "feature",
+      "general",
     ];
     const validPriorities = ["nice-to-have", "would-help", "blocking-me"];
 
