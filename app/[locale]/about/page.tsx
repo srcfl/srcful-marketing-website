@@ -268,6 +268,7 @@ export default function AboutPage() {
                         src={member.image}
                         alt={t(`team.${member.key}.name`)}
                         fill
+                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         className="object-cover"
                       />
                     </div>
@@ -305,6 +306,7 @@ export default function AboutPage() {
                           src={advisor.image}
                           alt={t(`advisors.${advisor.key}.name`)}
                           fill
+                          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 280px"
                           className="object-cover"
                         />
                       ) : (

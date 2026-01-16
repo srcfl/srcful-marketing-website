@@ -92,7 +92,7 @@ export function Logo({
       width={sizeConfig.width}
       height={sizeConfig.height}
       className={cn("flex-shrink-0", className)}
-      style={{ height: sizeConfig.height, width: "auto" }}
+      style={{ height: "auto", width: "auto" }}
       priority
     />
   );
